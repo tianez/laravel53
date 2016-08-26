@@ -12,9 +12,10 @@ class CreateFieldsTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('fields')) {
-            Schema::drop('fields');
-        }
+        // if (Schema::hasTable('fields')) {
+        //     Schema::drop('fields');
+        // }
+        Schema::dropIfExists('fields');
         Schema::create('fields', function(Blueprint $table) {
             $table -> increments('id');
             $table -> string('key') -> unique() -> comment('字段key');
@@ -23,10 +24,10 @@ class CreateFieldsTable extends Migration
             $table -> string('f_module') -> comment('所属模块');
             $table -> string('f_groups') -> nullable() -> comment('字段分组');
             $table -> text('f_description') -> nullable() -> comment('字段描述');
-            $table -> string('f_add') -> nullable() -> comment('新增权限');
-            $table -> string('f_edit') -> nullable() -> comment('编辑权限');
-            $table -> string('f_visible') -> nullable() -> comment('可见权限');
-            $table -> string('status') -> default(0) -> comment('状态，0：正常，1：锁定');
+            $table -> string('f_add') -> default('[1]') -> comment('新增权限');
+            $table -> string('f_edit') -> default('[1]') -> comment('编辑权限');
+            $table -> string('f_visible') -> default('[1]') -> comment('可见权限');
+            $table -> tinyInteger('status') -> default(0) -> comment('状态，0：正常，1：锁定');
             $table -> timestamps();
         });
     }

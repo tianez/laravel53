@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 
 class UserTableSeeder extends Seeder
 {
@@ -21,7 +20,6 @@ class UserTableSeeder extends Seeder
         'mobile_phone' => '',
         'qq' => '',
         'job' => '',
-        'team' => '',
         'remarks' => '',
         'email' => 'saber_tz@163.com',
         'password' => bcrypt('123456'),

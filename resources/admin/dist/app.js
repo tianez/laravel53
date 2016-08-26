@@ -1869,7 +1869,7 @@
 	    function A() {
 	        _classCallCheck(this, A);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(A).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (A.__proto__ || Object.getPrototypeOf(A)).apply(this, arguments));
 	    }
 
 	    _createClass(A, [{
@@ -1894,7 +1894,7 @@
 	    function Header() {
 	        _classCallCheck(this, Header);
 
-	        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Header).call(this));
+	        var _this2 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 
 	        _this2.state = {
 	            menu: null
@@ -1911,7 +1911,6 @@
 	                        reject('error');
 	                    } else {
 	                        var data = JSON.parse(res.text);
-	                        console.log(data);
 	                        resolve(data);
 	                    }
 	                }.bind(this));
@@ -1920,7 +1919,7 @@
 	                    resolve('2000 OK');
 	                });
 	            }).then(function (r) {
-	                console.log('Done: ' + r);
+	                console.log('头部: ' + r);
 	            }).catch(function (r) {
 	                console.log('Failed: ' + r);
 	            });
@@ -1977,7 +1976,7 @@
 	    function A() {
 	        _classCallCheck(this, A);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(A).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (A.__proto__ || Object.getPrototypeOf(A)).apply(this, arguments));
 	    }
 
 	    _createClass(A, [{
@@ -2004,7 +2003,7 @@
 	    function Sidebar() {
 	        _classCallCheck(this, Sidebar);
 
-	        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Sidebar).call(this));
+	        var _this2 = _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this));
 
 	        _this2.state = {};
 	        return _this2;
@@ -2020,11 +2019,15 @@
 	                order: ['order DESC', 'createdAt DESC'],
 	                limit: 20
 	            };
-	            Apicloud.get('menu', filter, function (err, res) {
-	                var menu = JSON.parse(res.text);
-	                this.setState({
-	                    menu: menu
-	                });
+	            request.get('admin/meun').end(function (err, res) {
+	                if (err) {
+	                    reject('error');
+	                } else {
+	                    var data = JSON.parse(res.text);
+	                    this.setState({
+	                        menu: data
+	                    });
+	                }
 	            }.bind(this));
 	        }
 	    }, {
@@ -2085,7 +2088,7 @@
 	    function Footer(props) {
 	        _classCallCheck(this, Footer);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 
 	        _this.state = {
 	            info: {}
@@ -2204,7 +2207,7 @@
 	    function Nomatch() {
 	        _classCallCheck(this, Nomatch);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Nomatch).call(this));
+	        return _possibleConstructorReturn(this, (Nomatch.__proto__ || Object.getPrototypeOf(Nomatch)).call(this));
 	    }
 
 	    _createClass(Nomatch, [{
@@ -2921,7 +2924,7 @@
 	    function FormGroup() {
 	        _classCallCheck(this, FormGroup);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(FormGroup).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (FormGroup.__proto__ || Object.getPrototypeOf(FormGroup)).apply(this, arguments));
 	    }
 
 	    _createClass(FormGroup, [{
@@ -4038,7 +4041,7 @@
 	    function Botton() {
 	        _classCallCheck(this, Botton);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Botton).call(this));
+	        var _this = _possibleConstructorReturn(this, (Botton.__proto__ || Object.getPrototypeOf(Botton)).call(this));
 
 	        _this.state = {
 	            dotstyle: {
@@ -4142,7 +4145,7 @@
 	    function Select(props) {
 	        _classCallCheck(this, Select);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Select).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
 	        _this.state = {
 	            files: props.files,
@@ -4274,7 +4277,7 @@
 	    function Tab() {
 	        _classCallCheck(this, Tab);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tab).call(this));
+	        var _this = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this));
 
 	        _this.state = {
 	            dotstyle: {
@@ -4362,7 +4365,7 @@
 	    function Audio() {
 	        _classCallCheck(this, Audio);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Audio).call(this));
+	        return _possibleConstructorReturn(this, (Audio.__proto__ || Object.getPrototypeOf(Audio)).call(this));
 	    }
 
 	    _createClass(Audio, [{
@@ -4432,7 +4435,7 @@
 	    function L() {
 	        _classCallCheck(this, L);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(L).call(this));
+	        return _possibleConstructorReturn(this, (L.__proto__ || Object.getPrototypeOf(L)).call(this));
 	    }
 
 	    _createClass(L, [{
@@ -4465,7 +4468,7 @@
 	    function Page() {
 	        _classCallCheck(this, Page);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Page).call(this));
+	        return _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this));
 	    }
 
 	    _createClass(Page, [{
@@ -4584,8 +4587,8 @@
 	        }
 	    },
 	    _reQuest: function _reQuest(url, page) {
-	        url = 'http://www.mycms.com/' + url;
-	        request.get(url).query({
+	        request.get('admin/list').query({
+	            list: url,
 	            page: page
 	        }).end(function (err, res) {
 	            if (err) {
@@ -4779,7 +4782,7 @@
 
 /***/ },
 /* 40 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4791,21 +4794,157 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var _require = __webpack_require__(20);
+
+	var Form = _require.Form;
+	var Input = _require.Input;
+	var Textarea = _require.Textarea;
+	var Radio = _require.Radio;
+	var Checkbox = _require.Checkbox;
+	var Upload = _require.Upload;
+	var Range = _require.Range;
+	var Button = _require.Button;
+	var Hidden = _require.Hidden;
+
 	var Page = function (_React$Component) {
 	    _inherits(Page, _React$Component);
 
 	    function Page(props) {
 	        _classCallCheck(this, Page);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Page).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
+
+	        _this.state = {};
+	        return _this;
 	    }
 
 	    _createClass(Page, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this._req(this.props);
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            if (this.props.params.pages != nextProps.params.pages || this.props.params.page != nextProps.params.page) {
+	                this._reQuest(nextProps);
+	            }
+	        }
+	    }, {
+	        key: '_req',
+	        value: function _req(props) {
+	            var _props$params = props.params;
+	            var pages = _props$params.pages;
+	            var page = _props$params.page;
+
+	            request.get('admin/detail').query({
+	                list: pages,
+	                id: page
+	            }).end(function (err, res) {
+	                var data = JSON.parse(res.text);
+	                console.log(data);
+	                this.setState(data);
+	            }.bind(this));
+	        }
+	    }, {
+	        key: '_onSubmit',
+	        value: function _onSubmit(e) {
+	            var _props$params2 = this.props.params;
+	            var pages = _props$params2.pages;
+	            var page = _props$params2.page;
+
+	            request.post('admin/detail').query({
+	                list: pages
+	            }).send(this.state.info).end(function (err, res) {
+	                if (err) {
+	                    var msg = [res.status + 'error'];
+	                    ConfigActions.msg(msg);
+	                } else {
+	                    var data = JSON.parse(res.text);
+	                    ConfigActions.msg(data.msg);
+	                }
+	            }.bind(this));
+	        }
+	    }, {
+	        key: '_onChange',
+	        value: function _onChange(name, value) {
+	            var info = this.state.info;
+	            info[name] = value;
+	            this.setState({
+	                info: info
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
+	            var render = void 0;
+	            var forms = void 0;
+	            var info = this.state.info;
+	            var model = this.state.fields;
+	            if (model) {
+	                (function () {
+	                    var onChange = _this2._onChange.bind(_this2);
+	                    forms = model.map(function (d, index) {
+	                        if (info[d.key] || info[d.key] == 0) {
+	                            d.value = info[d.key];
+	                        } else {
+	                            d.value = d.default || '';
+	                        }
+	                        d.name = d.key;
+	                        d.onChange = onChange;
+	                        switch (d.type) {
+	                            case "text":
+	                                return React.createElement(Input, d);
+	                                break;
+	                            case "password":
+	                                return React.createElement(Input, d);
+	                                break;
+	                            case "email":
+	                                return React.createElement(Input, d);
+	                                break;
+	                            case "textarea":
+	                                return React.createElement(Textarea, d);
+	                                break;
+	                            case "upload":
+	                                return React.createElement(Upload, d);
+	                                break;
+	                            case "image":
+	                                return React.createElement(Upload, d);
+	                                break;
+	                            // case "editer":
+	                            //     return (React.createElement(Editer, d))
+	                            //     break;
+	                            case "radio":
+	                                return React.createElement(Radio, d);
+	                                break;
+	                            case "checkbox":
+	                                return React.createElement(Checkbox, d);
+	                                break;
+	                            case "hidden":
+	                                return React.createElement(Hidden, d);
+	                                break;
+	                            default:
+	                                break;
+	                        }
+	                    });
+	                })();
+	            }
+	            if (info) {
+	                render = React.createElement('section', {
+	                    className: 'container'
+	                }, React.createElement(Form, {
+	                    action: this.state.action,
+	                    info: info,
+	                    apiSubmit: false,
+	                    legend: this.state.title,
+	                    onSubmit: this._onSubmit.bind(this)
+	                }, forms, React.createElement(Button)));
+	            }
 	            return React.createElement('section', {
-	                className: 'pure-u-1'
-	            }, 'page');
+	                className: 'warp'
+	            }, render);
 	        }
 	    }]);
 
@@ -4844,7 +4983,7 @@
 	    function Login(props) {
 	        _classCallCheck(this, Login);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Login).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
 
 	        _this.state = {
 	            info: {
@@ -4948,7 +5087,7 @@
 	    function Logout() {
 	        _classCallCheck(this, Logout);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Logout).call(this));
+	        return _possibleConstructorReturn(this, (Logout.__proto__ || Object.getPrototypeOf(Logout)).call(this));
 	    }
 
 	    _createClass(Logout, [{
@@ -5004,7 +5143,7 @@
 	    function Import() {
 	        _classCallCheck(this, Import);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Import).call(this));
+	        var _this = _possibleConstructorReturn(this, (Import.__proto__ || Object.getPrototypeOf(Import)).call(this));
 
 	        _this.state = {};
 	        return _this;
@@ -5023,7 +5162,7 @@
 	            var token = getUpToken();
 	            var file = files[0];
 	            return ajaxUpload({
-	                url: 'admin/uploads',
+	                url: 'admin/import',
 	                name: 'file',
 	                key: file.name,
 	                file: file,

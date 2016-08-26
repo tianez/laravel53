@@ -38,7 +38,6 @@ class Header extends React.Component {
                         reject('error');
                     } else {
                         let data = JSON.parse(res.text)
-                        console.log(data);
                         resolve(data)
                     }
                 }.bind(this))
@@ -47,7 +46,7 @@ class Header extends React.Component {
                 resolve('2000 OK');
             })
         }).then(function (r) {
-            console.log('Done: ' + r);
+            console.log('头部: ' + r);
         }).catch(function (r) {
             console.log('Failed: ' + r);
         })

@@ -105,11 +105,11 @@ class Page extends React.Component {
         }
         return (
             React.createElement("nav", {
-                    className: 'pure-menu pure-menu-open pure-menu-horizontal'
-                },
+                className: 'pure-menu pure-menu-open pure-menu-horizontal'
+            },
                 React.createElement("ul", {
-                        className: "pure-paginator"
-                    },
+                    className: "pure-paginator"
+                },
                     React.createElement("li", {},
                         React.createElement("span", {
                             className: 'pure-button',
@@ -128,7 +128,7 @@ class Page extends React.Component {
     }
 }
 const Pages = React.createClass({
-    getInitialState: function() {
+    getInitialState: function () {
         return {
             items: [],
             del_id: [],
@@ -142,15 +142,15 @@ const Pages = React.createClass({
         }
     },
 
-    getDefaultProps: function() {},
+    getDefaultProps: function () { },
 
-    componentDidMount: function() {
+    componentDidMount: function () {
         let query = this.props.location.query
         let page = query.page || 1
         let url = this.props.params.pages;
         this._reQuest(url, page)
     },
-    componentWillReceiveProps: function(nextProps) {
+    componentWillReceiveProps: function (nextProps) {
         let page = nextProps.location.query.page || 1
         let page2 = this.props.location.query.page || 1
         if (this.props.params.pages != nextProps.params.pages || page != page2) {
@@ -158,13 +158,13 @@ const Pages = React.createClass({
             this._reQuest(url, page)
         }
     },
-    _reQuest: function(url, page) {
-        url = 'http://www.mycms.com/' + url
-        request.get(url)
+    _reQuest: function (url, page) {
+        request.get('admin/list')
             .query({
+                list: url,
                 page: page
             })
-            .end(function(err, res) {
+            .end(function (err, res) {
                 if (err) {
                     let msg = [res.status + 'error']
                 } else {
@@ -191,7 +191,7 @@ const Pages = React.createClass({
                 }
             }.bind(this))
     },
-    _set_del_all: function(items) {
+    _set_del_all: function (items) {
         let del_all = []
         let x
         for (x in items) {
@@ -199,13 +199,13 @@ const Pages = React.createClass({
         }
         return del_all
     },
-    _del: function(e) {
+    _del: function (e) {
         console.log(e.target)
         console.log(e.target.value)
     },
-    _thead: function() {
+    _thead: function () {
         let thead_name = this.state.thead_name
-        let list = thead_name.map(function(d) {
+        let list = thead_name.map(function (d) {
             return (
                 React.createElement("th", {
                     key: d
@@ -223,16 +223,16 @@ const Pages = React.createClass({
             React.createElement("thead", {},
                 React.createElement("tr", {},
                     React.createElement("th", {
-                            colSpan: "1",
-                            rowSpan: "1",
-                            className: "table-checkbox sorting_disabled"
-                        },
+                        colSpan: "1",
+                        rowSpan: "1",
+                        className: "table-checkbox sorting_disabled"
+                    },
                         React.createElement("div", {
-                                className: "checker"
-                            },
+                            className: "checker"
+                        },
                             React.createElement("span", {
-                                    className: checked
-                                },
+                                className: checked
+                            },
                                 React.createElement("input", {
                                     className: "group-checkable",
                                     type: "checkbox",
@@ -247,7 +247,7 @@ const Pages = React.createClass({
             )
         )
     },
-    _isdel_all: function() {
+    _isdel_all: function () {
         let isdel_all = this.state.isdel_all
         let del_all = this.state.del_all
         let del_id = []
@@ -262,10 +262,10 @@ const Pages = React.createClass({
             del_id: del_id
         });
     },
-    _list: function(data) {
+    _list: function (data) {
         let url = this.props.params.list
         let td = this.state.thead_key
-        let list = td.map(function(d) {
+        let list = td.map(function (d) {
             return (
                 React.createElement("td", {
                     key: d + data.id
@@ -274,7 +274,7 @@ const Pages = React.createClass({
         }.bind(this))
         return list
     },
-    _click: function(e) {
+    _click: function (e) {
         let del_id = this.state.del_id
         let k = parseInt(e.target.value)
         let index = del_id.indexOf(k)
@@ -287,14 +287,14 @@ const Pages = React.createClass({
             del_id: del_id
         })
     },
-    _onDel: function(e) {
+    _onDel: function (e) {
         e.preventDefault()
         let id = e.target.id
         id = id.split("_")
         id = id[1]
         let url = '../' + this.props.params.list + '/del/' + id
         request.get(url)
-            .end(function(err, res) {
+            .end(function (err, res) {
                 if (err) {
                     ConfigActions.msg(res.status + 'error')
                 } else {
@@ -312,9 +312,9 @@ const Pages = React.createClass({
                 }
             }.bind(this))
     },
-    render: function() {
+    render: function () {
         let url = this.props.params.pages
-        let list = this.state.items.map(function(data) {
+        let list = this.state.items.map(function (data) {
             let curl = '/api/' + url + '/' + data.id
             let arr = this.state.del_id
             let k = data.id
@@ -336,15 +336,15 @@ const Pages = React.createClass({
             }
             return (
                 React.createElement("tr", {
-                        key: data.id
-                    },
+                    key: data.id
+                },
                     React.createElement("td", {},
                         React.createElement("div", {
-                                className: "checker"
-                            },
+                            className: "checker"
+                        },
                             React.createElement("span", {
-                                    className: checked
-                                },
+                                className: checked
+                            },
                                 React.createElement("input", {
                                     className: "checkboxes",
                                     value: data.id,
@@ -374,19 +374,19 @@ const Pages = React.createClass({
         }.bind(this))
         return (
             React.createElement("section", {
-                    className: "pure-u-1"
-                },
+                className: "pure-u-1"
+            },
                 React.createElement("h3", {
-                        className: "page-title"
-                    },
+                    className: "page-title"
+                },
                     this.state.title
                 ),
                 React.createElement("table", {
-                        className: "pure-table pure-table-bordered",
-                        style: {
-                            width: '100%'
-                        }
-                    },
+                    className: "pure-table pure-table-bordered",
+                    style: {
+                        width: '100%'
+                    }
+                },
                     this._thead(),
                     React.createElement("tbody", null,
                         list

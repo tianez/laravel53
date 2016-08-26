@@ -39,12 +39,18 @@ class Sidebar extends React.Component {
             order: ['order DESC', 'createdAt DESC'],
             limit: 20
         }
-        Apicloud.get('menu', filter, function (err, res) {
-            let menu = JSON.parse(res.text)
-            this.setState({
-                menu: menu
-            })
-        }.bind(this))
+        request
+            .get('admin/meun')
+            .end(function (err, res) {
+                if (err) {
+                    reject('error');
+                } else {
+                    let data = JSON.parse(res.text)
+                    this.setState({
+                        menu: data
+                    })
+                }
+            }.bind(this))
     }
     render() {
         let menus

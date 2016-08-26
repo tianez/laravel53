@@ -21,6 +21,50 @@ class AdminController extends Controller {
         return response()->json(Auth::user());
     }
     
+    public function getMeun(Request $request) {
+        $meun = DB::table('meun')->get()->toArray();
+        return response()->json($meun);
+    }
+    
+    public function getList(Request $request) {
+        $page = empty($_GET['page']) ? 1 : $_GET['page'];
+        $table = $_GET['list'];
+        $pre_page = env('pre_page', 15);
+        $data = DB::table($table)->paginate($pre_page);
+        $data = $data->toArray();
+        $thead = array();
+        $thead['th'] = array('id','key', 'title', 'f_module');
+        $thead['td'] = array('ID','字段key', '字段名称', '字段模块');
+        $out = array('title' => '字段', 'pages' => $data,'thead' => $thead);
+        return response()->json($out);
+    }
+    
+    public function getDetail(Request $request) {
+        $id = $_GET['id'];
+        $table = $_GET['list'];
+        $fields = DB::table('fields')->where('f_module',$table)->get();
+        $info = DB::table($table)->where('id',$id)->first();
+        $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
+        return response()->json($out);
+    }
+    
+    public function postDetail(Request $request) {
+        $id = $request->id;
+        $table = $request->list;
+        $info = DB::table($table)->find($id);
+        $out = array();
+        if (empty($info)) {
+            $out['res'] = 404;
+            $out['msg'][] = '没有发现相关数据！';
+        }else{
+            $data = $request->except(['list']);
+            $res = DB::table($table)->where('id', $id)->update($data);
+            $out['res'] = $res;
+            $out['msg'][] = '保存成功！';
+        }
+        return response()->json($out);
+    }
+    
     public function postLogin(request $request) {
         $req = $request->all();
         $data = array('user_name' => $req['username'], 'password' => $req['password']);
@@ -35,7 +79,7 @@ class AdminController extends Controller {
         return response()->json($res);
     }
     
-    public function postUploads(Request $request) {
+    public function postImport(Request $request) {
         $stime = mtime();
         $data = $request->all();
         $res = array();
@@ -54,20 +98,20 @@ class AdminController extends Controller {
             if ($table == 'member') {
                 foreach ($a as $b) {
                     $c = $this -> str($b);
-                    $d['client_number'] = str_replace(' ', '', $c[0]);
-                    $c[1] = str_replace(' ', '', $c[1]);
-                    $d['client_name'] = substr_replace($c[1], "■", 3, 3);
-                    $c[2] = str_replace(' ', '', $c[2]);
-                    $d['china_id'] = $c[2]==0?'':$c[2];
+                    $d['tj_id'] = str_replace(' ', '', $c[0]);
+                    $d['tj_name'] = str_replace(' ', '', $c[1]);
+                    // $d['tj_name'] = substr_replace($c[1], "■", 3, 3);
+                    // $c[2] = str_replace(' ', '', $c[2]);
+                    // $d['china_id'] = $c[2]==0?'':$c[2];
                     $d['password'] = str_replace(' ', '', $c[3]);
-                    $d['frist_data'] = $c[4];
-                    $user = DB::table('members')->where('client_number', $d['client_number'])->first();
+                    $d['c_time'] = $c[4];
+                    $user = DB::table('tj_member')->where('tj_id', $d['tj_id'])->first();
                     if ($user) {
-                        DB::table('members')->where('client_number', $d['client_number'])
+                        DB::table('tj_member')->where('tj_id', $d['tj_id'])
                         ->update($d);
                         $updata++;
                     } else {
-                        $result =DB::table('members') -> insert($d);
+                        $result =DB::table('tj_member') -> insert($d);
                         $add++;
                     }
                 }
@@ -79,10 +123,10 @@ class AdminController extends Controller {
                 foreach ($a as $b) {
                     $c = $this -> str($b);
                     $e = array();
-                    $e['client_number'] = str_replace(' ', '', $c[0]);
+                    $e['tj_id'] = str_replace(' ', '', $c[0]);
                     $e['item'] = $c[1];
                     $e['result'] = $c[2];
-                    $r = DB::table('report')->where('client_number', $e['client_number'])
+                    $r = DB::table('tj_result')->where('tj_id', $e['tj_id'])
                     ->where('item', $e['item'])
                     ->where('result', $e['result'])->first();
                     if (!$r) {
@@ -90,7 +134,7 @@ class AdminController extends Controller {
                         $add++;
                     }
                 }
-                $result =DB::table('report') -> insert($d);
+                $result =DB::table('tj_result') -> insert($d);
                 $etime = mtime()-$stime;
                 $res['state'] = 'ok';
                 $res['msg'] =  "体检结果导入成功！新增" . $add . "条数据，耗时".$etime."秒";

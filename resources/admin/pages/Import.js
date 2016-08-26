@@ -27,7 +27,7 @@ class Import extends React.Component {
         let token = getUpToken()
         let file = files[0]
         return ajaxUpload({
-            url: 'admin/uploads',
+            url: 'admin/import',
             name: 'file',
             key: file.name,
             file: file,

@@ -11,13 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::post('/', 'HomeController@index_post');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/','AdminController@getIndex');
-    Route::post('uploads','AdminController@postUploads');
+    Route::get('user','AdminController@getUser');
+    Route::get('meun','AdminController@getMeun');
+    Route::get('list','AdminController@getList');
+    Route::get('detail','AdminController@getDetail');
+    Route::post('detail', 'AdminController@postDetail');
+    Route::post('login', 'AdminController@postLogin');
+    Route::post('import','AdminController@postImport');
 });
 
 

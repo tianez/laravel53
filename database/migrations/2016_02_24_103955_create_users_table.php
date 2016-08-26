@@ -30,10 +30,10 @@ class CreateUsersTable extends Migration
 			$table -> tinyInteger('sex') -> default(1) -> comment('性别，0：男，1：女');
 			$table -> integer('score') -> default(0) -> comment('用户积分');
 			$table -> string('job') -> comment('职位职称');
-			$table -> string('team') -> comment('部门');
+			$table -> string('team') -> nullable() -> comment('部门');
 			$table -> integer('company_id') -> default(0) -> comment('单位，0：系统人员');
 			$table -> string('remarks') -> comment('备注');
-			$table -> integer('status') -> default(0) -> comment('用户状态,0:正常,1:锁定');
+			$table -> tinyInteger('status') -> default(0) -> comment('用户状态,0:正常,1:锁定');
 			$table -> integer('login_totals') -> default(0) -> comment('累计登录次数');
 			$table -> string('reg_ip') -> default('0.0.0.0') -> comment('注册IP');
 			$table -> string('last_login_ip') -> default('0.0.0.0') -> comment('最后登录IP');
