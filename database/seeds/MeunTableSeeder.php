@@ -13,6 +13,12 @@ class MeunTableSeeder extends Seeder
     {
         DB::table('meun')->insert([
         array(
+        'link' => 'import',
+        'title' => '体检数据导入',
+        'description' => '体检数据导入',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
         'link' => 'api/fields',
         'title' => '字段管理',
         'description' => '字段管理',

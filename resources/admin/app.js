@@ -58,12 +58,16 @@ const routers = (
             path: "/",
             component: Layout
         },
-            // React.createElement(IndexRedirect, {
-            //     to: 'apicloud/article'
+            React.createElement(IndexRedirect, {
+                to: 'index'
+            }),
+            // React.createElement(IndexRoute, {
+            //     component: Home,
+            //     onEnter: onEnter
             // }),
-            React.createElement(IndexRoute, {
-                component: Home,
-                onEnter: onEnter
+            React.createElement(Route, {
+                path: "index",
+                component: Home
             }),
             React.createElement(Route, {
                 path: "import",

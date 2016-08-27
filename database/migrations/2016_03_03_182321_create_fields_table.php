@@ -18,15 +18,18 @@ class CreateFieldsTable extends Migration
         Schema::dropIfExists('fields');
         Schema::create('fields', function(Blueprint $table) {
             $table -> increments('id');
-            $table -> string('key') -> unique() -> comment('字段key');
+            // $table -> string('key') -> unique() -> comment('字段key');
+            $table -> string('key') -> comment('字段key');
             $table -> string('title') -> comment('字段名称');
             $table -> string('type') -> comment('字段形式');
             $table -> string('f_module') -> comment('所属模块');
             $table -> string('f_groups') -> nullable() -> comment('字段分组');
             $table -> text('f_description') -> nullable() -> comment('字段描述');
+            $table -> string('f_default') -> nullable() -> comment('默认值');
             $table -> string('f_add') -> default('[1]') -> comment('新增权限');
             $table -> string('f_edit') -> default('[1]') -> comment('编辑权限');
             $table -> string('f_visible') -> default('[1]') -> comment('可见权限');
+            $table -> integer('order') -> default(0) -> comment('排序');
             $table -> tinyInteger('status') -> default(0) -> comment('状态，0：正常，1：锁定');
             $table -> timestamps();
         });

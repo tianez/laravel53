@@ -7,6 +7,7 @@ var Home = React.createClass({
         };
     },
     componentDidMount: function() {
+        ConfigActions.update('title', '首页')
     },
     handleSelect: function(data) {
         console.log(data); // Momentjs object
@@ -24,7 +25,7 @@ var Home = React.createClass({
                 },
                 React.createElement('div', {
                         className: 'pure-u-1'
-                    },
+                    },'技术开发—by田恩仲（284059577）'
                     // React.createElement('div', {
                     //     dangerouslySetInnerHTML: {
                     //         __html: this.state.html

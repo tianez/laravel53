@@ -101,13 +101,16 @@
 	}, React.createElement(Route, {
 	    path: "/",
 	    component: Layout
-	},
-	// React.createElement(IndexRedirect, {
-	//     to: 'apicloud/article'
+	}, React.createElement(IndexRedirect, {
+	    to: 'index'
+	}),
+	// React.createElement(IndexRoute, {
+	//     component: Home,
+	//     onEnter: onEnter
 	// }),
-	React.createElement(IndexRoute, {
-	    component: Home,
-	    onEnter: onEnter
+	React.createElement(Route, {
+	    path: "index",
+	    component: Home
 	}), React.createElement(Route, {
 	    path: "import",
 	    component: Import
@@ -2069,52 +2072,41 @@
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 	var ApiStore = __webpack_require__(12);
+	// class Footer extends React.Component {
+	var Footer = React.createClass({
+	    displayName: 'Footer',
 
-	var Footer = function (_React$Component) {
-	    _inherits(Footer, _React$Component);
-
-	    function Footer(props) {
-	        _classCallCheck(this, Footer);
-
-	        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
-
-	        _this.state = {
+	    // constructor(props) {
+	    //     super(props)
+	    //     this.state = {
+	    //         info: {}
+	    //     }
+	    // }
+	    getInitialState: function getInitialState() {
+	        return {
 	            info: {}
 	        };
-	        return _this;
+	    },
+	    componentDidMount: function componentDidMount() {
+	        ApiStore.get('acman/zhaiyanapi/tcrand?fangfa=json', function (err, res) {
+	            var data = JSON.parse(res.text);
+	            this.setState({
+	                info: data
+	            });
+	        }.bind(this));
+	    },
+	    render: function render() {
+	        return React.createElement('footer', {
+	            id: 'footer',
+	            className: 'footer pure-u-1'
+	        }, React.createElement('div', {
+	            className: 'left'
+	        }, this.state.info.taici, '—— ', this.state.info.source), React.createElement('div', {
+	            className: 'right'
+	        }, '技术开发—by田恩仲（284059577）'));
 	    }
-
-	    _createClass(Footer, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            ApiStore.get('acman/zhaiyanapi/tcrand?fangfa=json', function (err, res) {
-	                var data = JSON.parse(res.text);
-	                this.setState({
-	                    info: data
-	                });
-	            }.bind(this));
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return React.createElement('footer', {
-	                id: 'footer',
-	                className: 'footer pure-u-1'
-	            }, this.state.info.taici, '—— ', this.state.info.source);
-	        }
-	    }]);
-
-	    return Footer;
-	}(React.Component);
+	});
 
 	module.exports = Footer;
 
@@ -2233,7 +2225,9 @@
 	            items: ['hello', 'world', 'click', 'me']
 	        };
 	    },
-	    componentDidMount: function componentDidMount() {},
+	    componentDidMount: function componentDidMount() {
+	        ConfigActions.update('title', '首页');
+	    },
 	    handleSelect: function handleSelect(data) {
 	        console.log(data); // Momentjs object
 	        console.log(data.format('YYYY-MM-D HH d')); // Momentjs object
@@ -2248,7 +2242,13 @@
 	            className: 'container pure-g'
 	        }, React.createElement('div', {
 	            className: 'pure-u-1'
-	        }));
+	        }, '技术开发—by田恩仲（284059577）'
+	        // React.createElement('div', {
+	        //     dangerouslySetInnerHTML: {
+	        //         __html: this.state.html
+	        //     }
+	        // })
+	        ));
 	    }
 	});
 
@@ -5132,14 +5132,6 @@
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 	var _require = __webpack_require__(20);
 
 	var Form = _require.Form;
@@ -5151,121 +5143,95 @@
 
 	var ajaxUpload = __webpack_require__(29);
 
-	var _require2 = __webpack_require__(30);
+	var Import = React.createClass({
+	    displayName: 'Import',
 
-	var getUpToken = _require2.getUpToken;
-
-	var Import = function (_React$Component) {
-	    _inherits(Import, _React$Component);
-
-	    function Import() {
-	        _classCallCheck(this, Import);
-
-	        var _this = _possibleConstructorReturn(this, (Import.__proto__ || Object.getPrototypeOf(Import)).call(this));
-
-	        _this.state = {};
-	        return _this;
+	    componentDidMount: function componentDidMount() {
+	        ConfigActions.update('title', '数据导入');
+	    },
+	    _onSubmit: function _onSubmit() {
+	        var files = this.refs.file2.files;
+	        console.log(files);
+	        var file = files[0];
+	        return ajaxUpload({
+	            url: 'admin/import',
+	            name: 'file',
+	            key: file.name,
+	            file: file,
+	            data: {
+	                table: 'member'
+	            },
+	            onProgress: function onProgress(e) {
+	                console.log(e.loaded / e.total * 100 + '%');
+	            },
+	            onLoad: function onLoad(e) {
+	                var res = JSON.parse(e.currentTarget.responseText);
+	                console.log(res);
+	            },
+	            onError: function onError() {}
+	        });
+	    },
+	    _onSubmit2: function _onSubmit2() {
+	        var files = this.refs.result.files;
+	        var file = files[0];
+	        return ajaxUpload({
+	            url: 'admin/import',
+	            name: 'file',
+	            key: file.name,
+	            file: file,
+	            data: {
+	                table: 'result'
+	            },
+	            onProgress: function onProgress(e) {
+	                console.log(e.loaded / e.total * 100 + '%');
+	            },
+	            onLoad: function onLoad(e) {
+	                var res = JSON.parse(e.currentTarget.responseText);
+	                console.log(res);
+	            },
+	            onError: function onError() {}
+	        });
+	    },
+	    render: function render() {
+	        return React.createElement('div', {
+	            className: 'container pure-g'
+	        }, React.createElement('div', {
+	            className: 'pure-u-1'
+	        }, React.createElement(Form, {
+	            action: 'user/login',
+	            apiSubmit: false,
+	            legend: '人员数据上传',
+	            onSubmit: this._onSubmit.bind(this)
+	        }, React.createElement(FormGroup, {
+	            title: '文件上传'
+	        }, React.createElement('input', {
+	            id: 'file',
+	            name: 'file',
+	            ref: 'file2',
+	            className: 'ipt',
+	            type: 'file',
+	            multiple: false
+	        })), React.createElement(Button, {
+	            value: '文件上传'
+	        })), React.createElement(Form, {
+	            action: 'user/login',
+	            apiSubmit: false,
+	            legend: '人员数据上传',
+	            onSubmit: this._onSubmit2.bind(this)
+	        }, React.createElement(FormGroup, {
+	            title: '文件上传'
+	        }, React.createElement('input', {
+	            id: 'file',
+	            name: 'file',
+	            ref: 'result',
+	            className: 'ipt',
+	            type: 'file',
+	            multiple: false
+	        })), React.createElement(Button, {
+	            value: '文件上传'
+	        }))));
 	    }
-
-	    _createClass(Import, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            ConfigActions.update('title', '数据导入');
-	        }
-	    }, {
-	        key: '_onSubmit',
-	        value: function _onSubmit() {
-	            var files = this.refs.file2.files;
-	            console.log(files);
-	            var token = getUpToken();
-	            var file = files[0];
-	            return ajaxUpload({
-	                url: 'admin/import',
-	                name: 'file',
-	                key: file.name,
-	                file: file,
-	                data: {
-	                    table: 'member'
-	                },
-	                onProgress: function onProgress(e) {
-	                    console.log(e.loaded / e.total * 100 + '%');
-	                },
-	                onLoad: function onLoad(e) {
-	                    var res = JSON.parse(e.currentTarget.responseText);
-	                    console.log(res);
-	                },
-	                onError: function onError() {}
-	            });
-	        }
-	    }, {
-	        key: '_onSubmit2',
-	        value: function _onSubmit2() {
-	            var files = this.refs.result.files;
-	            var token = getUpToken();
-	            var file = files[0];
-	            return ajaxUpload({
-	                url: 'admin/import',
-	                name: 'file',
-	                key: file.name,
-	                file: file,
-	                data: {
-	                    table: 'result'
-	                },
-	                onProgress: function onProgress(e) {
-	                    console.log(e.loaded / e.total * 100 + '%');
-	                },
-	                onLoad: function onLoad(e) {
-	                    var res = JSON.parse(e.currentTarget.responseText);
-	                    console.log(res);
-	                },
-	                onError: function onError() {}
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return React.createElement('div', {
-	                className: 'container pure-g'
-	            }, React.createElement('div', {
-	                className: 'pure-u-1'
-	            }, React.createElement(Form, {
-	                action: 'user/login',
-	                apiSubmit: false,
-	                legend: '人员数据上传',
-	                onSubmit: this._onSubmit.bind(this)
-	            }, React.createElement(FormGroup, {
-	                title: '文件上传'
-	            }, React.createElement('input', {
-	                id: 'file',
-	                name: 'file',
-	                ref: 'file2',
-	                className: 'ipt',
-	                type: 'file',
-	                multiple: false
-	            })), React.createElement(Button, {
-	                value: '文件上传'
-	            })), React.createElement(Form, {
-	                action: 'user/login',
-	                apiSubmit: false,
-	                legend: '人员数据上传',
-	                onSubmit: this._onSubmit2.bind(this)
-	            }, React.createElement(FormGroup, {
-	                title: '文件上传'
-	            }, React.createElement('input', {
-	                id: 'file',
-	                name: 'file',
-	                ref: 'result',
-	                className: 'ipt',
-	                type: 'file',
-	                multiple: false
-	            })), React.createElement(Button, {
-	                value: '文件上传'
-	            }))));
-	        }
-	    }]);
-
-	    return Import;
-	}(React.Component);
+	});
 
 	Import.defaultProps = {
 	    value: '保存'

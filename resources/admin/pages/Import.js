@@ -9,22 +9,14 @@ const {
 } = require('../components/forms/index')
 
 const ajaxUpload = require('../components/utils/AjaxUpload')
-const {
-    getUpToken
-} = require('../components/utils/Qiniu')
 
-class Import extends React.Component {
-    constructor() {
-        super()
-        this.state = {}
-    }
-    componentDidMount() {
+var Import = React.createClass({
+    componentDidMount:function() {
         ConfigActions.update('title', '数据导入')
-    }
-    _onSubmit() {
+    },
+    _onSubmit:function() {
         let files = this.refs.file2.files
         console.log(files);
-        let token = getUpToken() 
         let file = files[0]
         return ajaxUpload({
             url: 'admin/import',
@@ -44,10 +36,9 @@ class Import extends React.Component {
             onError: () => {
             }
         })
-    }
-    _onSubmit2() {
+    },
+    _onSubmit2:function() {
         let files = this.refs.result.files
-        let token = getUpToken()
         let file = files[0]
         return ajaxUpload({
             url: 'admin/import',
@@ -67,8 +58,8 @@ class Import extends React.Component {
             onError: () => {
             }
         })
-    }
-    render() {
+    },
+    render:function() {
         return (
             React.createElement('div', {
                 className: 'container pure-g'
@@ -124,7 +115,7 @@ class Import extends React.Component {
             )
         )
     }
-}
+})
 
 Import.defaultProps = {
     value: '保存'
