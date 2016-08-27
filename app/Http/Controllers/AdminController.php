@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller {
     
     public function __construct() {
-        $this->middleware('auth',['except' => ['getIndex','postLogin']]);
+        $this->middleware('auth',['except' => ['getIndex','postLogin','getLogout']]);
     }
     
     public function getIndex(Request $request) {
@@ -38,10 +38,31 @@ class AdminController extends Controller {
         $out = array('title' => '字段', 'pages' => $data,'thead' => $thead);
         return response()->json($out);
     }
+
+    public function getAdd(Request $request) {
+        $table = $_GET['list'];
+        $fields = DB::table('fields')->where('f_module',$table)->get();
+        $out = array('title' => '字段', 'fields' => $fields);
+        return response()->json($out);
+    }
+
+    public function postAdd(Request $request) {
+        $table = $request->list;
+        $data = $request->except(['list','id']);
+        $info = DB::table($table)->insert($data);
+        $out = array();
+        if (empty($info)) {
+            $out['res'] = 404;
+            $out['msg'][] = '出错了！';
+        }else{
+            $out['msg'][] = '保存成功！';
+        }
+        return response()->json($out);
+    }
     
     public function getDetail(Request $request) {
-        $id = $_GET['id'];
-        $table = $_GET['list'];
+        $id = $request->id;
+        $table = $request->list;
         $fields = DB::table('fields')->where('f_module',$table)->get();
         $info = DB::table($table)->where('id',$id)->first();
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
@@ -76,6 +97,12 @@ class AdminController extends Controller {
         } else {
             $res['msg'] = '用户名或密码错误！';
         }
+        return response()->json($res);
+    }
+
+    public function getLogout(request $request) {
+        Auth::logout();
+        $res['msg'] = '用户登出成功';
         return response()->json($res);
     }
     

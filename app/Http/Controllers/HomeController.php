@@ -19,10 +19,9 @@ class HomeController extends Controller {
     }
     
     public function index(Request $request) {
-        
         $user = session('cur_user');
         if($user){
-            $results = DB::table('report')->where('client_number', $user->client_number)->get();
+            $results = DB::table('tj_result')->where('tj_id', $user->tj_id)->get();
             $res = array();
             foreach ($results as $result) {
                 if ($result->result == ' 空')
@@ -46,8 +45,8 @@ class HomeController extends Controller {
         $password = $request->password;
         if(empty($name) ||empty($password) ){
             $request->session()->flash('msg', '体检单号或查询密码不能为空！');
-        }
-        $user = DB::table('members')->where('client_number', $name)->where('password', $password)->first();
+        }else{
+$user = DB::table('tj_member')->where('tj_id', $name)->where('password', $password)->first();
         if($user){
             session(['cur_user' => $user]);
         }else {
@@ -55,6 +54,8 @@ class HomeController extends Controller {
             $request->session()->flash('msg', 'Task was successful!');
             // session(['msg' => 'value']);
         }
+        }
+        
         return redirect('/');
     }
     
@@ -144,8 +145,12 @@ class HomeController extends Controller {
     public function login(Request $request) {
         return view('login');
     }
-    
-    public function logout(Request $request) {
-        return view('login');
+
+    public function getLogout(request $request) {
+        // Auth::logout();
+        $request->session()->forget('cur_user');
+        // $request->session()->flush();
+        $request->session()->flash('msg', '你已经成功登出!');
+        return redirect('/');
     }
 }

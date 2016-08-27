@@ -7,15 +7,15 @@
     <tbody>
       <tr>
         <td>你的姓名</td>
-        <td>{{$user->client_name}}</td>
+        <td>{{$user->tj_name}}</td>
         <td>身份证号</td>
-        <td>{{ (isset($user->china_id) && $user->china_id!=='') ? $user->china_id : 'Default' }}</td>
+        <td>{{ (isset($user->china_id) && $user->china_id!=='') ? $user->china_id : '暂无' }}</td>
       </tr>
       <tr>
         <td>体检单号</td>
-        <td>{{$user->client_number}}</td>
+        <td>{{$user->tj_id}}</td>
         <td>手机号码</td>
-        <td>{{$user->mobile_phone or 'sdsdsdssdsdsds'}}</td>
+        <td>{{$user->mobile_phone or '暂无'}}</td>
       </tr>
       <tr>
         <td>体检日期</td>

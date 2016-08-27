@@ -15,14 +15,18 @@ const {
 class Page extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            info:{}
+        }
     }
     componentDidMount() {
         this._req(this.props)
     }
     componentWillReceiveProps(nextProps) {
+        console.log(this.props.params)
+        console.log(nextProps.params)
         if (this.props.params.pages != nextProps.params.pages || this.props.params.page != nextProps.params.page) {
-            this._reQuest(nextProps)
+            this._req(nextProps)
         }
     }
     _req(props) {
@@ -30,7 +34,8 @@ class Page extends React.Component {
             pages,
             page
         } = props.params
-        request.get('admin/detail')
+        let requrl = page=='add'?'admin/add':'admin/detail'
+        request.get(requrl)
             .query({
                 list: pages,
                 id: page
@@ -38,7 +43,10 @@ class Page extends React.Component {
             .end(function (err, res) {
                 let data = JSON.parse(res.text)
                 console.log(data);
-                this.setState(data)
+                this.setState({
+                    fields:data.fields,
+                    info: data.info||{}
+                })
             }.bind(this))
     }
     _onSubmit(e) {
@@ -46,7 +54,9 @@ class Page extends React.Component {
             pages,
             page
         } = this.props.params
-        request.post('admin/detail')
+        console.log(this.state.info)
+        let requrl = page=='add'?'admin/add':'admin/detail'
+        request.post(requrl)
             .query({
                 list: pages
             })
@@ -119,7 +129,7 @@ class Page extends React.Component {
                 }
             })
         }
-        if (info) {
+        // if (info) {
             render =
                 React.createElement('section', {
                     className: 'container'
@@ -135,7 +145,7 @@ class Page extends React.Component {
                         React.createElement(Button)
                     )
                 )
-        }
+        // }
         return (
             React.createElement('section', {
                 className: 'warp'

@@ -5,8 +5,16 @@ class Logout extends React.Component {
         super()
     }
     componentDidMount() {
-        storedb('user').remove()
-        this.props.history.pushState(null, 'login')
+        request
+            .get('admin/logout')
+            .end(function (err, res) {
+                if (err) {
+                    reject('error');
+                } else {
+                    storedb('user').remove()
+                    this.props.history.pushState(null, 'login')
+                }
+            }.bind(this))
     }
     render() {
         return (

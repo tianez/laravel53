@@ -2054,9 +2054,6 @@
 	            }, React.createElement(A, {
 	                to: 'drag',
 	                title: 'drag'
-	            }), React.createElement(A, {
-	                to: 'import',
-	                title: 'import'
 	            }), menus));
 	        }
 	    }]);
@@ -2989,7 +2986,8 @@
 	    },
 	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	        this.state = {
-	            value: nextProps.value
+	            value: nextProps.value,
+	            length: nextProps.value.length || 0
 	        };
 	    },
 	    _onChange: function _onChange(e) {
@@ -4487,6 +4485,7 @@
 	                var p = React.createElement(L, {
 	                    url: this.props.url,
 	                    page: i,
+	                    key: i,
 	                    current_page: current_page
 	                });
 	                items.push(p);
@@ -4505,6 +4504,7 @@
 	                    var _p2 = React.createElement(L, {
 	                        url: this.props.url,
 	                        page: j,
+	                        key: j,
 	                        current_page: current_page
 	                    });
 	                    items.push(_p2);
@@ -4515,6 +4515,7 @@
 	                    var _p3 = React.createElement(L, {
 	                        url: this.props.url,
 	                        page: j,
+	                        key: j,
 	                        current_page: current_page
 	                    });
 	                    items.push(_p3);
@@ -4533,6 +4534,7 @@
 	                var _p5 = React.createElement(L, {
 	                    url: this.props.url,
 	                    page: k,
+	                    key: k,
 	                    current_page: current_page
 	                });
 	                items.push(_p5);
@@ -4814,7 +4816,9 @@
 
 	        var _this = _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
 
-	        _this.state = {};
+	        _this.state = {
+	            info: {}
+	        };
 	        return _this;
 	    }
 
@@ -4826,8 +4830,10 @@
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
+	            console.log(this.props.params);
+	            console.log(nextProps.params);
 	            if (this.props.params.pages != nextProps.params.pages || this.props.params.page != nextProps.params.page) {
-	                this._reQuest(nextProps);
+	                this._req(nextProps);
 	            }
 	        }
 	    }, {
@@ -4837,13 +4843,17 @@
 	            var pages = _props$params.pages;
 	            var page = _props$params.page;
 
-	            request.get('admin/detail').query({
+	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail';
+	            request.get(requrl).query({
 	                list: pages,
 	                id: page
 	            }).end(function (err, res) {
 	                var data = JSON.parse(res.text);
 	                console.log(data);
-	                this.setState(data);
+	                this.setState({
+	                    fields: data.fields,
+	                    info: data.info || {}
+	                });
 	            }.bind(this));
 	        }
 	    }, {
@@ -4853,7 +4863,9 @@
 	            var pages = _props$params2.pages;
 	            var page = _props$params2.page;
 
-	            request.post('admin/detail').query({
+	            console.log(this.state.info);
+	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail';
+	            request.post(requrl).query({
 	                list: pages
 	            }).send(this.state.info).end(function (err, res) {
 	                if (err) {
@@ -4931,17 +4943,17 @@
 	                    });
 	                })();
 	            }
-	            if (info) {
-	                render = React.createElement('section', {
-	                    className: 'container'
-	                }, React.createElement(Form, {
-	                    action: this.state.action,
-	                    info: info,
-	                    apiSubmit: false,
-	                    legend: this.state.title,
-	                    onSubmit: this._onSubmit.bind(this)
-	                }, forms, React.createElement(Button)));
-	            }
+	            // if (info) {
+	            render = React.createElement('section', {
+	                className: 'container'
+	            }, React.createElement(Form, {
+	                action: this.state.action,
+	                info: info,
+	                apiSubmit: false,
+	                legend: this.state.title,
+	                onSubmit: this._onSubmit.bind(this)
+	            }, forms, React.createElement(Button)));
+	            // }
 	            return React.createElement('section', {
 	                className: 'warp'
 	            }, render);
@@ -5093,8 +5105,14 @@
 	    _createClass(Logout, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            storedb('user').remove();
-	            this.props.history.pushState(null, 'login');
+	            request.get('admin/logout').end(function (err, res) {
+	                if (err) {
+	                    reject('error');
+	                } else {
+	                    storedb('user').remove();
+	                    this.props.history.pushState(null, 'login');
+	                }
+	            }.bind(this));
 	        }
 	    }, {
 	        key: 'render',
@@ -5186,7 +5204,7 @@
 	            var token = getUpToken();
 	            var file = files[0];
 	            return ajaxUpload({
-	                url: 'admin/uploads',
+	                url: 'admin/import',
 	                name: 'file',
 	                key: file.name,
 	                file: file,

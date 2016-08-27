@@ -24,7 +24,7 @@ class Import extends React.Component {
     _onSubmit() {
         let files = this.refs.file2.files
         console.log(files);
-        let token = getUpToken()
+        let token = getUpToken() 
         let file = files[0]
         return ajaxUpload({
             url: 'admin/import',
@@ -50,7 +50,7 @@ class Import extends React.Component {
         let token = getUpToken()
         let file = files[0]
         return ajaxUpload({
-            url: 'admin/uploads',
+            url: 'admin/import',
             name: 'file',
             key: file.name,
             file: file,

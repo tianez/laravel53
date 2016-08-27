@@ -31,7 +31,8 @@ var Input = React.createClass({
     },
     componentWillReceiveProps: function(nextProps) {
         this.state = {
-            value: nextProps.value
+            value: nextProps.value,
+            length:  nextProps.value.length || 0
         }
     },
     _onChange: function(e) {

@@ -48,6 +48,7 @@ class Page extends React.Component {
             let p = React.createElement(L, {
                 url: this.props.url,
                 page: i,
+                key:i,
                 current_page: current_page
             })
             items.push(p)
@@ -68,6 +69,7 @@ class Page extends React.Component {
                 let p = React.createElement(L, {
                     url: this.props.url,
                     page: j,
+                    key:j,
                     current_page: current_page
                 })
                 items.push(p)
@@ -78,6 +80,7 @@ class Page extends React.Component {
                 let p = React.createElement(L, {
                     url: this.props.url,
                     page: j,
+                    key:j,
                     current_page: current_page
                 })
                 items.push(p)
@@ -99,6 +102,7 @@ class Page extends React.Component {
             let p = React.createElement(L, {
                 url: this.props.url,
                 page: k,
+                key:k,
                 current_page: current_page
             })
             items.push(p)
