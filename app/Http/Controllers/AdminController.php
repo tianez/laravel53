@@ -35,17 +35,18 @@ class AdminController extends Controller {
         $thead = array();
         $thead['th'] = array('id','key', 'title', 'f_module');
         $thead['td'] = array('ID','字段key', '字段名称', '字段模块');
+        $thead['tds'] = array('id'=>'ID','key'=>'字段key', 'title'=>'字段名称', 'f_module'=>'字段模块');
         $out = array('title' => '字段', 'pages' => $data,'thead' => $thead);
         return response()->json($out);
     }
-
+    
     public function getAdd(Request $request) {
         $table = $_GET['list'];
         $fields = DB::table('fields')->where('f_module',$table)->get();
         $out = array('title' => '字段', 'fields' => $fields);
         return response()->json($out);
     }
-
+    
     public function postAdd(Request $request) {
         $table = $request->list;
         $data = $request->except(['list','id']);
@@ -99,7 +100,7 @@ class AdminController extends Controller {
         }
         return response()->json($res);
     }
-
+    
     public function getLogout(request $request) {
         Auth::logout();
         $res['msg'] = '用户登出成功';

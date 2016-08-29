@@ -20,8 +20,8 @@ class CreateRolesTable extends Migration
 		Schema::create('roles', function(Blueprint $table) {
 			$table -> increments('id');
 			$table -> string('name') -> unique() -> comment('用户组名');
-			$table -> string('display_name') -> nullable() -> comment('显示名称');
-			$table -> string('thumb') -> comment('用户组头像');
+			$table -> string('display_name') -> comment('显示名称');
+			$table -> string('thumb') -> nullable() -> comment('用户组头像');
 			$table -> text('description') -> nullable() -> comment('用户组描述');
 			$table -> tinyInteger('status') -> default(0) -> comment('状态，0：正常，1：锁定');
 			$table -> timestamps();

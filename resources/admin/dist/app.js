@@ -4564,8 +4564,7 @@
 	            del_id: [],
 	            del_all: [],
 	            isdel_all: false,
-	            thead_key: [],
-	            thead_name: [],
+	            thead: [],
 	            title: '',
 	            pages: {},
 	            url: this.props.params.pages
@@ -4611,9 +4610,7 @@
 	                    pages: data.pages,
 	                    items: items.concat(data.pages.data),
 	                    del_all: this._set_del_all(data.info),
-	                    thead: data.thead,
-	                    thead_key: data.thead.th,
-	                    thead_name: data.thead.td,
+	                    thead: data.thead.tds,
 	                    title: data.title
 	                });
 	            }
@@ -4632,12 +4629,6 @@
 	        console.log(e.target.value);
 	    },
 	    _thead: function _thead() {
-	        var thead_name = this.state.thead_name;
-	        var list = thead_name.map(function (d) {
-	            return React.createElement("th", {
-	                key: d
-	            }, d);
-	        }.bind(this));
 	        var isdel_all = this.state.isdel_all;
 	        var checked = void 0;
 	        if (isdel_all) {
@@ -4645,9 +4636,16 @@
 	        } else {
 	            checked = '';
 	        }
+	        var item = [];
+	        var p = void 0;
+	        var thead = this.state.thead;
+	        for (var i in thead) {
+	            p = React.createElement("th", {
+	                key: i
+	            }, thead[i]);
+	            item.push(p);
+	        }
 	        return React.createElement("thead", {}, React.createElement("tr", {}, React.createElement("th", {
-	            colSpan: "1",
-	            rowSpan: "1",
 	            className: "table-checkbox sorting_disabled"
 	        }, React.createElement("div", {
 	            className: "checker"
@@ -4657,7 +4655,19 @@
 	            className: "group-checkable",
 	            type: "checkbox",
 	            onClick: this._isdel_all
-	        })))), list, React.createElement("th", {}, '操作')));
+	        })))), item, React.createElement("th", {}, '操作')));
+	    },
+	    _list: function _list(data) {
+	        var list = [];
+	        var p = void 0;
+	        var thead = this.state.thead;
+	        for (var i in thead) {
+	            p = React.createElement("td", {
+	                key: i + data.id
+	            }, data[i]);
+	            list.push(p);
+	        }
+	        return list;
 	    },
 	    _isdel_all: function _isdel_all() {
 	        var isdel_all = this.state.isdel_all;
@@ -4673,16 +4683,6 @@
 	            isdel_all: isdel_all,
 	            del_id: del_id
 	        });
-	    },
-	    _list: function _list(data) {
-	        var url = this.props.params.list;
-	        var td = this.state.thead_key;
-	        var list = td.map(function (d) {
-	            return React.createElement("td", {
-	                key: d + data.id
-	            }, data[d]);
-	        }.bind(this));
-	        return list;
 	    },
 	    _click: function _click(e) {
 	        var del_id = this.state.del_id;
@@ -4702,7 +4702,7 @@
 	        var id = e.target.id;
 	        id = id.split("_");
 	        id = id[1];
-	        var url = '../' + this.props.params.list + '/del/' + id;
+	        var url = '../' + this.props.params.pages + '/del/' + id;
 	        request.get(url).end(function (err, res) {
 	            if (err) {
 	                ConfigActions.msg(res.status + 'error');

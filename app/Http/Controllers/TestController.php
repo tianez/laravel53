@@ -8,6 +8,7 @@ use Auth;
 use DB;
 use Illuminate\Http\Request;
 use Image;
+use App\Http\Model\Fields;
 
 use Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,8 +20,35 @@ class TestController extends Controller {
     }
     
     public function getIndex(Request $request) {
-        $img = Image::make('resources/images/1.jpg')->resize(800, 600);
-        return $img->response('jpg');
+        $info = User::find(1);
+        $roles = $info->Roles->toArray();
+        // Fields::destroy(3);
+        $d = [1,2,3,4,5,5,6];
+        // Fields::create(['key' => 'Flight10','title' => 'Flight10','type'=>'text','f_add'=>json_encode($d)]);
+        $data =['key' => 'Flight10','title' => '898988989','type'=>'text','f_add'=>json_encode($d)];
+        // $Fields = new Fields();
+        // $validator = $Fields->Validator($data);
+        // if ($validator->fails()) {
+        //     $out['res'] = 500;
+        //     $errors = $validator->errors();
+        //     $es = $errors->toArray();
+        //     // $es = json_decode(json_encode($errors), TRUE);
+        //     $error = array();
+        //     foreach ($es as $key => $e) {
+        //         $error[] = $e[0];
+        //     }
+        //     $out['res'] = 404;
+        //     $out['msg'] = $error;
+        //     return response()->json($out);
+        // }
+        // $res = Fields::firstOrCreate($data);
+        // $info = Fields::where('id',22)->get();
+        // $info = Fields::find(22)->update($data);
+        // $res = $info->update($data);
+        $res = Fields::type()->get();
+        dump($res->toArray());
+        // $img = Image::make('resources/images/1.jpg')->resize(800, 600);
+        // return $img->response('jpg');
     }
     
     public function index_post(Request $request) {

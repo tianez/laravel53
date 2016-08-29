@@ -29,6 +29,12 @@ class MeunTableSeeder extends Seeder
         'title' => '菜单管理',
         'description' => '菜单管理',
         'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'link' => 'api/roles',
+        'title' => '用户组管理',
+        'description' => '用户组管理',
+        'created_at'=> date("Y-m-d H:i:s")
         )
         ]);
     }

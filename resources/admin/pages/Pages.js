@@ -48,7 +48,7 @@ class Page extends React.Component {
             let p = React.createElement(L, {
                 url: this.props.url,
                 page: i,
-                key:i,
+                key: i,
                 current_page: current_page
             })
             items.push(p)
@@ -69,7 +69,7 @@ class Page extends React.Component {
                 let p = React.createElement(L, {
                     url: this.props.url,
                     page: j,
-                    key:j,
+                    key: j,
                     current_page: current_page
                 })
                 items.push(p)
@@ -80,7 +80,7 @@ class Page extends React.Component {
                 let p = React.createElement(L, {
                     url: this.props.url,
                     page: j,
-                    key:j,
+                    key: j,
                     current_page: current_page
                 })
                 items.push(p)
@@ -102,7 +102,7 @@ class Page extends React.Component {
             let p = React.createElement(L, {
                 url: this.props.url,
                 page: k,
-                key:k,
+                key: k,
                 current_page: current_page
             })
             items.push(p)
@@ -138,8 +138,7 @@ const Pages = React.createClass({
             del_id: [],
             del_all: [],
             isdel_all: false,
-            thead_key: [],
-            thead_name: [],
+            thead: [],
             title: '',
             pages: {},
             url: this.props.params.pages,
@@ -187,9 +186,7 @@ const Pages = React.createClass({
                         pages: data.pages,
                         items: items.concat(data.pages.data),
                         del_all: this._set_del_all(data.info),
-                        thead: data.thead,
-                        thead_key: data.thead.th,
-                        thead_name: data.thead.td,
+                        thead: data.thead.tds,
                         title: data.title,
                     });
                 }
@@ -208,14 +205,6 @@ const Pages = React.createClass({
         console.log(e.target.value)
     },
     _thead: function () {
-        let thead_name = this.state.thead_name
-        let list = thead_name.map(function (d) {
-            return (
-                React.createElement("th", {
-                    key: d
-                }, d)
-            )
-        }.bind(this))
         let isdel_all = this.state.isdel_all
         let checked
         if (isdel_all) {
@@ -223,12 +212,19 @@ const Pages = React.createClass({
         } else {
             checked = ''
         }
+        let item = []
+        let p
+        let thead = this.state.thead
+        for (let i in thead) {
+            p = React.createElement("th", {
+                key: i
+            }, thead[i])
+            item.push(p)
+        }
         return (
             React.createElement("thead", {},
                 React.createElement("tr", {},
                     React.createElement("th", {
-                        colSpan: "1",
-                        rowSpan: "1",
                         className: "table-checkbox sorting_disabled"
                     },
                         React.createElement("div", {
@@ -245,11 +241,23 @@ const Pages = React.createClass({
                             )
                         )
                     ),
-                    list,
+                    item,
                     React.createElement("th", {}, '操作')
                 )
             )
         )
+    },
+    _list: function (data) {
+        let list = []
+        let p
+        let thead = this.state.thead
+        for (let i in thead) {
+            p = React.createElement("td", {
+                key: i + data.id
+            }, data[i])
+            list.push(p)
+        }
+        return list
     },
     _isdel_all: function () {
         let isdel_all = this.state.isdel_all
@@ -265,18 +273,6 @@ const Pages = React.createClass({
             isdel_all: isdel_all,
             del_id: del_id
         });
-    },
-    _list: function (data) {
-        let url = this.props.params.list
-        let td = this.state.thead_key
-        let list = td.map(function (d) {
-            return (
-                React.createElement("td", {
-                    key: d + data.id
-                }, data[d])
-            )
-        }.bind(this))
-        return list
     },
     _click: function (e) {
         let del_id = this.state.del_id
@@ -296,7 +292,7 @@ const Pages = React.createClass({
         let id = e.target.id
         id = id.split("_")
         id = id[1]
-        let url = '../' + this.props.params.list + '/del/' + id
+        let url = '../' + this.props.params.pages + '/del/' + id
         request.get(url)
             .end(function (err, res) {
                 if (err) {

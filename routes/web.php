@@ -30,4 +30,5 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+Route::get('test', 'TestController@getIndex');
 // Route::controller('test', 'TestController/getIndex');
