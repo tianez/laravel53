@@ -52,6 +52,7 @@ class Header extends React.Component {
         })
     }
     render() {
+        let msg = ConfigStore.get('msg')
         return (
             React.createElement('header', {
                 id: 'header',

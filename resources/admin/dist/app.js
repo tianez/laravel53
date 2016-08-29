@@ -59,26 +59,28 @@
 	var hashHistory = _ReactRouter.hashHistory;
 	var browserHistory = _ReactRouter.browserHistory;
 
-	var _require = __webpack_require__(1);
+	// const {
+	//     Layout
+	// } = require('./layout')
 
-	var Layout = _require.Layout;
+	var Layout = __webpack_require__(1);
 
-	var _require2 = __webpack_require__(13);
+	var _require = __webpack_require__(14);
 
-	var Nomatch = _require2.Nomatch;
-	var Home = _require2.Home;
-	var Drag = _require2.Drag;
-	var ApiCloudsIndex = _require2.ApiCloudsIndex;
-	var ApiClouds = _require2.ApiClouds;
-	var ApiCloud = _require2.ApiCloud;
-	var Pages = _require2.Pages;
-	var Page = _require2.Page;
-	var Login = _require2.Login;
-	var Logout = _require2.Logout;
-	var Import = _require2.Import;
+	var Nomatch = _require.Nomatch;
+	var Home = _require.Home;
+	var Drag = _require.Drag;
+	var ApiCloudsIndex = _require.ApiCloudsIndex;
+	var ApiClouds = _require.ApiClouds;
+	var ApiCloud = _require.ApiCloud;
+	var Pages = _require.Pages;
+	var Page = _require.Page;
+	var Login = _require.Login;
+	var Logout = _require.Logout;
+	var Import = _require.Import;
 
 
-	__webpack_require__(44);
+	__webpack_require__(45);
 
 	function onEnter(nextState, replace) {
 	    var pathname = nextState.location.pathname;
@@ -163,28 +165,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var Layout = __webpack_require__(2);
-	var Header = __webpack_require__(9);
-	var Footer = __webpack_require__(11);
-	var Temp = {
-	    Layout: Layout,
-	    Header: Header,
-	    Footer: Footer
-	};
-	module.exports = Temp;
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
 	// var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
 
-	var Apicloud = __webpack_require__(3);
-	var Header = __webpack_require__(9);
-	var Sidebar = __webpack_require__(10);
-	var Footer = __webpack_require__(11);
+	var Apicloud = __webpack_require__(2);
+
+	var _require = __webpack_require__(8);
+
+	var Header = _require.Header;
+	var Sidebar = _require.Sidebar;
+	var Footer = _require.Footer;
+	var Message = _require.Message;
+
 	var Layout = React.createClass({
 	    displayName: 'Layout',
 
@@ -234,7 +225,7 @@
 	            }, React.createElement(Sidebar), React.createElement('section', {
 	                id: 'content',
 	                className: 'pure-u-1'
-	            }, this.props.children)), React.createElement(Footer)
+	            }, this.props.children)), React.createElement(Footer), React.createElement(Message)
 	            // )
 	            )
 	        );
@@ -243,12 +234,12 @@
 	module.exports = Layout;
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var request = __webpack_require__(4);
+	var request = __webpack_require__(3);
 	var AppId = 'A6984077246442';
 	var AppKey = '7F7872C0-8EB2-D116-C9AF-AF02A4B65BA0';
 	var AppUrl = 'https://d.apicloud.com/mcm/api/';
@@ -283,7 +274,7 @@
 	module.exports = Apicloud;
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -305,9 +296,9 @@
 	  root = undefined;
 	}
 
-	var Emitter = __webpack_require__(5);
-	var requestBase = __webpack_require__(6);
-	var isObject = __webpack_require__(7);
+	var Emitter = __webpack_require__(4);
+	var requestBase = __webpack_require__(5);
+	var isObject = __webpack_require__(6);
 
 	/**
 	 * Noop.
@@ -319,7 +310,7 @@
 	 * Expose `request`.
 	 */
 
-	var request = module.exports = __webpack_require__(8).bind(null, Request);
+	var request = module.exports = __webpack_require__(7).bind(null, Request);
 
 	/**
 	 * Determine XHR.
@@ -1271,7 +1262,7 @@
 	};
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1435,7 +1426,7 @@
 	};
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1443,7 +1434,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(7);
+	var isObject = __webpack_require__(6);
 
 	/**
 	 * Clear previous timeout.
@@ -1786,7 +1777,7 @@
 	};
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1808,7 +1799,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1847,6 +1838,26 @@
 	module.exports = request;
 
 /***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Layout = __webpack_require__(1);
+	var Header = __webpack_require__(9);
+	var Footer = __webpack_require__(10);
+	var Sidebar = __webpack_require__(12);
+	var Message = __webpack_require__(13);
+	var Temp = {
+	    // Layout: Layout,
+	    Header: Header,
+	    Footer: Footer,
+	    Sidebar: Sidebar,
+	    Message: Message
+	};
+	module.exports = Temp;
+
+/***/ },
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1864,7 +1875,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var Apicloud = __webpack_require__(3);
+	var Apicloud = __webpack_require__(2);
 
 	var A = function (_React$Component) {
 	    _inherits(A, _React$Component);
@@ -1930,6 +1941,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var msg = ConfigStore.get('msg');
 	            return React.createElement('header', {
 	                id: 'header',
 	                className: 'pure-u-1 pure-menu pure-menu-horizontal pure-menu-fixed'
@@ -1959,6 +1971,83 @@
 
 	'use strict';
 
+	var ApiStore = __webpack_require__(11);
+	// class Footer extends React.Component {
+	var Footer = React.createClass({
+	    displayName: 'Footer',
+
+	    // constructor(props) {
+	    //     super(props)
+	    //     this.state = {
+	    //         info: {}
+	    //     }
+	    // }
+	    getInitialState: function getInitialState() {
+	        return {
+	            info: {}
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        ApiStore.get('acman/zhaiyanapi/tcrand?fangfa=json', function (err, res) {
+	            var data = JSON.parse(res.text);
+	            this.setState({
+	                info: data
+	            });
+	        }.bind(this));
+	    },
+	    render: function render() {
+	        return React.createElement('footer', {
+	            id: 'footer',
+	            className: 'footer pure-u-1'
+	        }, React.createElement('div', {
+	            className: 'left'
+	        }, this.state.info.taici, '—— ', this.state.info.source), React.createElement('div', {
+	            className: 'right'
+	        }, '技术开发—by田恩仲（284059577）'));
+	    }
+	});
+
+	module.exports = Footer;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var request = __webpack_require__(3);
+	var AppUrl = 'http://apis.baidu.com/';
+	var apikey = 'c01ea8775f1c2620b7dd6f5b6bcec93b';
+	var get = function get(url, cb) {
+	    if (window.navigator.onLine == true) {
+	        request.get(AppUrl + url).set('apikey', apikey).end(cb);
+	    } else {
+	        console.log('网络出现故障！');
+	    }
+	};
+
+	var post = function post(url, info, cb) {
+	    console.log(window.navigator.onLine);
+	    if (window.navigator.onLine == true) {
+	        var now = Date.now();
+	        var key = SHA1(AppId + 'UZ' + AppKey + 'UZ' + now) + "." + now;
+	        request.post(AppUrl + url).set('X-APICloud-AppId', AppId).set('X-APICloud-AppKey', key).send(info).end(cb);
+	    } else {
+	        console.log('网络出现故障！');
+	    }
+	};
+	var ApiStore = {
+	    get: get,
+	    post: post
+	};
+	module.exports = ApiStore;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1971,7 +2060,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var Apicloud = __webpack_require__(3);
+	var Apicloud = __webpack_require__(2);
 
 	var A = function (_React$Component) {
 	    _inherits(A, _React$Component);
@@ -2067,99 +2156,61 @@
 	module.exports = Sidebar;
 
 /***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var ApiStore = __webpack_require__(12);
-	// class Footer extends React.Component {
-	var Footer = React.createClass({
-	    displayName: 'Footer',
-
-	    // constructor(props) {
-	    //     super(props)
-	    //     this.state = {
-	    //         info: {}
-	    //     }
-	    // }
-	    getInitialState: function getInitialState() {
-	        return {
-	            info: {}
-	        };
-	    },
-	    componentDidMount: function componentDidMount() {
-	        ApiStore.get('acman/zhaiyanapi/tcrand?fangfa=json', function (err, res) {
-	            var data = JSON.parse(res.text);
-	            this.setState({
-	                info: data
-	            });
-	        }.bind(this));
-	    },
-	    render: function render() {
-	        return React.createElement('footer', {
-	            id: 'footer',
-	            className: 'footer pure-u-1'
-	        }, React.createElement('div', {
-	            className: 'left'
-	        }, this.state.info.taici, '—— ', this.state.info.source), React.createElement('div', {
-	            className: 'right'
-	        }, '技术开发—by田恩仲（284059577）'));
-	    }
-	});
-
-	module.exports = Footer;
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var request = __webpack_require__(4);
-	var AppUrl = 'http://apis.baidu.com/';
-	var apikey = 'c01ea8775f1c2620b7dd6f5b6bcec93b';
-	var get = function get(url, cb) {
-	    if (window.navigator.onLine == true) {
-	        request.get(AppUrl + url).set('apikey', apikey).end(cb);
-	    } else {
-	        console.log('网络出现故障！');
-	    }
-	};
-
-	var post = function post(url, info, cb) {
-	    console.log(window.navigator.onLine);
-	    if (window.navigator.onLine == true) {
-	        var now = Date.now();
-	        var key = SHA1(AppId + 'UZ' + AppKey + 'UZ' + now) + "." + now;
-	        request.post(AppUrl + url).set('X-APICloud-AppId', AppId).set('X-APICloud-AppKey', key).send(info).end(cb);
-	    } else {
-	        console.log('网络出现故障！');
-	    }
-	};
-	var ApiStore = {
-	    get: get,
-	    post: post
-	};
-	module.exports = ApiStore;
-
-/***/ },
 /* 13 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Message = function (_React$Component) {
+	    _inherits(Message, _React$Component);
+
+	    function Message() {
+	        _classCallCheck(this, Message);
+
+	        return _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this));
+	    }
+
+	    _createClass(Message, [{
+	        key: 'render',
+	        value: function render() {
+	            var msg = ConfigStore.get('msg');
+	            return msg ? React.createElement('div', {
+	                id: 'message',
+	                className: 'message pure-u-1'
+	            }, msg) : null;
+	        }
+	    }]);
+
+	    return Message;
+	}(React.Component);
+
+	module.exports = Message;
+
+/***/ },
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Nomatch = __webpack_require__(14);
-	var Home = __webpack_require__(15);
-	var Drag = __webpack_require__(16);
-	var ApiCloudsIndex = __webpack_require__(17);
-	var ApiClouds = __webpack_require__(18);
-	var ApiCloud = __webpack_require__(19);
-	var Pages = __webpack_require__(39);
-	var Page = __webpack_require__(40);
-	var Login = __webpack_require__(41);
-	var Logout = __webpack_require__(42);
-	var Import = __webpack_require__(43);
+	var Nomatch = __webpack_require__(15);
+	var Home = __webpack_require__(16);
+	var Drag = __webpack_require__(17);
+	var ApiCloudsIndex = __webpack_require__(18);
+	var ApiClouds = __webpack_require__(19);
+	var ApiCloud = __webpack_require__(20);
+	var Pages = __webpack_require__(40);
+	var Page = __webpack_require__(41);
+	var Login = __webpack_require__(42);
+	var Logout = __webpack_require__(43);
+	var Import = __webpack_require__(44);
 
 	var Temp = {
 	    Nomatch: Nomatch,
@@ -2177,7 +2228,7 @@
 	module.exports = Temp;
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2212,7 +2263,7 @@
 	module.exports = Nomatch;
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2255,7 +2306,7 @@
 	module.exports = Home;
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2357,7 +2408,7 @@
 	module.exports = Drag;
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2375,13 +2426,13 @@
 	module.exports = ApiCloudsIndex;
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var Link = ReactRouter.Link;
-	var Apicloud = __webpack_require__(3);
+	var Apicloud = __webpack_require__(2);
 	var ApiClouds = React.createClass({
 	    displayName: 'ApiClouds',
 
@@ -2528,14 +2579,14 @@
 	module.exports = ApiClouds;
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Apicloud = __webpack_require__(3);
+	var Apicloud = __webpack_require__(2);
 
-	var _require = __webpack_require__(20);
+	var _require = __webpack_require__(21);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -2735,27 +2786,27 @@
 	module.exports = ApiCloud;
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Form = __webpack_require__(21);
-	var FormGroup = __webpack_require__(24);
-	var Input = __webpack_require__(25);
-	var Textarea = __webpack_require__(26);
+	var Form = __webpack_require__(22);
+	var FormGroup = __webpack_require__(25);
+	var Input = __webpack_require__(26);
+	var Textarea = __webpack_require__(27);
 	// const Editer = require('../editer')
-	var Canvas = __webpack_require__(27);
-	var Upload = __webpack_require__(28);
-	var Radio = __webpack_require__(31);
-	var Checkbox = __webpack_require__(32);
-	var Range = __webpack_require__(33);
-	var Button = __webpack_require__(34);
-	var Hidden = __webpack_require__(35);
+	var Canvas = __webpack_require__(28);
+	var Upload = __webpack_require__(29);
+	var Radio = __webpack_require__(32);
+	var Checkbox = __webpack_require__(33);
+	var Range = __webpack_require__(34);
+	var Button = __webpack_require__(35);
+	var Hidden = __webpack_require__(36);
 	// const ColorPicker = require('./ColorPicker')
-	var Select = __webpack_require__(36);
-	var Tab = __webpack_require__(37);
-	var Audio = __webpack_require__(38);
+	var Select = __webpack_require__(37);
+	var Tab = __webpack_require__(38);
+	var Audio = __webpack_require__(39);
 	// const {
 	//     Calendar,
 	//     DateRange
@@ -2784,13 +2835,13 @@
 	module.exports = Forms;
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Apicloud = __webpack_require__(3);
-	var classNames = __webpack_require__(22);
+	var Apicloud = __webpack_require__(2);
+	var classNames = __webpack_require__(23);
 
 	var Form = React.createClass({
 	    displayName: 'Form',
@@ -2835,7 +2886,7 @@
 	module.exports = Form;
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -2881,7 +2932,7 @@
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(23)) === 'object' && __webpack_require__(23)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(24)) === 'object' && __webpack_require__(24)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -2892,7 +2943,7 @@
 	})();
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -2900,7 +2951,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2913,7 +2964,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var classNames = __webpack_require__(22);
+	var classNames = __webpack_require__(23);
 
 	var FormGroup = function (_React$Component) {
 	    _inherits(FormGroup, _React$Component);
@@ -2948,13 +2999,13 @@
 	module.exports = FormGroup;
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(22);
-	var FormGroup = __webpack_require__(24);
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
 
 	var Input = React.createClass({
 	    displayName: 'Input',
@@ -3056,13 +3107,13 @@
 	module.exports = Input;
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(22);
-	var FormGroup = __webpack_require__(24);
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
 
 	var Textarea = React.createClass({
 	    displayName: 'Textarea',
@@ -3178,7 +3229,7 @@
 	module.exports = Textarea;
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3216,17 +3267,17 @@
 	module.exports = Canvas;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(22);
-	var ajaxUpload = __webpack_require__(29);
-	var FormGroup = __webpack_require__(24);
-	var Canvas = __webpack_require__(27);
+	var classNames = __webpack_require__(23);
+	var ajaxUpload = __webpack_require__(30);
+	var FormGroup = __webpack_require__(25);
+	var Canvas = __webpack_require__(28);
 
-	var _require = __webpack_require__(30);
+	var _require = __webpack_require__(31);
 
 	var getUpToken = _require.getUpToken;
 	var getHash = _require.getHash;
@@ -3528,7 +3579,7 @@
 	module.exports = Upload;
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3574,7 +3625,7 @@
 	};
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3742,13 +3793,13 @@
 	};
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(22);
-	var FormGroup = __webpack_require__(24);
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
 
 	var Radio = React.createClass({
 	    displayName: 'Radio',
@@ -3840,13 +3891,13 @@
 	module.exports = Radio;
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(22);
-	var FormGroup = __webpack_require__(24);
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
 
 	var Checkbox = React.createClass({
 	    displayName: 'Checkbox',
@@ -3858,10 +3909,13 @@
 	            value: [2],
 	            options: [{
 	                title: '选项1',
-	                value: 1
+	                value: 0
 	            }, {
 	                title: '选项2',
-	                value: 2
+	                value: 1
+	            }, {
+	                title: '选项3',
+	                value: 's2'
 	            }],
 	            name: 'state',
 	            placeholder: '',
@@ -3884,7 +3938,8 @@
 	                });
 	                break;
 	            default:
-	                option = JSON.parse(this.props.options);
+	                option = this.props.options;
+	            // option = JSON.parse(this.props.options)
 	        }
 	        var value = this.props.value;
 	        if (value) {
@@ -3901,6 +3956,9 @@
 	    _onChange: function _onChange(e) {
 	        var type = this.props.type;
 	        var v = e.target.value;
+	        if (!isNaN(v)) {
+	            v = parseInt(v);
+	        }
 	        var value = this.state.value;
 	        var index = value.indexOf(v);
 	        if (index == -1) {
@@ -3953,13 +4011,13 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(22);
-	var FormGroup = __webpack_require__(24);
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
 
 	var Range = React.createClass({
 	    displayName: 'Range',
@@ -4020,7 +4078,7 @@
 	module.exports = Range;
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4101,7 +4159,7 @@
 	module.exports = Botton;
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4121,7 +4179,7 @@
 	module.exports = Hidden;
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4134,8 +4192,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var classNames = __webpack_require__(22);
-	var FormGroup = __webpack_require__(24);
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
 
 	var Select = function (_React$Component) {
 	    _inherits(Select, _React$Component);
@@ -4256,7 +4314,7 @@
 	module.exports = Select;
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4344,7 +4402,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4408,7 +4466,7 @@
 	module.exports = Audio;
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4425,7 +4483,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var request = __webpack_require__(4);
+	var request = __webpack_require__(3);
 
 	var L = function (_React$Component) {
 	    _inherits(L, _React$Component);
@@ -4593,7 +4651,7 @@
 	            page: page
 	        }).end(function (err, res) {
 	            if (err) {
-	                var msg = [res.status + 'error'];
+	                var msg = ['error'];
 	            } else {
 	                var data = JSON.parse(res.text);
 	                if (data.res == 404) {
@@ -4610,7 +4668,7 @@
 	                    pages: data.pages,
 	                    items: items.concat(data.pages.data),
 	                    del_all: this._set_del_all(data.info),
-	                    thead: data.thead.tds,
+	                    thead: data.thead,
 	                    title: data.title
 	                });
 	            }
@@ -4783,7 +4841,7 @@
 	module.exports = Pages;
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4796,7 +4854,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _require = __webpack_require__(20);
+	var _require = __webpack_require__(21);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -4864,17 +4922,18 @@
 	            var page = _props$params2.page;
 
 	            console.log(this.state.info);
-	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail';
+	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail2';
 	            request.post(requrl).query({
 	                list: pages
 	            }).send(this.state.info).end(function (err, res) {
+	                var msg = void 0;
 	                if (err) {
-	                    var msg = [res.status + 'error'];
-	                    ConfigActions.msg(msg);
+	                    msg = err.response.error.message;
 	                } else {
 	                    var data = JSON.parse(res.text);
-	                    ConfigActions.msg(data.msg);
+	                    msg = data.msg;
 	                }
+	                ConfigActions.update('msg', msg);
 	            }.bind(this));
 	        }
 	    }, {
@@ -4966,7 +5025,7 @@
 	module.exports = Page;
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4979,11 +5038,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var request = __webpack_require__(4);
+	var request = __webpack_require__(3);
 	var _ReactRouter = ReactRouter;
 	var Link = _ReactRouter.Link;
 
-	var _require = __webpack_require__(20);
+	var _require = __webpack_require__(21);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -5080,7 +5139,7 @@
 	module.exports = Login;
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5127,12 +5186,12 @@
 	module.exports = Logout;
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _require = __webpack_require__(20);
+	var _require = __webpack_require__(21);
 
 	var Form = _require.Form;
 	var FormGroup = _require.FormGroup;
@@ -5141,7 +5200,7 @@
 	var Hidden = _require.Hidden;
 
 
-	var ajaxUpload = __webpack_require__(29);
+	var ajaxUpload = __webpack_require__(30);
 
 	var Import = React.createClass({
 	    displayName: 'Import',
@@ -5240,7 +5299,7 @@
 	module.exports = Import;
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5248,17 +5307,17 @@
 	/**
 	 * action
 	 */
-	window.ConfigActions = __webpack_require__(45);
+	window.ConfigActions = __webpack_require__(46);
 
 	/**
 	 * store
 	 */
-	window.ConfigStore = __webpack_require__(51);
+	window.ConfigStore = __webpack_require__(52);
 
 	/** 
 	 * 请求数据
 	*/
-	window.request = __webpack_require__(4);
+	window.request = __webpack_require__(3);
 
 	//获取url参数数组
 	window.get = function (url) {
@@ -5300,12 +5359,12 @@
 	};
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(46);
+	var AppDispatcher = __webpack_require__(47);
 
 	var ConfigActions = {
 
@@ -5339,7 +5398,7 @@
 	module.exports = ConfigActions;
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5357,12 +5416,12 @@
 	 * A singleton that operates as the central hub for application updates.
 	 */
 
-	var Dispatcher = __webpack_require__(47).Dispatcher;
+	var Dispatcher = __webpack_require__(48).Dispatcher;
 
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5376,10 +5435,10 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
-	module.exports.Dispatcher = __webpack_require__(48);
+	module.exports.Dispatcher = __webpack_require__(49);
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5405,7 +5464,7 @@
 	  }
 	}
 
-	var invariant = __webpack_require__(50);
+	var invariant = __webpack_require__(51);
 
 	var _prefix = 'ID_';
 
@@ -5617,10 +5676,10 @@
 	}();
 
 	module.exports = Dispatcher;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(49)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)))
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5786,7 +5845,7 @@
 	};
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5838,27 +5897,25 @@
 	};
 
 	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(49)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)))
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(46);
-	var EventEmitter = __webpack_require__(52).EventEmitter;
-	var assign = __webpack_require__(53);
+	var AppDispatcher = __webpack_require__(47);
+	var EventEmitter = __webpack_require__(53).EventEmitter;
+	var assign = __webpack_require__(54);
 
 	var CHANGE_EVENT = 'config';
 
 	var _todos = {
 	    transition: 'example',
 	    msg: '',
-	    msg_n: 0,
 	    loading: true,
-	    title: '王的理想乡',
-	    pics: ''
+	    title: '王的理想乡'
 	};
 
 	var ConfigStore = assign({}, EventEmitter.prototype, {
@@ -5928,7 +5985,7 @@
 	}
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6206,7 +6263,7 @@
 	}
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports) {
 
 	'use strict';

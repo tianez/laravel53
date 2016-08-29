@@ -169,7 +169,7 @@ const Pages = React.createClass({
             })
             .end(function (err, res) {
                 if (err) {
-                    let msg = [res.status + 'error']
+                    let msg = ['error']
                 } else {
                     let data = JSON.parse(res.text)
                     if (data.res == 404) {
@@ -186,7 +186,7 @@ const Pages = React.createClass({
                         pages: data.pages,
                         items: items.concat(data.pages.data),
                         del_all: this._set_del_all(data.info),
-                        thead: data.thead.tds,
+                        thead: data.thead,
                         title: data.title,
                     });
                 }

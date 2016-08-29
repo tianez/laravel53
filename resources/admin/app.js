@@ -14,9 +14,11 @@ const {
     browserHistory
 } = ReactRouter
 
-const {
-    Layout
-} = require('./layout')
+// const {
+//     Layout
+// } = require('./layout')
+
+const Layout = require('./layout/layout')
 
 const {
     Nomatch,

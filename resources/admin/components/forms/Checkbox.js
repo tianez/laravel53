@@ -11,10 +11,13 @@ const Checkbox = React.createClass({
             value: [2],
             options: [{
                 title: '选项1',
-                value: 1
+                value: 0
             }, {
                 title: '选项2',
-                value: 2
+                value: 1
+            }, {
+                title: '选项3',
+                value: 's2'
             }],
             name: 'state',
             placeholder: '',
@@ -37,7 +40,8 @@ const Checkbox = React.createClass({
                 })
                 break;
             default:
-                option = JSON.parse(this.props.options)
+            option = this.props.options
+                // option = JSON.parse(this.props.options)
         }
         let value = this.props.value
         if (value) {
@@ -54,6 +58,9 @@ const Checkbox = React.createClass({
     _onChange: function(e) {
         let type = this.props.type
         let v = e.target.value
+        if(!isNaN(v)){
+            v = parseInt(v)
+        }
         let value = this.state.value
         let index = value.indexOf(v)
         if (index == -1) {

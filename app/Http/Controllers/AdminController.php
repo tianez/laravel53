@@ -33,10 +33,10 @@ class AdminController extends Controller {
         $data = DB::table($table)->paginate($pre_page);
         $data = $data->toArray();
         $thead = array();
-        $thead['th'] = array('id','key', 'title', 'f_module');
-        $thead['td'] = array('ID','字段key', '字段名称', '字段模块');
-        $thead['tds'] = array('id'=>'ID','key'=>'字段key', 'title'=>'字段名称', 'f_module'=>'字段模块');
-        $out = array('title' => '字段', 'pages' => $data,'thead' => $thead);
+        $thead['fields'] = array('id'=>'ID','key'=>'字段key', 'title'=>'字段名称', 'f_module'=>'字段模块');
+        $thead['meun'] = array('id'=>'ID','link'=>'链接地址', 'title'=>'链接标题', 'description'=>'描述');
+        $thead['roles'] = array('id'=>'ID','name'=>'用户组标识', 'display_name'=>'用户组名称', 'description'=>'描述');
+        $out = array('title' => '字段', 'pages' => $data,'thead' => $thead[$table]);
         return response()->json($out);
     }
     

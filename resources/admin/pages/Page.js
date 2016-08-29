@@ -16,7 +16,7 @@ class Page extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            info:{}
+            info: {}
         }
     }
     componentDidMount() {
@@ -34,7 +34,7 @@ class Page extends React.Component {
             pages,
             page
         } = props.params
-        let requrl = page=='add'?'admin/add':'admin/detail'
+        let requrl = page == 'add' ? 'admin/add' : 'admin/detail'
         request.get(requrl)
             .query({
                 list: pages,
@@ -44,8 +44,8 @@ class Page extends React.Component {
                 let data = JSON.parse(res.text)
                 console.log(data);
                 this.setState({
-                    fields:data.fields,
-                    info: data.info||{}
+                    fields: data.fields,
+                    info: data.info || {}
                 })
             }.bind(this))
     }
@@ -55,20 +55,21 @@ class Page extends React.Component {
             page
         } = this.props.params
         console.log(this.state.info)
-        let requrl = page=='add'?'admin/add':'admin/detail'
+        let requrl = page == 'add' ? 'admin/add' : 'admin/detail2'
         request.post(requrl)
             .query({
                 list: pages
             })
             .send(this.state.info)
             .end(function (err, res) {
+                let msg
                 if (err) {
-                    let msg = [res.status + 'error']
-                    ConfigActions.msg(msg);
+                    msg = err.response.error.message
                 } else {
                     let data = JSON.parse(res.text);
-                    ConfigActions.msg(data.msg)
+                    msg = data.msg
                 }
+                ConfigActions.update('msg', msg)
             }.bind(this))
     }
     _onChange(name, value) {
@@ -130,21 +131,21 @@ class Page extends React.Component {
             })
         }
         // if (info) {
-            render =
-                React.createElement('section', {
-                    className: 'container'
+        render =
+            React.createElement('section', {
+                className: 'container'
+            },
+                React.createElement(Form, {
+                    action: this.state.action,
+                    info: info,
+                    apiSubmit: false,
+                    legend: this.state.title,
+                    onSubmit: this._onSubmit.bind(this)
                 },
-                    React.createElement(Form, {
-                        action: this.state.action,
-                        info: info,
-                        apiSubmit: false,
-                        legend: this.state.title,
-                        onSubmit: this._onSubmit.bind(this)
-                    },
-                        forms,
-                        React.createElement(Button)
-                    )
+                    forms,
+                    React.createElement(Button)
                 )
+            )
         // }
         return (
             React.createElement('section', {
