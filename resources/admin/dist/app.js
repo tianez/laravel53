@@ -2131,7 +2131,8 @@
 	                    return React.createElement(A, {
 	                        key: index,
 	                        to: d.link,
-	                        title: d.title
+	                        title: d.title,
+	                        icon: d.icon
 	                    });
 	                });
 	            }
@@ -4640,7 +4641,7 @@
 	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	        var page = nextProps.location.query.page || 1;
 	        var page2 = this.props.location.query.page || 1;
-	        if (this.props.params.pages != nextProps.params.pages || page != page2) {
+	        if (this.props.params.pages != nextProps.params.pages || page != page2 || nextProps.location.search !== this.state.search) {
 	            var url = nextProps.params.pages;
 	            this._reQuest(url, page);
 	        }
@@ -4826,7 +4827,29 @@
 	            className: "pure-u-1"
 	        }, React.createElement("h3", {
 	            className: "page-title"
-	        }, this.state.title), React.createElement("table", {
+	        }, this.state.title), React.createElement('div', {
+	            className: 'pure-u-1 filter'
+	        }, React.createElement('a', {
+	            className: 'pure-menu-link'
+	        }, '筛选'), React.createElement(Link, {
+	            to: '/api/' + this.props.params.pages,
+	            className: 'pure-menu-link',
+	            activeClassName: 'active'
+	        }, '全部'), React.createElement(Link, {
+	            to: '/api/' + this.props.params.pages,
+	            className: 'pure-menu-link',
+	            activeClassName: 'active',
+	            query: {
+	                state: 1
+	            }
+	        }, '正常'), React.createElement(Link, {
+	            to: '/api/' + this.props.params.pages,
+	            className: 'pure-menu-link',
+	            activeClassName: 'active',
+	            query: {
+	                state: 0
+	            }
+	        }, '删除')), React.createElement("table", {
 	            className: "pure-table pure-table-bordered",
 	            style: {
 	                width: '100%'

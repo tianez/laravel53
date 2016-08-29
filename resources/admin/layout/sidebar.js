@@ -8,13 +8,13 @@ class A extends React.Component {
     render() {
         return (
             React.createElement('li', {
-                className: 'pure-menu-item'
-            },
-                React.createElement(Link, {
-                    className: 'pure-menu-link',
-                    to: '/' + this.props.to,
-                    activeClassName: 'active'
+                    className: 'pure-menu-item'
                 },
+                React.createElement(Link, {
+                        className: 'pure-menu-link',
+                        to: '/' + this.props.to,
+                        activeClassName: 'active'
+                    },
                     React.createElement("i", {
                         className: this.props.icon || 'fa fa-home'
                     }),
@@ -41,7 +41,7 @@ class Sidebar extends React.Component {
         }
         request
             .get('admin/meun')
-            .end(function (err, res) {
+            .end(function(err, res) {
                 if (err) {
                     reject('error');
                 } else {
@@ -55,26 +55,27 @@ class Sidebar extends React.Component {
     render() {
         let menus
         if (this.state.menu) {
-            menus = this.state.menu.map(function (d, index) {
+            menus = this.state.menu.map(function(d, index) {
                 return React.createElement(A, {
                     key: index,
                     to: d.link,
-                    title: d.title
+                    title: d.title,
+                    icon: d.icon
                 })
             })
         }
         return (
             React.createElement('aside', {
-                id: 'sidebar',
-                className: 'pure-u-1 pure-menu sidebar'
-            },
+                    id: 'sidebar',
+                    className: 'pure-u-1 pure-menu sidebar'
+                },
                 React.createElement(Link, {
                     className: 'pure-menu-heading pure-menu-link',
                     to: '/'
                 }, '我的理想乡'),
                 React.createElement('ul', {
-                    className: 'pure-menu-list'
-                },
+                        className: 'pure-menu-list'
+                    },
                     React.createElement(A, {
                         to: 'drag',
                         title: 'drag'

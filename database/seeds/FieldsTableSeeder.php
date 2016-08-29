@@ -82,7 +82,7 @@ class FieldsTableSeeder extends Seeder
         array(
         'key' => 'f_add',
         'title' => '新增权限',
-        'type' => 'text',
+        'type' => 'checkbox',
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '新增权限',
@@ -91,7 +91,7 @@ class FieldsTableSeeder extends Seeder
         array(
         'key' => 'f_edit',
         'title' => '编辑权限',
-        'type' => 'text',
+        'type' => 'checkbox',
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '编辑权限',
@@ -100,7 +100,7 @@ class FieldsTableSeeder extends Seeder
         array(
         'key' => 'f_visible',
         'title' => '可见权限',
-        'type' => 'text',
+        'type' => 'checkbox',
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '可见权限',

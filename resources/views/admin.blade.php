@@ -17,8 +17,8 @@
     <script src="resources/js/react-with-addons.js"></script>
     <script src="resources/js/react-dom.js"></script>
     <script src="resources/js/ReactRouter.js"></script>
-    <script src="http://cdn.bootcss.com/immutable/3.8.1/immutable.min.js"></script>
-    <script src="http://cdn.bootcss.com/draft-js/0.7.0/Draft.min.js"></script>
+    <!--<script src="http://cdn.bootcss.com/immutable/3.8.1/immutable.min.js"></script>
+    <script src="http://cdn.bootcss.com/draft-js/0.7.0/Draft.min.js"></script> -->
 
     <script src="resources/js/SHA1.js"></script>
     <script src="resources/js/CryptoJS.js"></script>
