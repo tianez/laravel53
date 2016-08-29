@@ -6,7 +6,7 @@ const {
 const {
     Form,
     Input,
-    Button 
+    Button
 } = require('../components/forms/index')
 class Login extends React.Component {
     constructor(props) {
@@ -31,12 +31,15 @@ class Login extends React.Component {
             .post('admin/login')
             .send(this.state.info)
             .set('Accept', 'application/json')
-            .end(function (err, res) {
+            .end(function(err, res) {
                 if (err) throw err
                 let data = JSON.parse(res.text)
                 if (data.state == 'ok') {
                     storedb('user').insert(data.data)
-                    this.props.history.pushState(null, '/')
+                        this.props.history.pushState(null, '/')
+                        // this.context.router.push('/')
+                    // this.context.history.replace('/')
+
                 } else {
                     this.setState({ 'msg': data.msg })
                     console.log(data)
@@ -46,14 +49,14 @@ class Login extends React.Component {
     render() {
         return (
             React.createElement('section', {
-                className: 'pure-g'
-            },
-                React.createElement('section', {
-                    className: 'pure-u-1 login'
+                    className: 'pure-g'
                 },
-                    React.createElement('section', {
-                        className: 'login_t pure-u-1'
+                React.createElement('section', {
+                        className: 'pure-u-1 login'
                     },
+                    React.createElement('section', {
+                            className: 'login_t pure-u-1'
+                        },
                         React.createElement(Link, {
                             to: '/',
                             title: '首页'
@@ -64,15 +67,15 @@ class Login extends React.Component {
                         }, '登录')
                     ),
                     this.state.msg ? React.createElement('div', {
-                        className:'alert alert-warning'
+                        className: 'alert alert-warning'
                     }, this.state.msg) : null,
                     React.createElement(Form, {
-                        action: 'user/login',
-                        info: this.state.info,
-                        apiSubmit: false,
-                        legend: '用户登录',
-                        onSubmit: this._onSubmit.bind(this)
-                    },
+                            action: 'user/login',
+                            info: this.state.info,
+                            apiSubmit: false,
+                            legend: '用户登录',
+                            onSubmit: this._onSubmit.bind(this)
+                        },
                         React.createElement(Input, {
                             type: 'text',
                             title: '用户名',

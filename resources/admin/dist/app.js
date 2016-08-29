@@ -5107,6 +5107,8 @@
 	                if (data.state == 'ok') {
 	                    storedb('user').insert(data.data);
 	                    this.props.history.pushState(null, '/');
+	                    // this.context.router.push('/')
+	                    // this.context.history.replace('/')
 	                } else {
 	                    this.setState({ 'msg': data.msg });
 	                    console.log(data);
