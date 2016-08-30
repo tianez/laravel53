@@ -73,11 +73,6 @@ hr {
   border: none;
   height: 1px;
 }
-.containter {
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-}
 .clear {
   clear: both !important;
 }
@@ -93,7 +88,6 @@ hr {
 .container {
   width: 100%;
   max-width: 1180px;
-  margin: 0 auto;
 }
 #warper .switch {
   position: absolute;
@@ -287,6 +281,7 @@ hr {
 .form-fields .form-fieldset {
   padding-top: 4.5rem;
   margin: 0;
+  border: none;
 }
 .form-fields .form-legend {
   padding: 0 1.5rem;

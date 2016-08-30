@@ -80,12 +80,12 @@ class AdminController extends Controller {
         $out = array();
         if (empty($info)) {
             $out['res'] = 404;
-            $out['msg'][] = '没有发现相关数据！';
+            $out['msg'] = '没有发现相关数据！';
         }else{
             $data = $request->except(['list']);
             $res = DB::table($table)->where('id', $id)->update($data);
             $out['res'] = $res;
-            $out['msg'][] = '保存成功！';
+            $out['msg'] = '保存成功！';
         }
         return response()->json($out);
     }

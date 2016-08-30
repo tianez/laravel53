@@ -2207,7 +2207,7 @@
 	                    clearInterval(this.autoplayTimer);
 	                    this.autoplayTimer = null;
 	                }
-	            }.bind(this), 1000);
+	            }.bind(this), 3000);
 	        })
 	    }, {
 	        key: 'render',
@@ -2219,7 +2219,7 @@
 	                    className: ''
 	                }, d.msg);
 	            });
-	            return message ? React.createElement('div', {
+	            return message.length > 0 ? React.createElement('div', {
 	                id: 'message',
 	                className: 'message pure-u-1'
 	            }, list) : null;

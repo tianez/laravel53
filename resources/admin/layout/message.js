@@ -20,7 +20,7 @@ class Message extends React.Component {
         if (this.autoplayTimer != null) {
             return
         }
-        this.autoplayTimer = setInterval(function () {
+        this.autoplayTimer = setInterval(function() {
             let message = this.state.message
             message.shift()
             this.setState({ message: message })
@@ -29,21 +29,21 @@ class Message extends React.Component {
                 clearInterval(this.autoplayTimer);
                 this.autoplayTimer = null
             }
-        }.bind(this), 1000)
+        }.bind(this), 3000)
     }
     render() {
         let message = this.state.message
-        let list = message.map(function (d, index) {
+        let list = message.map(function(d, index) {
             return React.createElement('div', {
                 key: index,
                 className: ''
             }, d.msg)
         })
         return (
-            message ? React.createElement('div', {
-                id: 'message',
-                className: 'message pure-u-1'
-            },
+            message.length > 0 ? React.createElement('div', {
+                    id: 'message',
+                    className: 'message pure-u-1'
+                },
                 list
             ) : null
         )

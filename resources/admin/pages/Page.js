@@ -38,7 +38,7 @@ class Page extends React.Component {
                 list: pages,
                 id: page
             })
-            .end(function (err, res) {
+            .end(function(err, res) {
                 let data = JSON.parse(res.text)
                 console.log(data);
                 this.setState({
@@ -56,10 +56,10 @@ class Page extends React.Component {
         let requrl = page == 'add' ? 'admin/add' : 'admin/detail'
         request.post(requrl)
             .query({
-                list: pages 
+                list: pages
             })
             .send(this.state.info)
-            .end(function (err, res) {
+            .end(function(err, res) {
                 let msg
                 if (err) {
                     msg = err.response.error.message
@@ -84,7 +84,7 @@ class Page extends React.Component {
         let model = this.state.fields
         if (model) {
             let onChange = this._onChange.bind(this)
-            forms = model.map(function (d, index) {
+            forms = model.map(function(d, index) {
                 if (info[d.key] || info[d.key] == 0) {
                     d.value = info[d.key]
                 } else {
@@ -111,9 +111,9 @@ class Page extends React.Component {
                     case "image":
                         return (React.createElement(Upload, d))
                         break;
-                    // case "editer":
-                    //     return (React.createElement(Editer, d))
-                    //     break;
+                        // case "editer":
+                        //     return (React.createElement(Editer, d))
+                        //     break;
                     case "radio":
                         return (React.createElement(Radio, d))
                         break;
@@ -131,20 +131,20 @@ class Page extends React.Component {
         // if (info) {
         render =
             React.createElement('section', {
-                className: 'container'
-            },
-                React.createElement(Form, {
-                    action: this.state.action,
-                    info: info,
-                    apiSubmit: false,
-                    legend: this.state.title,
-                    onSubmit: this._onSubmit.bind(this)
+                    className: 'container'
                 },
+                React.createElement(Form, {
+                        action: this.state.action,
+                        info: info,
+                        apiSubmit: false,
+                        legend: this.state.title,
+                        onSubmit: this._onSubmit.bind(this)
+                    },
                     forms,
                     React.createElement(Button)
                 )
             )
-        // }
+            // }
         return (
             React.createElement('section', {
                 className: 'warp'
