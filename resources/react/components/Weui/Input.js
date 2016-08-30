@@ -41,25 +41,28 @@ class Input extends React.Component {
                         ),
                         React.createElement('div', {
                             className: 'weui_cell_bd weui_cell_primary'
-                        },
+                        }, 
                             React.createElement('input', {
                                 className: 'weui_input',
                                 type: this.props.type,
-                                defaultValue:this.props.value,
-                                maxLength: this.props.max?this.props.max:null,
+                                defaultValue: this.props.value,
+                                maxLength: this.props.max ? this.props.max : null,
                                 onChange: this._onChange.bind(this),
                                 placeholder: this.props.placeholder
                             })
                         ),
-                        error?React.createElement('div', {
+                        error ? React.createElement('div', {
                             className: 'weui_cell_ft'
                         },
                             React.createElement('i', {
                                 className: 'weui_icon_warn'
-                            }
-                            )
-                        ):null
+                            })
+                        ) : null
                     )
+                ),
+                React.createElement('div', {
+                    className: 'weui_cells_tips'
+                }, '因为没有后端接收，所以此处文件上传会失败'
                 )
             )
         )

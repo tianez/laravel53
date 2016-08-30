@@ -61,7 +61,7 @@ var Layout = React.createClass({
                     }, this.props.children)
                 ),
                 React.createElement(Footer),
-                React.createElement(Message)
+                React.createElement(Message, { message: ConfigStore.message() })
                 // )
             )
         )

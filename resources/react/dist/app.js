@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	__webpack_require__(6);
+	__webpack_require__(7);
 
 	__webpack_require__(11);
 	/**
@@ -98,13 +98,13 @@
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */,
@@ -1258,7 +1258,7 @@
 	    function Layout() {
 	        _classCallCheck(this, Layout);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Layout).call(this));
+	        return _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this));
 	    }
 
 	    _createClass(Layout, [{
@@ -1340,7 +1340,7 @@
 	    function Header() {
 	        _classCallCheck(this, Header);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).call(this));
+	        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 	    }
 
 	    _createClass(Header, [{
@@ -1456,7 +1456,7 @@
 	    function Footer() {
 	        _classCallCheck(this, Footer);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).call(this));
+	        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this));
 	    }
 
 	    _createClass(Footer, [{
@@ -1538,7 +1538,7 @@
 	    function Input(props) {
 	        _classCallCheck(this, Input);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Input).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
 	        _this.state = {
 	            help: props.help,
@@ -1588,7 +1588,9 @@
 	                className: 'weui_cell_ft'
 	            }, React.createElement('i', {
 	                className: 'weui_icon_warn'
-	            })) : null)));
+	            })) : null)), React.createElement('div', {
+	                className: 'weui_cells_tips'
+	            }, '因为没有后端接收，所以此处文件上传会失败'));
 	        }
 	    }]);
 
@@ -1625,7 +1627,7 @@
 	    function Textarea(props) {
 	        _classCallCheck(this, Textarea);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Textarea).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
 
 	        _this.state = {
 	            textCounter: props.value ? props.value.length : 0
@@ -1706,7 +1708,7 @@
 	    function Checkbox() {
 	        _classCallCheck(this, Checkbox);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Checkbox).call(this));
+	        return _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this));
 	    }
 
 	    _createClass(Checkbox, [{
@@ -1775,7 +1777,7 @@
 	    function Checkbox2() {
 	        _classCallCheck(this, Checkbox2);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Checkbox2).call(this));
+	        return _possibleConstructorReturn(this, (Checkbox2.__proto__ || Object.getPrototypeOf(Checkbox2)).call(this));
 	    }
 
 	    _createClass(Checkbox2, [{
@@ -1846,7 +1848,7 @@
 	    function Radio() {
 	        _classCallCheck(this, Radio);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Radio).call(this));
+	        return _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this));
 	    }
 
 	    _createClass(Radio, [{
@@ -1916,7 +1918,7 @@
 	    function Select2() {
 	        _classCallCheck(this, Select2);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Select2).call(this));
+	        return _possibleConstructorReturn(this, (Select2.__proto__ || Object.getPrototypeOf(Select2)).call(this));
 	    }
 
 	    _createClass(Select2, [{
@@ -1976,7 +1978,7 @@
 	    function Select2() {
 	        _classCallCheck(this, Select2);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Select2).call(this));
+	        return _possibleConstructorReturn(this, (Select2.__proto__ || Object.getPrototypeOf(Select2)).call(this));
 	    }
 
 	    _createClass(Select2, [{
@@ -2032,7 +2034,7 @@
 	    function Select2() {
 	        _classCallCheck(this, Select2);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Select2).call(this));
+	        return _possibleConstructorReturn(this, (Select2.__proto__ || Object.getPrototypeOf(Select2)).call(this));
 	    }
 
 	    _createClass(Select2, [{
@@ -2084,7 +2086,7 @@
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Switch).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
 	        _this.state = {
 	            value: props.value
@@ -2168,7 +2170,7 @@
 	    function Uploader() {
 	        _classCallCheck(this, Uploader);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Uploader).call(this));
+	        var _this = _possibleConstructorReturn(this, (Uploader.__proto__ || Object.getPrototypeOf(Uploader)).call(this));
 
 	        _this.state = {
 	            files: [],
@@ -2567,7 +2569,7 @@
 	    function Button() {
 	        _classCallCheck(this, Button);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Button).call(this));
+	        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this));
 	    }
 
 	    _createClass(Button, [{
@@ -2621,7 +2623,7 @@
 	    function Grid() {
 	        _classCallCheck(this, Grid);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this));
+	        return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).call(this));
 	    }
 
 	    _createClass(Grid, [{
@@ -2700,7 +2702,7 @@
 	    function Alert(props) {
 	        _classCallCheck(this, Alert);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Alert).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Alert.__proto__ || Object.getPrototypeOf(Alert)).call(this, props));
 
 	        if (props.g) {
 	            _this.state = ConfigStore.get('alert');
@@ -2807,7 +2809,7 @@
 	    function Toast() {
 	        _classCallCheck(this, Toast);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Toast).call(this));
+	        var _this = _possibleConstructorReturn(this, (Toast.__proto__ || Object.getPrototypeOf(Toast)).call(this));
 
 	        _this.state = ConfigStore.get('toast');
 	        return _this;
@@ -2883,7 +2885,7 @@
 	    function Navbar() {
 	        _classCallCheck(this, Navbar);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Navbar).call(this));
+	        return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this));
 	    }
 
 	    _createClass(Navbar, [{
@@ -2942,7 +2944,7 @@
 	    function Tabbar() {
 	        _classCallCheck(this, Tabbar);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Tabbar).call(this));
+	        return _possibleConstructorReturn(this, (Tabbar.__proto__ || Object.getPrototypeOf(Tabbar)).call(this));
 	    }
 
 	    _createClass(Tabbar, [{
@@ -3033,7 +3035,7 @@
 	    function Progress() {
 	        _classCallCheck(this, Progress);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Progress).call(this));
+	        return _possibleConstructorReturn(this, (Progress.__proto__ || Object.getPrototypeOf(Progress)).call(this));
 	    }
 
 	    _createClass(Progress, [{
@@ -3087,7 +3089,7 @@
 	    function Panel() {
 	        _classCallCheck(this, Panel);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Panel).call(this));
+	        return _possibleConstructorReturn(this, (Panel.__proto__ || Object.getPrototypeOf(Panel)).call(this));
 	    }
 
 	    _createClass(Panel, [{
@@ -3177,7 +3179,7 @@
 	    function List() {
 	        _classCallCheck(this, List);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(List).call(this));
+	        return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).call(this));
 	    }
 
 	    _createClass(List, [{
@@ -3403,7 +3405,7 @@
 	    function Reload(props) {
 	        _classCallCheck(this, Reload);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Reload).call(this, props));
+	        return _possibleConstructorReturn(this, (Reload.__proto__ || Object.getPrototypeOf(Reload)).call(this, props));
 	        // this.state = {
 	        //     refresh: props.refresh
 	        // }
@@ -3452,7 +3454,7 @@
 	    function Nomatch() {
 	        _classCallCheck(this, Nomatch);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Nomatch).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Nomatch.__proto__ || Object.getPrototypeOf(Nomatch)).apply(this, arguments));
 	    }
 
 	    _createClass(Nomatch, [{
@@ -3511,7 +3513,7 @@
 	    function Home() {
 	        _classCallCheck(this, Home);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this));
+	        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
 
 	        _this.state = {
 	            kk: '33333333333'
@@ -3623,7 +3625,7 @@
 	    function Post() {
 	        _classCallCheck(this, Post);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Post).call(this));
+	        var _this = _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this));
 
 	        _this.state = {
 	            kk: '33333333333',
@@ -3775,7 +3777,7 @@
 	    function Form() {
 	        _classCallCheck(this, Form);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Form).call(this));
+	        return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this));
 	    }
 
 	    _createClass(Form, [{
@@ -3833,7 +3835,7 @@
 	    function Input(props) {
 	        _classCallCheck(this, Input);
 
-	        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Input).call(this, props));
+	        var _this2 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
 	        _this2.state = {
 	            value: props.value,
@@ -3984,7 +3986,7 @@
 	    function FormGroup() {
 	        _classCallCheck(this, FormGroup);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(FormGroup).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (FormGroup.__proto__ || Object.getPrototypeOf(FormGroup)).apply(this, arguments));
 	    }
 
 	    _createClass(FormGroup, [{
@@ -4030,7 +4032,7 @@
 	    function Tab(props) {
 	        _classCallCheck(this, Tab);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tab).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this, props));
 
 	        _this.state = {
 	            dotstyle: {
@@ -4346,7 +4348,7 @@
 	    function Post() {
 	        _classCallCheck(this, Post);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Post).call(this));
+	        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this));
 	    }
 
 	    _createClass(Post, [{
@@ -4421,7 +4423,7 @@
 	    function Weui() {
 	        _classCallCheck(this, Weui);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Weui).call(this));
+	        return _possibleConstructorReturn(this, (Weui.__proto__ || Object.getPrototypeOf(Weui)).call(this));
 	    }
 
 	    _createClass(Weui, [{

@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'HomeController@getIndex');
-Route::post('/', 'HomeController@index_post');
+Route::post('/', 'HomeController@postIndex');
+Route::get('react', 'HomeController@getReact');
 Route::get('logout', 'HomeController@getLogout');
 
 Route::group(['prefix' => 'admin'], function () {

@@ -14,16 +14,16 @@ use Illuminate\Database\Schema\Blueprint;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         // $this->middleware('auth');
         // $this->middleware('auth',['except' => 'login']);
     }
-
+    
     public function getIndex(Request $request) {
         $user = session('cur_user');
         if($user){
@@ -46,23 +46,27 @@ class HomeController extends Controller
         }
     }
     
-    public function index_post(Request $request) {
+    public function postIndex(Request $request) {
         $name = $request->id;
         $password = $request->password;
         if(empty($name) ||empty($password) ){
             $request->session()->flash('msg', '体检单号或查询密码不能为空！');
         }else{
-$user = DB::table('tj_member')->where('tj_id', $name)->where('password', $password)->first();
-        if($user){
-            session(['cur_user' => $user]);
-        }else {
-            // $request->session()->put('msg', 'value2');
-            $request->session()->flash('msg', 'Task was successful!');
-            // session(['msg' => 'value']);
-        }
+            $user = DB::table('tj_member')->where('tj_id', $name)->where('password', $password)->first();
+            if($user){
+                session(['cur_user' => $user]);
+            }else {
+                // $request->session()->put('msg', 'value2');
+                $request->session()->flash('msg', 'Task was successful!');
+                // session(['msg' => 'value']);
+            }
         }
         
         return redirect('/');
+    }
+    
+    public function getReact(Request $request) {
+        return view('react');
     }
     
     public function result(Request $request) {
@@ -127,22 +131,9 @@ $user = DB::table('tj_member')->where('tj_id', $name)->where('password', $passwo
         }else{
             Schema::table($db_name, function($table)
             {
-               $res =  $table->string($this->db_file)->after('u8');
-               dump($res);
+                $res =  $table->string($this->db_file)->after('u8');
+                dump($res);
             });
-            // Schema::create($db_name, function(Blueprint $table) {
-            //     $table->string('ss');
-            //     // $table -> string('key') -> unique() -> comment('字段key');
-            //     // $table -> string('title') -> comment('字段名称');
-            //     // $table -> string('type') -> comment('字段形式');
-            //     // $table -> string('f_module') -> comment('所属模块');
-            //     // $table -> string('f_groups') -> nullable() -> comment('字段分组');
-            //     // $table -> text('f_description') -> nullable() -> comment('字段描述');
-            //     // $table -> string('f_add') -> nullable() -> comment('新增权限');
-            //     // $table -> string('f_edit') -> nullable() -> comment('编辑权限');
-            //     // $table -> string('f_visible') -> nullable() -> comment('可见权限');
-            //     // $table -> string('status') -> default(0) -> comment('状态，0：正常，1：锁定');
-            // });
             $request->session()->flash('msg', '数据库创建成功！');
         }
         return view('db');
@@ -151,7 +142,7 @@ $user = DB::table('tj_member')->where('tj_id', $name)->where('password', $passwo
     public function login(Request $request) {
         return view('login');
     }
-
+    
     public function getLogout(request $request) {
         // Auth::logout();
         $request->session()->forget('cur_user');

@@ -225,7 +225,7 @@
 	            }, React.createElement(Sidebar), React.createElement('section', {
 	                id: 'content',
 	                className: 'pure-u-1'
-	            }, this.props.children)), React.createElement(Footer), React.createElement(Message)
+	            }, this.props.children)), React.createElement(Footer), React.createElement(Message, { message: ConfigStore.message() })
 	            // )
 	            )
 	        );
@@ -2176,17 +2176,66 @@
 	    function Message() {
 	        _classCallCheck(this, Message);
 
-	        return _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this));
+	        var _this = _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this));
+
+	        _this.state = {
+	            message: []
+	        };
+	        _this.autoplayTimer = null;
+	        return _this;
 	    }
 
 	    _createClass(Message, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            if (nextProps.message !== '') {
+	                var message = this.state.message;
+	                message.push(nextProps.message);
+	                this.setState({ message: message });
+	                this.setInterval();
+	            }
+	        }
+	    }, {
+	        key: 'setInterval',
+	        value: function (_setInterval) {
+	            function setInterval() {
+	                return _setInterval.apply(this, arguments);
+	            }
+
+	            setInterval.toString = function () {
+	                return _setInterval.toString();
+	            };
+
+	            return setInterval;
+	        }(function () {
+	            if (this.autoplayTimer != null) {
+	                return;
+	            }
+	            this.autoplayTimer = setInterval(function () {
+	                var message = this.state.message;
+	                message.shift();
+	                this.setState({ message: message });
+	                console.log(message.length);
+	                if (message.length == 0) {
+	                    clearInterval(this.autoplayTimer);
+	                    this.autoplayTimer = null;
+	                }
+	            }.bind(this), 1000);
+	        })
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var msg = ConfigStore.get('msg');
-	            return msg ? React.createElement('div', {
+	            var message = this.state.message;
+	            var list = message.map(function (d, index) {
+	                return React.createElement('div', {
+	                    key: index,
+	                    className: ''
+	                }, d.msg);
+	            });
+	            return message ? React.createElement('div', {
 	                id: 'message',
 	                className: 'message pure-u-1'
-	            }, msg) : null;
+	            }, list) : null;
 	        }
 	    }]);
 
@@ -4911,8 +4960,6 @@
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
-	            console.log(this.props.params);
-	            console.log(nextProps.params);
 	            if (this.props.params.pages != nextProps.params.pages || this.props.params.page != nextProps.params.page) {
 	                this._req(nextProps);
 	            }
@@ -4956,7 +5003,7 @@
 	                    var data = JSON.parse(res.text);
 	                    msg = data.msg;
 	                }
-	                ConfigActions.update('msg', msg);
+	                ConfigActions.message(msg);
 	            }.bind(this));
 	        }
 	    }, {
@@ -5409,6 +5456,12 @@
 	    updateAll: function updateAll(data) {
 	        AppDispatcher.dispatch({
 	            actionType: 'updateAll',
+	            data: data
+	        });
+	    },
+	    message: function message(data) {
+	        AppDispatcher.dispatch({
+	            actionType: 'message',
 	            data: data
 	        });
 	    },
@@ -5953,10 +6006,10 @@
 	        return _todos[id];
 	    },
 
-	    getMsg: function getMsg() {
-	        var msg = _todos['msg'];
-	        if (_todos['msg'] != '') {
-	            _todos['msg'] = '';
+	    message: function message() {
+	        var msg = _todos['message'];
+	        if (_todos['message'] != '') {
+	            _todos['message'] = '';
 	        }
 	        return msg;
 	    },
@@ -5997,6 +6050,12 @@
 	        case 'updateArticle':
 	            update(data.id, data);
 	            update('title', data.title);
+	            break;
+	        case 'message':
+	            var message = {};
+	            message.msg = data;
+	            message.time = new Date();
+	            update('message', message);
 	            break;
 	        default:
 	            update(action.id, action.data);

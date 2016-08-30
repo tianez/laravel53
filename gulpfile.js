@@ -9,7 +9,7 @@ var concat = require('gulp-concat') //文件合并
 var rename = require('gulp-rename') //文件更名
 var webpack = require("gulp-webpack")
 
-var dir = './resources/admin/'
+var dir = './resources/react/'
 
 var webpackConfig = require(dir + 'webpack.config.js')
 
@@ -40,15 +40,8 @@ gulp.task('min-js', function () {
 
 gulp.task('less', function () {
     gulp.src(dir + 'less/style.less')
-        // .pipe(sourcemaps.init())
         .pipe(less())
-        // .pipe(sourcemaps.write())
         .pipe(rename('style.map.css'))
-        .pipe(gulp.dest(dir + 'dist/'))
-        .pipe(cssmin({
-            compatibility: 'ie7' //兼容IE7及以下需设置compatibility属性
-        }))
-        .pipe(rename('style.map.min.css'))
         .pipe(gulp.dest(dir + 'dist/'))
         .pipe(connect.reload())
 })

@@ -14,37 +14,37 @@ var _todos = {
 
 var ConfigStore = assign({}, EventEmitter.prototype, {
 
-    getAll: function() {
+    getAll: function () {
         return _todos;
     },
 
-    get: function(id) {
+    get: function (id) {
         return _todos[id];
     },
 
-    getMsg: function() {
-        let msg = _todos['msg']
-        if (_todos['msg'] != '') {
-            _todos['msg'] = ''
+    message: function () {
+        let msg = _todos['message']
+        if (_todos['message'] != '') {
+            _todos['message'] = ''
         }
         return msg
     },
 
-    emitChange: function() {
+    emitChange: function () {
         this.emit(CHANGE_EVENT);
     },
 
     /**
      * @param {function} callback
      */
-    addChangeListener: function(callback) {
+    addChangeListener: function (callback) {
         this.on(CHANGE_EVENT, callback);
     },
 
     /**
      * @param {function} callback
      */
-    removeChangeListener: function(callback) {
+    removeChangeListener: function (callback) {
         this.removeListener(CHANGE_EVENT, callback);
     }
 });
@@ -52,7 +52,7 @@ var ConfigStore = assign({}, EventEmitter.prototype, {
 module.exports = ConfigStore;
 
 // Register callback to handle all updates
-AppDispatcher.register(function(action) {
+AppDispatcher.register(function (action) {
     let data = action.data
     if (_todos[action.id] == data) {
         return
@@ -66,6 +66,12 @@ AppDispatcher.register(function(action) {
         case 'updateArticle':
             update(data.id, data)
             update('title', data.title)
+            break;
+        case 'message':
+            let message = {}
+            message.msg = data
+            message.time = new Date()
+            update('message', message)
             break;
         default:
             update(action.id, action.data)

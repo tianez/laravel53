@@ -23,8 +23,6 @@ class Page extends React.Component {
         this._req(this.props)
     }
     componentWillReceiveProps(nextProps) {
-        console.log(this.props.params)
-        console.log(nextProps.params)
         if (this.props.params.pages != nextProps.params.pages || this.props.params.page != nextProps.params.page) {
             this._req(nextProps)
         }
@@ -58,7 +56,7 @@ class Page extends React.Component {
         let requrl = page == 'add' ? 'admin/add' : 'admin/detail2'
         request.post(requrl)
             .query({
-                list: pages
+                list: pages 
             })
             .send(this.state.info)
             .end(function (err, res) {
@@ -69,7 +67,7 @@ class Page extends React.Component {
                     let data = JSON.parse(res.text);
                     msg = data.msg
                 }
-                ConfigActions.update('msg', msg)
+                ConfigActions.message(msg)
             }.bind(this))
     }
     _onChange(name, value) {
