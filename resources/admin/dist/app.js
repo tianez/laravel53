@@ -82,21 +82,21 @@
 
 	__webpack_require__(45);
 
-	function onEnter(nextState, replace) {
-	    var pathname = nextState.location.pathname;
-	    var user = storedb('user').find() ? true : false;
-	    console.log('当前用户:' + storedb('user').find());
-	    if (!user && pathname !== 'login' && pathname !== '/login') {
-	        ConfigActions.update('msg', '你还没有登录，请先登录！');
-	        replace({
-	            pathname: '/login'
-	        });
-	    } else if (user && (pathname == 'login' || pathname == '/login')) {
-	        replace({
-	            pathname: '/'
-	        });
-	    }
-	}
+	// function onEnter(nextState, replace) {
+	//     let pathname = nextState.location.pathname
+	//     let user = storedb('user').find() ? true : false
+	//     console.log('当前用户:' + storedb('user').find());
+	//     if (!user && pathname !== 'login' && pathname !== '/login') {
+	//         ConfigActions.update('msg', '你还没有登录，请先登录！')
+	//         replace({
+	//             pathname: '/login'
+	//         })
+	//     } else if (user && (pathname == 'login' || pathname == '/login')) {
+	//         replace({
+	//             pathname: '/'
+	//         })
+	//     }
+	// }
 
 	var routers = React.createElement(Router, {
 	    history: hashHistory
@@ -122,13 +122,11 @@
 	}), React.createElement(Route, {
 	    path: "apicloud"
 	}, React.createElement(IndexRoute, {
-	    component: ApiCloudsIndex,
-	    onEnter: onEnter
+	    component: ApiCloudsIndex
 	}), React.createElement(Route, {
 	    path: ":clouds"
 	}, React.createElement(IndexRoute, {
-	    component: ApiClouds,
-	    onEnter: onEnter
+	    component: ApiClouds
 	}), React.createElement(Route, {
 	    path: ":articleId",
 	    component: ApiCloud
@@ -149,8 +147,7 @@
 	    component: Page
 	})))), React.createElement(Route, {
 	    path: "login",
-	    component: Login,
-	    onEnter: onEnter
+	    component: Login
 	}), React.createElement(Route, {
 	    path: "logout",
 	    component: Logout
@@ -220,7 +217,7 @@
 	            //         className: 'switch',
 	            //         key: this.props.location.pathname
 	            //     },
-	            React.createElement(Header), React.createElement('section', {
+	            React.createElement(Header, this.props), React.createElement('section', {
 	                id: 'main'
 	            }, React.createElement(Sidebar), React.createElement('section', {
 	                id: 'content',
@@ -1919,24 +1916,14 @@
 	    _createClass(Header, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            new Promise(function (resolve, reject) {
-	                request.get('admin/user').set('Accept', 'application/json').end(function (err, res) {
-	                    if (err) {
-	                        reject('error');
-	                    } else {
-	                        var data = JSON.parse(res.text);
-	                        resolve(data);
-	                    }
-	                }.bind(this));
-	            }).then(function (r) {
-	                return new Promise(function (resolve, reject) {
-	                    resolve('2000 OK');
-	                });
-	            }).then(function (r) {
-	                console.log('头部: ' + r);
-	            }).catch(function (r) {
-	                console.log('Failed: ' + r);
-	            });
+	            request.get('admin/user').set('Accept', 'application/json').end(function (err, res) {
+	                if (err) {
+	                    this.props.history.pushState(null, '/login');
+	                } else {
+	                    var data = JSON.parse(res.text);
+	                    ConfigActions.update('user', data);
+	                }
+	            }.bind(this));
 	        }
 	    }, {
 	        key: 'render',
@@ -2328,6 +2315,7 @@
 	    },
 	    componentDidMount: function componentDidMount() {
 	        ConfigActions.update('title', '首页');
+	        console.log('首页');
 	    },
 	    handleSelect: function handleSelect(data) {
 	        console.log(data); // Momentjs object
@@ -4674,8 +4662,7 @@
 	            isdel_all: false,
 	            thead: [],
 	            title: '',
-	            pages: {},
-	            url: this.props.params.pages
+	            pages: {}
 	        };
 	    },
 
@@ -4685,21 +4672,20 @@
 	        var query = this.props.location.query;
 	        var page = query.page || 1;
 	        var url = this.props.params.pages;
-	        this._reQuest(url, page);
+	        this._reQuest(this.props);
 	    },
 	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	        var page = nextProps.location.query.page || 1;
 	        var page2 = this.props.location.query.page || 1;
 	        if (this.props.params.pages != nextProps.params.pages || page != page2 || nextProps.location.search !== this.state.search) {
 	            var url = nextProps.params.pages;
-	            this._reQuest(url, page);
+	            this._reQuest(nextProps);
 	        }
 	    },
-	    _reQuest: function _reQuest(url, page) {
-	        request.get('admin/list').query({
-	            list: url,
-	            page: page
-	        }).end(function (err, res) {
+	    _reQuest: function _reQuest(props) {
+	        var query = props.location.query;
+	        query.list = props.params.pages;
+	        request.get('admin/list').query(query).end(function (err, res) {
 	            if (err) {
 	                var msg = ['error'];
 	            } else {
@@ -4829,6 +4815,11 @@
 	            }
 	        }.bind(this));
 	    },
+	    qq: function qq() {
+	        var query = this.props.location.query;
+	        console.log(query);
+	        return query;
+	    },
 	    render: function render() {
 	        var url = this.props.params.pages;
 	        var list = this.state.items.map(function (data) {
@@ -4888,16 +4879,12 @@
 	            to: '/api/' + this.props.params.pages,
 	            className: 'pure-menu-link',
 	            activeClassName: 'active',
-	            query: {
-	                state: 1
-	            }
+	            query: { state: 1 }
 	        }, '正常'), React.createElement(Link, {
 	            to: '/api/' + this.props.params.pages,
 	            className: 'pure-menu-link',
 	            activeClassName: 'active',
-	            query: {
-	                state: 0
-	            }
+	            query: { state: 0 }
 	        }, '删除')), React.createElement("table", {
 	            className: "pure-table pure-table-bordered",
 	            style: {
@@ -4992,7 +4979,7 @@
 	            var page = _props$params2.page;
 
 	            console.log(this.state.info);
-	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail2';
+	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail';
 	            request.post(requrl).query({
 	                list: pages
 	            }).send(this.state.info).end(function (err, res) {
@@ -5152,7 +5139,7 @@
 	                if (err) throw err;
 	                var data = JSON.parse(res.text);
 	                if (data.state == 'ok') {
-	                    storedb('user').insert(data.data);
+	                    ConfigActions.update('user', data.data);
 	                    this.props.history.pushState(null, '/');
 	                    // this.context.router.push('/')
 	                    // this.context.history.replace('/')
@@ -5332,7 +5319,7 @@
 	            action: 'user/login',
 	            apiSubmit: false,
 	            legend: '人员数据上传',
-	            onSubmit: this._onSubmit.bind(this)
+	            onSubmit: this._onSubmit
 	        }, React.createElement(FormGroup, {
 	            title: '文件上传'
 	        }, React.createElement('input', {
@@ -5348,7 +5335,7 @@
 	            action: 'user/login',
 	            apiSubmit: false,
 	            legend: '人员数据上传',
-	            onSubmit: this._onSubmit2.bind(this)
+	            onSubmit: this._onSubmit2
 	        }, React.createElement(FormGroup, {
 	            title: '文件上传'
 	        }, React.createElement('input', {

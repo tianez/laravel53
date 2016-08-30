@@ -71,7 +71,7 @@ var Import = React.createClass({
                         action: 'user/login',
                         apiSubmit: false,
                         legend: '人员数据上传',
-                        onSubmit: this._onSubmit.bind(this)
+                        onSubmit: this._onSubmit
                     },
                         React.createElement(FormGroup, {
                             title: '文件上传'
@@ -93,7 +93,7 @@ var Import = React.createClass({
                         action: 'user/login',
                         apiSubmit: false,
                         legend: '人员数据上传',
-                        onSubmit: this._onSubmit2.bind(this)
+                        onSubmit: this._onSubmit2
                     },
                         React.createElement(FormGroup, {
                             title: '文件上传'

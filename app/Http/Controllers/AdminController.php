@@ -27,13 +27,16 @@ class AdminController extends Controller {
     }
     
     public function getList(Request $request) {
-        $page = empty($_GET['page']) ? 1 : $_GET['page'];
-        $table = $_GET['list'];
+        $table = $request->list;
+        $db = DB::table($table);
+        if($request->state != null){
+            $db = $db->where('status', $request->state);
+        }
         $pre_page = env('pre_page', 15);
-        $data = DB::table($table)->paginate($pre_page);
+        $data = $db->paginate($pre_page);
         $data = $data->toArray();
         $thead = array();
-        $thead['fields'] = array('id'=>'ID','key'=>'字段key', 'title'=>'字段名称', 'f_module'=>'字段模块');
+        $thead['fields'] = array('id'=>'ID','key'=>'字段key', 'title'=>'字段名称', 'f_module'=>'字段模块','status'=>'状态');
         $thead['meun'] = array('id'=>'ID','link'=>'链接地址', 'title'=>'链接标题', 'description'=>'描述');
         $thead['roles'] = array('id'=>'ID','name'=>'用户组标识', 'display_name'=>'用户组名称', 'description'=>'描述');
         $out = array('title' => '字段', 'pages' => $data,'thead' => $thead[$table]);

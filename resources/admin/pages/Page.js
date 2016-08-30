@@ -53,7 +53,7 @@ class Page extends React.Component {
             page
         } = this.props.params
         console.log(this.state.info)
-        let requrl = page == 'add' ? 'admin/add' : 'admin/detail2'
+        let requrl = page == 'add' ? 'admin/add' : 'admin/detail'
         request.post(requrl)
             .query({
                 list: pages 

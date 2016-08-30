@@ -50,7 +50,7 @@ var Layout = React.createClass({
                 //         className: 'switch',
                 //         key: this.props.location.pathname
                 //     },
-                React.createElement(Header),
+                React.createElement(Header, this.props),
                 React.createElement('section', {
                     id: 'main'
                 },

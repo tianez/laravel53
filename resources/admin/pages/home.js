@@ -8,6 +8,7 @@ var Home = React.createClass({
     },
     componentDidMount: function() {
         ConfigActions.update('title', '首页')
+        console.log('首页');
     },
     handleSelect: function(data) {
         console.log(data); // Momentjs object

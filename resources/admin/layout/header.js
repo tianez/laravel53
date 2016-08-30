@@ -29,27 +29,17 @@ class Header extends React.Component {
         }
     }
     componentDidMount() {
-        new Promise(function (resolve, reject) {
-            request
-                .get('admin/user')
-                .set('Accept', 'application/json')
-                .end(function (err, res) {
-                    if (err) {
-                        reject('error');
-                    } else {
-                        let data = JSON.parse(res.text)
-                        resolve(data)
-                    }
-                }.bind(this))
-        }).then(function (r) {
-            return new Promise(function (resolve, reject) {
-                resolve('2000 OK');
-            })
-        }).then(function (r) {
-            console.log('头部: ' + r);
-        }).catch(function (r) {
-            console.log('Failed: ' + r);
-        })
+        request
+            .get('admin/user')
+            .set('Accept', 'application/json')
+            .end(function (err, res) {
+                if (err) {
+                    this.props.history.pushState(null, '/login')
+                } else {
+                    let data = JSON.parse(res.text)
+                    ConfigActions.update('user', data)
+                }
+            }.bind(this))
     }
     render() {
         let msg = ConfigStore.get('msg')

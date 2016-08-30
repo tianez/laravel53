@@ -36,21 +36,21 @@ const {
 
 require('./global')
 
-function onEnter(nextState, replace) {
-    let pathname = nextState.location.pathname
-    let user = storedb('user').find() ? true : false
-    console.log('当前用户:' + storedb('user').find());
-    if (!user && pathname !== 'login' && pathname !== '/login') {
-        ConfigActions.update('msg', '你还没有登录，请先登录！')
-        replace({
-            pathname: '/login'
-        })
-    } else if (user && (pathname == 'login' || pathname == '/login')) {
-        replace({
-            pathname: '/'
-        })
-    }
-}
+// function onEnter(nextState, replace) {
+//     let pathname = nextState.location.pathname
+//     let user = storedb('user').find() ? true : false
+//     console.log('当前用户:' + storedb('user').find());
+//     if (!user && pathname !== 'login' && pathname !== '/login') {
+//         ConfigActions.update('msg', '你还没有登录，请先登录！')
+//         replace({
+//             pathname: '/login'
+//         })
+//     } else if (user && (pathname == 'login' || pathname == '/login')) {
+//         replace({
+//             pathname: '/'
+//         })
+//     }
+// }
 
 const routers = (
     React.createElement(Router, {
@@ -84,14 +84,14 @@ const routers = (
             },
                 React.createElement(IndexRoute, {
                     component: ApiCloudsIndex,
-                    onEnter: onEnter
+                    // onEnter: onEnter
                 }),
                 React.createElement(Route, {
                     path: ":clouds"
                 },
                     React.createElement(IndexRoute, {
                         component: ApiClouds,
-                        onEnter: onEnter
+                        // onEnter: onEnter
                     }),
                     React.createElement(Route, {
                         path: ":articleId",
@@ -126,7 +126,7 @@ const routers = (
         React.createElement(Route, {
             path: "login",
             component: Login,
-            onEnter: onEnter
+            // onEnter: onEnter
         }),
         React.createElement(Route, {
             path: "logout",
