@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@getIndex');
 Route::post('/', 'HomeController@index_post');
 Route::get('logout', 'HomeController@getLogout');
 
@@ -32,3 +32,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('test', 'TestController@getIndex');
 // Route::controller('test', 'TestController/getIndex');
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index');

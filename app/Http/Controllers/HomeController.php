@@ -11,14 +11,29 @@ use Illuminate\Http\Request;
 
 use Schema;
 use Illuminate\Database\Schema\Blueprint;
-
-class HomeController extends Controller {
-    
-    public function __construct() {
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        // $this->middleware('auth');
         // $this->middleware('auth',['except' => 'login']);
     }
-    
-    public function index(Request $request) {
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    // public function index()
+    // {
+    //     return view('home');
+    // }
+    public function getIndex(Request $request) {
         $user = session('cur_user');
         if($user){
             $results = DB::table('tj_result')->where('tj_id', $user->tj_id)->get();
