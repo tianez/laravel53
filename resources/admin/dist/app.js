@@ -4537,6 +4537,7 @@
 	        value: function render() {
 	            var p = void 0;
 	            var page = this.props.page;
+	            console.log(this.props.query.state);
 	            if (page == this.props.current_page) {
 	                p = React.createElement('span', {
 	                    className: 'pure-button active'
@@ -4544,7 +4545,11 @@
 	            } else {
 	                p = React.createElement(Link, {
 	                    className: 'pure-button',
-	                    to: '/api/' + this.props.url + '?page=' + page
+	                    to: '/api/' + this.props.url,
+	                    query: {
+	                        page: page,
+	                        state: this.props.query.state
+	                    }
 	                }, page);
 	            }
 	            return React.createElement("li", {
@@ -4582,6 +4587,7 @@
 	                    url: this.props.url,
 	                    page: i,
 	                    key: i,
+	                    query: this.props.query,
 	                    current_page: current_page
 	                });
 	                items.push(p);
@@ -4601,6 +4607,7 @@
 	                        url: this.props.url,
 	                        page: j,
 	                        key: j,
+	                        query: this.props.query,
 	                        current_page: current_page
 	                    });
 	                    items.push(_p2);
@@ -4612,6 +4619,7 @@
 	                        url: this.props.url,
 	                        page: j,
 	                        key: j,
+	                        query: this.props.query,
 	                        current_page: current_page
 	                    });
 	                    items.push(_p3);
@@ -4631,6 +4639,7 @@
 	                    url: this.props.url,
 	                    page: k,
 	                    key: k,
+	                    query: this.props.query,
 	                    current_page: current_page
 	                });
 	                items.push(_p5);
@@ -4892,7 +4901,8 @@
 	            }
 	        }, this._thead(), React.createElement("tbody", null, list)), React.createElement(Page, {
 	            page: this.state.pages,
-	            url: this.props.params.pages
+	            url: this.props.params.pages,
+	            query: this.props.location.query
 	        }));
 	    }
 	});
