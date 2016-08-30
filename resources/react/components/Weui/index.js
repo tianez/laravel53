@@ -1,6 +1,7 @@
 'use strict'
 
 var Forms = {
+    Pagetitle: require('./Pagetitle'),
     Input: require('./Input'),
     Textarea: require('./Textarea'),
     Checkbox: require('./Checkbox'),

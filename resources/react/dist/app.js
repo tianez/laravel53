@@ -1208,10 +1208,10 @@
 	'use strict';
 
 	var Layout = __webpack_require__(23);
-	var Nomatch = __webpack_require__(53);
-	var Home = __webpack_require__(54);
-	var Post = __webpack_require__(55);
-	var Post2 = __webpack_require__(61);
+	var Nomatch = __webpack_require__(54);
+	var Home = __webpack_require__(55);
+	var Post = __webpack_require__(56);
+	var Post2 = __webpack_require__(62);
 
 	var Temp = {
 	    Layout: Layout,
@@ -1219,7 +1219,7 @@
 	    Home: Home,
 	    Post: Post,
 	    Post2: Post2,
-	    Weui: __webpack_require__(62)
+	    Weui: __webpack_require__(63)
 	};
 	module.exports = Temp;
 
@@ -1307,8 +1307,8 @@
 
 	var Header = __webpack_require__(25);
 	var Footer = __webpack_require__(28);
-	var Content = __webpack_require__(51);
-	var Reload = __webpack_require__(52);
+	var Content = __webpack_require__(52);
+	var Reload = __webpack_require__(53);
 
 	var Layout = {
 	    Header: Header,
@@ -1493,31 +1493,78 @@
 	'use strict';
 
 	var Forms = {
-	    Input: __webpack_require__(30),
-	    Textarea: __webpack_require__(31),
-	    Checkbox: __webpack_require__(32),
-	    Checkbox2: __webpack_require__(33),
-	    Radio: __webpack_require__(34),
-	    Select: __webpack_require__(35),
-	    Select2: __webpack_require__(36),
-	    Select3: __webpack_require__(37),
-	    Switch: __webpack_require__(38),
-	    Uploader: __webpack_require__(39),
-	    Button: __webpack_require__(42),
-	    Grid: __webpack_require__(43),
-	    Alert: __webpack_require__(44),
-	    Toast: __webpack_require__(45),
-	    Navbar: __webpack_require__(46),
-	    Tabbar: __webpack_require__(47),
-	    Progress: __webpack_require__(48),
-	    Panel: __webpack_require__(49),
-	    List: __webpack_require__(50)
+	    Pagetitle: __webpack_require__(30),
+	    Input: __webpack_require__(31),
+	    Textarea: __webpack_require__(32),
+	    Checkbox: __webpack_require__(33),
+	    Checkbox2: __webpack_require__(34),
+	    Radio: __webpack_require__(35),
+	    Select: __webpack_require__(36),
+	    Select2: __webpack_require__(37),
+	    Select3: __webpack_require__(38),
+	    Switch: __webpack_require__(39),
+	    Uploader: __webpack_require__(40),
+	    Button: __webpack_require__(43),
+	    Grid: __webpack_require__(44),
+	    Alert: __webpack_require__(45),
+	    Toast: __webpack_require__(46),
+	    Navbar: __webpack_require__(47),
+	    Tabbar: __webpack_require__(48),
+	    Progress: __webpack_require__(49),
+	    Panel: __webpack_require__(50),
+	    List: __webpack_require__(51)
 
 	};
 	module.exports = Forms;
 
 /***/ },
 /* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var classNames = __webpack_require__(26);
+
+	var Input = function (_React$Component) {
+	    _inherits(Input, _React$Component);
+
+	    function Input(props) {
+	        _classCallCheck(this, Input);
+
+	        return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+	    }
+
+	    _createClass(Input, [{
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement('section', {}, React.createElement('div', {
+	                className: 'hd'
+	            }, React.createElement('h1', {
+	                className: 'page_title'
+	            }, 'WeUI'), React.createElement('p', {
+	                className: 'page_desc'
+	            }, '为微信Web服务量身设计')));
+	        }
+	    }]);
+
+	    return Input;
+	}(React.Component);
+
+	Input.defaultProps = {
+	    title: '项目名'
+	};
+	module.exports = Input;
+
+/***/ },
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1608,7 +1655,7 @@
 	module.exports = Input;
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1689,7 +1736,7 @@
 	module.exports = Textarea;
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1758,7 +1805,7 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1829,7 +1876,7 @@
 	module.exports = Checkbox2;
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1899,7 +1946,7 @@
 	module.exports = Radio;
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1959,7 +2006,7 @@
 	module.exports = Select2;
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2015,7 +2062,7 @@
 	module.exports = Select2;
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2067,7 +2114,7 @@
 	module.exports = Select2;
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2145,7 +2192,7 @@
 	module.exports = Switch;
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2158,9 +2205,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ajaxUpload = __webpack_require__(40);
+	var ajaxUpload = __webpack_require__(41);
 
-	var _require = __webpack_require__(41);
+	var _require = __webpack_require__(42);
 
 	var getUpToken = _require.getUpToken;
 
@@ -2337,7 +2384,7 @@
 	module.exports = Uploader;
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2378,7 +2425,7 @@
 	};
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2546,7 +2593,7 @@
 	};
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2601,7 +2648,7 @@
 	module.exports = Button;
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2681,7 +2728,7 @@
 	module.exports = Grid;
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2786,7 +2833,7 @@
 	module.exports = Alert;
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2862,7 +2909,7 @@
 	module.exports = Toast;
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2921,7 +2968,7 @@
 	module.exports = Navbar;
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3016,7 +3063,7 @@
 	module.exports = Tabbar;
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3068,7 +3115,7 @@
 	module.exports = Progress;
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3156,7 +3203,7 @@
 	module.exports = Panel;
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3245,13 +3292,13 @@
 	module.exports = List;
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var classNames = __webpack_require__(26);
-	var Reload = __webpack_require__(52);
+	var Reload = __webpack_require__(53);
 
 	var _require = __webpack_require__(29);
 
@@ -3384,7 +3431,7 @@
 	module.exports = Content;
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3435,7 +3482,7 @@
 	module.exports = Reload;
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3472,7 +3519,7 @@
 	module.exports = Nomatch;
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3593,7 +3640,7 @@
 	module.exports = Home;
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3606,7 +3653,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _require = __webpack_require__(56);
+	var _require = __webpack_require__(57);
 
 	var Swiper = _require.Swiper;
 
@@ -3739,14 +3786,14 @@
 	module.exports = Post;
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Form = __webpack_require__(57);
-	var Input = __webpack_require__(58);
-	var Swiper = __webpack_require__(60);
+	var Form = __webpack_require__(58);
+	var Input = __webpack_require__(59);
+	var Swiper = __webpack_require__(61);
 
 	var Forms = {
 	    Form: Form,
@@ -3756,7 +3803,7 @@
 	module.exports = Forms;
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3813,7 +3860,7 @@
 	module.exports = Form;
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3827,7 +3874,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var classNames = __webpack_require__(26);
-	var FormGroup = __webpack_require__(59);
+	var FormGroup = __webpack_require__(60);
 
 	var Input = function (_React$Component) {
 	    _inherits(Input, _React$Component);
@@ -3965,7 +4012,7 @@
 	module.exports = Input;
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4013,7 +4060,7 @@
 	module.exports = FormGroup;
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4325,7 +4372,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4376,7 +4423,7 @@
 	module.exports = Post;
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4395,6 +4442,7 @@
 
 	var _require = __webpack_require__(29);
 
+	var Pagetitle = _require.Pagetitle;
 	var Input = _require.Input;
 	var Textarea = _require.Textarea;
 	var Checkbox = _require.Checkbox;
@@ -4482,7 +4530,7 @@
 	        value: function render() {
 	            return React.createElement(Content, {
 	                reLoad: this.reLoad.bind(this)
-	            }, React.createElement(Input, {
+	            }, React.createElement(Pagetitle), React.createElement(Input, {
 	                onChange: this._onChange.bind(this),
 	                type: 'tel'
 	            }), React.createElement(Input, {

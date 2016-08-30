@@ -5,6 +5,7 @@
 // } = require('../components/Forms')
 
 const {
+    Pagetitle,
     Input,
     Textarea,
     Checkbox,
@@ -56,6 +57,7 @@ class Weui extends React.Component {
             React.createElement(Content, {
                     reLoad: this.reLoad.bind(this)
                 },
+                React.createElement(Pagetitle),
                 React.createElement(Input, {
                     onChange: this._onChange.bind(this),
                     type: 'tel'
