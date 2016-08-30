@@ -5295,6 +5295,7 @@
 	            onLoad: function onLoad(e) {
 	                var res = JSON.parse(e.currentTarget.responseText);
 	                console.log(res);
+	                ConfigActions.message(res.msg);
 	            },
 	            onError: function onError() {}
 	        });
@@ -5316,6 +5317,7 @@
 	            onLoad: function onLoad(e) {
 	                var res = JSON.parse(e.currentTarget.responseText);
 	                console.log(res);
+	                ConfigActions.message(res.msg);
 	            },
 	            onError: function onError() {}
 	        });

@@ -11,10 +11,10 @@ const {
 const ajaxUpload = require('../components/utils/AjaxUpload')
 
 var Import = React.createClass({
-    componentDidMount:function() {
+    componentDidMount: function() {
         ConfigActions.update('title', '数据导入')
     },
-    _onSubmit:function() {
+    _onSubmit: function() {
         let files = this.refs.file2.files
         console.log(files);
         let file = files[0]
@@ -32,12 +32,12 @@ var Import = React.createClass({
             onLoad: (e) => {
                 let res = JSON.parse(e.currentTarget.responseText)
                 console.log(res);
+                ConfigActions.message(res.msg)
             },
-            onError: () => {
-            }
+            onError: () => {}
         })
     },
-    _onSubmit2:function() {
+    _onSubmit2: function() {
         let files = this.refs.result.files
         let file = files[0]
         return ajaxUpload({
@@ -54,28 +54,28 @@ var Import = React.createClass({
             onLoad: (e) => {
                 let res = JSON.parse(e.currentTarget.responseText)
                 console.log(res);
+                ConfigActions.message(res.msg)
             },
-            onError: () => {
-            }
+            onError: () => {}
         })
     },
-    render:function() {
+    render: function() {
         return (
             React.createElement('div', {
-                className: 'container pure-g'
-            },
-                React.createElement('div', {
-                    className: 'pure-u-1'
+                    className: 'container pure-g'
                 },
-                    React.createElement(Form, {
-                        action: 'user/login',
-                        apiSubmit: false,
-                        legend: '人员数据上传',
-                        onSubmit: this._onSubmit
+                React.createElement('div', {
+                        className: 'pure-u-1'
                     },
-                        React.createElement(FormGroup, {
-                            title: '文件上传'
+                    React.createElement(Form, {
+                            action: 'user/login',
+                            apiSubmit: false,
+                            legend: '人员数据上传',
+                            onSubmit: this._onSubmit
                         },
+                        React.createElement(FormGroup, {
+                                title: '文件上传'
+                            },
                             React.createElement('input', {
                                 id: 'file',
                                 name: 'file',
@@ -90,14 +90,14 @@ var Import = React.createClass({
                         })
                     ),
                     React.createElement(Form, {
-                        action: 'user/login',
-                        apiSubmit: false,
-                        legend: '人员数据上传',
-                        onSubmit: this._onSubmit2
-                    },
-                        React.createElement(FormGroup, {
-                            title: '文件上传'
+                            action: 'user/login',
+                            apiSubmit: false,
+                            legend: '人员数据上传',
+                            onSubmit: this._onSubmit2
                         },
+                        React.createElement(FormGroup, {
+                                title: '文件上传'
+                            },
                             React.createElement('input', {
                                 id: 'file',
                                 name: 'file',
