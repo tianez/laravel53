@@ -32,6 +32,3 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('test', 'TestController@getIndex');
 // Route::controller('test', 'TestController/getIndex');
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index');

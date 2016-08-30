@@ -24,15 +24,6 @@ class HomeController extends Controller
         // $this->middleware('auth',['except' => 'login']);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function index()
-    // {
-    //     return view('home');
-    // }
     public function getIndex(Request $request) {
         $user = session('cur_user');
         if($user){
