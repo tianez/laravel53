@@ -67,6 +67,7 @@ class Controller extends BaseController
     //获取系统权限设置
     protected function getPerms() {
         $permissions = Permissions::all();
+        $perms =  array();
         foreach ($permissions as $permission) {
             $perms[] = $permission['name'];
         }
@@ -83,10 +84,10 @@ class Controller extends BaseController
         }
         $permits = array();
         foreach ($roles as $role) {
-            $Permissions = Roles::find($role)->Permissions->toArray();
-            foreach ($Permissions as $Permission) {
-                if (!in_array($Permission['name'], $permits)) {
-                    array_push($permits, $Permission['name']);
+            $permissions = Roles::find($role)->Permissions->toArray();
+            foreach ($permissions as $permission) {
+                if (!in_array($permission['name'], $permits)) {
+                    array_push($permits, $permission['name']);
                 }
             }
         }

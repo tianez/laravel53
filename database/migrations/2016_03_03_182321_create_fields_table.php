@@ -26,6 +26,7 @@ class CreateFieldsTable extends Migration
             $table -> string('f_groups') -> nullable() -> comment('字段分组');
             $table -> text('f_description') -> nullable() -> comment('字段描述');
             $table -> text('f_options') -> nullable() -> comment('字段设置');
+            $table -> string('f_ext') -> nullable() -> comment('字段扩展');
             $table -> string('f_default') -> nullable() -> comment('默认值');
             $table -> string('f_add') -> default('[1]') -> comment('新增权限');
             $table -> string('f_edit') -> default('[1]') -> comment('编辑权限');

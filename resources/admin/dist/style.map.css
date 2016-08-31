@@ -46,9 +46,6 @@ a:hover {
 a {
   color: #3a3a3a;
 }
-a:hover {
-  color: #288f54;
-}
 /* img 搭车：让链接里的 img 无边框 */
 address,
 cite,
@@ -166,7 +163,7 @@ hr {
 }
 #content {
   position: relative;
-  padding: 5rem 2rem;
+  padding: 7rem 3rem 5rem;
 }
 #footer {
   background: #111;
@@ -198,7 +195,7 @@ hr {
 .sidebar .pure-menu-item,
 .sidebar .pure-menu-link {
   height: auto;
-  line-height: 4rem;
+  line-height: 4.6rem;
   color: #b4bcc8;
   font-size: 1.6rem;
 }
@@ -239,9 +236,6 @@ hr {
   left: 0;
   z-index: 8;
   content: "";
-  transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  -webkit-transition: all 0.1s;
 }
 .sidebar .active,
 .sidebar .active .fa,
@@ -1563,8 +1557,14 @@ input.uniform-input:focus {
   -webkit-box-pack: center;
   box-pack: center;
 }
+.page-title {
+  font-size: 3rem;
+  line-height: 4,8ren;
+  -moz-user-select: none;
+  font-weight: normal;
+}
 .filter {
-  margin: 2rem 0;
+  margin: 1rem 0 2rem;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
@@ -1573,6 +1573,7 @@ input.uniform-input:focus {
   line-height: 4.4rem;
   padding: 0 2rem;
   font-size: 1.6rem;
+  -moz-user-select: none;
 }
 .filter .pure-menu-link:hover {
   border-bottom: 2px solid #eee;

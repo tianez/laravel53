@@ -3857,23 +3857,34 @@
 	        };
 	    },
 	    getInitialState: function getInitialState() {
-	        var options = this.props.f_options;
-	        if (typeof options == "string") {
-	            options = JSON.parse(options);
+	        var options = [];
+	        if (!this.props.f_ext) {
+	            options = this.props.f_options;
+	            if (typeof options == "string") {
+	                options = JSON.parse(options);
+	            }
 	        }
 	        return {
-	            files: this.props.files,
 	            value: this.props.value,
 	            help: this.props.help,
 	            option: options
 	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        if (this.props.f_ext) {
+	            request.get('admin/' + this.props.f_ext).end(function (err, res) {
+	                var data = JSON.parse(res.text);
+	                this.setState({
+	                    option: data
+	                });
+	            }.bind(this));
+	        }
 	    },
 	    _onChange: function _onChange(e) {
 	        var value = e.target.value;
 	        this.setState({
 	            value: value
 	        });
-	        console.log(value);
 	        if (this.props.onChange) {
 	            this.props.onChange(this.props.name, value);
 	        }
@@ -3902,10 +3913,10 @@
 	                onChange: this._onChange
 	            })), React.createElement('span', null, d.title));
 	        }.bind(this));
-	        return React.createElement(FormGroup, {
+	        return this.state.option.length > 0 ? React.createElement(FormGroup, {
 	            title: this.props.title,
 	            help: this.state.help
-	        }, options);
+	        }, options) : null;
 	    }
 	});
 
@@ -3928,7 +3939,7 @@
 	            title: '多选框',
 	            type: 'checkbox',
 	            value: [2],
-	            options: [{
+	            f_options: [{
 	                title: '选项1',
 	                value: 0
 	            }, {
@@ -3946,21 +3957,12 @@
 	        };
 	    },
 	    getInitialState: function getInitialState() {
-	        var option = void 0;
-	        switch (this.props.options) {
-	            case "roles":
-	                option = [];
-	                ConfigStore.get(this.props.options).map(function (d, index) {
-	                    var op = {
-	                        title: d.name,
-	                        value: d.id
-	                    };
-	                    option.push(op);
-	                });
-	                break;
-	            default:
-	                option = this.props.options;
-	            // option = JSON.parse(this.props.options)
+	        var options = [];
+	        if (!this.props.f_ext) {
+	            options = this.props.f_options;
+	            if (typeof options == "string") {
+	                options = JSON.parse(options);
+	            }
 	        }
 	        var value = this.props.value;
 	        if (value) {
@@ -3971,8 +3973,18 @@
 	        return {
 	            value: value,
 	            help: this.props.help,
-	            option: option
+	            option: options
 	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        if (this.props.f_ext) {
+	            request.get('admin/roles').end(function (err, res) {
+	                var data = JSON.parse(res.text);
+	                this.setState({
+	                    option: data
+	                });
+	            }.bind(this));
+	        }
 	    },
 	    _onChange: function _onChange(e) {
 	        var type = this.props.type;
@@ -3998,8 +4010,6 @@
 	    render: function render() {
 	        var value = this.state.value;
 	        var name = this.props.name;
-	        // let option = JSON.parse(this.props.options)
-	        // let option = this.props.options
 	        var options = this.state.option.map(function (d, index) {
 	            var checked = '';
 	            if (value.indexOf(d.value) > -1) {
@@ -4021,10 +4031,10 @@
 	                onChange: this._onChange
 	            })), React.createElement('span', null, d.title));
 	        }.bind(this));
-	        return React.createElement(FormGroup, {
+	        return this.state.option.length > 0 ? React.createElement(FormGroup, {
 	            title: this.props.title,
 	            help: this.state.help
-	        }, options);
+	        }, options) : null;
 	    }
 	});
 	module.exports = Checkbox;
@@ -4963,7 +4973,6 @@
 	                id: page
 	            }).end(function (err, res) {
 	                var data = JSON.parse(res.text);
-	                console.log(data);
 	                this.setState({
 	                    fields: data.fields,
 	                    info: data.info || {}
@@ -5013,13 +5022,21 @@
 	            if (model) {
 	                (function () {
 	                    var onChange = _this2._onChange.bind(_this2);
-	                    forms = model.map(function (d, index) {
-	                        if (info[d.key] || info[d.key] == 0) {
-	                            d.value = info[d.key];
+	                    forms = model.map(function (ds, index) {
+	                        var d = {};
+	                        if (info[ds.key] || info[ds.key] == 0) {
+	                            d.value = info[ds.key];
 	                        } else {
-	                            d.value = d.f_default || '';
+	                            d.value = ds.f_default || '';
 	                        }
-	                        d.name = d.key;
+	                        if (ds.f_options) {
+	                            d.key = ds.f_options;
+	                        }
+	                        d.f_ext = ds.f_ext;
+	                        d.key = ds.key;
+	                        d.name = ds.key;
+	                        d.type = ds.type;
+	                        d.title = ds.title;
 	                        d.onChange = onChange;
 	                        switch (d.type) {
 	                            case "text":
@@ -5044,7 +5061,6 @@
 	                            //     return (React.createElement(Editer, d))
 	                            //     break;
 	                            case "radio":
-	                                console.log(d);
 	                                return React.createElement(Radio, d);
 	                                break;
 	                            case "checkbox":

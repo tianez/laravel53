@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('login', 'AdminController@postLogin');
     Route::get('logout', 'AdminController@getLogout');
     Route::post('import','AdminController@postImport');
+    Route::get('roles','Admin\InfoController@getRolesGroup');
 });
 
 

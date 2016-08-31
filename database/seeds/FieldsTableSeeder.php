@@ -11,7 +11,7 @@ class FieldsTableSeeder extends Seeder
     */
     public function run()
     {
-
+        
         /**
         * 字段自身字段导入
         */
@@ -97,33 +97,13 @@ class FieldsTableSeeder extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
-        'key' => 'f_add',
-        'title' => '新增权限',
-        'type' => 'checkbox',
-        'f_module' => 'fields',
-        'f_groups' => '字段分组',
-        'f_description' => '新增权限',
-        'f_options' => '',
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        array(
         'key' => 'f_edit',
         'title' => '编辑权限',
-        'type' => 'checkbox',
+        'type' => 'radio',
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '编辑权限',
-        'f_options' => '',
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        array(
-        'key' => 'f_visible',
-        'title' => '可见权限',
-        'type' => 'checkbox',
-        'f_module' => 'fields',
-        'f_groups' => '字段分组',
-        'f_description' => '可见权限',
-        'f_options' => '',
+        'f_options' => '[{"title":"正常","value":0},{"title":"锁定","value":1}]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -144,6 +124,30 @@ class FieldsTableSeeder extends Seeder
         'f_options' => '[{"title":"正常","value":0},{"title":"锁定","value":1}]',
         'f_groups' => '字段分组',
         'f_description' => '状态，0：正常，1：锁定',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        ]);
+        DB::table('fields')->insert([
+        array(
+        'key' => 'f_add',
+        'title' => '新增权限',
+        'type' => 'radio',
+        'f_module' => 'fields',
+        'f_groups' => '字段分组',
+        'f_description' => '新增权限',
+        'f_options' =>null,
+        'f_ext' => 'roles',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'key' => 'f_visible',
+        'title' => '可见权限',
+        'type' => 'checkbox',
+        'f_module' => 'fields',
+        'f_groups' => '字段分组',
+        'f_description' => '可见权限',
+        'f_options' => null,
+        'f_ext' => 'roles',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         ]);

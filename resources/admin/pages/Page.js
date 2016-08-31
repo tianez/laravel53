@@ -41,7 +41,6 @@ class Page extends React.Component {
             })
             .end(function(err, res) {
                 let data = JSON.parse(res.text)
-                console.log(data);
                 this.setState({
                     fields: data.fields,
                     info: data.info || {}
@@ -85,13 +84,21 @@ class Page extends React.Component {
         let model = this.state.fields
         if (model) {
             let onChange = this._onChange.bind(this)
-            forms = model.map(function(d, index) {
-                if (info[d.key] || info[d.key] == 0) {
-                    d.value = info[d.key]
+            forms = model.map(function(ds, index) {
+                let d = {}
+                if (info[ds.key] || info[ds.key] == 0) {
+                    d.value = info[ds.key]
                 } else {
-                    d.value = d.f_default || ''
+                    d.value = ds.f_default || ''
                 }
-                d.name = d.key
+                if (ds.f_options) {
+                    d.key = ds.f_options
+                }
+                d.f_ext = ds.f_ext
+                d.key = ds.key
+                d.name = ds.key
+                d.type = ds.type
+                d.title = ds.title
                 d.onChange = onChange
                 switch (d.type) {
                     case "text":
@@ -116,7 +123,6 @@ class Page extends React.Component {
                         //     return (React.createElement(Editer, d))
                         //     break;
                     case "radio":
-                    console.log(d);
                         return (React.createElement(Radio, d))
                         break;
                     case "checkbox":
