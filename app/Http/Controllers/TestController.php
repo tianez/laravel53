@@ -20,6 +20,8 @@ class TestController extends Controller {
     }
     
     public function getIndex(Request $request) {
+        // abort(404, 'Unauthorized action.');
+        return response('Unauthorized.', 404);
         $info = User::find(1);
         $roles = $info->Roles->toArray();
         // Fields::destroy(3);

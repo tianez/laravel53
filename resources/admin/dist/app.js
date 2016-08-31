@@ -4222,14 +4222,20 @@
 
 	        var _this = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
-	        var options = _this.props.f_options;
+	        var options = props.f_options;
 	        if (typeof options == "string") {
 	            options = JSON.parse(options);
 	        }
+	        var title = void 0;
+	        options.forEach(function (element) {
+	            if (props.value == element.value) {
+	                title = element.title;
+	            }
+	        }, _this);
 	        _this.state = {
 	            files: props.files,
 	            value: props.value,
-	            name: props.name,
+	            name: title || props.name,
 	            help: props.help,
 	            options: options,
 	            show: false,

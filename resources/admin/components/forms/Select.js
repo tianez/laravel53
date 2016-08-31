@@ -6,14 +6,20 @@ const FormGroup = require('./FormGroup')
 class Select extends React.Component {
     constructor(props) {
         super(props)
-        let options = this.props.f_options
+        let options = props.f_options
         if (typeof options == "string") {
             options = JSON.parse(options)
         }
+        let title
+        options.forEach(function (element) {
+            if (props.value == element.value) {
+                title = element.title
+            }
+        }, this);
         this.state = {
             files: props.files,
             value: props.value,
-            name: props.name,
+            name: title || props.name,
             help: props.help,
             options: options,
             show: false,
