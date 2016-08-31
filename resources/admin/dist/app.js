@@ -2100,7 +2100,7 @@
 	            };
 	            request.get('admin/meun').end(function (err, res) {
 	                if (err) {
-	                    reject('error');
+	                    console.log(err);
 	                } else {
 	                    var data = JSON.parse(res.text);
 	                    this.setState({
@@ -4676,16 +4676,12 @@
 	    getDefaultProps: function getDefaultProps() {},
 
 	    componentDidMount: function componentDidMount() {
-	        var query = this.props.location.query;
-	        var page = query.page || 1;
-	        var url = this.props.params.pages;
 	        this._reQuest(this.props);
 	    },
 	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	        var page = nextProps.location.query.page || 1;
 	        var page2 = this.props.location.query.page || 1;
 	        if (this.props.params.pages != nextProps.params.pages || page != page2 || nextProps.location.search !== this.state.search) {
-	            var url = nextProps.params.pages;
 	            this._reQuest(nextProps);
 	        }
 	    },
@@ -4693,18 +4689,13 @@
 	        var query = props.location.query;
 	        query.list = props.params.pages;
 	        request.get('admin/list').query(query).end(function (err, res) {
+	            var msg = void 0;
 	            if (err) {
-	                var msg = ['error'];
+	                this.props.history.pushState(null, '/');
+	                msg = err.response.text;
 	            } else {
 	                var data = JSON.parse(res.text);
-	                if (data.res == 404) {
-	                    this.setState({
-	                        mods: [],
-	                        info: data.info,
-	                        title: data.msg
-	                    });
-	                    return;
-	                }
+	                msg = data.msg;
 	                ConfigActions.update('title', data.title);
 	                var items = [];
 	                this.setState({
@@ -4715,6 +4706,7 @@
 	                    title: data.title
 	                });
 	            }
+	            ConfigActions.message(msg);
 	        }.bind(this));
 	    },
 	    _set_del_all: function _set_del_all(items) {

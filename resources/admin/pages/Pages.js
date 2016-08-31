@@ -156,16 +156,12 @@ const Pages = React.createClass({
     getDefaultProps: function () { },
 
     componentDidMount: function () {
-        let query = this.props.location.query
-        let page = query.page || 1
-        let url = this.props.params.pages;
         this._reQuest(this.props)
     },
     componentWillReceiveProps: function (nextProps) {
         let page = nextProps.location.query.page || 1
         let page2 = this.props.location.query.page || 1
         if (this.props.params.pages != nextProps.params.pages || page != page2 || nextProps.location.search !== this.state.search) {
-            let url = nextProps.params.pages;
             this._reQuest(nextProps)
         }
     },
@@ -175,18 +171,13 @@ const Pages = React.createClass({
         request.get('admin/list')
             .query(query)
             .end(function (err, res) {
+                let msg
                 if (err) {
-                    let msg = ['error']
+                    this.props.history.pushState(null, '/')
+                    msg = err.response.text
                 } else {
-                    let data = JSON.parse(res.text)
-                    if (data.res == 404) {
-                        this.setState({
-                            mods: [],
-                            info: data.info,
-                            title: data.msg,
-                        });
-                        return
-                    }
+                    let data = JSON.parse(res.text);
+                    msg = data.msg
                     ConfigActions.update('title', data.title)
                     let items = []
                     this.setState({
@@ -197,6 +188,7 @@ const Pages = React.createClass({
                         title: data.title,
                     });
                 }
+                ConfigActions.message(msg)
             }.bind(this))
     },
     _set_del_all: function (items) {

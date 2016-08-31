@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
             .get('admin/meun')
             .end(function(err, res) {
                 if (err) {
-                    reject('error');
+                    console.log(err);
                 } else {
                     let data = JSON.parse(res.text)
                     this.setState({

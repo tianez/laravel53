@@ -12,9 +12,20 @@ class AdminController extends Controller {
     
     public function __construct() {
         $this->middleware('auth',['except' => ['getIndex','postLogin','getLogout']]);
+        $this->middleware('admin', ['except' => ['getIndex','postLogin','getLogout','getUser','getMeun']]);
     }
     
     public function getIndex(Request $request) {
+        $user = Auth::user();
+        if($user){
+            $user_id = $user->id;
+            $roles = $this->getRoles($user_id);
+            $permits = $this->getPermits($user_id);
+            $perms = $this->getPerms();
+            $request->session()->put('roles', $roles);
+            $request->session()->put('permits', $permits);
+            $request->session()->put('perms', $perms);
+        }
         return view('admin');
     }
     
@@ -30,6 +41,9 @@ class AdminController extends Controller {
     public function getList(Request $request) {
         $table = $request->list;
         $db = DB::table($table);
+        // if(!$this->canIndex($request)){
+        //     $db = $db->where('uid',Auth::user()->id);
+        // }
         if($request->state != null){
             $db = $db->where('status', $request->state);
         }
@@ -99,6 +113,13 @@ class AdminController extends Controller {
         if ($auth) {
             $res['state'] = 'ok';
             $res['data'] =  Auth::user();
+            $user_id = Auth::user()->id;
+            $roles = $this->getRoles($user_id);
+            $permits = $this->getPermits($user_id);
+            $perms = $this->getPerms();
+            $request->session()->put('roles', $roles);
+            $request->session()->put('permits', $permits);
+            $request->session()->put('perms', $perms);
         } else {
             $res['msg'] = '用户名或密码错误！';
         }
