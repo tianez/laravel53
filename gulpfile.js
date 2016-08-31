@@ -58,7 +58,7 @@ gulp.task('connect', function () {
 })
 
 gulp.task('watch', function () {
-    gulp.watch([dir + 'less/*.less'], ['less'])
+    gulp.watch([dir + 'less/*.less',dir + 'components/forms/*.less'], ['less'])
     gulp.watch([dir + 'app.js', dir + 'global.js', dir + 'pages/*.js', dir + 'layout/*.js', dir + 'components/**/*.js'], ['webpack'])
 })
 

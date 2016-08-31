@@ -23,6 +23,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '字段key',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -32,6 +33,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '字段名称',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -41,6 +43,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '字段形式',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -50,6 +53,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '所属模块',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -59,6 +63,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '字段分组',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -68,6 +73,17 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '字段描述',
+        'f_options' => '',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'key' => 'f_options',
+        'title' => '字段设置',
+        'type' => 'textarea',
+        'f_module' => 'fields',
+        'f_groups' => '字段分组',
+        'f_description' => '字段设置',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -77,6 +93,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '默认值',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -86,6 +103,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '新增权限',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -95,6 +113,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '编辑权限',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -104,6 +123,7 @@ class FieldsTableSeeder extends Seeder
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '可见权限',
+        'f_options' => '',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -112,14 +132,16 @@ class FieldsTableSeeder extends Seeder
         'type' => 'text',
         'f_module' => 'fields',
         'f_groups' => '字段分组',
+        'f_options' => '',
         'f_description' => '排序',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
         'key' => 'status',
         'title' => '状态',
-        'type' => 'text',
+        'type' => 'select',
         'f_module' => 'fields',
+        'f_options' => '[{"title":"正常","value":0},{"title":"锁定","value":1}]',
         'f_groups' => '字段分组',
         'f_description' => '状态，0：正常，1：锁定',
         'created_at'=> date("Y-m-d H:i:s")

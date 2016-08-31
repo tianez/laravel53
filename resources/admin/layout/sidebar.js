@@ -69,17 +69,9 @@ class Sidebar extends React.Component {
                     id: 'sidebar',
                     className: 'pure-u-1 pure-menu sidebar'
                 },
-                React.createElement(Link, {
-                    className: 'pure-menu-heading pure-menu-link',
-                    to: '/'
-                }, '我的理想乡'),
                 React.createElement('ul', {
                         className: 'pure-menu-list'
                     },
-                    React.createElement(A, {
-                        to: 'drag',
-                        title: 'drag'
-                    }),
                     menus
                 )
             )

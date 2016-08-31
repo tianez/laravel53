@@ -2126,15 +2126,9 @@
 	            return React.createElement('aside', {
 	                id: 'sidebar',
 	                className: 'pure-u-1 pure-menu sidebar'
-	            }, React.createElement(Link, {
-	                className: 'pure-menu-heading pure-menu-link',
-	                to: '/'
-	            }, '我的理想乡'), React.createElement('ul', {
+	            }, React.createElement('ul', {
 	                className: 'pure-menu-list'
-	            }, React.createElement(A, {
-	                to: 'drag',
-	                title: 'drag'
-	            }), menus));
+	            }, menus));
 	        }
 	    }]);
 
@@ -3847,7 +3841,8 @@
 	            title: '单选框',
 	            type: 'radio',
 	            value: 2,
-	            options: [{
+	            f_default: 'sdsds',
+	            f_options: [{
 	                title: '选项1',
 	                value: 1
 	            }, {
@@ -3862,26 +3857,15 @@
 	        };
 	    },
 	    getInitialState: function getInitialState() {
-	        var option = void 0;
-	        switch (this.props.options) {
-	            case "roles":
-	                option = [];
-	                ConfigStore.get(this.props.options).map(function (d, index) {
-	                    var op = {
-	                        title: d.name,
-	                        value: d.id
-	                    };
-	                    option.push(op);
-	                });
-	                break;
-	            default:
-	                option = JSON.parse(this.props.options);
+	        var options = this.props.f_options;
+	        if (typeof options == "string") {
+	            options = JSON.parse(options);
 	        }
 	        return {
 	            files: this.props.files,
 	            value: this.props.value,
 	            help: this.props.help,
-	            option: option
+	            option: options
 	        };
 	    },
 	    _onChange: function _onChange(e) {
@@ -3889,6 +3873,7 @@
 	        this.setState({
 	            value: value
 	        });
+	        console.log(value);
 	        if (this.props.onChange) {
 	            this.props.onChange(this.props.name, value);
 	        }
@@ -3899,7 +3884,7 @@
 	        var options = this.state.option.map(function (d, index) {
 	            var checked = '';
 	            if (value == d.value) {
-	                checked = 'checked';
+	                checked = ' checked';
 	            }
 	            var typeClass = 'radio';
 	            return React.createElement('label', {
@@ -3908,16 +3893,14 @@
 	                title: this.props.title,
 	                help: this.state.help
 	            }, React.createElement('div', {
-	                className: typeClass
-	            }, React.createElement('span', {
-	                className: checked
+	                className: typeClass + checked
 	            }, React.createElement('input', {
 	                type: 'radio',
 	                name: name,
 	                value: d.value,
 	                checked: checked,
 	                onChange: this._onChange
-	            }))), React.createElement('span', null, d.title));
+	            })), React.createElement('span', null, d.title));
 	        }.bind(this));
 	        return React.createElement(FormGroup, {
 	            title: this.props.title,
@@ -4020,7 +4003,7 @@
 	        var options = this.state.option.map(function (d, index) {
 	            var checked = '';
 	            if (value.indexOf(d.value) > -1) {
-	                checked = 'checked';
+	                checked = ' checked';
 	            }
 	            var typeClass = 'checker';
 	            return React.createElement('label', {
@@ -4029,16 +4012,14 @@
 	                title: this.props.title,
 	                help: this.state.help
 	            }, React.createElement('div', {
-	                className: typeClass
-	            }, React.createElement('span', {
-	                className: checked
+	                className: typeClass + checked
 	            }, React.createElement('input', {
 	                type: 'checkbox',
 	                name: name,
 	                value: d.value,
 	                checked: checked,
 	                onChange: this._onChange
-	            }))), React.createElement('span', null, d.title));
+	            })), React.createElement('span', null, d.title));
 	        }.bind(this));
 	        return React.createElement(FormGroup, {
 	            title: this.props.title,
@@ -4241,13 +4222,18 @@
 
 	        var _this = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
+	        var options = _this.props.f_options;
+	        if (typeof options == "string") {
+	            options = JSON.parse(options);
+	        }
 	        _this.state = {
 	            files: props.files,
 	            value: props.value,
 	            name: props.name,
 	            help: props.help,
-	            options: props.options,
-	            show: false
+	            options: options,
+	            show: false,
+	            search: ''
 	        };
 	        return _this;
 	    }
@@ -4265,7 +4251,8 @@
 	            this.setState({
 	                value: value,
 	                name: titie,
-	                show: false
+	                show: false,
+	                search: ''
 	            });
 	            if (this.props.onChange) {
 	                this.props.onChange(this.props.name, value);
@@ -4278,22 +4265,27 @@
 	            var value = e.target.value;
 	            console.log(value);
 	            this.setState({
-	                value: value
+	                search: value
 	            });
-	            if (this.props.onChange) {
-	                this.props.onChange(this.props.name, value);
-	            }
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var value = this.state.value;
 	            var name = this.props.name;
+	            var search = this.state.search;
 	            var options = this.state.options.map(function (d, index) {
 	                var isActive = value == d.value ? ' active' : '';
+	                var style = 'block';
+	                if (d.title.indexOf(search) == -1) {
+	                    style = 'none';
+	                }
 	                return React.createElement('div', {
 	                    key: index,
 	                    className: 'form-option' + isActive,
+	                    style: {
+	                        display: style
+	                    },
 	                    onClick: this._changeChoose.bind(this, d.value, d.title)
 	                }, d.title);
 	            }.bind(this));
@@ -4330,7 +4322,7 @@
 	    title: '单选框',
 	    type: 'radio',
 	    value: 2,
-	    options: [{
+	    f_options: [{
 	        title: '选项1',
 	        value: 1
 	    }, {
@@ -4854,16 +4846,14 @@
 	            return React.createElement("tr", {
 	                key: data.id
 	            }, React.createElement("td", {}, React.createElement("div", {
-	                className: "checker"
-	            }, React.createElement("span", {
-	                className: checked
+	                className: "checker " + checked
 	            }, React.createElement("input", {
 	                className: "checkboxes",
 	                value: data.id,
 	                name: 'del_id[]',
 	                type: "checkbox",
 	                onClick: this._click
-	            })))), this._list(data), React.createElement("td", {}, React.createElement(Link, {
+	            }))), this._list(data), React.createElement("td", {}, React.createElement(Link, {
 	                activeClassName: "active",
 	                to: curl
 	            }, "编辑"), ' | ', React.createElement('a', {
@@ -4933,6 +4923,7 @@
 	var Upload = _require.Upload;
 	var Range = _require.Range;
 	var Button = _require.Button;
+	var Select = _require.Select;
 	var Hidden = _require.Hidden;
 
 	var Page = function (_React$Component) {
@@ -5028,7 +5019,7 @@
 	                        if (info[d.key] || info[d.key] == 0) {
 	                            d.value = info[d.key];
 	                        } else {
-	                            d.value = d.default || '';
+	                            d.value = d.f_default || '';
 	                        }
 	                        d.name = d.key;
 	                        d.onChange = onChange;
@@ -5055,10 +5046,14 @@
 	                            //     return (React.createElement(Editer, d))
 	                            //     break;
 	                            case "radio":
+	                                console.log(d);
 	                                return React.createElement(Radio, d);
 	                                break;
 	                            case "checkbox":
 	                                return React.createElement(Checkbox, d);
+	                                break;
+	                            case "select":
+	                                return React.createElement(Select, d);
 	                                break;
 	                            case "hidden":
 	                                return React.createElement(Hidden, d);

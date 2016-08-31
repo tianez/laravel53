@@ -103,9 +103,9 @@ class Fields extends Model
     *
     * @var array
     */
-    public function scopeType($query,$type= 'text')
+    public function scopeFile($query,$table= 'fields')
     {
-        $query->where('type',$type);
+        return $query->select('id','key', 'title','type','f_options','f_default','f_add','f_edit','f_visible')->where('f_module',$table);
     }
     
     /**

@@ -10,6 +10,7 @@ const {
     Upload,
     Range,
     Button,
+    Select,
     Hidden
 } = require('../components/forms')
 class Page extends React.Component {
@@ -88,7 +89,7 @@ class Page extends React.Component {
                 if (info[d.key] || info[d.key] == 0) {
                     d.value = info[d.key]
                 } else {
-                    d.value = d.default || ''
+                    d.value = d.f_default || ''
                 }
                 d.name = d.key
                 d.onChange = onChange
@@ -115,10 +116,14 @@ class Page extends React.Component {
                         //     return (React.createElement(Editer, d))
                         //     break;
                     case "radio":
+                    console.log(d);
                         return (React.createElement(Radio, d))
                         break;
                     case "checkbox":
                         return (React.createElement(Checkbox, d))
+                        break;
+                    case "select":
+                        return (React.createElement(Select, d))
                         break;
                     case "hidden":
                         return (React.createElement(Hidden, d))

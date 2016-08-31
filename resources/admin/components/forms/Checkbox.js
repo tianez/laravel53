@@ -4,7 +4,7 @@ const classNames = require('classNames')
 const FormGroup = require('./FormGroup')
 
 const Checkbox = React.createClass({
-    getDefaultProps: function() {
+    getDefaultProps: function () {
         return {
             title: '多选框',
             type: 'checkbox',
@@ -13,12 +13,12 @@ const Checkbox = React.createClass({
                 title: '选项1',
                 value: 0
             }, {
-                title: '选项2',
-                value: 1
-            }, {
-                title: '选项3',
-                value: 's2'
-            }],
+                    title: '选项2',
+                    value: 1
+                }, {
+                    title: '选项3',
+                    value: 's2'
+                }],
             name: 'state',
             placeholder: '',
             help: '',
@@ -26,12 +26,12 @@ const Checkbox = React.createClass({
             required: 'required'
         }
     },
-    getInitialState: function() {
+    getInitialState: function () {
         let option
         switch (this.props.options) {
             case "roles":
                 option = []
-                ConfigStore.get(this.props.options).map(function(d, index) {
+                ConfigStore.get(this.props.options).map(function (d, index) {
                     let op = {
                         title: d.name,
                         value: d.id
@@ -40,8 +40,8 @@ const Checkbox = React.createClass({
                 })
                 break;
             default:
-            option = this.props.options
-                // option = JSON.parse(this.props.options)
+                option = this.props.options
+            // option = JSON.parse(this.props.options)
         }
         let value = this.props.value
         if (value) {
@@ -55,10 +55,10 @@ const Checkbox = React.createClass({
             option: option
         }
     },
-    _onChange: function(e) {
+    _onChange: function (e) {
         let type = this.props.type
         let v = e.target.value
-        if(!isNaN(v)){
+        if (!isNaN(v)) {
             v = parseInt(v)
         }
         let value = this.state.value
@@ -76,38 +76,34 @@ const Checkbox = React.createClass({
             this.props.onChange(this.props.name, value)
         }
     },
-    render: function() {
+    render: function () {
         let value = this.state.value
         let name = this.props.name
-            // let option = JSON.parse(this.props.options)
-            // let option = this.props.options
-        let options = this.state.option.map(function(d, index) {
+        // let option = JSON.parse(this.props.options)
+        // let option = this.props.options
+        let options = this.state.option.map(function (d, index) {
             let checked = ''
             if (value.indexOf(d.value) > -1) {
-                checked = 'checked'
+                checked = ' checked'
             }
             let typeClass = 'checker'
             return (
                 React.createElement('label', {
-                        key: index,
-                        className: 'form-radio',
-                        title: this.props.title,
-                        help: this.state.help
-                    },
+                    key: index,
+                    className: 'form-radio',
+                    title: this.props.title,
+                    help: this.state.help
+                },
                     React.createElement('div', {
-                            className: typeClass
-                        },
-                        React.createElement('span', {
-                                className: checked
-                            },
-                            React.createElement('input', {
-                                type: 'checkbox',
-                                name: name,
-                                value: d.value,
-                                checked: checked,
-                                onChange: this._onChange
-                            })
-                        )
+                        className: typeClass + checked
+                    },
+                        React.createElement('input', {
+                            type: 'checkbox',
+                            name: name,
+                            value: d.value,
+                            checked: checked,
+                            onChange: this._onChange
+                        })
                     ),
                     React.createElement('span', null, d.title)
                 )
@@ -115,9 +111,9 @@ const Checkbox = React.createClass({
         }.bind(this))
         return (
             React.createElement(FormGroup, {
-                    title: this.props.title,
-                    help: this.state.help
-                },
+                title: this.props.title,
+                help: this.state.help
+            },
                 options
             )
         )

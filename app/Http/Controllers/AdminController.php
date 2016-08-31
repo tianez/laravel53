@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Model\User;
+use App\Http\Model\Fields;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -67,7 +68,7 @@ class AdminController extends Controller {
     public function getDetail(Request $request) {
         $id = $request->id;
         $table = $request->list;
-        $fields = DB::table('fields')->where('f_module',$table)->get();
+        $fields = Fields::file($table)->get();
         $info = DB::table($table)->where('id',$id)->first();
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);
