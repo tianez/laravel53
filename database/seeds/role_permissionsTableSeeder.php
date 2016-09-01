@@ -28,6 +28,4 @@ class role_permissionsTableSeeder extends Seeder
         ),
         ]);
     }
-    
-    
 }
