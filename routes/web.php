@@ -29,8 +29,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('logout', 'AdminController@getLogout');
     Route::post('import','AdminController@postImport');
     Route::get('roles','Admin\InfoController@getRolesGroup');
+    Route::get('permts','Admin\InfoController@getPermtsGroup');
 });
-
 
 Route::get('test', 'TestController@getIndex');
 // Route::controller('test', 'TestController/getIndex');

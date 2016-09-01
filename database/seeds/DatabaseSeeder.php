@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         date_default_timezone_set("Asia/Shanghai");
-        $this->call(MeunTableSeeder::class);
+        $this->call(meunTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         $this->call(FieldsTableSeeder::class);

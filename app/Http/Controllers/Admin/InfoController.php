@@ -6,6 +6,7 @@ use App\Http\Model\User;
 use App\Http\Model\Fields;
 use Auth;
 use DB;
+use Route;
 use Illuminate\Http\Request;
 
 class InfoController extends Controller {
@@ -24,5 +25,13 @@ class InfoController extends Controller {
             $res[] = $r;
         }
         return response()->json($res);
+    }
+
+    public function getPermtsGroup(Request $request) {
+        $routeCollection = Route::getRoutes();
+        foreach ($routeCollection as $value) {
+            // $arr[] =    $value->getPath();
+            dump($value->getAction());
+        }
     }
 }

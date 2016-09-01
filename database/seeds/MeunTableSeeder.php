@@ -2,13 +2,13 @@
 
 use Illuminate\Database\Seeder;
 
-class MeunTableSeeder extends Seeder
+class meunTableSeeder extends Seeder
 {
     /**
-    * Run the database seeds.
-    *
-    * @return void
-    */
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
         DB::table('meun')->insert([
