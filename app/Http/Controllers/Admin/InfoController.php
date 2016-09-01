@@ -26,12 +26,21 @@ class InfoController extends Controller {
         }
         return response()->json($res);
     }
-
+    
     public function getPermtsGroup(Request $request) {
+        $res = array();
         $routeCollection = Route::getRoutes();
         foreach ($routeCollection as $value) {
-            // $arr[] =    $value->getPath();
-            dump($value->getAction());
+            $arr = $value->getAction();
+            if($arr['prefix'] !== 'api'){
+                $rs = array();
+                // if(strpos($arr['controller'],'AdminController')){
+                    $rs['title'] = $arr['controller'];
+                    $rs['value'] = $arr['controller'];
+                    $res[] = $rs;
+                // }
+            }
         }
+        return response()->json($res);
     }
 }

@@ -4232,9 +4232,12 @@
 
 	        var _this = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
-	        var options = props.f_options;
-	        if (typeof options == "string") {
-	            options = JSON.parse(options);
+	        var options = [];
+	        if (!_this.props.f_ext) {
+	            options = _this.props.f_options;
+	            if (typeof options == "string") {
+	                options = JSON.parse(options);
+	            }
 	        }
 	        var title = void 0;
 	        options.forEach(function (element) {
@@ -4255,6 +4258,19 @@
 	    }
 
 	    _createClass(Select, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            if (this.props.f_ext) {
+	                request.get('admin/' + this.props.f_ext).end(function (err, res) {
+	                    var data = JSON.parse(res.text);
+	                    console.log(data);
+	                    this.setState({
+	                        options: data
+	                    });
+	                }.bind(this));
+	            }
+	        }
+	    }, {
 	        key: '_toggleShow',
 	        value: function _toggleShow(e) {
 	            this.setState({
@@ -5781,25 +5797,40 @@
 	var cachedSetTimeout;
 	var cachedClearTimeout;
 
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout() {
+	    throw new Error('clearTimeout has not been defined');
+	}
 	(function () {
 	    try {
-	        cachedSetTimeout = setTimeout;
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
 	    } catch (e) {
-	        cachedSetTimeout = function cachedSetTimeout() {
-	            throw new Error('setTimeout is not defined');
-	        };
+	        cachedSetTimeout = defaultSetTimout;
 	    }
 	    try {
-	        cachedClearTimeout = clearTimeout;
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
 	    } catch (e) {
-	        cachedClearTimeout = function cachedClearTimeout() {
-	            throw new Error('clearTimeout is not defined');
-	        };
+	        cachedClearTimeout = defaultClearTimeout;
 	    }
 	})();
 	function runTimeout(fun) {
 	    if (cachedSetTimeout === setTimeout) {
 	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
 	        return setTimeout(fun, 0);
 	    }
 	    try {
@@ -5818,6 +5849,11 @@
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
 	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
 	        return clearTimeout(marker);
 	    }
 	    try {

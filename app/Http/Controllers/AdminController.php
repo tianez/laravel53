@@ -54,6 +54,7 @@ class AdminController extends Controller {
         $thead['fields'] = array('id'=>'ID','key'=>'字段key', 'title'=>'字段名称', 'f_module'=>'字段模块','status'=>'状态');
         $thead['meun'] = array('id'=>'ID','link'=>'链接地址', 'title'=>'链接标题', 'description'=>'描述');
         $thead['roles'] = array('id'=>'ID','name'=>'用户组标识', 'display_name'=>'用户组名称', 'description'=>'描述');
+        $thead['role_permissions'] = array('id'=>'ID','name'=>'权限key', 'display_name'=>'权限名称', 'description'=>'描述');
         $out = array('title' => '字段', 'pages' => $data,'thead' => $thead[$table]);
         return response()->json($out);
     }
@@ -68,6 +69,7 @@ class AdminController extends Controller {
     public function postAdd(Request $request) {
         $table = $request->list;
         $data = $request->except(['list','id']);
+        $data['created_at'] =  date("Y-m-d H:i:s");
         $info = DB::table($table)->insert($data);
         $out = array();
         if (empty($info)) {
@@ -98,6 +100,7 @@ class AdminController extends Controller {
             $out['msg'] = '没有发现相关数据！';
         }else{
             $data = $request->except(['list']);
+            $data['updated_at'] =  date("Y-m-d H:i:s");
             $res = DB::table($table)->where('id', $id)->update($data);
             $out['res'] = $res;
             $out['msg'] = '保存成功！';

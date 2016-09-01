@@ -6,9 +6,12 @@ const FormGroup = require('./FormGroup')
 class Select extends React.Component {
     constructor(props) {
         super(props)
-        let options = props.f_options
-        if (typeof options == "string") {
-            options = JSON.parse(options)
+        let options = []
+        if (!this.props.f_ext) {
+            options = this.props.f_options
+            if (typeof options == "string") {
+                options = JSON.parse(options)
+            }
         }
         let title
         options.forEach(function (element) {
@@ -25,6 +28,18 @@ class Select extends React.Component {
             show: false,
             search: '',
         }
+    }
+    componentDidMount() {
+        if (this.props.f_ext) {
+            request.get('admin/' + this.props.f_ext)
+                .end(function (err, res) {
+                    let data = JSON.parse(res.text)
+                    console.log(data)
+                    this.setState({
+                        options: data
+                    })
+                }.bind(this))
+        } 
     }
     _toggleShow(e) {
         this.setState({
