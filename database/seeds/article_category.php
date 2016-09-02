@@ -38,7 +38,7 @@ class article_category extends Seeder
         array(
         'key' => 'category_des',
         'title' => '分类描述',
-        'type' => 'text',
+        'type' => 'textarea',
         'f_module' => 'article_category',
         'f_groups' => '字段分组',
         'f_description' => '分类描述',

@@ -34,13 +34,14 @@ class Page extends React.Component {
             pages,
             page
         } = props.params
-        let requrl = page == 'add' ? 'admin/add' : 'admin/detail'
+        let p = pages == 'article' ? 'article' : 'admin'
+        let requrl = page == 'add' ? p + '/add' : p + '/detail'
         request.get(requrl)
             .query({
                 list: pages,
                 id: page
             })
-            .end(function (err, res) {
+            .end(function(err, res) {
                 let data = JSON.parse(res.text)
                 this.setState({
                     fields: data.fields,
@@ -54,19 +55,23 @@ class Page extends React.Component {
             page
         } = this.props.params
         console.log(this.state.info)
-        let requrl = page == 'add' ? 'admin/add' : 'admin/detail'
+        let p = pages == 'article' ? 'article' : 'admin'
+        let requrl = page == 'add' ? p + '/add' : p + '/detail'
         request.post(requrl)
             .query({
                 list: pages
             })
             .send(this.state.info)
-            .end(function (err, res) {
+            .end(function(err, res) {
                 let msg
                 if (err) {
                     msg = err.response.error.message
                 } else {
                     let data = JSON.parse(res.text);
                     msg = data.msg
+                    if (page == 'add') {
+                        this.props.history.pushState(null, 'api/' + pages + '/' + data.info.id)
+                    }
                 }
                 ConfigActions.message(msg)
             }.bind(this))
@@ -85,7 +90,7 @@ class Page extends React.Component {
         let model = this.state.fields
         if (model) {
             let onChange = this._onChange.bind(this)
-            forms = model.map(function (ds, index) {
+            forms = model.map(function(ds, index) {
                 let d = {}
                 if (info[ds.key] || info[ds.key] == 0) {
                     d.value = info[ds.key]
@@ -143,20 +148,20 @@ class Page extends React.Component {
         // if (info) {
         render =
             React.createElement('section', {
-                className: 'container'
-            },
-                React.createElement(Form, {
-                    action: this.state.action,
-                    info: info,
-                    apiSubmit: false,
-                    legend: this.state.title,
-                    onSubmit: this._onSubmit.bind(this)
+                    className: 'container'
                 },
+                React.createElement(Form, {
+                        action: this.state.action,
+                        info: info,
+                        apiSubmit: false,
+                        legend: this.state.title,
+                        onSubmit: this._onSubmit.bind(this)
+                    },
                     forms,
                     React.createElement(Button)
                 )
             )
-        // }
+            // }
         return (
             React.createElement('section', {
                 className: 'warp'

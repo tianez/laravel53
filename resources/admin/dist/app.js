@@ -4658,8 +4658,8 @@
 	        value: function render() {
 	            var i = 1;
 	            var prev = 4;
-	            var total = this.props.page.total || '';
-	            var last_page = this.props.page.last_page || '';
+	            var total = this.props.page.total || 0;
+	            var last_page = this.props.page.last_page || 0;
 	            var current_page = this.props.page.current_page || '';
 	            var items = [];
 	            if (prev > last_page + 1) {
@@ -5047,7 +5047,8 @@
 	            var pages = _props$params.pages;
 	            var page = _props$params.page;
 
-	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail';
+	            var p = pages == 'article' ? 'article' : 'admin';
+	            var requrl = page == 'add' ? p + '/add' : p + '/detail';
 	            request.get(requrl).query({
 	                list: pages,
 	                id: page
@@ -5067,7 +5068,8 @@
 	            var page = _props$params2.page;
 
 	            console.log(this.state.info);
-	            var requrl = page == 'add' ? 'admin/add' : 'admin/detail';
+	            var p = pages == 'article' ? 'article' : 'admin';
+	            var requrl = page == 'add' ? p + '/add' : p + '/detail';
 	            request.post(requrl).query({
 	                list: pages
 	            }).send(this.state.info).end(function (err, res) {
@@ -5077,6 +5079,9 @@
 	                } else {
 	                    var data = JSON.parse(res.text);
 	                    msg = data.msg;
+	                    if (page == 'add') {
+	                        this.props.history.pushState(null, 'api/' + pages + '/' + data.info.id);
+	                    }
 	                }
 	                ConfigActions.message(msg);
 	            }.bind(this));
@@ -5861,40 +5866,25 @@
 	var cachedSetTimeout;
 	var cachedClearTimeout;
 
-	function defaultSetTimout() {
-	    throw new Error('setTimeout has not been defined');
-	}
-	function defaultClearTimeout() {
-	    throw new Error('clearTimeout has not been defined');
-	}
 	(function () {
 	    try {
-	        if (typeof setTimeout === 'function') {
-	            cachedSetTimeout = setTimeout;
-	        } else {
-	            cachedSetTimeout = defaultSetTimout;
-	        }
+	        cachedSetTimeout = setTimeout;
 	    } catch (e) {
-	        cachedSetTimeout = defaultSetTimout;
+	        cachedSetTimeout = function cachedSetTimeout() {
+	            throw new Error('setTimeout is not defined');
+	        };
 	    }
 	    try {
-	        if (typeof clearTimeout === 'function') {
-	            cachedClearTimeout = clearTimeout;
-	        } else {
-	            cachedClearTimeout = defaultClearTimeout;
-	        }
+	        cachedClearTimeout = clearTimeout;
 	    } catch (e) {
-	        cachedClearTimeout = defaultClearTimeout;
+	        cachedClearTimeout = function cachedClearTimeout() {
+	            throw new Error('clearTimeout is not defined');
+	        };
 	    }
 	})();
 	function runTimeout(fun) {
 	    if (cachedSetTimeout === setTimeout) {
 	        //normal enviroments in sane situations
-	        return setTimeout(fun, 0);
-	    }
-	    // if setTimeout wasn't available but was latter defined
-	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-	        cachedSetTimeout = setTimeout;
 	        return setTimeout(fun, 0);
 	    }
 	    try {
@@ -5913,11 +5903,6 @@
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
 	        //normal enviroments in sane situations
-	        return clearTimeout(marker);
-	    }
-	    // if clearTimeout wasn't available but was latter defined
-	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-	        cachedClearTimeout = clearTimeout;
 	        return clearTimeout(marker);
 	    }
 	    try {

@@ -31,6 +31,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('roles','Admin\InfoController@getRolesGroup');
     Route::get('permts','Admin\InfoController@getPermtsGroup');
 });
+Route::group(['prefix' => 'article'], function () {
+    Route::get('add','ArticleController@getAdd');
+    Route::post('add','ArticleController@postAdd');
+    Route::get('detail','ArticleController@getDetail');
+    Route::post('detail', 'ArticleController@postDetail');
+});
 
 Route::get('test', 'TestController@getIndex');
 // Route::controller('test', 'TestController/getIndex');
