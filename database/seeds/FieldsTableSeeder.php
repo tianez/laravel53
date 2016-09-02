@@ -219,7 +219,7 @@ class FieldsTableSeeder extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         )
         ]);
-
+        
         /**
         * 权限管理字段导入
         */
@@ -228,7 +228,7 @@ class FieldsTableSeeder extends Seeder
         'key' => 'name',
         'title' => '权限key',
         'type' => 'select',
-        'f_module' => 'role_permissions', 
+        'f_module' => 'role_permissions',
         'f_groups' => '字段分组',
         'f_description' => '权限key',
         'f_ext' => 'permts',

@@ -411,6 +411,13 @@ const Pages = React.createClass({
                         query: { state: 0 }
                     },
                         '删除'
+                    ),
+                    React.createElement(Link, {
+                        to: '/api/' + this.props.params.pages+'/add',
+                        className: 'pure-menu-link',
+                        activeClassName: 'active',
+                    },
+                        '新增'
                     )
                 ),
                 React.createElement("table", {

@@ -20,7 +20,13 @@
     <!--<script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>-->
     <!--<script src="http://cdn.bootcss.com/immutable/3.8.1/immutable.min.js"></script>
     <script src="http://cdn.bootcss.com/draft-js/0.7.0/Draft.min.js"></script> -->
-
+<!-- 配置文件 -->
+    <script type="text/javascript" src="resources/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="resources/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
     <script src="resources/js/SHA1.js"></script>
     <script src="resources/js/CryptoJS.js"></script>
     <script src="bower_components/storedb/storedb.js"></script>

@@ -5,6 +5,7 @@ const {
     Input,
     Textarea,
     // Editer,
+    Ueditor,
     Radio,
     Checkbox,
     Upload,
@@ -39,7 +40,7 @@ class Page extends React.Component {
                 list: pages,
                 id: page
             })
-            .end(function(err, res) {
+            .end(function (err, res) {
                 let data = JSON.parse(res.text)
                 this.setState({
                     fields: data.fields,
@@ -59,7 +60,7 @@ class Page extends React.Component {
                 list: pages
             })
             .send(this.state.info)
-            .end(function(err, res) {
+            .end(function (err, res) {
                 let msg
                 if (err) {
                     msg = err.response.error.message
@@ -84,7 +85,7 @@ class Page extends React.Component {
         let model = this.state.fields
         if (model) {
             let onChange = this._onChange.bind(this)
-            forms = model.map(function(ds, index) {
+            forms = model.map(function (ds, index) {
                 let d = {}
                 if (info[ds.key] || info[ds.key] == 0) {
                     d.value = info[ds.key]
@@ -119,9 +120,9 @@ class Page extends React.Component {
                     case "image":
                         return (React.createElement(Upload, d))
                         break;
-                        // case "editer":
-                        //     return (React.createElement(Editer, d))
-                        //     break;
+                    case "editer":
+                        return (React.createElement(Ueditor, d))
+                        break;
                     case "radio":
                         return (React.createElement(Radio, d))
                         break;
@@ -142,20 +143,20 @@ class Page extends React.Component {
         // if (info) {
         render =
             React.createElement('section', {
-                    className: 'container'
-                },
+                className: 'container'
+            },
                 React.createElement(Form, {
-                        action: this.state.action,
-                        info: info,
-                        apiSubmit: false,
-                        legend: this.state.title,
-                        onSubmit: this._onSubmit.bind(this)
-                    },
+                    action: this.state.action,
+                    info: info,
+                    apiSubmit: false,
+                    legend: this.state.title,
+                    onSubmit: this._onSubmit.bind(this)
+                },
                     forms,
                     React.createElement(Button)
                 )
             )
-            // }
+        // }
         return (
             React.createElement('section', {
                 className: 'warp'

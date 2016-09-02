@@ -80,7 +80,7 @@
 	var Import = _require.Import;
 
 
-	__webpack_require__(45);
+	__webpack_require__(46);
 
 	// function onEnter(nextState, replace) {
 	//     let pathname = nextState.location.pathname
@@ -2237,11 +2237,11 @@
 	var ApiCloudsIndex = __webpack_require__(18);
 	var ApiClouds = __webpack_require__(19);
 	var ApiCloud = __webpack_require__(20);
-	var Pages = __webpack_require__(40);
-	var Page = __webpack_require__(41);
-	var Login = __webpack_require__(42);
-	var Logout = __webpack_require__(43);
-	var Import = __webpack_require__(44);
+	var Pages = __webpack_require__(41);
+	var Page = __webpack_require__(42);
+	var Login = __webpack_require__(43);
+	var Logout = __webpack_require__(44);
+	var Import = __webpack_require__(45);
 
 	var Temp = {
 	    Nomatch: Nomatch,
@@ -2828,17 +2828,18 @@
 	var Input = __webpack_require__(26);
 	var Textarea = __webpack_require__(27);
 	// const Editer = require('../editer')
-	var Canvas = __webpack_require__(28);
-	var Upload = __webpack_require__(29);
-	var Radio = __webpack_require__(32);
-	var Checkbox = __webpack_require__(33);
-	var Range = __webpack_require__(34);
-	var Button = __webpack_require__(35);
-	var Hidden = __webpack_require__(36);
+	var Ueditor = __webpack_require__(28);
+	var Canvas = __webpack_require__(29);
+	var Upload = __webpack_require__(30);
+	var Radio = __webpack_require__(33);
+	var Checkbox = __webpack_require__(34);
+	var Range = __webpack_require__(35);
+	var Button = __webpack_require__(36);
+	var Hidden = __webpack_require__(37);
 	// const ColorPicker = require('./ColorPicker')
-	var Select = __webpack_require__(37);
-	var Tab = __webpack_require__(38);
-	var Audio = __webpack_require__(39);
+	var Select = __webpack_require__(38);
+	var Tab = __webpack_require__(39);
+	var Audio = __webpack_require__(40);
 	// const {
 	//     Calendar,
 	//     DateRange
@@ -2850,6 +2851,7 @@
 	    Input: Input,
 	    Textarea: Textarea,
 	    // Editer: Editer,
+	    Ueditor: Ueditor,
 	    Canvas: Canvas,
 	    Upload: Upload,
 	    Radio: Radio,
@@ -3262,6 +3264,63 @@
 
 /***/ },
 /* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
+
+	var Ueditor = React.createClass({
+	    displayName: 'Ueditor',
+
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            type: 'text',
+	            value: '',
+	            autocomplete: 'off',
+	            required: 'required'
+	        };
+	    },
+	    getInitialState: function getInitialState() {
+	        console.log(this.props);
+	        return {
+	            value: this.props.value,
+	            help: this.props.help,
+	            length: this.props.value.length || 0
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        this.ueditor = UE.getEditor('ueditor');
+	        this.ueditor.ready(function () {
+	            this.ueditor.setContent(this.props.value);
+	            this.ueditor.addListener('selectionchange', function () {
+	                var html = this.ueditor.getContent();
+	                if (this.props.onChange) {
+	                    this.props.onChange(this.props.name, html);
+	                }
+	            }.bind(this));
+	        }.bind(this));
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {},
+	    componentWillUnmount: function componentWillUnmount() {
+	        this.ueditor.destroy();
+	    },
+	    render: function render() {
+	        return React.createElement(FormGroup, {
+	            title: this.props.title
+	        }, React.createElement('textarea', {
+	            id: 'ueditor',
+	            ref: 'ueditor',
+	            name: this.props.name
+	        }));
+	    }
+	});
+
+	module.exports = Ueditor;
+
+/***/ },
+/* 29 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3299,17 +3358,17 @@
 	module.exports = Canvas;
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var classNames = __webpack_require__(23);
-	var ajaxUpload = __webpack_require__(30);
+	var ajaxUpload = __webpack_require__(31);
 	var FormGroup = __webpack_require__(25);
-	var Canvas = __webpack_require__(28);
+	var Canvas = __webpack_require__(29);
 
-	var _require = __webpack_require__(31);
+	var _require = __webpack_require__(32);
 
 	var getUpToken = _require.getUpToken;
 	var getHash = _require.getHash;
@@ -3611,7 +3670,7 @@
 	module.exports = Upload;
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3657,7 +3716,7 @@
 	};
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3825,7 +3884,7 @@
 	};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3923,7 +3982,7 @@
 	module.exports = Radio;
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4040,7 +4099,7 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4107,7 +4166,7 @@
 	module.exports = Range;
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4188,7 +4247,7 @@
 	module.exports = Botton;
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4208,7 +4267,7 @@
 	module.exports = Hidden;
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4376,7 +4435,7 @@
 	module.exports = Select;
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4464,7 +4523,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4528,7 +4587,7 @@
 	module.exports = Audio;
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4908,7 +4967,11 @@
 	            className: 'pure-menu-link',
 	            activeClassName: 'active',
 	            query: { state: 0 }
-	        }, '删除')), React.createElement("table", {
+	        }, '删除'), React.createElement(Link, {
+	            to: '/api/' + this.props.params.pages + '/add',
+	            className: 'pure-menu-link',
+	            activeClassName: 'active'
+	        }, '新增')), React.createElement("table", {
 	            className: "pure-table pure-table-bordered",
 	            style: {
 	                width: '100%'
@@ -4924,7 +4987,7 @@
 	module.exports = Pages;
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4942,6 +5005,7 @@
 	var Form = _require.Form;
 	var Input = _require.Input;
 	var Textarea = _require.Textarea;
+	var Ueditor = _require.Ueditor;
 	var Radio = _require.Radio;
 	var Checkbox = _require.Checkbox;
 	var Upload = _require.Upload;
@@ -5073,9 +5137,9 @@
 	                            case "image":
 	                                return React.createElement(Upload, d);
 	                                break;
-	                            // case "editer":
-	                            //     return (React.createElement(Editer, d))
-	                            //     break;
+	                            case "editer":
+	                                return React.createElement(Ueditor, d);
+	                                break;
 	                            case "radio":
 	                                return React.createElement(Radio, d);
 	                                break;
@@ -5117,7 +5181,7 @@
 	module.exports = Page;
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5233,7 +5297,7 @@
 	module.exports = Login;
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5280,7 +5344,7 @@
 	module.exports = Logout;
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5294,7 +5358,7 @@
 	var Hidden = _require.Hidden;
 
 
-	var ajaxUpload = __webpack_require__(30);
+	var ajaxUpload = __webpack_require__(31);
 
 	var Import = React.createClass({
 	    displayName: 'Import',
@@ -5395,7 +5459,7 @@
 	module.exports = Import;
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5403,12 +5467,12 @@
 	/**
 	 * action
 	 */
-	window.ConfigActions = __webpack_require__(46);
+	window.ConfigActions = __webpack_require__(47);
 
 	/**
 	 * store
 	 */
-	window.ConfigStore = __webpack_require__(52);
+	window.ConfigStore = __webpack_require__(53);
 
 	/** 
 	 * 请求数据
@@ -5455,12 +5519,12 @@
 	};
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(47);
+	var AppDispatcher = __webpack_require__(48);
 
 	var ConfigActions = {
 
@@ -5500,7 +5564,7 @@
 	module.exports = ConfigActions;
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5518,12 +5582,12 @@
 	 * A singleton that operates as the central hub for application updates.
 	 */
 
-	var Dispatcher = __webpack_require__(48).Dispatcher;
+	var Dispatcher = __webpack_require__(49).Dispatcher;
 
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5537,10 +5601,10 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
-	module.exports.Dispatcher = __webpack_require__(49);
+	module.exports.Dispatcher = __webpack_require__(50);
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5566,7 +5630,7 @@
 	  }
 	}
 
-	var invariant = __webpack_require__(51);
+	var invariant = __webpack_require__(52);
 
 	var _prefix = 'ID_';
 
@@ -5778,10 +5842,10 @@
 	}();
 
 	module.exports = Dispatcher;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5967,7 +6031,7 @@
 	};
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6019,17 +6083,17 @@
 	};
 
 	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(47);
-	var EventEmitter = __webpack_require__(53).EventEmitter;
-	var assign = __webpack_require__(54);
+	var AppDispatcher = __webpack_require__(48);
+	var EventEmitter = __webpack_require__(54).EventEmitter;
+	var assign = __webpack_require__(55);
 
 	var CHANGE_EVENT = 'config';
 
@@ -6113,7 +6177,7 @@
 	}
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6391,7 +6455,7 @@
 	}
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports) {
 
 	'use strict';

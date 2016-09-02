@@ -27,6 +27,20 @@ class meunTableSeeder extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
+        'link' => 'api/article',
+        'title' => '文章管理',
+        'icon' => 'fa fa-user',
+        'description' => '文章管理',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'link' => 'api/article_category',
+        'title' => '分类管理',
+        'icon' => 'fa fa-user',
+        'description' => '分类管理',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
         'link' => 'api/fields',
         'title' => '字段管理',
         'icon' => 'fa fa-file-text-o',

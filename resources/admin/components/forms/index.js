@@ -4,6 +4,7 @@ const FormGroup = require('./FormGroup')
 const Input = require('./Input')
 const Textarea = require('./Textarea')
 // const Editer = require('../editer')
+const Ueditor = require('./ueditor')
 const Canvas = require('./Canvas')
 const Upload = require('./Upload')
 const Radio = require('./Radio')
@@ -26,6 +27,7 @@ var Forms = {
     Input: Input,
     Textarea: Textarea,
     // Editer: Editer,
+    Ueditor:Ueditor,
     Canvas: Canvas,
     Upload: Upload,
     Radio: Radio,
