@@ -46,7 +46,7 @@ class PermissionsController extends AdminController {
     
     public function getDetail(Request $request) {
         $id = $request->id;
-        $fields = Fields::file('article')->get();
+        $fields = Fields::file('role_permissions')->get();
         $info = Permissions::where('id',$id)->first();
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);

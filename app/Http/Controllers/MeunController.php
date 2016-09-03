@@ -46,7 +46,7 @@ class MeunController extends AdminController {
     
     public function getDetail(Request $request) {
         $id = $request->id;
-        $fields = Fields::file('article')->get();
+        $fields = Fields::file('meun')->get();
         $info = Meun::where('id',$id)->first();
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);

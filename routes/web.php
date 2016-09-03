@@ -58,5 +58,20 @@ Route::group(['prefix' => 'role_permissions'], function () {
     Route::post('detail', 'PermissionsController@postDetail');
 });
 
+Route::group(['prefix' => 'article_category'], function () {
+    Route::get('add','CategoryController@getAdd');
+    Route::post('add','CategoryController@postAdd');
+    Route::get('detail','CategoryController@getDetail');
+    Route::post('detail', 'CategoryController@postDetail');
+});
+
+Route::group(['prefix' => 'fields'], function () {
+    Route::get('add','FieldsController@getAdd');
+    Route::post('add','FieldsController@postAdd');
+    Route::get('detail','FieldsController@getDetail');
+    Route::post('detail', 'FieldsController@postDetail');
+});
+
+
 Route::get('test', 'TestController@getIndex');
 // Route::controller('test', 'TestController/getIndex');

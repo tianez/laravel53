@@ -3,12 +3,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Model\Fields;
-use App\Http\Model\Roles;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
 
-class RolesController extends AdminController {
+class FieldsController extends AdminController {
     
     public function __construct() {
         parent::__construct();
@@ -29,7 +28,7 @@ class RolesController extends AdminController {
     }
     
     public function getAdd(Request $request) {
-        $fields = Fields::file('roles')->get();
+        $fields = Fields::file('fields')->get();
         $out = array('title' => '字段', 'fields' => $fields);
         return response()->json($out);
     }
@@ -37,7 +36,7 @@ class RolesController extends AdminController {
     public function postAdd(Request $request) {
         $table = $request->list;
         $data = $request->except(['list','id']);
-        $info = Roles::create($data);
+        $info = Fields::create($data);
         $out = array();
         $out['msg']= '保存成功！';
         $out['info']= $info->toArray();
@@ -46,22 +45,22 @@ class RolesController extends AdminController {
     
     public function getDetail(Request $request) {
         $id = $request->id;
-        $fields = Fields::file('roles')->get();
-        $info = Roles::where('id',$id)->first();
+        $fields = Fields::file('fields')->get();
+        $info = Fields::where('id',$id)->first();
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }
     
     public function postDetail(Request $request) {
         $id = $request->id;
-        $info = Roles::find($id);
+        $info = Fields::find($id);
         $out = array();
         if (empty($info)) {
             $out['res'] = 404;
             $out['msg'] = '没有发现相关数据！';
         }else{
             $data = $request->except(['list']);
-            $res = Roles::where('id', $id)->update($data);
+            $res = Fields::where('id', $id)->update($data);
             $out['res'] = $res;
             $out['msg'] = '保存成功！';
         }
