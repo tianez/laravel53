@@ -41,7 +41,7 @@ class InfoController extends Controller {
                 // }
             }
         }
-        dump($res);
+        // dump($res);
         return response()->json($res);
     }
 }
