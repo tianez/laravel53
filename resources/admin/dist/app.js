@@ -3383,7 +3383,7 @@
 	            value: '',
 	            files: [],
 	            thumbs: [],
-	            multiple: true,
+	            multiple: false,
 	            help: ''
 	        };
 	    },
@@ -3472,7 +3472,8 @@
 	        var token = getUpToken();
 	        var file = files[id];
 	        return ajaxUpload({
-	            url: 'http://up.qiniu.com',
+	            // url: 'http://up.qiniu.com',
+	            url: 'upload',
 	            name: 'file',
 	            key: file.name,
 	            token: token,
@@ -3492,13 +3493,15 @@
 	                } else {
 	                    thumbs = [];
 	                }
-	                thumbs.push(qnurl + '/' + res.name);
+	                thumbs.push('/laravel53/storage/app/' + res.name);
 	                _this.setState({
 	                    files: files,
 	                    thumbs: thumbs
 	                });
 	                thumbs = JSON.stringify(thumbs);
 	                if (_this.props.onChange) {
+	                    console.log(thumbs);
+
 	                    _this.props.onChange(_this.props.name, thumbs);
 	                }
 	            },
@@ -3577,11 +3580,11 @@
 	                    paddingRight: '5px'
 	                };
 	                var thumb = file.thumb;
-	                var patt1 = new RegExp("blob:http");
-	                var patt2 = new RegExp("blob:file");
-	                if (!patt1.test(thumb) && !patt2.test(thumb)) {
-	                    thumb += '-thumb';
-	                }
+	                // let patt1 = new RegExp("blob:http")
+	                // let patt2 = new RegExp("blob:file")
+	                // if (!patt1.test(thumb) && !patt2.test(thumb)) {
+	                //     thumb += '-thumb'
+	                // }
 	                var id = 'swiper-' + index;
 	                return React.createElement('div', {
 	                    key: index,
@@ -4283,17 +4286,72 @@
 	var classNames = __webpack_require__(23);
 	var FormGroup = __webpack_require__(25);
 
-	var Select = function (_React$Component) {
-	    _inherits(Select, _React$Component);
+	var Options = function (_React$Component) {
+	    _inherits(Options, _React$Component);
+
+	    function Options(props) {
+	        _classCallCheck(this, Options);
+
+	        return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
+	    }
+
+	    _createClass(Options, [{
+	        key: '_changeChoose',
+	        value: function _changeChoose(value, titie) {
+	            if (this.props._changeChoose) {
+	                this.props._changeChoose(value, titie);
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var value = this.props.value;
+	            var name = this.props.name;
+	            var search = this.props.search;
+	            var options = this.props.options.map(function (d, index) {
+	                var isActive = value == d.value ? ' active' : '';
+	                var style = 'block';
+	                if (d.title.indexOf(search) == -1) {
+	                    style = 'none';
+	                }
+	                return React.createElement('div', {
+	                    key: index,
+	                    className: 'form-option',
+	                    style: {
+	                        display: style
+	                    }
+	                }, React.createElement('div', {
+	                    className: 't ' + isActive,
+	                    onClick: this._changeChoose.bind(this, d.value, d.title)
+	                }, d.title), d.sub ? React.createElement(Options, {
+	                    className: 'form-select-choose',
+	                    value: this.props.value,
+	                    search: this.props.search,
+	                    options: d.sub,
+	                    name: this.props.name,
+	                    _changeChoose: this._changeChoose.bind(this)
+	                }, d.title) : null);
+	            }.bind(this));
+	            return React.createElement('div', {
+	                className: 'form-select-choose'
+	            }, options);
+	        }
+	    }]);
+
+	    return Options;
+	}(React.Component);
+
+	var Select = function (_React$Component2) {
+	    _inherits(Select, _React$Component2);
 
 	    function Select(props) {
 	        _classCallCheck(this, Select);
 
-	        var _this = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
+	        var _this2 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
 	        var options = [];
-	        if (!_this.props.f_ext) {
-	            options = _this.props.f_options;
+	        if (!_this2.props.f_ext) {
+	            options = _this2.props.f_options;
 	            if (typeof options == "string") {
 	                options = JSON.parse(options);
 	            }
@@ -4303,8 +4361,8 @@
 	            if (props.value == element.value) {
 	                title = element.title;
 	            }
-	        }, _this);
-	        _this.state = {
+	        }, _this2);
+	        _this2.state = {
 	            files: props.files,
 	            value: props.value,
 	            name: title || props.name,
@@ -4313,7 +4371,7 @@
 	            show: false,
 	            search: ''
 	        };
-	        return _this;
+	        return _this2;
 	    }
 
 	    _createClass(Select, [{
@@ -4323,17 +4381,33 @@
 	                request.get('admin/' + this.props.f_ext).end(function (err, res) {
 	                    var data = JSON.parse(res.text);
 	                    var title = void 0;
-	                    data.forEach(function (element) {
-	                        if (this.props.value == element.value) {
-	                            title = element.title;
-	                        }
-	                    }, this);
+	                    var that = this;
+	                    this._title(that, data, this.props.value);
+	                    // data.forEach(function (element) {
+	                    //     if (this.props.value == element.value) {
+	                    //         title = element.title
+	                    //     }
+	                    // }, this);
 	                    this.setState({
-	                        options: data,
-	                        name: title
+	                        options: data
 	                    });
 	                }.bind(this));
 	            }
+	        }
+	    }, {
+	        key: '_title',
+	        value: function _title(that, data, value) {
+	            var title = void 0;
+	            data.forEach(function (e) {
+	                if (value == e.value) {
+	                    that.setState({
+	                        name: e.title
+	                    });
+	                }
+	                if (e.sub.length > 0) {
+	                    that._title(that, e.sub, value);
+	                }
+	            });
 	        }
 	    }, {
 	        key: '_toggleShow',
@@ -4406,7 +4480,16 @@
 	                onChange: this._onSearch.bind(this)
 	            })), React.createElement('div', {
 	                className: 'form-select-choose'
-	            }, options)));
+	            }, React.createElement(Options, {
+	                className: 'form-select-choose',
+	                value: this.state.value,
+	                search: this.state.search,
+	                options: this.state.options,
+	                name: this.props.name,
+	                _changeChoose: this._changeChoose.bind(this)
+	            }
+	            // options
+	            ))));
 	        }
 	    }]);
 

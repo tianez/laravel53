@@ -84,4 +84,5 @@ Route::group(['prefix' => 'users'], function () {
 
 
 Route::get('test', 'TestController@getIndex');
+Route::post('upload', 'TestController@upload');
 // Route::controller('test', 'TestController/getIndex');

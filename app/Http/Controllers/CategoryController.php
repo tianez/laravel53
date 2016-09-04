@@ -45,7 +45,8 @@ class CategoryController extends Controller {
     public function getDetail(Request $request) {
         $id = $request->id;
         $fields = Fields::file('article_category')->get();
-        $info = Category::where('id',$id)->first();
+        $info = $this->model->find($id);
+
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }

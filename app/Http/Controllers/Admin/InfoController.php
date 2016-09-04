@@ -26,18 +26,34 @@ class InfoController extends Controller {
         }
         return response()->json($res);
     }
-
+    
     public function getCategory(Request $request) {
-        $categorys = DB::table('article_category')->get();
+        $categorys = DB::table('article_category')->where('pid',0)->get();
+        $res = $this->getCat($categorys);
+        // $r = array();
+        // foreach($categorys as $category){
+        //     $r['title'] = $category->category_name;
+        //     $r['value'] = $category->id;
+        //     $res[] = $r;
+        // }
+        return response()->json($res);
+    }
+    
+    public function getCat($categorys) {
         $res = array();
         $r = array();
         foreach($categorys as $category){
             $r['title'] = $category->category_name;
             $r['value'] = $category->id;
+            $cats = DB::table('article_category')->where('pid',$category->id)->get();
+            if(!empty($cats)){
+                $r['sub'] = $this->getCat($cats);
+            }
             $res[] = $r;
         }
-        return response()->json($res);
+        return $res;
     }
+    
     
     public function getPermtsGroup(Request $request) {
         $res = array();
@@ -47,9 +63,9 @@ class InfoController extends Controller {
             if($arr['prefix'] !== 'api'){
                 $rs = array();
                 // if(strpos($arr['controller'],'AdminController')){
-                    $rs['title'] = $arr['controller'];
-                    $rs['value'] = $arr['controller'];
-                    $res[] = $rs;
+                $rs['title'] = $arr['controller'];
+                $rs['value'] = $arr['controller'];
+                $res[] = $rs;
                 // }
             }
         }

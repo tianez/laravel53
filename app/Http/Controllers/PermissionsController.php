@@ -47,6 +47,13 @@ class PermissionsController extends Controller {
         $id = $request->id;
         $fields = Fields::file('role_permissions')->get();
         $info = Permissions::where('id',$id)->first();
+        $roles = DB::table('role_user')->where('user_id',$id)->get();
+        $role = array();
+        foreach ($roles as $r) {
+            $role[] = $r->role_id;
+        }
+        $role = json_encode($role);
+        $info['roles'] = $role;
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }
@@ -61,7 +68,7 @@ class PermissionsController extends Controller {
         }else{
             $res = $info->update($request->all());
             DB::table('role_permission')->where('permission_id',$id)->delete();
-            $groups = json_decode($request->roles);
+            $groups = $request->roles?json_decode($request->roles):array();
             $roles = array();
             foreach ($groups as $r) {
                 $role = array('permission_id'=>$id,'role_id'=>$r);

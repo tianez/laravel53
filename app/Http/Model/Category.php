@@ -10,6 +10,6 @@ class Category extends Model {
     */
     protected $table = 'article_category';
     
-    protected $fillable = array('*');
+    protected $fillable = array('category_name','pid');
     
 }

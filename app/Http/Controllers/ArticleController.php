@@ -38,6 +38,9 @@ class ArticleController extends Controller {
     public function postAdd(Request $request) {
         $data = $request->all();
         $info = $this->model->create($data);
+        $category = $request->category?$request->category:1;
+        $add = array('article_id'=>$info->id,'cat_id'=>$category);
+        DB::table('article_taxonomy')->insert($add);
         $out = array();
         $out['msg']= '保存成功！';
         $out['info']= $info->toArray();
@@ -47,7 +50,12 @@ class ArticleController extends Controller {
     public function getDetail(Request $request) {
         $id = $request->id;
         $fields = Fields::file('article')->get();
-        $info = Article::where('id',$id)->first();
+        $info = $this->model->find($id);
+        $res = DB::table('article_taxonomy')->where('article_id',$id)->get();
+        $res = $res->toArray();
+        if($res){
+            $info['category'] = $res[0]->cat_id;
+        }
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }
@@ -60,8 +68,8 @@ class ArticleController extends Controller {
             $out['res'] = 404;
             $out['msg'] = '没有发现相关数据！';
         }else{
-            $data = $request->except(['list']);
-            $res = Article::where('id', $id)->update($data);
+            $res = $info->update($request->all());
+            DB::table('article_taxonomy')->where('article_id',$id)->update(['cat_id'=>$request->category]);
             $out['res'] = $res;
             $out['msg'] = '保存成功！';
         }

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Image;
 use App\Http\Model\Fields;
 use Route;
+use Storage;
 
 use Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -65,5 +66,17 @@ class TestController extends Controller {
         // $res = $info->update($data);
         // $img = Image::make('resources/images/1.jpg')->resize(800, 600);
         // return $img->response('jpg');
+    }
+    
+    
+    public function upload(Request $request) {
+        $stime = mtime();
+        $data = $request->all();
+        $res = array();
+        $filename = $_FILES["file"]['name'];
+        $file = Storage::put($filename,file_get_contents($_FILES['file']['tmp_name']));
+        if($file){
+            return response()->json($_FILES["file"]);
+        }
     }
 }

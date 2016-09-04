@@ -10,5 +10,5 @@ class Article extends Model {
     */
     protected $table = 'article';
     
-    protected $fillable = array('*');
+    protected $fillable = array('title','thumb','content');
 }

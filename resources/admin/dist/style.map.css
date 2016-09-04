@@ -990,8 +990,8 @@ hr {
 .form-select .form-select-choose .form-option {
   padding: 0 1.2rem;
 }
-.form-select .form-select-choose .form-option.active,
-.form-select .form-select-choose .form-option:hover {
+.form-select .form-select-choose .form-option .t.active,
+.form-select .form-select-choose .form-option .t:hover {
   background: #3366CC;
   color: #fff;
 }

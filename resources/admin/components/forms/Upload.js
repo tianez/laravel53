@@ -16,7 +16,7 @@ var Upload = React.createClass({
             value: '',
             files: [],
             thumbs: [],
-            multiple: true,
+            multiple: false,
             help: '',
         }
     },
@@ -106,7 +106,8 @@ var Upload = React.createClass({
         let token = getUpToken()
         let file = files[id]
         return ajaxUpload({
-            url: 'http://up.qiniu.com',
+            // url: 'http://up.qiniu.com',
+            url: 'upload',
             name: 'file',
             key: file.name,
             token: token,
@@ -126,13 +127,15 @@ var Upload = React.createClass({
                 } else {
                     thumbs = []
                 }
-                thumbs.push(qnurl + '/' + res.name)
+                thumbs.push('/laravel53/storage/app/' + res.name)
                 this.setState({
                     files: files,
                     thumbs: thumbs
                 })
                 thumbs = JSON.stringify(thumbs)
                 if (this.props.onChange) {
+                    console.log(thumbs);
+                    
                     this.props.onChange(this.props.name, thumbs)
                 }
             },
@@ -211,11 +214,11 @@ var Upload = React.createClass({
                     paddingRight: '5px'
                 }
                 let thumb = file.thumb
-                let patt1 = new RegExp("blob:http")
-                let patt2 = new RegExp("blob:file")
-                if (!patt1.test(thumb) && !patt2.test(thumb)) {
-                    thumb += '-thumb'
-                }
+                // let patt1 = new RegExp("blob:http")
+                // let patt2 = new RegExp("blob:file")
+                // if (!patt1.test(thumb) && !patt2.test(thumb)) {
+                //     thumb += '-thumb'
+                // }
                 let id = 'swiper-' + index
                 return (
                     React.createElement('div', {
