@@ -5047,8 +5047,7 @@
 	            var pages = _props$params.pages;
 	            var page = _props$params.page;
 
-	            var p = pages == 'article' ? 'article' : 'admin';
-	            var requrl = page == 'add' ? p + '/add' : p + '/detail';
+	            var requrl = page == 'add' ? pages + '/add' : pages + '/detail';
 	            request.get(requrl).query({
 	                list: pages,
 	                id: page
@@ -5068,8 +5067,8 @@
 	            var page = _props$params2.page;
 
 	            console.log(this.state.info);
-	            var p = pages == 'article' ? 'article' : 'admin';
-	            var requrl = page == 'add' ? p + '/add' : p + '/detail';
+	            var requrl = page == 'add' ? pages + '/add' : pages + '/detail';
+	            console.log(requrl);
 	            request.post(requrl).query({
 	                list: pages
 	            }).send(this.state.info).end(function (err, res) {

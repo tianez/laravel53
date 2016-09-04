@@ -34,8 +34,7 @@ class Page extends React.Component {
             pages,
             page
         } = props.params
-        let p = pages == 'article' ? 'article' : 'admin'
-        let requrl = page == 'add' ? p + '/add' : p + '/detail'
+        let requrl = page == 'add' ? pages + '/add' : pages + '/detail'
         request.get(requrl)
             .query({
                 list: pages,
@@ -55,8 +54,8 @@ class Page extends React.Component {
             page
         } = this.props.params
         console.log(this.state.info)
-        let p = pages == 'article' ? 'article' : 'admin'
-        let requrl = page == 'add' ? p + '/add' : p + '/detail'
+        let requrl = page == 'add' ? pages + '/add' : pages + '/detail'
+        console.log(requrl);
         request.post(requrl)
             .query({
                 list: pages
