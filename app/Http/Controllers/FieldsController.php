@@ -41,8 +41,7 @@ class FieldsController extends Controller {
         return response()->json($out);
     }
     
-    public function getDetail(Request $request) {
-        $id = $request->id;
+     public function getDetail($id) {
         $fields = Fields::file('fields')->get();
         $info = Fields::where('id',$id)->first();
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);

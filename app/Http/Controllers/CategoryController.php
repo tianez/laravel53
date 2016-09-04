@@ -35,6 +35,9 @@ class CategoryController extends Controller {
     
     public function postAdd(Request $request) {
         $data = $request->all();
+        if($request->taxonomy =='tags'){
+            $data['pid'] = 0;
+        }
         $info = $this->model->create($data);
         $out = array();
         $out['msg']= '保存成功！';
@@ -42,11 +45,9 @@ class CategoryController extends Controller {
         return response()->json($out);
     }
     
-    public function getDetail(Request $request) {
-        $id = $request->id;
+    public function getDetail($id) {
         $fields = Fields::file('article_category')->get();
         $info = $this->model->find($id);
-
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }
@@ -59,8 +60,11 @@ class CategoryController extends Controller {
             $out['res'] = 404;
             $out['msg'] = '没有发现相关数据！';
         }else{
-            $data = $request->except(['list']);
-            $res = Category::where('id', $id)->update($data);
+            $data = $request->all();
+            if($request->taxonomy =='tags'){
+                $data['pid'] = 0;
+            }
+            $res = $info->update($data);
             $out['res'] = $res;
             $out['msg'] = '保存成功！';
         }

@@ -47,8 +47,7 @@ class ArticleController extends Controller {
         return response()->json($out);
     }
     
-    public function getDetail(Request $request) {
-        $id = $request->id;
+     public function getDetail($id) {
         $fields = Fields::file('article')->get();
         $info = $this->model->find($id);
         $res = DB::table('article_taxonomy')->where('article_id',$id)->get();

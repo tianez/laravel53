@@ -22,17 +22,15 @@ class Admin
             //如果用户拥有管理员权限则直接跳过后面的权限验证
             return $next($request);
         }
-
         $action = $request->route()->getAction()['controller'];
         // $action = substr_replace($actions['controller'], '', 0, 21);
-        // dump($action);
         $p = explode("@", $action);
         if ($p[1] == 'postAdd') {
             $action = $p[0] . '@getAdd';
         }
-        $perms = $request->session()->get('perms');
+        $permits = $request->session()->get('permits');
         $out = array();
-        if (!in_array($action, $perms)) {
+        if (!in_array($action, $permits)) {
             return response('你没有权限访问该页面或进行该操作！', 401);
         }
         return $next($request);

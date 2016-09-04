@@ -3,7 +3,6 @@
 const classNames = require('classNames')
 const FormGroup = require('./FormGroup')
 
-
 class Options extends React.Component {
     constructor(props) {
         super(props)
@@ -17,7 +16,7 @@ class Options extends React.Component {
         let value = this.props.value
         let name = this.props.name
         let search = this.props.search
-        let options = this.props.options.map(function (d, index) {
+        let options = this.props.options.map(function(d, index) {
             let isActive = value == d.value ? ' active' : ''
             let style = 'block'
             if (d.title.indexOf(search) == -1) {
@@ -25,12 +24,12 @@ class Options extends React.Component {
             }
             return (
                 React.createElement('div', {
-                    key: index,
-                    className: 'form-option',
-                    style: {
-                        display: style
-                    }
-                },
+                        key: index,
+                        className: 'form-option',
+                        style: {
+                            display: style
+                        }
+                    },
                     React.createElement('div', {
                         className: 't ' + isActive,
                         onClick: this._changeChoose.bind(this, d.value, d.title)
@@ -48,8 +47,8 @@ class Options extends React.Component {
         }.bind(this))
         return (
             React.createElement('div', {
-                className: 'form-select-choose'
-            },
+                    className: 'form-select-choose'
+                },
                 options
             )
         )
@@ -67,7 +66,7 @@ class Select extends React.Component {
             }
         }
         let title
-        options.forEach(function (element) {
+        options.forEach(function(element) {
             if (props.value == element.value) {
                 title = element.title
             }
@@ -85,16 +84,16 @@ class Select extends React.Component {
     componentDidMount() {
         if (this.props.f_ext) {
             request.get('admin/' + this.props.f_ext)
-                .end(function (err, res) {
+                .end(function(err, res) {
                     let data = JSON.parse(res.text)
                     let title
                     let that = this
                     this._title(that, data, this.props.value)
-                    // data.forEach(function (element) {
-                    //     if (this.props.value == element.value) {
-                    //         title = element.title
-                    //     }
-                    // }, this);
+                        // data.forEach(function (element) {
+                        //     if (this.props.value == element.value) {
+                        //         title = element.title
+                        //     }
+                        // }, this);
                     this.setState({
                         options: data,
                         // name: title
@@ -104,13 +103,13 @@ class Select extends React.Component {
     }
     _title(that, data, value) {
         let title
-        data.forEach(function (e) {
+        data.forEach(function(e) {
             if (value == e.value) {
                 that.setState({
                     name: e.title
                 })
             }
-            if (e.sub.length > 0) {
+            if (!(typeof(e.sub) == "undefined") && e.sub.length > 0) {
                 that._title(that, e.sub, value)
             }
         });
@@ -142,7 +141,7 @@ class Select extends React.Component {
         let value = this.state.value
         let name = this.props.name
         let search = this.state.search
-        let options = this.state.options.map(function (d, index) {
+        let options = this.state.options.map(function(d, index) {
             let isActive = value == d.value ? ' active' : ''
             let style = 'block'
             if (d.title.indexOf(search) == -1) {
@@ -150,36 +149,36 @@ class Select extends React.Component {
             }
             return (
                 React.createElement('div', {
-                    key: index,
-                    className: 'form-option' + isActive,
-                    style: {
-                        display: style
+                        key: index,
+                        className: 'form-option' + isActive,
+                        style: {
+                            display: style
+                        },
+                        onClick: this._changeChoose.bind(this, d.value, d.title)
                     },
-                    onClick: this._changeChoose.bind(this, d.value, d.title)
-                },
                     d.title
                 )
             )
         }.bind(this))
         return (
             React.createElement(FormGroup, {
-                title: this.props.title,
-                help: this.state.help,
-                className: 'form-select'
-            },
+                    title: this.props.title,
+                    help: this.state.help,
+                    className: 'form-select'
+                },
                 React.createElement('div', {
                     className: 'form-input',
                     onClick: this._toggleShow.bind(this)
                 }, this.state.name),
                 React.createElement('div', {
-                    className: 'form-choose',
-                    style: {
-                        display: this.state.show ? 'block' : 'none'
-                    }
-                },
-                    React.createElement('div', {
-                        className: 'form-select-search'
+                        className: 'form-choose',
+                        style: {
+                            display: this.state.show ? 'block' : 'none'
+                        }
                     },
+                    React.createElement('div', {
+                            className: 'form-select-search'
+                        },
                         React.createElement('input', {
                             className: 'form-input',
                             value: this.state.search,
@@ -187,16 +186,16 @@ class Select extends React.Component {
                             onChange: this._onSearch.bind(this)
                         })),
                     React.createElement('div', {
-                        className: 'form-select-choose'
-                    },
+                            className: 'form-select-choose'
+                        },
                         React.createElement(Options, {
-                            className: 'form-select-choose',
-                            value: this.state.value,
-                            search: this.state.search,
-                            options: this.state.options,
-                            name: this.props.name,
-                            _changeChoose: this._changeChoose.bind(this)
-                        }
+                                className: 'form-select-choose',
+                                value: this.state.value,
+                                search: this.state.search,
+                                options: this.state.options,
+                                name: this.props.name,
+                                _changeChoose: this._changeChoose.bind(this)
+                            }
                             // options
                         )
                     )
@@ -213,15 +212,15 @@ Select.defaultProps = {
         title: '选项1',
         value: 1
     }, {
-            title: '选项2',
-            value: 2
-        }, {
-            title: '选项3',
-            value: 3
-        }, {
-            title: '选项4',
-            value: 4
-        }],
+        title: '选项2',
+        value: 2
+    }, {
+        title: '选项3',
+        value: 3
+    }, {
+        title: '选项4',
+        value: 4
+    }],
     name: 'state',
     placeholder: '',
     help: '',

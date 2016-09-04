@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Model;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model {
@@ -10,5 +11,5 @@ class Article extends Model {
     */
     protected $table = 'article';
     
-    protected $fillable = array('title','thumb','content');
+    protected $fillable = array('title','keyword','excerpt','thumb','content','link','type','temp','uid','view','bookmark','comment','comment_status','status');
 }

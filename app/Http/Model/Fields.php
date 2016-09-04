@@ -63,10 +63,10 @@ class Fields extends Model
     *
     * @var array
     */
-    public function setTitleAttribute($value) {
-        // $this->attributes['title'] = Hash::make($value);
-        $this->attributes['title'] = 'haodede333333311111111111111111111111133';
-    }
+    // public function setTitleAttribute($value) {
+    //     // $this->attributes['title'] = Hash::make($value);
+    //     $this->attributes['title'] = 'haodede333333311111111111111111111111133';
+    // }
     
     /**
     * 在转化为数组时应该隐藏的属性

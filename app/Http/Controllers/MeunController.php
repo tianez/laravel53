@@ -42,8 +42,7 @@ class MeunController extends Controller {
         return response()->json($out);
     }
     
-    public function getDetail(Request $request) {
-        $id = $request->id;
+    public function getDetail($id) {
         $fields = Fields::file('meun')->get();
         $info = Meun::where('id',$id)->first();
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);

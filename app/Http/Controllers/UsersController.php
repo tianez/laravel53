@@ -54,8 +54,7 @@ class UsersController extends Controller {
         return response()->json($out);
     }
     
-    public function getDetail(Request $request) {
-        $id = $request->id;
+     public function getDetail($id) {
         $fields = Fields::file('users')->get();
         $info = $this->model->find($id);
         $roles = DB::table('role_user')->where('user_id',$id)->get();

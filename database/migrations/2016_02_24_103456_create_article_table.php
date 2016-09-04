@@ -75,7 +75,7 @@ class CreateArticleTable extends Migration
             $table -> string('category_ico') ->nullable() -> comment('分类图标');
             $table -> longText('category_des') ->nullable() -> comment('分类描述');
             $table -> integer('pid') -> default(0) ->comment('上级分类');
-            $table -> integer('taxonomy') -> default(0) ->comment('所属分类法');
+            $table -> string('taxonomy') -> default('category') ->comment('所属分类法');
             $table -> tinyInteger('status') -> default(0) -> comment('状态,0:正常,1:锁定');
                 $table -> timestamps();
         });

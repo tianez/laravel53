@@ -22,6 +22,7 @@ class article_category extends Seeder
         'f_module' => 'article_category',
         'f_groups' => '字段分组',
         'f_description' => '分类名称',
+        'f_options' => null,
         'f_ext' => null,
         'created_at'=> date("Y-m-d H:i:s")
         ),
@@ -32,6 +33,7 @@ class article_category extends Seeder
         'f_module' => 'article_category',
         'f_groups' => '字段分组',
         'f_description' => '分类图标',
+        'f_options' => null,
         'f_ext' => null,
         'created_at'=> date("Y-m-d H:i:s")
         ),
@@ -42,26 +44,29 @@ class article_category extends Seeder
         'f_module' => 'article_category',
         'f_groups' => '字段分组',
         'f_description' => '分类描述',
+        'f_options' => null,
         'f_ext' => null,
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
         'key' => 'pid',
         'title' => '上级分类',
-        'type' => 'text',
+        'type' => 'select',
         'f_module' => 'article_category',
         'f_groups' => '字段分组',
         'f_description' => '上级分类',
-        'f_ext' => null,
+        'f_options' => null,
+        'f_ext' => 'category',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
         'key' => 'taxonomy',
         'title' => '所属分类法',
-        'type' => 'text',
+        'type' => 'select',
         'f_module' => 'article_category',
         'f_groups' => '字段分组',
         'f_description' => '所属分类法',
+        'f_options' => '[{"title":"栏目分类","value":"category"},{"title":"标签tags","value":"tags"}]',
         'f_ext' => null,
         'created_at'=> date("Y-m-d H:i:s")
         ),
@@ -72,6 +77,7 @@ class article_category extends Seeder
         'f_module' => 'article_category',
         'f_groups' => '字段分组',
         'f_description' => '状态',
+        'f_options' => null,
         'f_ext' => null,
         'created_at'=> date("Y-m-d H:i:s")
         ),

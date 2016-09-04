@@ -42,7 +42,7 @@ class Page extends React.Component {
     render() {
         let i = 1
         let prev = 4
-        let total = this.props.page.total || 0 
+        let total = this.props.page.total || 0
         let last_page = this.props.page.last_page || 0
         let current_page = this.props.page.current_page || ''
         let items = []
@@ -288,7 +288,7 @@ const Pages = React.createClass({
         let id = e.target.id
         id = id.split("_")
         id = id[1]
-        let url = '../' + this.props.params.pages + '/del/' + id
+        let url = this.props.params.pages + '/delete/' + id
         request.get(url)
             .end(function(err, res) {
                 if (err) {

@@ -42,7 +42,7 @@ class article extends Seeder
         'f_module' => 'article',
         'f_groups' => '字段分组',
         'f_description' => '文章分类',
-        'f_ext' => null,
+        'f_ext' => 'category',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(

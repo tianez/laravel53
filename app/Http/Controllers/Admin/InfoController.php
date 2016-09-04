@@ -60,7 +60,7 @@ class InfoController extends Controller {
         $routeCollection = Route::getRoutes();
         foreach ($routeCollection as $value) {
             $arr = $value->getAction();
-            if($arr['prefix'] !== 'api'){
+            if($arr['prefix'] !== 'api'&& !strpos($arr['controller'],'postAdd')){
                 $rs = array();
                 // if(strpos($arr['controller'],'AdminController')){
                 $rs['title'] = $arr['controller'];

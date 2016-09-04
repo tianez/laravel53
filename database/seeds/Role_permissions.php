@@ -75,10 +75,38 @@ class Role_permissions extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
-        'name' => 'App\Http\Controllers\AdminController@getList',
-        'display_name' => '列表页',
-        'group' => '默认',
-        'description' => '列表页权限',
+        'name' => 'App\Http\Controllers\ArticleController@getIndex',
+        'display_name' => '文章列表',
+        'group' => '文章管理',
+        'description' => '文章列表',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\ArticleController@getAdd',
+        'display_name' => '新增文章',
+        'group' => '文章管理',
+        'description' => '新增文章',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\ArticleController@getDetail',
+        'display_name' => '查看文章',
+        'group' => '文章管理',
+        'description' => '查看文章',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\ArticleController@postDetail',
+        'display_name' => '编辑文章',
+        'group' => '文章管理',
+        'description' => '编辑文章',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\ArticleController@getDelete',
+        'display_name' => '删除文章',
+        'group' => '文章管理',
+        'description' => '删除文章',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         ]);

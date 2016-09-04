@@ -34,8 +34,8 @@ class CreateRolesTable extends Migration
 			$table -> increments('id');
 			$table -> string('name') -> unique() -> comment('权限名');
 			$table -> string('display_name') -> comment('权限显示名称');
-			$table -> string('group') -> comment('权限分组');
-			$table -> string('description') -> comment('权限描述');
+			$table -> string('group') ->nullable() -> comment('权限分组');
+			$table -> string('description') ->nullable() -> comment('权限描述');
 			$table -> timestamps();
 		});
 

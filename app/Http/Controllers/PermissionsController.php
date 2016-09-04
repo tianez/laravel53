@@ -8,7 +8,7 @@ use DB;
 use Illuminate\Http\Request;
 
 class PermissionsController extends Controller {
-
+    
     public function __construct() {
         $this->middleware('auth');
         $this->middleware('admin');
@@ -43,8 +43,7 @@ class PermissionsController extends Controller {
         return response()->json($out);
     }
     
-    public function getDetail(Request $request) {
-        $id = $request->id;
+    public function getDetail($id) {
         $fields = Fields::file('role_permissions')->get();
         $info = Permissions::where('id',$id)->first();
         $roles = DB::table('role_user')->where('user_id',$id)->get();
@@ -78,6 +77,13 @@ class PermissionsController extends Controller {
             $out['res'] = $res;
             $out['msg'] = '保存成功！';
         }
+        return response()->json($out);
+    }
+    
+    public function getDelete($id) {
+        $info = $this->model->destroy($id);
+        $roles = DB::table('role_permission')->where('permission_id',$id)->delete();
+        $out = array('title' => '删除权限字段');
         return response()->json($out);
     }
 }

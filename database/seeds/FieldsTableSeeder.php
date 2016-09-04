@@ -97,16 +97,6 @@ class FieldsTableSeeder extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
-        'key' => 'f_edit',
-        'title' => '编辑权限',
-        'type' => 'radio',
-        'f_module' => 'fields',
-        'f_groups' => '字段分组',
-        'f_description' => '编辑权限',
-        'f_options' => '[{"title":"正常","value":0},{"title":"锁定","value":1}]',
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        array(
         'key' => 'order',
         'title' => '排序',
         'type' => 'text',
@@ -131,11 +121,22 @@ class FieldsTableSeeder extends Seeder
         array(
         'key' => 'f_add',
         'title' => '新增权限',
-        'type' => 'radio',
+        'type' => 'checkbox',
         'f_module' => 'fields',
         'f_groups' => '字段分组',
         'f_description' => '新增权限',
         'f_options' =>null,
+        'f_ext' => 'roles',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'key' => 'f_edit',
+        'title' => '编辑权限',
+        'type' => 'checkbox',
+        'f_module' => 'fields',
+        'f_groups' => '字段分组',
+        'f_description' => '编辑权限',
+        'f_options' => '[{"title":"正常","value":0},{"title":"锁定","value":1}]',
         'f_ext' => 'roles',
         'created_at'=> date("Y-m-d H:i:s")
         ),
