@@ -166,10 +166,7 @@ const Pages = React.createClass({
         }
     },
     _reQuest: function(props) {
-        let query = props.location.query
-        query.list = props.params.pages
-        request.get('admin/list')
-            .query(query)
+        request.get(props.params.pages)
             .end(function(err, res) {
                 let msg
                 if (err) {

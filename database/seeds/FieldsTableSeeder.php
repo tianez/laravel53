@@ -152,50 +152,5 @@ class FieldsTableSeeder extends Seeder
         ),
         ]);
         
-        /**
-        * 权限管理字段导入
-        */
-        DB::table('fields')->insert([
-        array(
-        'key' => 'name',
-        'title' => '权限key',
-        'type' => 'select',
-        'f_module' => 'role_permissions',
-        'f_groups' => '字段分组',
-        'f_description' => '权限key',
-        'f_ext' => 'permts',
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        array(
-        'key' => 'display_name',
-        'title' => '权限名称',
-        'type' => 'text',
-        'f_module' => 'role_permissions',
-        'f_groups' => '字段分组',
-        'f_description' => '权限名称',
-        'f_ext' => null,
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        array(
-        'key' => 'group',
-        'title' => '权限分组',
-        'type' => 'text',
-        'f_module' => 'role_permissions',
-        'f_groups' => '字段分组',
-        'f_description' => '权限分组',
-        'f_ext' => null,
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        array(
-        'key' => 'description',
-        'title' => '权限描述',
-        'type' => 'text',
-        'f_module' => 'role_permissions',
-        'f_groups' => '字段分组',
-        'f_description' => '权限描述',
-        'f_ext' => null,
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        ]);
     }
 }

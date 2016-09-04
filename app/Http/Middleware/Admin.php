@@ -23,8 +23,9 @@ class Admin
             return $next($request);
         }
 
-        $actions = $request->route()->getAction();
-        $action = substr_replace($actions['controller'], '', 0, 21);
+        $action = $request->route()->getAction()['controller'];
+        // $action = substr_replace($actions['controller'], '', 0, 21);
+        // dump($action);
         $p = explode("@", $action);
         if ($p[1] == 'postAdd') {
             $action = $p[0] . '@getAdd';

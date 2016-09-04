@@ -2,7 +2,7 @@
 namespace App\Http\Model;
 use Illuminate\Database\Eloquent\Model;
 
-class Roles extends Model {
+class Category extends Model {
     /**
     * The database table used by the model.
     *

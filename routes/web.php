@@ -20,24 +20,22 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/','AdminController@getIndex');
     Route::get('user','AdminController@getUser');
     Route::get('meun','AdminController@getMeun');
-    Route::get('list','AdminController@getList');
-    Route::get('add','AdminController@getAdd');
-    Route::post('add','AdminController@postAdd');
-    Route::get('detail','AdminController@getDetail');
-    Route::post('detail', 'AdminController@postDetail');
     Route::post('login', 'AdminController@postLogin');
     Route::get('logout', 'AdminController@getLogout');
     Route::post('import','AdminController@postImport');
     Route::get('roles','Admin\InfoController@getRolesGroup');
     Route::get('permts','Admin\InfoController@getPermtsGroup');
+    Route::get('category','Admin\InfoController@getCategory');
 });
 Route::group(['prefix' => 'article'], function () {
+    Route::get('/','ArticleController@getIndex');
     Route::get('add','ArticleController@getAdd');
     Route::post('add','ArticleController@postAdd');
     Route::get('detail','ArticleController@getDetail');
     Route::post('detail', 'ArticleController@postDetail');
 });
 Route::group(['prefix' => 'meun'], function () {
+    Route::get('/','MeunController@getIndex');
     Route::get('add','MeunController@getAdd');
     Route::post('add','MeunController@postAdd');
     Route::get('detail','MeunController@getDetail');
@@ -45,6 +43,7 @@ Route::group(['prefix' => 'meun'], function () {
 });
 
 Route::group(['prefix' => 'roles'], function () {
+    Route::get('/','RolesController@getIndex');
     Route::get('add','RolesController@getAdd');
     Route::post('add','RolesController@postAdd');
     Route::get('detail','RolesController@getDetail');
@@ -52,6 +51,7 @@ Route::group(['prefix' => 'roles'], function () {
 });
 
 Route::group(['prefix' => 'role_permissions'], function () {
+    Route::get('/','PermissionsController@getIndex');
     Route::get('add','PermissionsController@getAdd');
     Route::post('add','PermissionsController@postAdd');
     Route::get('detail','PermissionsController@getDetail');
@@ -59,6 +59,7 @@ Route::group(['prefix' => 'role_permissions'], function () {
 });
 
 Route::group(['prefix' => 'article_category'], function () {
+    Route::get('/','CategoryController@getIndex');
     Route::get('add','CategoryController@getAdd');
     Route::post('add','CategoryController@postAdd');
     Route::get('detail','CategoryController@getDetail');
@@ -66,10 +67,19 @@ Route::group(['prefix' => 'article_category'], function () {
 });
 
 Route::group(['prefix' => 'fields'], function () {
+    Route::get('/','FieldsController@getIndex');
     Route::get('add','FieldsController@getAdd');
     Route::post('add','FieldsController@postAdd');
     Route::get('detail','FieldsController@getDetail');
     Route::post('detail', 'FieldsController@postDetail');
+});
+
+Route::group(['prefix' => 'users'], function () {
+    Route::get('/','UsersController@getIndex');
+    Route::get('add','UsersController@getAdd');
+    Route::post('add','UsersController@postAdd');
+    Route::get('detail','UsersController@getDetail');
+    Route::post('detail', 'UsersController@postDetail');
 });
 
 

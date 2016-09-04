@@ -9,3 +9,6 @@ php artisan migrate:refresh --seed
 
 
 php artisan db:seed --class=UserTableSeeder
+
+
+php artisan make:controller PhotoController --resource

@@ -23,11 +23,11 @@ const Audio = require('./Audio')
 
 var Forms = {
     Form: Form,
-    FormGroup:FormGroup,
+    FormGroup: FormGroup,
     Input: Input,
     Textarea: Textarea,
     // Editer: Editer,
-    Ueditor:Ueditor,
+    Ueditor: Ueditor,
     Canvas: Canvas,
     Upload: Upload,
     Radio: Radio,
@@ -35,6 +35,7 @@ var Forms = {
     Range: Range,
     Button: Button,
     Hidden: Hidden,
+    Category: require('./Category'),
     // Calendar: Calendar,
     // DateRange: DateRange,
     // ColorPicker: ColorPicker,

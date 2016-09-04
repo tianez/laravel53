@@ -80,7 +80,7 @@
 	var Import = _require.Import;
 
 
-	__webpack_require__(46);
+	__webpack_require__(47);
 
 	// function onEnter(nextState, replace) {
 	//     let pathname = nextState.location.pathname
@@ -2237,11 +2237,11 @@
 	var ApiCloudsIndex = __webpack_require__(18);
 	var ApiClouds = __webpack_require__(19);
 	var ApiCloud = __webpack_require__(20);
-	var Pages = __webpack_require__(41);
-	var Page = __webpack_require__(42);
-	var Login = __webpack_require__(43);
-	var Logout = __webpack_require__(44);
-	var Import = __webpack_require__(45);
+	var Pages = __webpack_require__(42);
+	var Page = __webpack_require__(43);
+	var Login = __webpack_require__(44);
+	var Logout = __webpack_require__(45);
+	var Import = __webpack_require__(46);
 
 	var Temp = {
 	    Nomatch: Nomatch,
@@ -2859,6 +2859,7 @@
 	    Range: Range,
 	    Button: Button,
 	    Hidden: Hidden,
+	    Category: __webpack_require__(41),
 	    // Calendar: Calendar,
 	    // DateRange: DateRange,
 	    // ColorPicker: ColorPicker,
@@ -3283,7 +3284,6 @@
 	        };
 	    },
 	    getInitialState: function getInitialState() {
-	        console.log(this.props);
 	        return {
 	            value: this.props.value,
 	            help: this.props.help,
@@ -4322,9 +4322,15 @@
 	            if (this.props.f_ext) {
 	                request.get('admin/' + this.props.f_ext).end(function (err, res) {
 	                    var data = JSON.parse(res.text);
-	                    console.log(data);
+	                    var title = void 0;
+	                    data.forEach(function (element) {
+	                        if (this.props.value == element.value) {
+	                            title = element.title;
+	                        }
+	                    }, this);
 	                    this.setState({
-	                        options: data
+	                        options: data,
+	                        name: title
 	                    });
 	                }.bind(this));
 	            }
@@ -4350,11 +4356,10 @@
 	            }
 	        }
 	    }, {
-	        key: '_onChange',
-	        value: function _onChange(e) {
+	        key: '_onSearch',
+	        value: function _onSearch(e) {
 	            e.preventDefault();
 	            var value = e.target.value;
-	            console.log(value);
 	            this.setState({
 	                search: value
 	            });
@@ -4386,7 +4391,6 @@
 	                className: 'form-select'
 	            }, React.createElement('div', {
 	                className: 'form-input',
-	                value: this.state.name,
 	                onClick: this._toggleShow.bind(this)
 	            }, this.state.name), React.createElement('div', {
 	                className: 'form-choose',
@@ -4399,7 +4403,7 @@
 	                className: 'form-input',
 	                value: this.state.search,
 	                placeholder: 'Search',
-	                onChange: this._onChange.bind(this)
+	                onChange: this._onSearch.bind(this)
 	            })), React.createElement('div', {
 	                className: 'form-select-choose'
 	            }, options)));
@@ -4592,6 +4596,124 @@
 
 	'use strict';
 
+	var classNames = __webpack_require__(23);
+	var FormGroup = __webpack_require__(25);
+
+	var Checkbox = React.createClass({
+	    displayName: 'Checkbox',
+
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            title: '多选框',
+	            type: 'checkbox',
+	            value: [2],
+	            f_options: [{
+	                title: '选项1',
+	                value: 0
+	            }, {
+	                title: '选项2',
+	                value: 1
+	            }, {
+	                title: '选项3',
+	                value: 's2'
+	            }],
+	            name: 'state',
+	            placeholder: '',
+	            help: '',
+	            disabled: '',
+	            required: 'required'
+	        };
+	    },
+	    getInitialState: function getInitialState() {
+	        var options = [];
+	        if (!this.props.f_ext) {
+	            options = this.props.f_options;
+	            if (typeof options == "string") {
+	                options = JSON.parse(options);
+	            }
+	        }
+	        var value = this.props.value;
+	        if (value) {
+	            value = JSON.parse(value);
+	        } else {
+	            value = [];
+	        }
+	        return {
+	            value: value,
+	            help: this.props.help,
+	            option: options
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        console.log(this.props.f_ext);
+	        if (this.props.f_ext) {
+	            request.get('admin/' + this.props.f_ext).end(function (err, res) {
+	                var data = JSON.parse(res.text);
+	                this.setState({
+	                    option: data
+	                });
+	            }.bind(this));
+	        }
+	    },
+	    _onChange: function _onChange(e) {
+	        var type = this.props.type;
+	        var v = e.target.value;
+	        if (!isNaN(v)) {
+	            v = parseInt(v);
+	        }
+	        var value = this.state.value;
+	        var index = value.indexOf(v);
+	        if (index == -1) {
+	            value.push(v);
+	        } else {
+	            value.splice(index, 1);
+	        }
+	        this.setState({
+	            value: value
+	        });
+	        value = JSON.stringify(value);
+	        if (this.props.onChange) {
+	            this.props.onChange(this.props.name, value);
+	        }
+	    },
+	    render: function render() {
+	        var value = this.state.value;
+	        var name = this.props.name;
+	        var options = this.state.option.map(function (d, index) {
+	            var checked = '';
+	            if (value.indexOf(d.value) > -1) {
+	                checked = ' checked';
+	            }
+	            var typeClass = 'checker';
+	            return React.createElement('label', {
+	                key: index,
+	                className: 'form-radio',
+	                title: this.props.title,
+	                help: this.state.help
+	            }, React.createElement('div', {
+	                className: typeClass + checked
+	            }, React.createElement('input', {
+	                type: 'checkbox',
+	                name: name,
+	                value: d.value,
+	                checked: checked,
+	                onChange: this._onChange
+	            })), React.createElement('span', null, d.title));
+	        }.bind(this));
+	        return this.state.option.length > 0 ? React.createElement(FormGroup, {
+	            title: this.props.title,
+	            help: this.state.help
+	        }, options) : null;
+	    }
+	});
+	module.exports = Checkbox;
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4771,9 +4893,7 @@
 	        }
 	    },
 	    _reQuest: function _reQuest(props) {
-	        var query = props.location.query;
-	        query.list = props.params.pages;
-	        request.get('admin/list').query(query).end(function (err, res) {
+	        request.get(props.params.pages).end(function (err, res) {
 	            var msg = void 0;
 	            if (err) {
 	                this.props.history.pushState(null, '/');
@@ -4987,7 +5107,7 @@
 	module.exports = Pages;
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5013,6 +5133,7 @@
 	var Button = _require.Button;
 	var Select = _require.Select;
 	var Hidden = _require.Hidden;
+	var Category = _require.Category;
 
 	var Page = function (_React$Component) {
 	    _inherits(Page, _React$Component);
@@ -5052,11 +5173,20 @@
 	                list: pages,
 	                id: page
 	            }).end(function (err, res) {
-	                var data = JSON.parse(res.text);
-	                this.setState({
-	                    fields: data.fields,
-	                    info: data.info || {}
-	                });
+	                var msg = void 0;
+	                if (err) {
+	                    this.props.history.pushState(null, '/');
+	                    msg = err.response.text;
+	                } else {
+	                    var data = JSON.parse(res.text);
+	                    msg = data.msg;
+	                    ConfigActions.update('title', data.title);
+	                    this.setState({
+	                        fields: data.fields,
+	                        info: data.info || {}
+	                    });
+	                }
+	                ConfigActions.message(msg);
 	            }.bind(this));
 	        }
 	    }, {
@@ -5114,7 +5244,7 @@
 	                            d.value = ds.f_default || '';
 	                        }
 	                        if (ds.f_options) {
-	                            d.key = ds.f_options;
+	                            d.f_options = ds.f_options;
 	                        }
 	                        d.f_ext = ds.f_ext;
 	                        d.key = ds.key;
@@ -5153,6 +5283,9 @@
 	                            case "select":
 	                                return React.createElement(Select, d);
 	                                break;
+	                            case "category":
+	                                return React.createElement(Category, d);
+	                                break;
 	                            case "hidden":
 	                                return React.createElement(Hidden, d);
 	                                break;
@@ -5185,7 +5318,7 @@
 	module.exports = Page;
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5301,7 +5434,7 @@
 	module.exports = Login;
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5348,7 +5481,7 @@
 	module.exports = Logout;
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5463,7 +5596,7 @@
 	module.exports = Import;
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5471,12 +5604,12 @@
 	/**
 	 * action
 	 */
-	window.ConfigActions = __webpack_require__(47);
+	window.ConfigActions = __webpack_require__(48);
 
 	/**
 	 * store
 	 */
-	window.ConfigStore = __webpack_require__(53);
+	window.ConfigStore = __webpack_require__(54);
 
 	/** 
 	 * 请求数据
@@ -5523,12 +5656,12 @@
 	};
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(48);
+	var AppDispatcher = __webpack_require__(49);
 
 	var ConfigActions = {
 
@@ -5568,7 +5701,7 @@
 	module.exports = ConfigActions;
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5586,12 +5719,12 @@
 	 * A singleton that operates as the central hub for application updates.
 	 */
 
-	var Dispatcher = __webpack_require__(49).Dispatcher;
+	var Dispatcher = __webpack_require__(50).Dispatcher;
 
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5605,10 +5738,10 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
-	module.exports.Dispatcher = __webpack_require__(50);
+	module.exports.Dispatcher = __webpack_require__(51);
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5634,7 +5767,7 @@
 	  }
 	}
 
-	var invariant = __webpack_require__(52);
+	var invariant = __webpack_require__(53);
 
 	var _prefix = 'ID_';
 
@@ -5846,10 +5979,10 @@
 	}();
 
 	module.exports = Dispatcher;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(52)))
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5865,25 +5998,40 @@
 	var cachedSetTimeout;
 	var cachedClearTimeout;
 
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout() {
+	    throw new Error('clearTimeout has not been defined');
+	}
 	(function () {
 	    try {
-	        cachedSetTimeout = setTimeout;
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
 	    } catch (e) {
-	        cachedSetTimeout = function cachedSetTimeout() {
-	            throw new Error('setTimeout is not defined');
-	        };
+	        cachedSetTimeout = defaultSetTimout;
 	    }
 	    try {
-	        cachedClearTimeout = clearTimeout;
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
 	    } catch (e) {
-	        cachedClearTimeout = function cachedClearTimeout() {
-	            throw new Error('clearTimeout is not defined');
-	        };
+	        cachedClearTimeout = defaultClearTimeout;
 	    }
 	})();
 	function runTimeout(fun) {
 	    if (cachedSetTimeout === setTimeout) {
 	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
 	        return setTimeout(fun, 0);
 	    }
 	    try {
@@ -5902,6 +6050,11 @@
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
 	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
 	        return clearTimeout(marker);
 	    }
 	    try {
@@ -6015,7 +6168,7 @@
 	};
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6067,17 +6220,17 @@
 	};
 
 	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(52)))
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(48);
-	var EventEmitter = __webpack_require__(54).EventEmitter;
-	var assign = __webpack_require__(55);
+	var AppDispatcher = __webpack_require__(49);
+	var EventEmitter = __webpack_require__(55).EventEmitter;
+	var assign = __webpack_require__(56);
 
 	var CHANGE_EVENT = 'config';
 
@@ -6161,7 +6314,7 @@
 	}
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6439,7 +6592,7 @@
 	}
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports) {
 
 	'use strict';

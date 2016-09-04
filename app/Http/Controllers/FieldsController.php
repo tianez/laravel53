@@ -1,29 +1,28 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AdminController;
 use App\Http\Model\Fields;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
 
-class FieldsController extends AdminController {
+class FieldsController extends Controller {
     
     public function __construct() {
-        parent::__construct();
+        $this->middleware('auth');
+        $this->middleware('admin');
+        $this->model = new Fields();
     }
     
-    public function getList(Request $request) {
-        $table = $request->list;
-        $db = DB::table($table);
+    public function getIndex(Request $request) {
         if($request->state != null){
-            $db = $db->where('status', $request->state);
+            $this->model = $this->model->where('status', $request->state);
         }
         $pre_page = env('pre_page', 15);
-        $data = $db->paginate($pre_page);
+        $data = $this->model->paginate($pre_page);
         $data = $data->toArray();
-        $thead =  array('id'=>'ID','link'=>'链接地址', 'title'=>'链接标题', 'description'=>'描述');
-        $out = array('title' => '字段', 'pages' => $data,'thead' => $thead);
+        $thead =  array('id'=>'ID','key'=>'字段key', 'title'=>'字段名称', 'f_module'=>'字段模块','status'=>'状态');
+        $out = array('title' => '字段管理', 'pages' => $data,'thead' => $thead);
         return response()->json($out);
     }
     
@@ -34,9 +33,8 @@ class FieldsController extends AdminController {
     }
     
     public function postAdd(Request $request) {
-        $table = $request->list;
-        $data = $request->except(['list','id']);
-        $info = Fields::create($data);
+        $data = $request->all();
+        $info = $this->model->create($data);
         $out = array();
         $out['msg']= '保存成功！';
         $out['info']= $info->toArray();
@@ -52,15 +50,13 @@ class FieldsController extends AdminController {
     }
     
     public function postDetail(Request $request) {
-        $id = $request->id;
-        $info = Fields::find($id);
+        $info = $this->model->find($request->id);
         $out = array();
         if (empty($info)) {
             $out['res'] = 404;
             $out['msg'] = '没有发现相关数据！';
         }else{
-            $data = $request->except(['list']);
-            $res = Fields::where('id', $id)->update($data);
+            $res = $info->update($request->all());
             $out['res'] = $res;
             $out['msg'] = '保存成功！';
         }

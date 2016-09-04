@@ -137,15 +137,22 @@ class meunTableSeeder extends Seeder
         array(
         'link' => 'api/roles',
         'title' => '用户组管理',
-        'icon' => 'fa fa-user',
+        'icon' => 'fa fa-users',
         'description' => '用户组管理',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
         'link' => 'api/role_permissions',
         'title' => '权限管理',
-        'icon' => 'fa fa-user',
+        'icon' => 'fa fa-unlock-alt',
         'description' => '权限管理',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'link' => 'api/users',
+        'title' => '用户管理',
+        'icon' => 'fa fa-user',
+        'description' => '用户管理',
         'created_at'=> date("Y-m-d H:i:s")
         )
         ]);

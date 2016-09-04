@@ -1,30 +1,29 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AdminController;
 use App\Http\Model\Fields;
 use App\Http\Model\Roles;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
 
-class RolesController extends AdminController {
+class RolesController extends Controller {
     
     public function __construct() {
-        parent::__construct();
+        $this->middleware('auth');
+        $this->middleware('admin');
+        $this->model = new Roles();
     }
     
-    public function getList(Request $request) {
-        $table = $request->list;
-        $db = DB::table($table);
+    public function getIndex(Request $request) {
         if($request->state != null){
-            $db = $db->where('status', $request->state);
+            $this->model = $this->model->where('status', $request->state);
         }
         $pre_page = env('pre_page', 15);
-        $data = $db->paginate($pre_page);
+        $data = $this->model->paginate($pre_page);
         $data = $data->toArray();
-        $thead =  array('id'=>'ID','link'=>'链接地址', 'title'=>'链接标题', 'description'=>'描述');
-        $out = array('title' => '字段', 'pages' => $data,'thead' => $thead);
+        $thead =array('id'=>'ID','name'=>'用户组标识', 'display_name'=>'用户组名称', 'description'=>'描述');
+        $out = array('title' => '文章管理', 'pages' => $data,'thead' => $thead);
         return response()->json($out);
     }
     
@@ -35,9 +34,8 @@ class RolesController extends AdminController {
     }
     
     public function postAdd(Request $request) {
-        $table = $request->list;
-        $data = $request->except(['list','id']);
-        $info = Roles::create($data);
+        $data = $request->all();
+        $info = $this->model->create($data);
         $out = array();
         $out['msg']= '保存成功！';
         $out['info']= $info->toArray();

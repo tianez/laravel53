@@ -34,12 +34,18 @@ class Select extends React.Component {
             request.get('admin/' + this.props.f_ext)
                 .end(function (err, res) {
                     let data = JSON.parse(res.text)
-                    console.log(data)
+                    let title
+                    data.forEach(function (element) {
+                        if (this.props.value == element.value) {
+                            title = element.title
+                        }
+                    }, this);
                     this.setState({
-                        options: data
+                        options: data,
+                        name: title
                     })
                 }.bind(this))
-        } 
+        }
     }
     _toggleShow(e) {
         this.setState({
@@ -57,10 +63,9 @@ class Select extends React.Component {
             this.props.onChange(this.props.name, value)
         }
     }
-    _onChange(e) {
+    _onSearch(e) {
         e.preventDefault()
         let value = e.target.value
-        console.log(value)
         this.setState({
             search: value
         })
@@ -96,9 +101,8 @@ class Select extends React.Component {
             },
                 React.createElement('div', {
                     className: 'form-input',
-                    value: this.state.name,
                     onClick: this._toggleShow.bind(this)
-                }, this.state.name),
+                }, this.state.name), 
                 React.createElement('div', {
                     className: 'form-choose',
                     style: {
@@ -112,7 +116,7 @@ class Select extends React.Component {
                             className: 'form-input',
                             value: this.state.search,
                             placeholder: 'Search',
-                            onChange: this._onChange.bind(this)
+                            onChange: this._onSearch.bind(this)
                         })),
                     React.createElement('div', {
                         className: 'form-select-choose'

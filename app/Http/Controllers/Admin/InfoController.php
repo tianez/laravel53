@@ -26,6 +26,18 @@ class InfoController extends Controller {
         }
         return response()->json($res);
     }
+
+    public function getCategory(Request $request) {
+        $categorys = DB::table('article_category')->get();
+        $res = array();
+        $r = array();
+        foreach($categorys as $category){
+            $r['title'] = $category->category_name;
+            $r['value'] = $category->id;
+            $res[] = $r;
+        }
+        return response()->json($res);
+    }
     
     public function getPermtsGroup(Request $request) {
         $res = array();
