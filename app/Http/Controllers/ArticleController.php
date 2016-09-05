@@ -1,10 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Model\User;
 use App\Http\Model\Fields;
 use App\Http\Model\Article;
-use Auth;
 use DB;
 use Illuminate\Http\Request;
 
@@ -38,16 +36,14 @@ class ArticleController extends Controller {
     public function postAdd(Request $request) {
         $data = $request->all();
         $info = $this->model->create($data);
-        $category = $request->category?$request->category:1;
-        $add = array('article_id'=>$info->id,'cat_id'=>$category);
-        DB::table('article_taxonomy')->insert($add);
+        $this->taxonomy($data,$info->id);
         $out = array();
         $out['msg']= '保存成功！';
         $out['info']= $info->toArray();
         return response()->json($out);
     }
     
-     public function getDetail($id) {
+    public function getDetail($id) {
         $fields = Fields::file('article')->get();
         $info = $this->model->find($id);
         $res = DB::table('article_taxonomy')->where('article_id',$id)->get();
@@ -55,6 +51,13 @@ class ArticleController extends Controller {
         if($res){
             $info['category'] = $res[0]->cat_id;
         }
+        $tags = $info->Tags()->where('taxonomy','tags')->get();
+        $tag = array();
+        foreach ($tags as $t) {
+            $tag[] = $t->id;
+        }
+        $tag = json_encode($tag);
+        $info['tags'] = $tag;
         $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }
@@ -67,11 +70,28 @@ class ArticleController extends Controller {
             $out['res'] = 404;
             $out['msg'] = '没有发现相关数据！';
         }else{
-            $res = $info->update($request->all());
-            DB::table('article_taxonomy')->where('article_id',$id)->update(['cat_id'=>$request->category]);
+            $data = $request->all();
+            $res = $info->update($data);
+            DB::table('article_taxonomy')->where('article_id',$id)->delete();
+            $this->taxonomy($data,$id);
             $out['res'] = $res;
             $out['msg'] = '保存成功！';
         }
         return response()->json($out);
+    }
+    
+    private function taxonomy($data,$article_id){
+        $category = $data['category']?$data['category']:1;
+        $adds = array();
+        $add = array('article_id'=>$article_id,'cat_id'=>$category);
+        $adds[] = $add;
+        if(isset($data['tags'])){
+            $tags = json_decode($data['tags']);
+            foreach ($tags as $tag) {
+                $add = array('article_id'=>$article_id,'cat_id'=>$tag);
+                $adds[] = $add;
+            }
+        }
+        DB::table('article_taxonomy')->insert($adds);
     }
 }

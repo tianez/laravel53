@@ -46,6 +46,16 @@ class article extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
+        'key' => 'tags',
+        'title' => '文章标签',
+        'type' => 'checkbox',
+        'f_module' => 'article',
+        'f_groups' => '字段分组',
+        'f_description' => '文章标签',
+        'f_ext' => 'tags',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
         'key' => 'excerpt',
         'title' => '简介',
         'type' => 'textarea',

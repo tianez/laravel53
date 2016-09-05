@@ -16,6 +16,15 @@ Route::post('/', 'HomeController@postIndex');
 Route::get('react', 'HomeController@getReact');
 Route::get('logout', 'HomeController@getLogout');
 
+Route::group(['prefix' => 'hy'], function () {
+    Route::get('/','ArticleController@getIndex');
+    Route::get('add','ArticleController@getAdd');
+    Route::post('add','ArticleController@postAdd');
+    Route::get('detail/{id}','ArticleController@getDetail');
+    Route::post('detail', 'ArticleController@postDetail');
+});
+
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/','AdminController@getIndex');
     Route::get('user','AdminController@getUser');
@@ -26,6 +35,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('roles','Admin\InfoController@getRolesGroup');
     Route::get('permts','Admin\InfoController@getPermtsGroup');
     Route::get('category','Admin\InfoController@getCategory');
+    Route::get('tags','Admin\InfoController@getTags');
 });
 Route::group(['prefix' => 'article'], function () {
     Route::get('/','ArticleController@getIndex');

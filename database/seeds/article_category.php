@@ -87,6 +87,13 @@ class article_category extends Seeder
         array(
         'category_name' => '默认分类',
         'category_des' => '分类名称',
+        'taxonomy' => 'category',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'category_name' => '默认tags',
+        'category_des' => '分类名称',
+        'taxonomy' => 'tags',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         ]);

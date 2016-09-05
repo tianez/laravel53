@@ -28,7 +28,7 @@ class InfoController extends Controller {
     }
     
     public function getCategory(Request $request) {
-        $categorys = DB::table('article_category')->where('pid',0)->get();
+        $categorys = DB::table('article_category')->where('taxonomy','category')->where('pid',0)->get();
         $res = $this->getCat($categorys);
         // $r = array();
         // foreach($categorys as $category){
@@ -45,7 +45,7 @@ class InfoController extends Controller {
         foreach($categorys as $category){
             $r['title'] = $category->category_name;
             $r['value'] = $category->id;
-            $cats = DB::table('article_category')->where('pid',$category->id)->get();
+            $cats = DB::table('article_category')->where('taxonomy','category')->where('pid',$category->id)->get();
             if(!empty($cats)){
                 $r['sub'] = $this->getCat($cats);
             }
@@ -54,6 +54,17 @@ class InfoController extends Controller {
         return $res;
     }
     
+    public function getTags(Request $request) {
+        $tags = DB::table('article_category')->where('taxonomy','tags')->get();
+        $res = array();
+        foreach($tags as $tag){
+            $r = array();
+            $r['title'] = $tag->category_name;
+            $r['value'] = $tag->id;
+            $res[] = $r;
+        }
+        return response()->json($res);
+    }
     
     public function getPermtsGroup(Request $request) {
         $res = array();

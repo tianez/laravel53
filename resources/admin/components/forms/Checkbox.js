@@ -48,7 +48,7 @@ const Checkbox = React.createClass({
     },
     componentDidMount: function() {
         if (this.props.f_ext) {
-            request.get('admin/roles')
+            request.get('admin/'+this.props.f_ext)
                 .end(function(err, res) {
                     let data = JSON.parse(res.text)
                     this.setState({
