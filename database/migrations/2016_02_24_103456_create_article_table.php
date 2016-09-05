@@ -36,6 +36,7 @@ class CreateArticleTable extends Migration
             $table -> string('comment_status') -> default(0) ->comment('评论状态');
             $table -> tinyInteger('status') -> default(0) -> comment('状态，0：正常，1：锁定');
             $table -> timestamps();
+            $table -> softDeletes();
         });
         
         if (Schema::hasTable('article_meta')) {

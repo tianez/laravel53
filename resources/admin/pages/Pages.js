@@ -304,7 +304,7 @@ const Pages = React.createClass({
                         return
                     }
                     this.componentDidMount()
-                    ConfigActions.msg(data.msg)
+                    ConfigActions.message(data.msg)
                 }
             }.bind(this))
     },

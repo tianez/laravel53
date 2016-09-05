@@ -4,6 +4,21 @@
 // const ReactRouter = require('react-router');
 // import './less/style.less' //webpack编译时导入
 
+import { createStore  } from 'redux';
+import { Provider } from 'react-redux'
+import reducer from './redux/reducer';
+
+import { addTodo, toggleTodo } from './redux/actions'
+
+let store = createStore(reducer);
+
+store.subscribe(() =>
+    console.log(store.getState())
+);
+
+store.dispatch(toggleTodo(89));
+store.dispatch(addTodo('haodesdsds'));
+
 const {
     Router,
     Route,
@@ -138,4 +153,8 @@ const routers = (
         })
     )
 )
-ReactDOM.render(routers, document.getElementById('app'))
+
+ReactDOM.render(
+    routers,
+    document.getElementById('app')
+)

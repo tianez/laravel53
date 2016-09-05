@@ -58,7 +58,7 @@ class ArticleController extends Controller {
         }
         $tag = json_encode($tag);
         $info['tags'] = $tag;
-        $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
+        $out = array('title' => '编辑文章', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }
     
@@ -81,7 +81,11 @@ class ArticleController extends Controller {
     }
     
     private function taxonomy($data,$article_id){
-        $category = $data['category']?$data['category']:1;
+        if(!isset($data['tags'])){
+            $category = 1;
+        }else{
+            $category = $data['category'];
+        }
         $adds = array();
         $add = array('article_id'=>$article_id,'cat_id'=>$category);
         $adds[] = $add;
@@ -93,5 +97,12 @@ class ArticleController extends Controller {
             }
         }
         DB::table('article_taxonomy')->insert($adds);
+    }
+
+    public function getDelete($id) {
+        $info = $this->model->destroy($id);
+        $roles = DB::table('article_taxonomy')->where('article_id',$id)->delete();
+        $out = array('title' => '删除文章','msg'=>'文章删除成功！');
+        return response()->json($out);
     }
 }
