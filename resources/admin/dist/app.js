@@ -8246,7 +8246,7 @@
 	            className: 'container pure-g'
 	        }, React.createElement('div', {
 	            className: 'pure-u-1'
-	        }, '技术开发—by田恩仲（284059577）'
+	        }, '欢迎使用云上恩施cms 1.01版本！'
 	        // React.createElement('div', {
 	        //     dangerouslySetInnerHTML: {
 	        //         __html: this.state.html
@@ -10745,7 +10745,6 @@
 	        value: function render() {
 	            var p = void 0;
 	            var page = this.props.page;
-	            console.log(this.props.query.state);
 	            if (page == this.props.current_page) {
 	                p = React.createElement('span', {
 	                    className: 'pure-button active'
@@ -10772,10 +10771,14 @@
 	var Page = function (_React$Component2) {
 	    _inherits(Page, _React$Component2);
 
-	    function Page() {
+	    function Page(props) {
 	        _classCallCheck(this, Page);
 
-	        return _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this));
+	        var _this2 = _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
+
+	        console.log(props);
+
+	        return _this2;
 	    }
 
 	    _createClass(Page, [{
@@ -10896,7 +10899,9 @@
 	        }
 	    },
 	    _reQuest: function _reQuest(props) {
-	        request.get(props.params.pages).end(function (err, res) {
+	        console.log(props.location);
+
+	        request.get(props.params.pages).query(props.location.query).end(function (err, res) {
 	            var msg = void 0;
 	            if (err) {
 	                this.props.history.pushState(null, '/');
@@ -11084,13 +11089,13 @@
 	            to: '/api/' + this.props.params.pages,
 	            className: 'pure-menu-link',
 	            activeClassName: 'active',
-	            query: { state: 1 }
+	            query: { state: 0 }
 	        }, '正常'), React.createElement(Link, {
 	            to: '/api/' + this.props.params.pages,
 	            className: 'pure-menu-link',
 	            activeClassName: 'active',
-	            query: { state: 0 }
-	        }, '删除'), React.createElement(Link, {
+	            query: { state: 1 }
+	        }, '已删除'), React.createElement(Link, {
 	            to: '/api/' + this.props.params.pages + '/add',
 	            className: 'pure-menu-link',
 	            activeClassName: 'active'
@@ -11182,6 +11187,7 @@
 	                    msg = data.msg;
 	                    ConfigActions.update('title', data.title);
 	                    this.setState({
+	                        title: data.title,
 	                        fields: data.fields,
 	                        info: data.info || {}
 	                    });
@@ -11196,12 +11202,9 @@
 	            var pages = _props$params2.pages;
 	            var page = _props$params2.page;
 
-	            console.log(this.state.info);
 	            var requrl = page == 'add' ? pages + '/add' : pages + '/detail';
 	            console.log(requrl);
-	            request.post(requrl).query({
-	                list: pages
-	            }).send(this.state.info).end(function (err, res) {
+	            request.post(requrl).send(this.state.info).end(function (err, res) {
 	                var msg = void 0;
 	                if (err) {
 	                    msg = err.response.error.message;
@@ -11297,12 +11300,14 @@
 	            }
 	            // if (info) {
 	            render = React.createElement('section', {
-	                className: 'container'
-	            }, React.createElement(Form, {
+	                className: 'container pure-u-1'
+	            }, React.createElement("h3", {
+	                className: "page-title"
+	            }, this.state.title), React.createElement(Form, {
 	                action: this.state.action,
 	                info: info,
 	                apiSubmit: false,
-	                legend: this.state.title,
+	                // legend: this.state.title,
 	                onSubmit: this._onSubmit.bind(this)
 	            }, forms, React.createElement(Button)));
 	            // }

@@ -12,7 +12,6 @@ class L extends React.Component {
     render() {
         let p
         let page = this.props.page
-        console.log(this.props.query.state);
         if (page == this.props.current_page) {
             p = React.createElement('span', {
                 className: 'pure-button active',
@@ -36,8 +35,10 @@ class L extends React.Component {
 }
 
 class Page extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        console.log(props);
+
     }
     render() {
         let i = 1
@@ -118,11 +119,11 @@ class Page extends React.Component {
         }
         return (
             React.createElement("nav", {
-                    className: 'pure-menu pure-menu-open pure-menu-horizontal'
-                },
+                className: 'pure-menu pure-menu-open pure-menu-horizontal'
+            },
                 React.createElement("ul", {
-                        className: "pure-paginator"
-                    },
+                    className: "pure-paginator"
+                },
                     React.createElement("li", {},
                         React.createElement("span", {
                             className: 'pure-button',
@@ -141,7 +142,7 @@ class Page extends React.Component {
     }
 }
 const Pages = React.createClass({
-    getInitialState: function() {
+    getInitialState: function () {
         return {
             items: [],
             del_id: [],
@@ -153,21 +154,24 @@ const Pages = React.createClass({
         }
     },
 
-    getDefaultProps: function() {},
+    getDefaultProps: function () { },
 
-    componentDidMount: function() {
+    componentDidMount: function () {
         this._reQuest(this.props)
     },
-    componentWillReceiveProps: function(nextProps) {
+    componentWillReceiveProps: function (nextProps) {
         let page = nextProps.location.query.page || 1
         let page2 = this.props.location.query.page || 1
         if (this.props.params.pages != nextProps.params.pages || page != page2 || nextProps.location.search !== this.state.search) {
             this._reQuest(nextProps)
         }
     },
-    _reQuest: function(props) {
+    _reQuest: function (props) {
+        console.log(props.location);
+
         request.get(props.params.pages)
-            .end(function(err, res) {
+            .query(props.location.query)
+            .end(function (err, res) {
                 let msg
                 if (err) {
                     this.props.history.pushState(null, '/')
@@ -188,7 +192,7 @@ const Pages = React.createClass({
                 ConfigActions.message(msg)
             }.bind(this))
     },
-    _set_del_all: function(items) {
+    _set_del_all: function (items) {
         let del_all = []
         let x
         for (x in items) {
@@ -196,11 +200,11 @@ const Pages = React.createClass({
         }
         return del_all
     },
-    _del: function(e) {
+    _del: function (e) {
         console.log(e.target)
         console.log(e.target.value)
     },
-    _thead: function() {
+    _thead: function () {
         let isdel_all = this.state.isdel_all
         let checked
         if (isdel_all) {
@@ -221,14 +225,14 @@ const Pages = React.createClass({
             React.createElement("thead", {},
                 React.createElement("tr", {},
                     React.createElement("th", {
-                            className: "table-checkbox sorting_disabled"
-                        },
+                        className: "table-checkbox sorting_disabled"
+                    },
                         React.createElement("div", {
-                                className: "checker"
-                            },
+                            className: "checker"
+                        },
                             React.createElement("span", {
-                                    className: checked
-                                },
+                                className: checked
+                            },
                                 React.createElement("input", {
                                     className: "group-checkable",
                                     type: "checkbox",
@@ -243,7 +247,7 @@ const Pages = React.createClass({
             )
         )
     },
-    _list: function(data) {
+    _list: function (data) {
         let list = []
         let p
         let thead = this.state.thead
@@ -255,7 +259,7 @@ const Pages = React.createClass({
         }
         return list
     },
-    _isdel_all: function() {
+    _isdel_all: function () {
         let isdel_all = this.state.isdel_all
         let del_all = this.state.del_all
         let del_id = []
@@ -270,7 +274,7 @@ const Pages = React.createClass({
             del_id: del_id
         });
     },
-    _click: function(e) {
+    _click: function (e) {
         let del_id = this.state.del_id
         let k = parseInt(e.target.value)
         let index = del_id.indexOf(k)
@@ -283,14 +287,14 @@ const Pages = React.createClass({
             del_id: del_id
         })
     },
-    _onDel: function(e) {
+    _onDel: function (e) {
         e.preventDefault()
         let id = e.target.id
         id = id.split("_")
         id = id[1]
         let url = this.props.params.pages + '/delete/' + id
         request.get(url)
-            .end(function(err, res) {
+            .end(function (err, res) {
                 if (err) {
                     ConfigActions.msg(res.status + 'error')
                 } else {
@@ -308,14 +312,14 @@ const Pages = React.createClass({
                 }
             }.bind(this))
     },
-    qq: function() {
+    qq: function () {
         let query = this.props.location.query
         console.log(query);
         return query
     },
-    render: function() {
+    render: function () {
         let url = this.props.params.pages
-        let list = this.state.items.map(function(data) {
+        let list = this.state.items.map(function (data) {
             let curl = '/api/' + url + '/' + data.id
             let arr = this.state.del_id
             let k = data.id
@@ -337,12 +341,12 @@ const Pages = React.createClass({
             }
             return (
                 React.createElement("tr", {
-                        key: data.id
-                    },
+                    key: data.id
+                },
                     React.createElement("td", {},
                         React.createElement("div", {
-                                className: "checker " + checked
-                            },
+                            className: "checker " + checked
+                        },
                             React.createElement("input", {
                                 className: "checkboxes",
                                 value: data.id,
@@ -371,58 +375,58 @@ const Pages = React.createClass({
         }.bind(this))
         return (
             React.createElement("section", {
-                    className: "pure-u-1"
-                },
+                className: "pure-u-1"
+            },
                 React.createElement("h3", {
-                        className: "page-title"
-                    },
+                    className: "page-title"
+                },
                     this.state.title
                 ),
                 React.createElement('div', {
-                        className: 'pure-u-1 filter'
-                    },
+                    className: 'pure-u-1 filter'
+                },
                     React.createElement('a', {
-                            className: 'pure-menu-link'
-                        },
+                        className: 'pure-menu-link'
+                    },
                         '筛选'
                     ),
                     React.createElement(Link, {
-                            to: '/api/' + this.props.params.pages,
-                            className: 'pure-menu-link',
-                            activeClassName: 'active'
-                        },
+                        to: '/api/' + this.props.params.pages,
+                        className: 'pure-menu-link',
+                        activeClassName: 'active'
+                    },
                         '全部'
                     ),
                     React.createElement(Link, {
-                            to: '/api/' + this.props.params.pages,
-                            className: 'pure-menu-link',
-                            activeClassName: 'active',
-                            query: { state: 1 }
-                        },
+                        to: '/api/' + this.props.params.pages,
+                        className: 'pure-menu-link',
+                        activeClassName: 'active',
+                        query: { state: 0 }
+                    },
                         '正常'
                     ),
                     React.createElement(Link, {
-                            to: '/api/' + this.props.params.pages,
-                            className: 'pure-menu-link',
-                            activeClassName: 'active',
-                            query: { state: 0 }
-                        },
-                        '删除'
+                        to: '/api/' + this.props.params.pages,
+                        className: 'pure-menu-link',
+                        activeClassName: 'active',
+                        query: { state: 1 }
+                    },
+                        '已删除'
                     ),
                     React.createElement(Link, {
-                            to: '/api/' + this.props.params.pages + '/add',
-                            className: 'pure-menu-link',
-                            activeClassName: 'active',
-                        },
+                        to: '/api/' + this.props.params.pages + '/add',
+                        className: 'pure-menu-link',
+                        activeClassName: 'active',
+                    },
                         '新增'
                     )
                 ),
                 React.createElement("table", {
-                        className: "pure-table pure-table-bordered",
-                        style: {
-                            width: '100%'
-                        }
-                    },
+                    className: "pure-table pure-table-bordered",
+                    style: {
+                        width: '100%'
+                    }
+                },
                     this._thead(),
                     React.createElement("tbody", null,
                         list

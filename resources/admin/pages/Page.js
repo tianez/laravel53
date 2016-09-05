@@ -19,7 +19,7 @@ class Page extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            info: {}
+            info: {},
         }
     }
     componentDidMount() {
@@ -47,6 +47,7 @@ class Page extends React.Component {
                     msg = data.msg
                     ConfigActions.update('title', data.title)
                     this.setState({
+                        title: data.title,
                         fields: data.fields,
                         info: data.info || {}
                     })
@@ -59,13 +60,9 @@ class Page extends React.Component {
             pages,
             page
         } = this.props.params
-        console.log(this.state.info)
         let requrl = page == 'add' ? pages + '/add' : pages + '/detail'
         console.log(requrl);
         request.post(requrl)
-            .query({
-                list: pages
-            })
             .send(this.state.info)
             .end(function(err, res) {
                 let msg
@@ -156,13 +153,18 @@ class Page extends React.Component {
         // if (info) {
         render =
             React.createElement('section', {
-                    className: 'container'
+                    className: 'container pure-u-1'
                 },
+                React.createElement("h3", {
+                        className: "page-title"
+                    },
+                    this.state.title
+                ),
                 React.createElement(Form, {
                         action: this.state.action,
                         info: info,
                         apiSubmit: false,
-                        legend: this.state.title,
+                        // legend: this.state.title,
                         onSubmit: this._onSubmit.bind(this)
                     },
                     forms,

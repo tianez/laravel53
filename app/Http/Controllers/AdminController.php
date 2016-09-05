@@ -34,7 +34,16 @@ class AdminController extends Controller {
     
     public function getMeun(Request $request) {
         $meun = DB::table('meun')->get()->toArray();
-        return response()->json($meun);
+        $roles = $this->getRoles(Auth::user()->id);
+        $mm = array();
+        foreach ($meun as $m) {
+            $r = json_decode($m->roles);
+            $in = array_intersect($roles,$r);
+            if(count($in)>0){
+                 $mm[] = $m;
+            }
+        }
+        return response()->json($mm);
     }
     
     public function postLogin(request $request) {

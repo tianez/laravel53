@@ -25,7 +25,7 @@ var Home = React.createClass({
             },
                 React.createElement('div', {
                     className: 'pure-u-1'
-                }, '技术开发—by田恩仲（284059577）'
+                }, '欢迎使用云上恩施cms 1.01版本！'
                     // React.createElement('div', {
                     //     dangerouslySetInnerHTML: {
                     //         __html: this.state.html

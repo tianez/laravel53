@@ -37,6 +37,15 @@ class PermissionsController extends Controller {
         $table = $request->list;
         $data = $request->except(['list','id']);
         $info = Permissions::create($data);
+        if($info){
+            $groups = json_decode($data['roles']);
+            $roles = array();
+            foreach ($groups as $r) {
+                $role = array('permission_id'=>$info->id,'role_id'=>$r);
+                $roles[] = $role;
+            }
+            DB::table('role_permission')->insert($roles);
+        }
         $out = array();
         $out['msg']= '保存成功！';
         $out['info']= $info->toArray();
