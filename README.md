@@ -14,3 +14,5 @@ php artisan db:seed --class=UserTableSeeder
 php artisan make:controller PhotoController --resource
 
 php artisan make:model User
+
+php artisan make:model User -m

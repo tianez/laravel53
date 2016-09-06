@@ -68,7 +68,6 @@ class TestController extends Controller {
         // return $img->response('jpg');
     }
     
-    
     public function upload(Request $request) {
         $stime = mtime();
         $data = $request->all();

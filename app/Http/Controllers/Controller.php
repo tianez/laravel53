@@ -82,7 +82,7 @@ class Controller extends BaseController
             $permits = $this->getPerms();
             return  $permits;
         }
-        $permits = array();
+        $permits = array(); 
         foreach ($roles as $role) {
             $permissions = Roles::find($role)->Permissions->toArray();
             foreach ($permissions as $permission) {

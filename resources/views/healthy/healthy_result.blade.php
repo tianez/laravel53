@@ -1,4 +1,4 @@
-@extends('layout.master') @section('title', 'Page Title') @section('content')
+@extends('healthy.layout') @section('title', 'Page Title') @section('content')
 <div class="weui_btn_area">
   <div class="weui_btn weui_btn_primary">查询结果</div>
 </div>

@@ -2,12 +2,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-// use App\Http\Model\User;
+use App\Http\Model\Reportr;
 use App\User;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
-
 
 use Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -25,25 +24,11 @@ class HomeController extends Controller
     }
     
     public function getIndex(Request $request) {
-        $user = session('cur_user');
-        if($user){
-            $results = DB::table('tj_result')->where('tj_id', $user->tj_id)->get();
-            $res = array();
-            foreach ($results as $result) {
-                if ($result->result == ' 空')
-                    continue;
-                if (empty($res[$result->item])) {
-                    $res[$result->item] = $result->result;
-                } else {
-                    $res[$result->item] .= '<br>' . $result->result;
-                }
-            }
-            $d['res'] = $res;
-            $d['user'] = $user;
-            return view('result',$d);
-        }else{
-            return view('home');
+        $user = session('report_user');
+        if(!$user){
+            return redirect('login');
         }
+        return view('home');
     }
     
     public function postIndex(Request $request) {
@@ -61,7 +46,6 @@ class HomeController extends Controller
                 // session(['msg' => 'value']);
             }
         }
-        
         return redirect('/');
     }
     
@@ -139,15 +123,4 @@ class HomeController extends Controller
         return view('db');
     }
     
-    public function login(Request $request) {
-        return view('login');
-    }
-    
-    public function getLogout(request $request) {
-        // Auth::logout();
-        $request->session()->forget('cur_user');
-        // $request->session()->flush();
-        $request->session()->flash('msg', '你已经成功登出!');
-        return redirect('/');
-    }
 }

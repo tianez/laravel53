@@ -1,4 +1,4 @@
-@extends('healthy.layout') 
+@extends('report.layout') 
 @section('title', 'Page Title') 
 @section('content')
 <form class="form-horizontal" method="post">

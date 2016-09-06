@@ -9413,7 +9413,7 @@
 	                } else {
 	                    thumbs = [];
 	                }
-	                thumbs.push('/laravel53/storage/app/' + res.name);
+	                thumbs.push('/storage/app/' + res.name);
 	                _this.setState({
 	                    files: files,
 	                    thumbs: thumbs
@@ -9519,11 +9519,11 @@
 	            }.bind(this));
 	            pics = this.state.files.map(function (file, index) {
 	                var thumb = file.thumb;
-	                var patt1 = new RegExp("blob:http");
-	                var patt2 = new RegExp("blob:file");
-	                if (!patt1.test(thumb) && !patt2.test(thumb)) {
-	                    thumb += '-max';
-	                }
+	                // let patt1 = new RegExp("blob:http")
+	                // let patt2 = new RegExp("blob:file")
+	                // if (!patt1.test(thumb) && !patt2.test(thumb)) {
+	                //     thumb += '-max'
+	                // }
 	                var show = classNames({
 	                    'swiper-slide': true,
 	                    'slide-show': shownum == index

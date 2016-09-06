@@ -127,7 +127,7 @@ var Upload = React.createClass({
                 } else {
                     thumbs = []
                 }
-                thumbs.push('/laravel53/storage/app/' + res.name)
+                thumbs.push('/storage/app/' + res.name)
                 this.setState({
                     files: files,
                     thumbs: thumbs
@@ -238,11 +238,11 @@ var Upload = React.createClass({
             }.bind(this))
             pics = this.state.files.map(function(file, index) {
                 let thumb = file.thumb
-                let patt1 = new RegExp("blob:http")
-                let patt2 = new RegExp("blob:file")
-                if (!patt1.test(thumb) && !patt2.test(thumb)) {
-                    thumb += '-max'
-                }
+                // let patt1 = new RegExp("blob:http")
+                // let patt2 = new RegExp("blob:file")
+                // if (!patt1.test(thumb) && !patt2.test(thumb)) {
+                //     thumb += '-max'
+                // }
                 let show = classNames({
                     'swiper-slide': true,
                     'slide-show': shownum == index

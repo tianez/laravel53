@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', 'HomeController@getIndex');
-Route::post('/', 'HomeController@postIndex');
-Route::get('react', 'HomeController@getReact');
-Route::get('logout', 'HomeController@getLogout');
+Route::get('/', 'ReportController@getIndex');
+Route::get('list', 'ReportController@getIndex');
+Route::get('list/{id}', 'ReportController@getList');
+Route::get('show', 'ReportController@getIndex');
+Route::get('show/{id}', 'ReportController@getShow');
+Route::get('login', 'ReportController@getLogin');
+Route::post('login', 'ReportController@postLogin');
+Route::get('logout', 'ReportController@getLogout');
+
+Route::group(['prefix' => 'healthy'], function () {
+    Route::get('/', 'HealthyController@getIndex');
+    Route::post('/', 'HealthyController@postIndex');
+});
 
 Route::group(['prefix' => 'hy'], function () {
     Route::get('/','ArticleController@getIndex');
