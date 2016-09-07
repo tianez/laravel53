@@ -1,0 +1,22 @@
+body {
+  background: #fff;
+}
+.weui_tab {
+  background: #fff;
+}
+.weui_tab_bd {
+  width: 100%;
+  overflow-x: hidden;
+}
+.weui_navbar_item {
+  color: #000;
+}
+.weui_media_box .weui_media_title {
+  word-wrap: normal;
+  white-space: normal;
+  line-height: 2.6rem;
+  height: 5.2rem;
+}
+.weui_article img {
+  height: auto !important;
+}
