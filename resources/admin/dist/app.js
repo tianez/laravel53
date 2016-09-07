@@ -9228,7 +9228,8 @@
 	    },
 	    render: function render() {
 	        return React.createElement(FormGroup, {
-	            title: this.props.title
+	            title: this.props.title,
+	            className: 'form-ueditor'
 	        }, React.createElement('textarea', {
 	            id: 'ueditor',
 	            ref: 'ueditor',
@@ -11207,7 +11208,7 @@
 	            request.post(requrl).send(this.state.info).end(function (err, res) {
 	                var msg = void 0;
 	                if (err) {
-	                    msg = err.response.error.message;
+	                    msg = err.response.text;
 	                } else {
 	                    var data = JSON.parse(res.text);
 	                    msg = data.msg;

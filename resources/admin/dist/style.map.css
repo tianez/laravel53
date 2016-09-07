@@ -397,6 +397,9 @@ hr {
     background: rgba(66, 166, 223, 0);
   }
 }
+.form-ueditor {
+  line-height: 2rem;
+}
 .form-radio {
   margin-right: 1.5rem;
 }

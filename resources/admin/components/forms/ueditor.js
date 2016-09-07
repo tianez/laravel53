@@ -40,6 +40,7 @@ var Ueditor = React.createClass({
         return (
             React.createElement(FormGroup, {
                 title: this.props.title,
+                className: 'form-ueditor'
             },
                 React.createElement('textarea', {
                     id: 'ueditor',

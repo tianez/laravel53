@@ -97,6 +97,7 @@ class meunTableSeeder extends Seeder
         'title' => '首页',
         'icon' => 'fa fa-home',
         'description' => '首页',
+        'roles' => '[1,2]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -104,6 +105,7 @@ class meunTableSeeder extends Seeder
         'title' => '体检数据导入',
         'icon' => 'fa fa-heartbeat',
         'description' => '体检数据导入',
+        'roles' => '[1]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -111,6 +113,7 @@ class meunTableSeeder extends Seeder
         'title' => '文章管理',
         'icon' => 'fa fa-user',
         'description' => '文章管理',
+        'roles' => '[1,2]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -118,6 +121,7 @@ class meunTableSeeder extends Seeder
         'title' => '分类管理',
         'icon' => 'fa fa-user',
         'description' => '分类管理',
+        'roles' => '[1,2]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -125,6 +129,7 @@ class meunTableSeeder extends Seeder
         'title' => '字段管理',
         'icon' => 'fa fa-file-text-o',
         'description' => '字段管理',
+        'roles' => '[1]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -132,6 +137,7 @@ class meunTableSeeder extends Seeder
         'title' => '菜单管理',
         'icon' => 'fa fa-th-list',
         'description' => '菜单管理',
+        'roles' => '[1]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -139,6 +145,7 @@ class meunTableSeeder extends Seeder
         'title' => '用户组管理',
         'icon' => 'fa fa-users',
         'description' => '用户组管理',
+        'roles' => '[1]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -146,6 +153,7 @@ class meunTableSeeder extends Seeder
         'title' => '权限管理',
         'icon' => 'fa fa-unlock-alt',
         'description' => '权限管理',
+        'roles' => '[1]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
@@ -153,6 +161,7 @@ class meunTableSeeder extends Seeder
         'title' => '用户管理',
         'icon' => 'fa fa-user',
         'description' => '用户管理',
+        'roles' => '[1]',
         'created_at'=> date("Y-m-d H:i:s")
         )
         ]);

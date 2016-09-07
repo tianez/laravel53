@@ -110,5 +110,28 @@ class Role_permissions extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         ]);
+
+        DB::table('role_permission')->insert([
+        array(
+        'role_id' => '2',
+        'permission_id' => '1'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '2'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '3'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '4'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '5'
+        ),
+        ]);
     }
 }

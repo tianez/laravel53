@@ -6,7 +6,7 @@ use App\Http\Model\Article;
 use DB;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller { 
+class ArticleController extends Controller {
     
     public function __construct() {
         // parent::__construct();
@@ -35,11 +35,19 @@ class ArticleController extends Controller {
     
     public function postAdd(Request $request) {
         $data = $request->all();
-        $info = $this->model->create($data);
-        $this->taxonomy($data,$info->id);
+        $validator = $this->model->Validator($data);
         $out = array();
-        $out['msg']= '保存成功！';
-        $out['info']= $info->toArray();
+        if($validator->fails()){
+            $messages = $validator->errors()->messages();
+            foreach ($messages as $key => $message) {
+                return response($message[0], 401);
+            }
+        }else{
+            $info = $this->model->create($data);
+            $this->taxonomy($data,$info->id);
+            $out['msg']= '保存成功！';
+            $out['info']= $info->toArray();
+        }
         return response()->json($out);
     }
     
@@ -98,7 +106,7 @@ class ArticleController extends Controller {
         }
         DB::table('article_taxonomy')->insert($adds);
     }
-
+    
     public function getDelete($id) {
         $info = $this->model->destroy($id);
         $roles = DB::table('article_taxonomy')->where('article_id',$id)->delete();

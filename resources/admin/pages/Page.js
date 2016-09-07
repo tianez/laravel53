@@ -39,7 +39,7 @@ class Page extends React.Component {
         request.get(requrl)
             .end(function(err, res) {
                 let msg
-                if (err) {
+                if (err) {              
                     this.props.history.pushState(null, '/')
                     msg = err.response.text
                 } else {
@@ -67,7 +67,7 @@ class Page extends React.Component {
             .end(function(err, res) {
                 let msg
                 if (err) {
-                    msg = err.response.error.message
+                    msg = err.response.text
                 } else {
                     let data = JSON.parse(res.text);
                     msg = data.msg
