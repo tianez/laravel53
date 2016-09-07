@@ -107,7 +107,7 @@ var Upload = React.createClass({
         let file = files[id]
         return ajaxUpload({
             // url: 'http://up.qiniu.com',
-            url: 'upload',
+            url: 'uploads',
             name: 'file',
             key: file.name,
             token: token,
@@ -127,7 +127,7 @@ var Upload = React.createClass({
                 } else {
                     thumbs = []
                 }
-                thumbs.push('/storage/app/' + res.name)
+                thumbs.push('/upload/' + res.name)
                 this.setState({
                     files: files,
                     thumbs: thumbs

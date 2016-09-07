@@ -9394,7 +9394,7 @@
 	        var file = files[id];
 	        return ajaxUpload({
 	            // url: 'http://up.qiniu.com',
-	            url: 'upload',
+	            url: 'uploads',
 	            name: 'file',
 	            key: file.name,
 	            token: token,
@@ -9414,7 +9414,7 @@
 	                } else {
 	                    thumbs = [];
 	                }
-	                thumbs.push('/storage/app/' + res.name);
+	                thumbs.push('/upload/' + res.name);
 	                _this.setState({
 	                    files: files,
 	                    thumbs: thumbs
