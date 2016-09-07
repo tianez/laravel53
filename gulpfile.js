@@ -21,11 +21,13 @@ gulp.task("webpack", function () {
 })
 
 gulp.task('min-css', function () {
-    gulp.src(dir + 'dist/style.css')
+    gulp.src([dir + 'dist/*.css','!'+dir + 'dist/*.min.css'])
         .pipe(cssmin({
             compatibility: 'ie7' //兼容IE7及以下需设置compatibility属性
         }))
-        .pipe(rename('style.min.css'))
+        .pipe(rename({
+            suffix: ".min",
+        }))
         .pipe(gulp.dest(dir + 'dist/'))
 })
 
@@ -39,9 +41,8 @@ gulp.task('min-js', function () {
 })
 
 gulp.task('less', function () {
-    gulp.src(dir + 'less/style.less')
+    gulp.src(dir + 'less/*.less')
         .pipe(less())
-        .pipe(rename('style.map.css'))
         .pipe(gulp.dest(dir + 'dist/'))
         .pipe(connect.reload())
 })

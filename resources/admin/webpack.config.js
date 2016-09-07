@@ -40,6 +40,6 @@ module.exports = {
     plugins: [
         // new webpack.optimize.CommonsChunkPlugin('vendors', 'build/vendors.js'),
         // new webpack.optimize.CommonsChunkPlugin('vendor', 'build/vendor.js'),
-        new ExtractTextPlugin("style.css")
+        new ExtractTextPlugin("webpack.css")
     ]
 }
