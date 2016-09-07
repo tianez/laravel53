@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
   <link rel="shortcut icon" href="images/favicon.png" />
   <link href="/bower_components/weui/dist/style/weui.css" rel="stylesheet">
-  <link href="/resources/css/report.css" rel="stylesheet">
+  <link href="/resources/front/dist/report.css" rel="stylesheet">
 </head>
 <body ontouchstart="">
   @if (session('msg'))

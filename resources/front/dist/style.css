@@ -195,6 +195,21 @@ body a {
   left: 0;
   z-index: 9999;
 }
+.hd {
+  padding: 2em 0;
+}
+.page_title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+.page_desc {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
 .tab {
   position: relative;
   width: 100%;
@@ -308,9 +323,6 @@ body a {
 }
 .header .fa-left {
   left: 0;
-}
-html {
-  font-size: 62.5%;
 }
 .result {
   padding: 0 1.5rem;
