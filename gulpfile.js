@@ -9,8 +9,8 @@ var concat = require('gulp-concat') //文件合并
 var rename = require('gulp-rename') //文件更名
 var webpack = require("gulp-webpack")
 
-var dir = './resources/admin/'
-var diro = './public/adminc/'
+var dir = './resources/front/'
+var diro = './public/front/'
 
 var webpackConfig = require(dir + 'webpack.config.js')
 

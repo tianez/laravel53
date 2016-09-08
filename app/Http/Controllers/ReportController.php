@@ -47,7 +47,13 @@ class ReportController extends Controller
         if(empty($user)){
             return redirect('login');
         }
-        $data = Article::find($id)->toArray();
+        $data = Article::find($id);
+        $data->increment('view', 1);
+        $category = $data->Tags()->where('taxonomy','category')->get();
+        if($category){
+            $data['category'] = $category[0]->category_name;
+        }
+        $data = $data->toArray();
         $out = array('title' => $data['title'], 'data' => $data);
         return view('report.show',$out);
     }
