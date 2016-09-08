@@ -1,5 +1,7 @@
 @extends('report.layout')  @section('content')
+<div class="list">
     <div class="weui_tab">
+      <img src="/front/images/report/list01.png" class="top"></img>
       <div class="weui_navbar">
         @foreach ($category as $cat)
         @if($cur->id ==$cat->id) 
@@ -24,10 +26,11 @@
             @endif
             <div class="weui_media_bd">
                 <h4 class="weui_media_title">{{$d['title']}}</h4>
-                <p class="weui_media_desc">{{$d['excerpt']}}</p>
+                <p class="weui_media_desc">{{$d['created_at']}}</p>
             </div>
           </a>
         @endforeach
         </div>
+</div>
 </div>
 @endsection

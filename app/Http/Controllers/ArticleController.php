@@ -89,7 +89,7 @@ class ArticleController extends Controller {
     }
     
     private function taxonomy($data,$article_id){
-        if(!isset($data['tags'])){
+        if(!isset($data['category'])){
             $category = 1;
         }else{
             $category = $data['category'];

@@ -1,6 +1,6 @@
 @extends('report.layout') @section('content')
 <div class="header">
-    <a href="/" class="icon icon-left"></a>
+    <a onclick="window.history.back()" class="icon icon-left"></a>
     <h1>{{$data['category']}}</h1>
 </div>
 <div class="content">
