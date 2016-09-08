@@ -26,7 +26,7 @@
             @endif
             <div class="weui_media_bd">
                 <h4 class="weui_media_title">{{$d['title']}}</h4>
-                <p class="weui_media_desc">{{$d['created_at']}}</p>
+                <p class="weui_media_desc"><span>{{$d['created_at']}}</span><span class='view'>浏览{{$d['view']}}次</span></p>
             </div>
           </a>
         @endforeach
