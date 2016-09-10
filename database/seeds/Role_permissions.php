@@ -109,6 +109,41 @@ class Role_permissions extends Seeder
         'description' => '删除文章',
         'created_at'=> date("Y-m-d H:i:s")
         ),
+        array(
+        'name' => 'App\Http\Controllers\CategoryController@getIndex',
+        'display_name' => '分类列表',
+        'group' => '分类管理',
+        'description' => '分类列表',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\CategoryController@getAdd',
+        'display_name' => '新增分类',
+        'group' => '分类管理',
+        'description' => '新增分类',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\CategoryController@getDetail',
+        'display_name' => '查看分类',
+        'group' => '分类管理',
+        'description' => '查看分类',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\CategoryController@postDetail',
+        'display_name' => '编辑分类',
+        'group' => '分类管理',
+        'description' => '编辑分类',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'name' => 'App\Http\Controllers\CategoryController@getDelete',
+        'display_name' => '删除分类',
+        'group' => '分类管理',
+        'description' => '删除分类',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
         ]);
 
         DB::table('role_permission')->insert([
@@ -131,6 +166,30 @@ class Role_permissions extends Seeder
         array(
         'role_id' => '2',
         'permission_id' => '5'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '6'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '7'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '8'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '9'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '10'
+        ),
+        array(
+        'role_id' => '2',
+        'permission_id' => '11'
         ),
         ]);
     }
