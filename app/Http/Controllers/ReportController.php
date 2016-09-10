@@ -74,13 +74,14 @@ class ReportController extends Controller
         $request->flashOnly('username', 'phone');
         if(empty($name) ||empty($phone) ||empty($password) ){
             $request->session()->flash('msg', '用户名/手机号码/密码不能为空！');
+        }else if($password!=='0912'){
+            $request->session()->flash('msg', '查询密码错误，请重新输入！');
         }else{
-            $user = Report::where('username', $name)->where('phone', $phone)->first();
+            $user = Report::where('username', $name)->first();
             if($user){
                 session(['report_user' => $user]);
             }else {
-                $user = Report::create($request->all());
-                session(['report_user' => $user]);
+                $request->session()->flash('msg', '该用户不存在，请核实后再输入！');
             }
         }
         return redirect()->back();

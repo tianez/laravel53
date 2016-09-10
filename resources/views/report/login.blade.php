@@ -5,7 +5,7 @@
     <div class="weui_cells weui_cells_form">
       <div class="weui_cell">
         <div class="weui_cell_hd">
-          <label class="weui_label weui_cell_hd">用户名</label>
+          <label class="weui_label weui_cell_hd">姓名</label>
         </div>
         <div class="weui_cell_bd weui_cell_primary">
           <input type="text" name="username" class="weui_input" placeholder="请输入您的姓名" value="{{ old('username') }}">
@@ -13,18 +13,10 @@
       </div>
       <div class="weui_cell">
         <div class="weui_cell_hd">
-          <label class="weui_label weui_cell_hd">手机号码</label>
-        </div>
-        <div class="weui_cell_bd weui_cell_primary">
-          <input type="tel" name="phone" class="weui_input" placeholder="请输入您的手机号码" value="{{ old('phone') }}">
-        </div>
-      </div>
-      <div class="weui_cell">
-        <div class="weui_cell_hd">
           <label class="weui_label weui_cell_hd">密码</label>
         </div>
         <div class="weui_cell_bd weui_cell_primary">
-          <input type="password" name="password" class="weui_input" placeholder="请输入您的密码" value="">
+          <input type="password" name="password" class="weui_input" placeholder="请输入查询密码" value="">
         </div>
       </div>
     </div>

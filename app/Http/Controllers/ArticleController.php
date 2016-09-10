@@ -55,7 +55,7 @@ class ArticleController extends Controller {
                 DB::rollBack();
             }
             $out['msg']= '保存成功！';
-            // $out['info']= $info->toArray();
+            $out['info']= $info->toArray();
         }
         return response()->json($out);
     }
