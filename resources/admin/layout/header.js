@@ -57,11 +57,11 @@ class Header extends React.Component {
                 },
                     React.createElement(A, {
                         to: 'login',
-                        title: 'login'
+                        title: '登陆'
                     }),
                     React.createElement(A, {
                         to: 'logout',
-                        title: 'logout'
+                        title: '登出'
                     })
                 )
             )

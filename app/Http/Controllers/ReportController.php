@@ -71,8 +71,11 @@ class ReportController extends Controller
         $name = $request->username;
         $phone = $request->phone;
         $password = $request->password;
+        $request->flashOnly('username', 'phone');
         if(empty($name) ||empty($phone) ||empty($password) ){
             $request->session()->flash('msg', '用户名/手机号码/密码不能为空！');
+        }else if($password !=='123456'){
+            $request->session()->flash('msg', '密码错误！');
         }else{
             $user = Report::where('username', $name)->where('phone', $phone)->first();
             if($user){

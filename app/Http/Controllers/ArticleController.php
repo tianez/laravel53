@@ -43,10 +43,20 @@ class ArticleController extends Controller {
                 return response($message[0], 401);
             }
         }else{
-            $info = $this->model->create($data);
-            $this->taxonomy($data,$info->id);
+            DB::beginTransaction();
+            try{
+                $info = $this->model->create($data);
+                $this->taxonomy($data,$info->id);
+                //中间逻辑代码
+                DB::commit();
+            }catch (\Exception $e) {
+                //接收异常处理并回滚
+                $info->forceDelete();
+                DB::rollBack();
+            }
+            
             $out['msg']= '保存成功！';
-            $out['info']= $info->toArray();
+            // $out['info']= $info->toArray();
         }
         return response()->json($out);
     }

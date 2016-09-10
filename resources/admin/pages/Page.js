@@ -9,12 +9,15 @@ const {
     Radio,
     Checkbox,
     Upload,
-    Range,
+    Range, 
     Button,
     Select,
     Hidden,
     Category
-} = require('../components/forms')
+} = require('../components/forms') 
+const {
+    Link
+} = ReactRouter;
 class Page extends React.Component {
     constructor(props) {
         super(props)
@@ -158,7 +161,11 @@ class Page extends React.Component {
                 React.createElement("h3", {
                         className: "page-title"
                     },
-                    this.state.title
+                    this.state.title,
+                    this.props.params.page!=='add'?
+                    React.createElement(Link,{
+                        to: '/api/' + this.props.params.pages + '/add',
+                    },'（新增）'):null
                 ),
                 React.createElement(Form, {
                         action: this.state.action,

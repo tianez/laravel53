@@ -7860,10 +7860,10 @@
 	                className: 'pure-menu-list right'
 	            }, React.createElement(A, {
 	                to: 'login',
-	                title: 'login'
+	                title: '登陆'
 	            }), React.createElement(A, {
 	                to: 'logout',
-	                title: 'logout'
+	                title: '登出'
 	            })));
 	        }
 	    }]);
@@ -11143,6 +11143,8 @@
 	var Select = _require.Select;
 	var Hidden = _require.Hidden;
 	var Category = _require.Category;
+	var _ReactRouter = ReactRouter;
+	var Link = _ReactRouter.Link;
 
 	var Page = function (_React$Component) {
 	    _inherits(Page, _React$Component);
@@ -11304,7 +11306,9 @@
 	                className: 'container pure-u-1'
 	            }, React.createElement("h3", {
 	                className: "page-title"
-	            }, this.state.title), React.createElement(Form, {
+	            }, this.state.title, this.props.params.page !== 'add' ? React.createElement(Link, {
+	                to: '/api/' + this.props.params.pages + '/add'
+	            }, '（新增）') : null), React.createElement(Form, {
 	                action: this.state.action,
 	                info: info,
 	                apiSubmit: false,

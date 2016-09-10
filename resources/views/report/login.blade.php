@@ -8,7 +8,7 @@
           <label class="weui_label weui_cell_hd">用户名</label>
         </div>
         <div class="weui_cell_bd weui_cell_primary">
-          <input type="text" name="username" class="weui_input" placeholder="请输入您的姓名" value="">
+          <input type="text" name="username" class="weui_input" placeholder="请输入您的姓名" value="{{ old('username') }}">
         </div>
       </div>
       <div class="weui_cell">
@@ -16,7 +16,7 @@
           <label class="weui_label weui_cell_hd">手机号码</label>
         </div>
         <div class="weui_cell_bd weui_cell_primary">
-          <input type="tel" name="phone" class="weui_input" placeholder="请输入您的手机号码" value="">
+          <input type="tel" name="phone" class="weui_input" placeholder="请输入您的手机号码" value="{{ old('phone') }}">
         </div>
       </div>
       <div class="weui_cell">
