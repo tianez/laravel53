@@ -54,7 +54,6 @@ class ArticleController extends Controller {
                 $info->forceDelete();
                 DB::rollBack();
             }
-            
             $out['msg']= '保存成功！';
             // $out['info']= $info->toArray();
         }
