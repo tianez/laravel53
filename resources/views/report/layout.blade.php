@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
   <link rel="shortcut icon" href="images/favicon.png" />
   <link href="../bower_components/weui/dist/style/weui.css" rel="stylesheet">
-  <link href="/front/css/report.css" rel="stylesheet">
+  <link href="../front/css/report.css" rel="stylesheet">
 </head>
-<body ontouchstart="">
+<body>
   @if (session('msg'))
   <div class="weui_dialog_alert" id="weui_dialog_alert" style="display: block;">
     <div class="weui_mask"></div>

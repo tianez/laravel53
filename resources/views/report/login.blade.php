@@ -1,5 +1,6 @@
 @extends('report.layout') @section('title', 'Page Title') @section('content')
 <div class="login">
+ <img src="../front/images/report/header.png" class='headeri' alt="">
   <form class="form-horizontal" method="post">
     <div class="weui_cells weui_cells_form">
       <div class="weui_cell">
@@ -7,7 +8,7 @@
           <label class="weui_label weui_cell_hd">用户名</label>
         </div>
         <div class="weui_cell_bd weui_cell_primary">
-          <input type="tel" name="username" class="weui_input" placeholder="请输入您的姓名" value="">
+          <input type="text" name="username" class="weui_input" placeholder="请输入您的姓名" value="">
         </div>
       </div>
       <div class="weui_cell">

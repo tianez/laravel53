@@ -52,9 +52,13 @@ a:hover {
 }
 a {
   color: #3a3a3a;
+  background: none !important;
 }
 a:hover {
   color: #288f54;
+}
+a:active {
+  background: none;
 }
 /* img 搭车：让链接里的 img 无边框 */
 fieldset,

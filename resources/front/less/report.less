@@ -5,18 +5,29 @@ html, body {
 
 .login {
     background: url(../images/report/bg.jpg) no-repeat;
-    background-size: 100% 100%;
-    height: 100%;
-    width: 100%;
-    padding: 60% 2rem 0;
+    background-size: 100% auto;
+    min-height: 100%;
+    // height: 100%;
+    width: 100%; 
+    padding: 1rem 2rem 2rem;
+    .headeri {
+        max-width: 100%;
+        width: 80%;
+        display: block;
+        margin: 10% auto 5%;
+    }
     .weui_cells {
         background: none;
         .border-radius(.5rem);
+        &::before {
+            border: none;
+        }
     }
     .weui_cell {
         color: #9e9e9e;
         margin-top: .1rem;
         background: #fff;
+        font-size: 1.5rem;
     }
     .weui_cell::before {
         left: 0;
@@ -53,6 +64,9 @@ html, body {
             position: relative;
             background: none;
             .justify-content;
+            &::after {
+                border: none;
+            }
             .weui_navbar_item {
                 max-width: 8rem;
                 padding: .5rem 0;
