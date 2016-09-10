@@ -14,7 +14,7 @@ class Article extends Model {
     */
     protected $table = 'article';
     
-    protected $fillable = array('title','keyword','excerpt','thumb','content','link','type','temp','uid','view','bookmark','comment','comment_status','status');
+    protected $fillable = array('title','keyword','excerpt','thumb','content','link','type','temp','uid','view','bookmark','comment','comment_status','status','order');
     
     public function Validator($date, $v = true) {
         $rules = array();

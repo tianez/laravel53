@@ -85,6 +85,16 @@ class article extends Seeder
         'f_ext' => null,
         'created_at'=> date("Y-m-d H:i:s")
         ),
+        array(
+        'key' => 'order',
+        'title' => '排序',
+        'type' => 'text',
+        'f_module' => 'article',
+        'f_groups' => '字段分组',
+        'f_description' => '排序',
+        'f_ext' => null,
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
         ]);
     }
 }

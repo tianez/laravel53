@@ -105,7 +105,7 @@ class Fields extends Model
     */
     public function scopeFile($query,$table= 'fields')
     {
-        return $query->select('id','key', 'title','type','f_options','f_ext','f_default','f_add','f_edit','f_visible')->where('f_module',$table)->where('status','0');
+        return $query->select('id','key', 'title','type','f_options','f_ext','f_default','f_add','f_edit','f_visible')->where('f_module',$table)->where('status','0')->orderBy('order', 'desc');
     }
     
     /**

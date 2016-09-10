@@ -20,9 +20,9 @@ class ArticleController extends Controller {
             $this->model = $this->model->where('status', $request->state);
         }
         $pre_page = env('pre_page', 15);
-        $data = $this->model->paginate($pre_page);
+        $data = $this->model->orderBy('order', 'desc')->orderBy('created_at', 'asc')->paginate($pre_page);
         $data = $data->toArray();
-        $thead =  array('id'=>'ID','title'=>'标题', 'created_at'=>'发布时间');
+        $thead =  array('id'=>'ID','title'=>'标题', 'created_at'=>'发布时间','order'=>'排序');
         $out = array('title' => '文章管理', 'pages' => $data,'thead' => $thead);
         return response()->json($out);
     }

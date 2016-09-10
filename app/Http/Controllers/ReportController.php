@@ -37,7 +37,7 @@ class ReportController extends Controller
         $pre_page = env('pre_page', 15);
         $category = Category::where('taxonomy','category')->get();
         $cur = Category::find($id);
-        $data = $cur->Article()->paginate($pre_page);
+        $data = $cur->Article()->orderBy('order', 'desc')->orderBy('created_at', 'asc')->paginate($pre_page);
         $data = $data->toArray();
         $out = array('title' => $cur->category_name, 'cur' => $cur, 'category' => $category,'data' => $data);
         return view('report.home',$out);
@@ -69,16 +69,17 @@ class ReportController extends Controller
     
     public function postLogin(Request $request) {
         $name =  trim($request->username," ");
-        $phone = $request->phone;
         $password = $request->password;
         $request->flashOnly('username', 'phone');
-        if(empty($name) ||empty($phone) ||empty($password) ){
-            $request->session()->flash('msg', '用户名/手机号码/密码不能为空！');
-        }else if($password!=='0912'){
+        if(empty($name) ||empty($password) ){
+            $request->session()->flash('msg', '用户名/密码不能为空！');
+        }else if($password!=='123456'){
             $request->session()->flash('msg', '查询密码错误，请重新输入！');
         }else{
             $user = Report::where('username', $name)->first();
             if($user){
+                $user->islogin = 1;
+                $user->save();
                 session(['report_user' => $user]);
             }else {
                 $request->session()->flash('msg', '该用户不存在，请核实后再输入！');

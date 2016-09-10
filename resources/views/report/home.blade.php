@@ -18,15 +18,9 @@
       <div class="weui_tab_bd">
       @foreach ($data['data'] as $d)
           <a href="/show/{{$d['id']}}" class="weui_media_box weui_media_appmsg">
-            @if(isset($d['thumb']))
-            <?php $thumb = json_decode($d['thumb']); ?>
-            <div class="weui_media_hd">
-                <img class="weui_media_appmsg_thumb" src="{{$thumb[0]}}" alt="">
-            </div>
-            @endif
             <div class="weui_media_bd">
                 <h4 class="weui_media_title">{{$d['title']}}</h4>
-                <p class="weui_media_desc"><span>{{$d['created_at']}}</span><span class='view'>浏览{{$d['view']}}次</span></p>
+                <p class="weui_media_desc"><span>{{$d['created_at']}}</span></p>
             </div>
           </a>
         @endforeach

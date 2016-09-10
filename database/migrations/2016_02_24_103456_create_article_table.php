@@ -34,6 +34,7 @@ class CreateArticleTable extends Migration
             $table -> integer('bookmark') -> default(0) -> comment('收藏数');
             $table -> integer('comment') -> default(0) -> comment('评论数');
             $table -> string('comment_status') -> default(0) ->comment('评论状态');
+            $table -> integer('order') -> default(0) -> comment('排序');            
             $table -> tinyInteger('status') -> default(0) -> comment('状态，0：正常，1：锁定');
             $table -> timestamps();
             $table -> softDeletes();
