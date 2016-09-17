@@ -20,6 +20,9 @@ Route::get('login', 'ReportController@getLogin');
 Route::post('login', 'ReportController@postLogin');
 Route::get('logout', 'ReportController@getLogout');
 
+Route::get('tk', 'CjyunController@getIndex');
+
+
 Route::group(['prefix' => 'healthy'], function () {
     Route::get('/', 'HealthyController@getIndex');
     Route::post('/', 'HealthyController@postIndex');
