@@ -35,11 +35,10 @@ $gateway->startPort = 2900;
 // 服务注册地址
 $gateway->registerAddress = '127.0.0.1:1238';
 
-
 // 心跳间隔
-//$gateway->pingInterval = 10;
+$gateway->pingInterval = 10;
 // 心跳数据
-//$gateway->pingData = '{"type":"ping"}';
+$gateway->pingData = '{"type":"ping"}';
 
 /* 
 // 当客户端连接上来时，设置连接的onWebSocketConnect，即在websocket握手时的回调

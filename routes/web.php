@@ -22,6 +22,10 @@ Route::get('logout', 'ReportController@getLogout');
 
 Route::get('tk', 'CjyunController@getIndex');
 
+Route::group(['prefix' => 'chat'], function () {
+    Route::get('/', 'ChatController@getIndex');
+    Route::post('/', 'ChatController@postIndex');
+});
 
 Route::group(['prefix' => 'healthy'], function () {
     Route::get('/', 'HealthyController@getIndex');
