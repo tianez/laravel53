@@ -1,0 +1,113 @@
+2016-09-17 16:37:38 Error: Cannot use object of type stdClass as array in D:\www\GatewayWorker\index2.php:17
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Object(stdClass))
+#1 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '{"type":"login"...')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #21)
+#3 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#4 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#5 D:\www\GatewayWorker\Workerman\Worker.php(433): Workerman\Worker->run()
+#6 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#7 D:\www\GatewayWorker\index2.php(34): Workerman\Worker::runAll()
+#8 {main}
+2016-09-17 16:38:17 Error: Cannot use object of type stdClass as array in D:\www\GatewayWorker\index2.php:17
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Object(stdClass))
+#1 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '{"type":"login"...')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #21)
+#3 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#4 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#5 D:\www\GatewayWorker\Workerman\Worker.php(433): Workerman\Worker->run()
+#6 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#7 D:\www\GatewayWorker\index2.php(34): Workerman\Worker::runAll()
+#8 {main}
+2016-09-17 20:46:16 Exception: $_SESSION['room_id'] not set. client_ip:127.0.0.1 in D:\www\GatewayWorker\Applications\YourApp\Events.php:94
+Stack trace:
+#0 [internal function]: Events::onMessage('7f0000010af0000...', '{"type":"say","...')
+#1 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010af0000...', '{"type":"say","...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25)
+#5 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-09-17 20:46:16 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-09-17 20:47:24 Exception: $_SESSION['room_id'] not set. client_ip:127.0.0.1 in D:\www\GatewayWorker\Applications\YourApp\Events.php:94
+Stack trace:
+#0 [internal function]: Events::onMessage('7f0000010af0000...', '{"type":"say","...')
+#1 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010af0000...', '{"type":"say","...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25)
+#5 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-09-17 20:47:24 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-09-17 20:49:04 Exception: $_SESSION['room_id'] not set. client_ip:127.0.0.1 in D:\www\GatewayWorker\Applications\YourApp\Events.php:94
+Stack trace:
+#0 [internal function]: Events::onMessage('7f0000010af0000...', '{"type":"say","...')
+#1 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010af0000...', '{"type":"say","...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25)
+#5 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-09-17 20:49:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-09-17 20:49:07 Exception: $_SESSION['room_id'] not set. client_ip:127.0.0.1 in D:\www\GatewayWorker\Applications\YourApp\Events.php:94
+Stack trace:
+#0 [internal function]: Events::onMessage('7f0000010af0000...', '{"type":"say","...')
+#1 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010af0000...', '{"type":"say","...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25)
+#5 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-09-17 20:49:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-09-17 20:49:08 Exception: $_SESSION['room_id'] not set. client_ip:127.0.0.1 in D:\www\GatewayWorker\Applications\YourApp\Events.php:94
+Stack trace:
+#0 [internal function]: Events::onMessage('7f0000010af0000...', '{"type":"say","...')
+#1 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010af0000...', '{"type":"say","...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25)
+#5 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-09-17 20:49:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-09-17 21:54:51 Exception: $_SESSION['room_id'] not set. client_ip:127.0.0.1 in D:\www\GatewayWorker\Applications\YourApp\Events.php:94
+Stack trace:
+#0 [internal function]: Events::onMessage('7f0000010af0000...', '{"type":"say","...')
+#1 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010af0000...', '{"type":"say","...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25)
+#5 D:\www\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-09-17 21:54:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-09-17 21:58:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready

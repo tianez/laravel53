@@ -15,6 +15,8 @@ use Storage;
 use Schema;
 use Illuminate\Database\Schema\Blueprint;
 
+use Workerman\Worker;
+use PHPSocketIO\SocketIO;
 
 
 class CjyunController extends Controller {
@@ -24,6 +26,26 @@ class CjyunController extends Controller {
     }
     
     public function getIndex(Request $request) {
+        // listen port 2021 for socket.io client
+        // $io = new SocketIO(2021);
+        // $io->on('connection', function($socket)use($io){
+        //   $socket->on('chat message', function($msg)use($io){
+        //     $io->emit('chat message', $msg);
+        //   });
+        // });
+        
+        // Worker::runAll();
+        // 建立连接，@see http://php.net/manual/zh/function.stream-socket-client.php
+        
+        $client = stream_socket_client('tcp://127.0.0.1:7273');
+
+
+        if(!$client)exit("can not connect");
+        // 模拟超级用户，以文本协议发送数据，注意Text文本协议末尾有换行符（发送的数据中最好有能识别超级用户的字段），这样在Event.php中的onMessage方法中便能收到这个数据，然后做相应的处理即可
+        // fwrite($client, '{"type":"send","content":"hello all", "user":"admin", "pass":"******"}'."\n");
+        // fwrite($client, '{"type":"say","to_client_id":"all","from_client_name":"121212121","content":"haodeesdsdsd"}'."\n");
+        fwrite($client, '{"type":"system","to_client_id":"all","to_client_name":"sdsds","content":"感谢大家"}'."\n");
+        
         
         return view('tk');
     }
