@@ -1,6 +1,6 @@
 'use strict'
 
-import { createStore  } from 'redux';
+import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux'
 import reducer from './redux/reducer';
 import { config, comment } from './redux/actions'
@@ -11,7 +11,7 @@ window.request = superagent
 
 import Home from './react/home';
 
-let initialState = {
+let initialState = { 
     config: {
         show: 0,
         login: false,
