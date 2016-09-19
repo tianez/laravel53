@@ -54,14 +54,21 @@ gulp.task('web', function (cb) {
 
 gulp.task('connect', function () {
     connect.server({
-        port: 8887,
+        port: 3000,
         livereload: true
     })
 })
 
 gulp.task('watch', function () {
     gulp.watch([dir + 'less/*.less', dir + 'components/forms/*.less'], ['less'])
-    gulp.watch([dir + 'app.js', dir + 'global.js', dir + 'pages/*.js', dir + 'layout/*.js', dir + 'components/**/*.js'], ['webpack'])
+    gulp.watch(['app/html/*', 'app/layout/*.html'], ['html'])
+    gulp.watch([
+        dir + 'app.js',
+        dir + 'global.js',
+        dir + 'pages/*.js',
+        dir + 'layout/*.js',
+        dir + 'components/**/*.js'
+    ], ['webpack'])
 })
 
 gulp.task('default', ['connect', 'watch'])
