@@ -10,7 +10,7 @@ window.comment = comment
 window.request = superagent
 
 import Home from './react/home';
- 
+
 let initialState = {
     config: {
         show: 0,

@@ -87,15 +87,15 @@ class Events
                 return;
                 
             case 'system':
-                $new_message = array(
-                    'type'=>'say', 
-                    'from_client_id'=>$client_id,
-                    'from_client_name' =>'admin',
-                    'to_client_id'=>'all',
-                    'content'=>nl2br(htmlspecialchars($message_data['content'])),
-                    'time'=>date('Y-m-d H:i:s'),
-                );
-                Gateway::sendToGroup(1 ,json_encode($new_message));
+                // $new_message = array(
+                //     'type'=>'say', 
+                //     'from_client_id'=>$client_id,
+                //     'from_client_name' =>'admin',
+                //     'to_client_id'=>'all',
+                //     'content'=>nl2br(htmlspecialchars($message_data['content'])),
+                //     'time'=>date('Y-m-d H:i:s'),
+                // );
+                Gateway::sendToGroup(1 ,json_encode($message_data));
                 return;
             // 客户端登录 message格式: {type:login, name:xx, room_id:1} ，添加到客户端，广播给所有客户端xx进入聊天室
             case 'say':

@@ -6502,8 +6502,55 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var List = function (_React$Component) {
-	    _inherits(List, _React$Component);
+	var Time = function (_React$Component) {
+	    _inherits(Time, _React$Component);
+
+	    function Time() {
+	        _classCallCheck(this, Time);
+
+	        return _possibleConstructorReturn(this, (Time.__proto__ || Object.getPrototypeOf(Time)).apply(this, arguments));
+	    }
+
+	    _createClass(Time, [{
+	        key: 'render',
+	        value: function render() {
+	            var out = void 0;
+	            var time = this.props.time * 1000;
+	            var date = new Date(time);
+	            var curdate = new Date();
+	            var seconds = Math.ceil((curdate - date) / 1000);
+	            if (seconds < 60) {
+	                out = seconds + '秒前';
+	            } else {
+	                var minutes = parseInt(seconds / 60);
+	                if (minutes < 60) {
+	                    out = minutes + '分钟前';
+	                } else {
+	                    var hours = parseInt(minutes / 60);
+	                    if (hours < 24) {
+	                        out = hours + '小时前';
+	                    } else {
+	                        Y = date.getFullYear() + '-';
+	                        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+	                        D = date.getDate() + ' ';
+	                        h = date.getHours() + ':';
+	                        m = date.getMinutes() + ':';
+	                        s = date.getSeconds();
+	                        out = Y + M + D + h + m + s;
+	                    }
+	                }
+	            }
+	            return React.createElement('div', {
+	                className: 'c2'
+	            }, out);
+	        }
+	    }]);
+
+	    return Time;
+	}(React.Component);
+
+	var List = function (_React$Component2) {
+	    _inherits(List, _React$Component2);
 
 	    function List(props) {
 	        _classCallCheck(this, List);
@@ -6526,9 +6573,9 @@
 	                    className: 'c'
 	                }, React.createElement('div', {
 	                    className: 'c1'
-	                }, d.name), React.createElement('div', {
-	                    className: 'c2'
-	                }, '33分钟前'), React.createElement('div', {
+	                }, d.username), React.createElement(Time, {
+	                    time: d.time
+	                }), React.createElement('div', {
 	                    className: 'c3'
 	                }, d.content)));
 	            });

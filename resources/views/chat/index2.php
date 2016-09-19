@@ -51,7 +51,7 @@
       room_id '] : 1?>"}';
       console.log("websocket握手成功，发送登录数据:" + login_data);
       ws.send(login_data);
-    }
+    } 
 
     // 服务端发来消息时
     function onmessage(e) {

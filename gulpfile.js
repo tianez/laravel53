@@ -63,7 +63,7 @@ gulp.task('connect', function() {
 
 gulp.task('watch', function() {
     gulp.watch([dirin + 'less/*.less', dirin + 'components/forms/*.less'], ['less'])
-    // gulp.watch(['app/html/*', 'app/layout/*.html'], ['html'])
+        // gulp.watch(['app/html/*', 'app/layout/*.html'], ['html'])
     gulp.watch([
         dirin + 'app.js',
         dirin + 'global.js',
