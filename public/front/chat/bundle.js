@@ -6260,7 +6260,7 @@
 	        key: '_onClick',
 	        value: function _onClick(e) {
 	            e.preventDefault();
-	            if (localStorage.user) {
+	            if (localStorage.username) {
 	                this.refs.input.focus();
 	                config('islogin', true);
 	                return;
@@ -6272,8 +6272,15 @@
 	        key: '_onSubmit',
 	        value: function _onSubmit() {
 	            config('show', 1);
-	            comment({ name: 'tianez', content: this.refs.input.value });
-	            this.refs.input.value = '';
+	            request.post('chat').send({
+	                content: this.refs.input.value
+	            }).set('Accept', 'application/json').end(function (err, res) {
+	                if (res.ok) {
+	                    this.refs.input.value = '';
+	                } else {
+	                    alert(res.text);
+	                }
+	            }.bind(this));
 	        }
 	    }, {
 	        key: 'render',
@@ -6412,9 +6419,14 @@
 	            var url = this.props.title == '登陆' ? 'chat/login' : 'chat/register';
 	            request.post(url).send(this.state).set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
-	                    alert('yay got ' + JSON.stringify(res.body));
+	                    var data = JSON.parse(res.text);
+	                    var user = data.data;
+	                    localStorage.username = user.user_name;
+	                    localStorage.head_img = user.head_img ? user.head_img : './images/avatar/' + Math.floor(Math.random() * 6) + '.jpg';
+	                    config('login', false);
+	                    config('islogin', true);
 	                } else {
-	                    alert('Oh no! error ' + res.text);
+	                    alert(res.text);
 	                }
 	            }.bind(this));
 	        }
@@ -6571,7 +6583,7 @@
 	                }, React.createElement('div', {
 	                    className: 'thumb'
 	                }, React.createElement('img', {
-	                    src: '../images/12.jpg'
+	                    src: d.head_img
 	                })), React.createElement('div', {
 	                    className: 'c'
 	                }, React.createElement('div', {
