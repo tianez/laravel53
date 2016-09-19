@@ -10,8 +10,8 @@ window.comment = comment
 window.request = superagent
 
 import Home from './react/home';
-
-let initialState = { 
+ 
+let initialState = {
     config: {
         show: 0,
         login: false,

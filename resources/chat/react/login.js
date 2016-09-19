@@ -1,5 +1,5 @@
 'use strict'
-const ajaxUpload = require('../js/AjaxUpload')
+const ajaxUpload = require('../utils/AjaxUpload')
 class Login extends React.Component {
     constructor() {
         super();
@@ -8,7 +8,7 @@ class Login extends React.Component {
             password: '',
             file: '../images/1.jpg'
         }
-    }
+    } 
     _onChangeUsername(e) {
         this.setState({
             'username': e.target.value
@@ -23,10 +23,10 @@ class Login extends React.Component {
         console.log(e);
         e.preventDefault()
         let files = e.target.files
-        // 文件过滤
-        // 只允许上传图片
+            // 文件过滤
+            // 只允许上传图片
         files = Array.prototype.slice.call(files, 0)
-        files = files.filter(function (file) {
+        files = files.filter(function(file) {
             return /image/i.test(file.type)
         })
         let file = files[0]
@@ -65,7 +65,7 @@ class Login extends React.Component {
             .post(url)
             .send(this.state)
             .set('Accept', 'application/json')
-            .end(function (err, res) {
+            .end(function(err, res) {
                 if (res.ok) {
                     let data = JSON.parse(res.text)
                     let user = data.data
@@ -93,24 +93,23 @@ class Login extends React.Component {
         let title = this.props.title
         return (
             React.createElement('div', {
-                id: 'login'
-            },
-                React.createElement('div', {
-                    className: 'header'
+                    id: 'login'
                 },
+                React.createElement('div', {
+                        className: 'header'
+                    },
                     React.createElement('a', {
                         className: 'icon icon-left',
                         onClick: this._onBack.bind(this)
                     }),
-                    React.createElement('h1', {
-                    }, title)
+                    React.createElement('h1', {}, title)
                 ),
                 React.createElement('div', {
-                    className: 'content'
-                },
-                    React.createElement('div', {
-                        className: 'form'
+                        className: 'content'
                     },
+                    React.createElement('div', {
+                            className: 'form'
+                        },
                         React.createElement('input', {
                             type: 'text',
                             className: 'input',
@@ -124,11 +123,11 @@ class Login extends React.Component {
                             onChange: this._onChangePassword.bind(this)
                         }),
                         title == '注册' ? React.createElement('div', {
-                            className: 'uploader_div',
-                            style: {
-                                backgroundImage: 'url(' + this.state.file + ')',
-                            }
-                        },
+                                className: 'uploader_div',
+                                style: {
+                                    backgroundImage: 'url(' + this.state.file + ')',
+                                }
+                            },
                             React.createElement('input', {
                                 className: 'uploader_input',
                                 type: 'file',

@@ -67,8 +67,7 @@ gulp.task('watch', function() {
     gulp.watch([
         dirin + 'app.js',
         dirin + 'global.js',
-        dirin + 'pages/*.js',
-        dirin + 'layout/*.js',
+        dirin + '**/*.js',
         dirin + 'components/**/*.js'
     ], ['webpack'])
 })

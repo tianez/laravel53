@@ -17,7 +17,7 @@
     var vurl = 'http://app.cjyun.org/video/player/index?vid=12&thumb=&sid=10076&next=&autoStart=0&type=stream'
     var ht = 'SWFObject 2提供两种优化flash播放器的嵌入方法：基于标记的方法和依赖于js的方法。'
   </script>
-  <script src="./front/chat/bundle.js"></script>
+  <script src="./front/chat/js/app.js"></script>
 </body>
 
 </html>

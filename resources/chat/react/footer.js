@@ -10,9 +10,9 @@ class Footer extends React.Component {
             this.refs.input.focus()
             config('islogin', true)
             return
-        }
+        } 
         config('login', true)
-        // config('islogin', true)
+            // config('islogin', true)
     }
     _onSubmit() {
         config('show', 1)
@@ -22,19 +22,19 @@ class Footer extends React.Component {
                 content: this.refs.input.value
             })
             .set('Accept', 'application/json')
-            .end(function (err, res) {
+            .end(function(err, res) {
                 if (res.ok) {
                     this.refs.input.value = ''
                 } else {
                     alert(res.text)
                 }
             }.bind(this))
-    } 
+    }
     render() {
         return (
             React.createElement('div', {
-                id: 'footer'
-            },
+                    id: 'footer'
+                },
                 React.createElement('div', {
                     id: 'formd',
                     style: {
@@ -43,11 +43,11 @@ class Footer extends React.Component {
                     onClick: this._onClick.bind(this)
                 }),
                 React.createElement('div', {
-                    id: 'form'
-                },
-                    React.createElement('div', {
-                        className: 'f1'
+                        id: 'form'
                     },
+                    React.createElement('div', {
+                            className: 'f1'
+                        },
                         React.createElement('input', {
                             ref: 'input',
                             type: 'text',
@@ -56,8 +56,8 @@ class Footer extends React.Component {
                         })
                     ),
                     React.createElement('div', {
-                        className: 'f2'
-                    },
+                            className: 'f2'
+                        },
                         React.createElement('input', {
                             type: 'button',
                             className: 'submit',
