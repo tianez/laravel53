@@ -25,6 +25,7 @@ Route::get('tk', 'CjyunController@getIndex');
 Route::group(['prefix' => 'chat'], function () {
     Route::get('/', 'ChatController@getIndex');
     Route::post('/', 'ChatController@postIndex');
+    Route::post('login', 'ChatController@postLogin');
 });
 
 Route::group(['prefix' => 'healthy'], function () {

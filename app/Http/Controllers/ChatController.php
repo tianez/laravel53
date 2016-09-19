@@ -50,5 +50,21 @@ class ChatController extends Controller {
         if(!$client)exit("can not connect");
         fwrite($client, json_encode($data)."\n");
     }
+
+    public function postLogin(request $request) {
+        $req = $request->all();
+        $data = array('user_name' => $req['username'], 'password' => $req['password']);
+        $auth = Auth::attempt($data, true);
+        $res = array();
+        if ($auth) {
+            $res['state'] = 'ok';
+            $res['data'] =  Auth::user();
+        } else {
+            $res['msg'] = '用户名或密码错误！';
+        }
+        // die('用户名或密码错误！');
+        exit('用户名或密码错误！');
+        return response()->json($res);
+    }
     
 }
