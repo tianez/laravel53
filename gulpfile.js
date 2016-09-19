@@ -12,7 +12,7 @@ var webpack = require("gulp-webpack")
 var dir = './resources/front/'
 var diro = './public/front/'
 
-var webpackConfig = require(dir + 'webpack.config.js')
+var webpackConfig = require('./resources/' + dir + '/webpack.config.js')
 
 gulp.task("webpack", function () {
     return gulp.src(dir + 'app.js')
