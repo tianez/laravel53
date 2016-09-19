@@ -50,6 +50,6 @@ const routers = (
             React.createElement(Route, { path: "*", component: Nomatch })
         )
     )
-)
+) 
 
 ReactDOM.render(routers, document.getElementById('app'))
