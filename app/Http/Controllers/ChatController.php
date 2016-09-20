@@ -28,14 +28,9 @@ class ChatController extends Controller {
         // 'to_client_name'=>'sdsds',
         // 'content'=> $request->content
         // );
-        $msg =array( 
-            'type'=>'system',
-            'to_client_id'=>'all',
-        );
-        $msg['user_id'] = Auth::user()->id;
-        $msg['username'] = Auth::user()->user_name;
-        $msg['head_img'] = Auth::user()->head_img?:'./images/avatar/'.rand(0,6).'.jpg';
-        $msg['content'] = $request->content;
+        $msg = $request->all();
+        $msg['type'] = 'system';
+        $msg['to_client_id'] = 'all';
         $msg['time'] = time();
         // date("Y/m/d");
         dump($msg);

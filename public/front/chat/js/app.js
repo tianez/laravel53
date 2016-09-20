@@ -166,25 +166,40 @@
 	var cachedSetTimeout;
 	var cachedClearTimeout;
 
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout() {
+	    throw new Error('clearTimeout has not been defined');
+	}
 	(function () {
 	    try {
-	        cachedSetTimeout = setTimeout;
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
 	    } catch (e) {
-	        cachedSetTimeout = function cachedSetTimeout() {
-	            throw new Error('setTimeout is not defined');
-	        };
+	        cachedSetTimeout = defaultSetTimout;
 	    }
 	    try {
-	        cachedClearTimeout = clearTimeout;
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
 	    } catch (e) {
-	        cachedClearTimeout = function cachedClearTimeout() {
-	            throw new Error('clearTimeout is not defined');
-	        };
+	        cachedClearTimeout = defaultClearTimeout;
 	    }
 	})();
 	function runTimeout(fun) {
 	    if (cachedSetTimeout === setTimeout) {
 	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
 	        return setTimeout(fun, 0);
 	    }
 	    try {
@@ -203,6 +218,11 @@
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
 	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
 	        return clearTimeout(marker);
 	    }
 	    try {
@@ -6035,6 +6055,11 @@
 	            config('show', i);
 	        }
 	    }, {
+	        key: '_onScroll',
+	        value: function _onScroll(e) {
+	            console.log(e);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var show = this.props.config.show;
@@ -6211,7 +6236,10 @@
 	        value: function _onSubmit() {
 	            config('show', 1);
 	            request.post('chat').send({
-	                content: this.refs.input.value
+	                content: this.refs.input.value,
+	                username: localStorage.username,
+	                user_id: localStorage.userid,
+	                head_img: localStorage.head_img
 	            }).set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
 	                    this.refs.input.value = '';
@@ -6360,6 +6388,7 @@
 	                    var data = JSON.parse(res.text);
 	                    var user = data.data;
 	                    localStorage.username = user.user_name;
+	                    localStorage.userid = user.id;
 	                    localStorage.head_img = user.head_img ? user.head_img : './images/avatar/' + Math.floor(Math.random() * 6) + '.jpg';
 	                    config('login', false);
 	                    config('islogin', true);
@@ -6552,13 +6581,22 @@
 	var List = function (_React$Component2) {
 	    _inherits(List, _React$Component2);
 
-	    function List(props) {
+	    function List() {
 	        _classCallCheck(this, List);
 
-	        return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).call(this, props));
+	        return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).call(this));
 	    }
 
 	    _createClass(List, [{
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate(prevProps, prevState) {
+	            console.log(this.refs.list.getClientRects());
+	            console.log(this.refs.list.getBoundingClientRect());
+	            console.log(this.refs.list.offsetTop);
+	            var offsetTop = this.refs.list.offsetTop;
+	            this.refs.list.getBoundingClientRect().y = offsetTop;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var ul = this.props.data.map(function (d, index) {
@@ -6580,7 +6618,8 @@
 	                }, d.content)));
 	            });
 	            return React.createElement('div', {
-	                className: this.props.show == 1 ? 'content2 active' : 'content2'
+	                className: this.props.show == 1 ? 'content2 active' : 'content2',
+	                ref: 'list'
 	            }, ul);
 	        }
 	    }]);

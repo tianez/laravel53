@@ -9,6 +9,10 @@ class Home extends React.Component {
         console.log(i)
         config('show', i)
     }
+    _onScroll(e) {
+        console.log(e);
+        
+    }
     render() {
         let show = this.props.config.show
         return (

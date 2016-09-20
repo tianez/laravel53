@@ -228,6 +228,7 @@ body {
   -ms-flex: 1;
   flex: 1;
   overflow-y: auto;
+  position: relative;
 }
 #content .content1,
 #content .content2 {

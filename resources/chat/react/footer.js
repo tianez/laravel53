@@ -19,7 +19,10 @@ class Footer extends React.Component {
         request
             .post('chat')
             .send({
-                content: this.refs.input.value
+                content: this.refs.input.value,
+                username: localStorage.username,
+                user_id: localStorage.userid,
+                head_img: localStorage.head_img
             })
             .set('Accept', 'application/json')
             .end(function(err, res) {

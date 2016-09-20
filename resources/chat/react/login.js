@@ -70,6 +70,7 @@ class Login extends React.Component {
                     let data = JSON.parse(res.text)
                     let user = data.data
                     localStorage.username = user.user_name
+                    localStorage.userid = user.id
                     localStorage.head_img = user.head_img ? user.head_img : './images/avatar/' + Math.floor(Math.random() * 6) + '.jpg'
                     config('login', false)
                     config('islogin', true)

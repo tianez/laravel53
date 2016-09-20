@@ -37,8 +37,15 @@ class Time extends React.Component {
 }
 
 class List extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super()
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.refs.list.getClientRects());
+        console.log(this.refs.list.getBoundingClientRect());
+        console.log( this.refs.list.offsetTop);
+        let offsetTop = this.refs.list.offsetTop
+        this.refs.list.getBoundingClientRect().y = offsetTop;
     }
     render() {
         let ul = this.props.data.map(function(d, index) {
@@ -70,7 +77,8 @@ class List extends React.Component {
         })
         return (
             React.createElement('div', {
-                className: this.props.show == 1 ? 'content2 active' : 'content2'
+                className: this.props.show == 1 ? 'content2 active' : 'content2',
+                ref:'list'
             }, ul)
         );
     }
