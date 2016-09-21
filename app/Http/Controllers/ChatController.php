@@ -7,6 +7,8 @@ use Auth;
 use DB;
 use Illuminate\Http\Request;
 
+use App\Http\Model\Chat;
+
 class ChatController extends Controller {
     
     public function __construct() {
@@ -32,9 +34,12 @@ class ChatController extends Controller {
         $msg['type'] = 'system';
         $msg['to_client_id'] = 'all';
         $msg['time'] = time();
-        // date("Y/m/d");
+        $info = Chat::create($msg);
         dump($msg);
-        $this->chat($msg);
+        dump($info);
+        if($info){
+            $this->chat($msg);
+        }
         return;
         // return view('chat.index');
     }
