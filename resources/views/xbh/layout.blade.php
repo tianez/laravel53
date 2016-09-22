@@ -7,7 +7,7 @@
   <base href="http://<?php echo $_SERVER['HTTP_HOST'];?>" />
   <link rel="shortcut icon" href="images/favicon.png" />
   <link href="bower_components/weui/dist/style/weui.css" rel="stylesheet">
-  <link href="front/css/report.css" rel="stylesheet">
+  <link href="front/xbh/css/style.css" rel="stylesheet">
 </head>
 <body>
   @if (session('msg'))

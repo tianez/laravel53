@@ -22,13 +22,13 @@ class XbhController extends Controller
     }
     
     public function getIndex(Request $request) {
-        $category = Category::where('taxonomy','category')->first();
+        $category = Category::where('taxonomy','category')->orderBy('id', 'asc')->first();
         return redirect('list/'.$category->id);
     }
     
     public function getList(Request $request,$id) {
-        $pre_page = env('pre_page', 15);
-        $category = Category::where('taxonomy','category')->get();
+        $pre_page = env('pre_page', 40);
+        $category = Category::where('taxonomy','category')->orderBy('id', 'asc')->get();
         $cur = Category::find($id);
         $data = $cur->Article()->orderBy('order', 'desc')->orderBy('created_at', 'asc')->paginate($pre_page);
         $data = $data->toArray();

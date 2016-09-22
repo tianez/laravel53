@@ -1,36 +1,22 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Model\Fields;
-use App\Http\Model\Permissions;
-use Auth;
-use DB;
+use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
 
-class PermissionsController extends Controller {
+use App\Http\Model\Permissions;
+
+use App\Http\Model\Fields;
+use DB;
+
+class PermissionsController extends MainController {
     
     public function __construct() {
-        $this->middleware('auth');
-        $this->middleware('admin');
+        parent::__construct();
         $this->model = new Permissions();
-    }
-    
-    public function getIndex(Request $request) {
-        if($request->state != null){
-            $this->model = $this->model->where('status', $request->state);
-        }
-        $pre_page = env('pre_page', 15);
-        $data = $this->model->paginate($pre_page);
-        $data = $data->toArray();
-        $thead = array('id'=>'ID','name'=>'权限key', 'display_name'=>'权限名称', 'description'=>'描述');
-        $out = array('title' => '文章管理', 'pages' => $data,'thead' => $thead);
-        return response()->json($out);
-    }
-    
-    public function getAdd(Request $request) {
-        $fields = Fields::file('role_permissions')->get();
-        $out = array('title' => '字段', 'fields' => $fields);
-        return response()->json($out);
+        $this->files = 'role_permissions';
+        $this->title = '菜单';
+        $this->thead = array('id'=>'ID','name'=>'权限key', 'display_name'=>'权限名称', 'description'=>'描述');
     }
     
     public function postAdd(Request $request) {

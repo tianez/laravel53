@@ -26,6 +26,15 @@ Route::group(['prefix' => 'chat'], function () {
     Route::post('login', 'ChatController@postLogin');
 });
 
+Route::group(['prefix' => 'chats'], function () {
+    Route::get('/','ChatsController@getIndex');
+    Route::get('add','ChatsController@getAdd');
+    Route::post('add','ChatsController@postAdd');
+    Route::get('detail/{id}','ChatsController@getDetail');
+    Route::post('detail', 'ChatsController@postDetail');
+    Route::get('delete/{id}', 'ChatsController@getDelete');
+});
+
 Route::group(['prefix' => 'tyg'], function () {
     Route::get('/', 'ReportController@getIndex');
     Route::get('list', 'ReportController@getIndex');

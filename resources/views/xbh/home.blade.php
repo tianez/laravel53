@@ -1,7 +1,7 @@
 @extends('xbh.layout')  @section('content')
 <div class="list">
     <div class="weui_tab">
-      <img src="/front/images/report/list01.png" class="top"></img>
+      <img src="/front/xbh/images/top.png" class="top"></img>
       <div class="weui_navbar">
         @foreach ($category as $cat)
         @if($cur->id ==$cat->id) 
@@ -9,7 +9,7 @@
           {{$cat->category_name}}
         </div>
         @else
-        <a href="{{$cat->id}}" class="weui_navbar_item">
+        <a href="list/{{$cat->id}}" class="weui_navbar_item">
           {{$cat->category_name}}
         </a>
         @endif

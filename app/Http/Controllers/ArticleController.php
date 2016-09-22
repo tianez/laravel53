@@ -13,6 +13,7 @@ class ArticleController extends Controller {
         $this->middleware('auth');
         $this->middleware('admin');
         $this->model = new Article();
+        $this->files = 'article';
     }
     
     public function getIndex(Request $request) {
@@ -28,7 +29,7 @@ class ArticleController extends Controller {
     }
     
     public function getAdd(Request $request) {
-        $fields = Fields::file('article')->get();
+        $fields = Fields::file($this->files)->get();
         $out = array('title' => '新增文章', 'fields' => $fields);
         return response()->json($out);
     }
@@ -61,7 +62,7 @@ class ArticleController extends Controller {
     }
     
     public function getDetail($id) {
-        $fields = Fields::file('article')->get();
+        $fields = Fields::file($this->files)->get();
         $info = $this->model->find($id);
         $res = DB::table('article_taxonomy')->where('article_id',$id)->get();
         $res = $res->toArray();

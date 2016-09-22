@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Model\Fields;
 use App\User;
@@ -10,30 +9,17 @@ use App\Http\Model\Roles;
 use Auth;
 use DB;
 
-class UsersController extends Controller {
+use App\Http\Controllers\MainController;
+use Illuminate\Http\Request;
+
+class UsersController extends MainController {
     
     public function __construct() {
-        $this->middleware('auth');
-        $this->middleware('admin');
+        parent::__construct();
         $this->model = new User();
-    }
-    
-    public function getIndex(Request $request) {
-        if($request->state != null){
-            $this->model = $this->model->where('status', $request->state);
-        }
-        $pre_page = env('pre_page', 15);
-        $data = $this->model->paginate($pre_page);
-        $data = $data->toArray();
-        $thead =  array('id'=>'ID','link'=>'链接地址', 'title'=>'链接标题', 'description'=>'描述');
-        $out = array('title' => '字段', 'pages' => $data,'thead' => $thead);
-        return response()->json($out);
-    }
-    
-    public function getAdd(Request $request) {
-        $fields = Fields::file('users')->get();
-        $out = array('title' => '新增用户', 'fields' => $fields);
-        return response()->json($out);
+        $this->files = 'users';
+        $this->title = '用户';
+        $this->thead = array('id'=>'ID','user_name'=>'用户名');
     }
     
     public function postAdd(Request $request) {
@@ -54,9 +40,12 @@ class UsersController extends Controller {
         return response()->json($out);
     }
     
-     public function getDetail($id) {
-        $fields = Fields::file('users')->get();
+    public function getDetail($id) {
         $info = $this->model->find($id);
+        if (empty($info)) {
+            return response('没有发现相关数据！', 404);
+        }
+        $fields = Fields::file('users')->get();
         $roles = DB::table('role_user')->where('user_id',$id)->get();
         $role = array();
         foreach ($roles as $r) {
@@ -69,25 +58,22 @@ class UsersController extends Controller {
     }
     
     public function postDetail(Request $request) {
-        $id = $request->id;
-        $info = $this->model->find($id);
-        $out = array();
+        $info = $this->model->find($request->id);
         if (empty($info)) {
-            $out['res'] = 404;
-            $out['msg'] = '没有发现相关数据！';
-        }else{
-            $res = $info->update($request->all());
-            DB::table('role_user')->where('user_id',$id)->delete();
-            $groups = json_decode($request->groups);
-            $roles = array();
-            foreach ($groups as $r) {
-                $role = array('user_id'=>$info->id,'role_id'=>$r);
-                $roles[] = $role;
-            }
-            DB::table('role_user')->insert($roles);
-            $out['res'] = $res;
-            $out['msg'] = '保存成功！';
+            return response('没有发现相关数据！', 404);
         }
+        $res = $info->update($request->all());
+        DB::table('role_user')->where('user_id',$id)->delete();
+        $groups = json_decode($request->groups);
+        $roles = array();
+        foreach ($groups as $r) {
+            $role = array('user_id'=>$info->id,'role_id'=>$r);
+            $roles[] = $role;
+        }
+        DB::table('role_user')->insert($roles);
+        $out = array();
+        $out['res'] = $res;
+        $out['msg'] = '保存成功！';
         return response()->json($out);
     }
 }

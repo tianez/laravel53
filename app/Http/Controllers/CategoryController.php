@@ -1,36 +1,22 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Model\Fields;
-use App\Http\Model\Category;
-use Auth;
-use DB;
+use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller {
+use App\Http\Model\Category;
+
+use App\Http\Model\Fields;
+use DB;
+
+class CategoryController extends MainController {
     
     public function __construct() {
-        $this->middleware('auth');
-        $this->middleware('admin');
+        parent::__construct();
         $this->model = new Category();
-    }
-    
-    public function getIndex(Request $request) {
-        if($request->state != null){
-            $this->model = $this->model->where('status', $request->state);
-        }
-        $pre_page = env('pre_page', 15);
-        $data = $this->model->paginate($pre_page);
-        $data = $data->toArray();
-        $thead =  array('id'=>'ID','category_name'=>'分类名称', 'category_des'=>'分类描述');
-        $out = array('title' => '分类管理', 'pages' => $data,'thead' => $thead);
-        return response()->json($out);
-    }
-    
-    public function getAdd(Request $request) {
-        $fields = Fields::file('article_category')->get();
-        $out = array('title' => '新增分类', 'fields' => $fields);
-        return response()->json($out);
+        $this->files = 'article_category';
+        $this->title = '分类';
+        $this->thead = array('id'=>'ID','category_name'=>'分类名称', 'category_des'=>'分类描述');
     }
     
     public function postAdd(Request $request) {
@@ -44,14 +30,7 @@ class CategoryController extends Controller {
         $out['info']= $info->toArray();
         return response()->json($out);
     }
-    
-    public function getDetail($id) {
-        $fields = Fields::file('article_category')->get();
-        $info = $this->model->find($id);
-        $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
-        return response()->json($out);
-    }
-    
+        
     public function postDetail(Request $request) {
         $id = $request->id;
         $info = Category::find($id);
