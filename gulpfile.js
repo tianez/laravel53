@@ -10,7 +10,7 @@ var rename = require('gulp-rename') //文件更名
 var webpack = require("gulp-webpack")
 
 
-var dir = 'chat'
+var dir = 'admin'
 var dirin = './resources/' + dir + '/'
 var out = './public/front/' + dir + '/'
 

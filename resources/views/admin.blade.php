@@ -27,7 +27,7 @@
     <script src="/js/SHA1.js"></script>
     <script src="/js/CryptoJS.js"></script>
     <script src="bower_components/storedb/storedb.js"></script>
-    <script src="/adminc/js/app.js"></script>
+    <script src="/front/admin/js/app.js"></script>
 </body>
 
 </html>

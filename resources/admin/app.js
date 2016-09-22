@@ -68,7 +68,7 @@ require('./global')
 // }
 
 const routers = (
-    React.createElement(Router, { 
+    React.createElement(Router, {
         history: hashHistory
     },
         React.createElement(Route, {
