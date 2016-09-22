@@ -6405,7 +6405,7 @@
 	    }, {
 	        key: '_login',
 	        value: function _login(e) {
-	            console.log(this.state);
+
 	            var url = this.props.title == '登陆' ? 'chat/login' : 'chat/register';
 	            request.post(url).send(this.state).set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {

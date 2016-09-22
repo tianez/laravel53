@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Validator::extend('foo', function($attribute, $value, $parameters) {
             $string = $this->string;
+            $value = str_replace(' ', '', $value);
             foreach ($string as $key => $str) {
                 if(strpos($value,$str)>-1){
                     return false;

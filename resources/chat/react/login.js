@@ -59,7 +59,7 @@ class Login extends React.Component {
         })
     }
     _login(e) {
-        console.log(this.state);
+        
         let url = this.props.title == '登陆' ? 'chat/login' : 'chat/register'
         request
             .post(url)
