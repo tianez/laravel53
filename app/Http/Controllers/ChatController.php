@@ -12,7 +12,7 @@ use App\Http\Model\Chat;
 class ChatController extends Controller {
     
     public function __construct() {
-        // $this->middleware('auth',['except' => 'login']);
+        $this->middleware('auth',['except' => ['getList','postLogin']]);
     }
     
     public function getIndex(Request $request) {
@@ -21,9 +21,7 @@ class ChatController extends Controller {
     
     public function postIndex(Request $request) {
         // 模拟超级用户，以文本协议发送数据，注意Text文本协议末尾有换行符（发送的数据中最好有能识别超级用户的字段），这样在Event.php中的onMessage方法中便能收到这个数据，然后做相应的处理即可
-        // fwrite($client, '{"type":"send","content":"hello all", "user":"admin", "pass":"******"}'."\n");
         // fwrite($client, '{"type":"say","to_client_id":"all","from_client_name":"121212121","content":"haodeesdsdsd"}'."\n");
-        //  dump('{"type":"system","to_client_id":"all","to_client_name":"sdsds","content":"感谢大家"}'."\n");
         // $data = array(
         // 'type'=>'system',
         // 'to_client_id'=>'all',
@@ -35,19 +33,18 @@ class ChatController extends Controller {
         $msg['to_client_id'] = 'all';
         $msg['time'] = time();
         $info = Chat::create($msg);
-        dump($msg);
-        dump($info);
         if($info){
-            $this->chat($msg);
+            $client = stream_socket_client('tcp://127.0.0.1:7273');
+            if(!$client)exit("can not connect");
+            fwrite($client, json_encode($msg)."\n");
         }
         return;
         // return view('chat.index');
     }
     
-    private function chat($data){
-        $client = stream_socket_client('tcp://127.0.0.1:7273');
-        if(!$client)exit("can not connect");
-        fwrite($client, json_encode($data)."\n");
+    public function getList(Request $request) {
+        $res = Chat::orderBy('id', 'desc')->get();
+        return response()->json($res);
     }
     
     public function postLogin(request $request) {

@@ -26,7 +26,8 @@ class ReportController extends Controller
         if(empty($user)){
             return redirect('login');
         }
-        return redirect('list/1');
+        $category = Category::where('taxonomy','category')->first();
+        return redirect('tyg/list/'.$category->id);
     }
     
     public function getList(Request $request,$id) {

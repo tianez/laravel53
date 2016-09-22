@@ -71,6 +71,7 @@
 
 	window.config = _actions.config;
 	window.comment = _actions.comment;
+	window.comments = _actions.comments;
 	window.request = superagent;
 
 	var initialState = {
@@ -5986,6 +5987,8 @@
 	    switch (action.type) {
 	        case 'comment':
 	            return [action].concat(_toConsumableArray(state));
+	        case 'comments':
+	            return action.comments;
 	        default:
 	            return state;
 	    }
@@ -6010,13 +6013,18 @@
 	});
 	exports.config = config;
 	exports.comment = comment;
+	exports.comments = comments;
 	function config(name, value) {
 	    store.dispatch({ type: 'config', name: name, value: value });
 	}
 
-	function comment(comments) {
-	    comments.type = 'comment';
-	    store.dispatch(comments);
+	function comment(comment) {
+	    comment.type = 'comment';
+	    store.dispatch(comment);
+	}
+
+	function comments(comments) {
+	    store.dispatch({ type: 'comments', comments: comments });
 	}
 
 /***/ },
@@ -6051,13 +6059,23 @@
 	    _createClass(Home, [{
 	        key: '_onClick',
 	        value: function _onClick(i) {
-	            console.log(i);
-	            config('show', i);
+	            if (this.props.config.show !== i) {
+	                config('show', i);
+	            }
 	        }
 	    }, {
 	        key: '_onScroll',
 	        value: function _onScroll(e) {
 	            console.log(e);
+	        }
+	        // componentDidUpdate(prevProps, prevState) {
+	        //     this.refs.content.scrollTop = 0
+	        // }
+
+	    }, {
+	        key: '_scrollTop',
+	        value: function _scrollTop() {
+	            this.refs.content.scrollTop = 0;
 	        }
 	    }, {
 	        key: 'render',
@@ -6080,14 +6098,16 @@
 	                className: show == 1 ? 'nav1 active' : 'nav1',
 	                onClick: this._onClick.bind(this, 1)
 	            }, '评论')), React.createElement('div', {
-	                id: 'content'
+	                id: 'content',
+	                ref: 'content'
 	            }, React.createElement('div', {
 	                className: show == 0 ? 'content1 active' : 'content1'
 	            }, ht), React.createElement(_index.List, {
 	                show: show,
 	                data: this.props.comment
 	            }))), React.createElement(_index.Footer, {
-	                islogin: this.props.config.islogin
+	                islogin: this.props.config.islogin,
+	                scrollTop: this._scrollTop.bind(this)
 	            }), React.createElement(_index.Login, {
 	                title: this.props.config.login_title
 	            }));
@@ -6229,11 +6249,14 @@
 	                return;
 	            }
 	            config('login', true);
-	            // config('islogin', true)
 	        }
 	    }, {
 	        key: '_onSubmit',
 	        value: function _onSubmit() {
+	            if (this.refs.input.value.trim() == '') {
+	                alert('请输入内容');
+	                return;
+	            }
 	            config('show', 1);
 	            request.post('chat').send({
 	                content: this.refs.input.value,
@@ -6243,6 +6266,7 @@
 	            }).set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
 	                    this.refs.input.value = '';
+	                    this.props.scrollTop();
 	                } else {
 	                    alert(res.text);
 	                }
@@ -6559,12 +6583,12 @@
 	                    if (hours < 24) {
 	                        out = hours + '小时前';
 	                    } else {
-	                        Y = date.getFullYear() + '-';
-	                        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-	                        D = date.getDate() + ' ';
-	                        h = date.getHours() + ':';
-	                        m = date.getMinutes() + ':';
-	                        s = date.getSeconds();
+	                        var Y = date.getFullYear() + '-';
+	                        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+	                        var D = date.getDate() + ' ';
+	                        var h = date.getHours() + ':';
+	                        var m = date.getMinutes() + ':';
+	                        var s = date.getSeconds();
 	                        out = Y + M + D + h + m + s;
 	                    }
 	                }
@@ -6588,14 +6612,26 @@
 	    }
 
 	    _createClass(List, [{
-	        key: 'componentDidUpdate',
-	        value: function componentDidUpdate(prevProps, prevState) {
-	            console.log(this.refs.list.getClientRects());
-	            console.log(this.refs.list.getBoundingClientRect());
-	            console.log(this.refs.list.offsetTop);
-	            var offsetTop = this.refs.list.offsetTop;
-	            this.refs.list.getBoundingClientRect().y = offsetTop;
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            request.get('chat/list').set('Accept', 'application/json').end(function (err, res) {
+	                if (res.ok) {
+	                    comments(JSON.parse(res.text));
+	                    console.log(JSON.parse(res.text));
+	                } else {
+	                    alert(res.text);
+	                }
+	            });
 	        }
+	        // componentDidUpdate(prevProps, prevState) {
+	        //     // console.log(this.refs.list.getClientRects());
+	        //     // console.log(this.refs.list.getBoundingClientRect());
+	        //     // // console.log( this.refs.list.offsetTop);
+	        //     // let offsetTop = this.refs.list.offsetTop
+	        //     // // this.refs.list.getBoundingClientRect().y = offsetTop;
+	        //     // this.refs.list.scrollTop = 0
+	        // }
+
 	    }, {
 	        key: 'render',
 	        value: function render() {

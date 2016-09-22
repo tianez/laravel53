@@ -40,6 +40,8 @@ function comment(state = [], action) {
                 action,
                 ...state
             ];
+        case 'comments':
+            return action.comments;
         default:
             return state;
     }

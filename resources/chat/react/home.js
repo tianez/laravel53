@@ -6,12 +6,18 @@ class Home extends React.Component {
         super()
     }
     _onClick(i) {
-        console.log(i)
-        config('show', i)
+        if (this.props.config.show !== i) {
+            config('show', i)
+        }
     }
     _onScroll(e) {
         console.log(e);
-        
+    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     this.refs.content.scrollTop = 0
+    // }
+    _scrollTop() {
+        this.refs.content.scrollTop = 0
     }
     render() {
         let show = this.props.config.show
@@ -40,7 +46,8 @@ class Home extends React.Component {
                         }, '评论')
                     ),
                     React.createElement('div', {
-                        id: 'content'
+                        id: 'content',
+                        ref: 'content'
                     },
                         React.createElement('div', {
                             className: show == 0 ? 'content1 active' : 'content1',
@@ -49,12 +56,13 @@ class Home extends React.Component {
                         ),
                         React.createElement(List, {
                             show: show,
-                            data: this.props.comment
+                            data: this.props.comment,
                         })
                     )
                 ),
                 React.createElement(Footer, {
-                    islogin: this.props.config.islogin
+                    islogin: this.props.config.islogin,
+                    scrollTop: this._scrollTop.bind(this)
                 }),
                 React.createElement(Login, {
                     title: this.props.config.login_title

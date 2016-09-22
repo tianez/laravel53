@@ -12,9 +12,12 @@ class Footer extends React.Component {
             return
         } 
         config('login', true)
-            // config('islogin', true)
     }
     _onSubmit() {
+        if(this.refs.input.value.trim()==''){
+            alert('请输入内容')
+            return
+        }
         config('show', 1)
         request
             .post('chat')
@@ -28,6 +31,7 @@ class Footer extends React.Component {
             .end(function(err, res) {
                 if (res.ok) {
                     this.refs.input.value = ''
+                    this.props.scrollTop()
                 } else {
                     alert(res.text)
                 }

@@ -11,21 +11,30 @@
 |
 */
 
-Route::get('/', 'ReportController@getIndex');
-Route::get('list', 'ReportController@getIndex');
-Route::get('list/{id}', 'ReportController@getList');
-Route::get('show', 'ReportController@getIndex');
-Route::get('show/{id}', 'ReportController@getShow');
-Route::get('login', 'ReportController@getLogin');
-Route::post('login', 'ReportController@postLogin');
-Route::get('logout', 'ReportController@getLogout');
+Route::get('/', 'XbhController@getIndex');
+Route::get('list', 'XbhController@getIndex');
+Route::get('list/{id}', 'XbhController@getList');
+Route::get('show', 'XbhController@getIndex');
+Route::get('show/{id}', 'XbhController@getShow');
 
 Route::get('tk', 'CjyunController@getIndex');
 
 Route::group(['prefix' => 'chat'], function () {
     Route::get('/', 'ChatController@getIndex');
     Route::post('/', 'ChatController@postIndex');
+    Route::get('list', 'ChatController@getList');
     Route::post('login', 'ChatController@postLogin');
+});
+
+Route::group(['prefix' => 'tyg'], function () {
+    Route::get('/', 'ReportController@getIndex');
+    Route::get('list', 'ReportController@getIndex');
+    Route::get('list/{id}', 'ReportController@getList');
+    Route::get('show', 'ReportController@getIndex');
+    Route::get('show/{id}', 'ReportController@getShow');
+    Route::get('login', 'ReportController@getLogin');
+    Route::post('login', 'ReportController@postLogin');
+    Route::get('logout', 'ReportController@getLogout');
 });
 
 Route::group(['prefix' => 'healthy'], function () {

@@ -18,12 +18,12 @@ class Time extends React.Component {
                 if (hours < 24) {
                     out = hours + '小时前'
                 } else {
-                    Y = date.getFullYear() + '-';
-                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-                    D = date.getDate() + ' ';
-                    h = date.getHours() + ':';
-                    m = date.getMinutes() + ':';
-                    s = date.getSeconds();
+                    let Y = date.getFullYear() + '-';
+                    let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                    let D = date.getDate() + ' ';
+                    let h = date.getHours() + ':';
+                    let m = date.getMinutes() + ':';
+                    let s = date.getSeconds();
                     out = Y + M + D + h + m + s
                 }
             }
@@ -40,29 +40,43 @@ class List extends React.Component {
     constructor() {
         super()
     }
-    componentDidUpdate(prevProps, prevState) {
-        console.log(this.refs.list.getClientRects());
-        console.log(this.refs.list.getBoundingClientRect());
-        console.log( this.refs.list.offsetTop);
-        let offsetTop = this.refs.list.offsetTop
-        this.refs.list.getBoundingClientRect().y = offsetTop;
+    componentDidMount() {
+        request
+            .get('chat/list')
+            .set('Accept', 'application/json')
+            .end(function (err, res) {
+                if (res.ok) {
+                    comments(JSON.parse(res.text))
+                    console.log(JSON.parse(res.text))
+                } else {
+                    alert(res.text)
+                }
+            })
     }
+    // componentDidUpdate(prevProps, prevState) {
+    //     // console.log(this.refs.list.getClientRects());
+    //     // console.log(this.refs.list.getBoundingClientRect());
+    //     // // console.log( this.refs.list.offsetTop);
+    //     // let offsetTop = this.refs.list.offsetTop
+    //     // // this.refs.list.getBoundingClientRect().y = offsetTop;
+    //     // this.refs.list.scrollTop = 0
+    // }
     render() {
-        let ul = this.props.data.map(function(d, index) {
+        let ul = this.props.data.map(function (d, index) {
             return React.createElement('div', {
-                    className: 'li',
-                    key: index
-                },
+                className: 'li',
+                key: index
+            },
                 React.createElement('div', {
-                        className: 'thumb'
-                    },
+                    className: 'thumb'
+                },
                     React.createElement('img', {
                         src: d.head_img
                     })
                 ),
                 React.createElement('div', {
-                        className: 'c'
-                    },
+                    className: 'c'
+                },
                     React.createElement('div', {
                         className: 'c1'
                     }, d.username),
@@ -78,7 +92,7 @@ class List extends React.Component {
         return (
             React.createElement('div', {
                 className: this.props.show == 1 ? 'content2 active' : 'content2',
-                ref:'list'
+                ref: 'list'
             }, ul)
         );
     }

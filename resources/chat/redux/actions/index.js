@@ -4,7 +4,11 @@ export function config(name, value) {
     store.dispatch({ type: 'config', name, value });
 }
 
-export function comment(comments) {
-    comments.type = 'comment'
-    store.dispatch(comments);
-} 
+export function comment(comment) {
+    comment.type = 'comment'
+    store.dispatch(comment);
+}
+
+export function comments(comments) {
+    store.dispatch({ type: 'comments', comments });
+}

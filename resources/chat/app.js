@@ -3,10 +3,11 @@
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux'
 import reducer from './redux/reducer';
-import { config, comment } from './redux/actions'
+import { config, comment, comments } from './redux/actions'
 
 window.config = config
 window.comment = comment
+window.comments = comments
 window.request = superagent
 
 import Home from './react/home';
