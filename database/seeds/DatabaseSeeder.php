@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Role_permissions::class);
         $this->call(article::class);
         $this->call(article_category::class);
+        $this->call(Chat::class);
         
     }
 }

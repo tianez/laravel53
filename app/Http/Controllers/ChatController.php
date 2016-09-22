@@ -13,6 +13,7 @@ class ChatController extends Controller {
     
     public function __construct() {
         $this->middleware('auth',['except' => ['getList','postLogin']]);
+        $this->model = new Chat();
     }
     
     public function getIndex(Request $request) {
@@ -32,6 +33,14 @@ class ChatController extends Controller {
         $msg['type'] = 'system';
         $msg['to_client_id'] = 'all';
         $msg['time'] = time();
+        
+        $validator = $this->model->Validator($msg);
+        if($validator->fails()){
+            $messages = $validator->errors()->messages();
+            foreach ($messages as $key => $message) {
+                return response($message[0], 401);
+            }
+        }
         $info = Chat::create($msg);
         if($info){
             $client = stream_socket_client('tcp://127.0.0.1:7273');

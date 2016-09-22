@@ -125,6 +125,14 @@ class meunTableSeeder extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
+        'link' => 'api/chats',
+        'title' => '直播评论',
+        'icon' => 'fa fa-th-list',
+        'description' => '直播评论',
+        'roles' => '[1]',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
         'link' => 'api/fields',
         'title' => '字段管理',
         'icon' => 'fa fa-file-text-o',
@@ -141,18 +149,18 @@ class meunTableSeeder extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
-        'link' => 'api/roles',
-        'title' => '用户组管理',
-        'icon' => 'fa fa-users',
-        'description' => '用户组管理',
-        'roles' => '[1]',
-        'created_at'=> date("Y-m-d H:i:s")
-        ),
-        array(
         'link' => 'api/role_permissions',
         'title' => '权限管理',
         'icon' => 'fa fa-unlock-alt',
         'description' => '权限管理',
+        'roles' => '[1]',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
+        'link' => 'api/roles',
+        'title' => '用户组管理',
+        'icon' => 'fa fa-users',
+        'description' => '用户组管理',
         'roles' => '[1]',
         'created_at'=> date("Y-m-d H:i:s")
         ),
