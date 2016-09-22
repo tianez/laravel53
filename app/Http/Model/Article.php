@@ -19,11 +19,13 @@ class Article extends Model {
     public function Validator($date, $v = true) {
         $rules = array();
         $messages = array();
-        $rules['title'] = 'required|max:255|min:2|unique:article';
+        $rules['title'] = 'required|max:255|min:2|unique:article|foo';
         $messages['title.required'] = '标题不能为空 ！';
         $messages['title.min'] = '标题不能少于:min个字符 ！';
         $messages['title.max'] = '标题不能多于:max个字符 ！';
         $messages['title.unique'] = '标题重复 ！';
+        $messages['title.foo'] = '有敏感词 ！';
+
         $validator = Validator::make($date, $rules, $messages);
         return $validator;
     }

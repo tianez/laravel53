@@ -60,7 +60,7 @@ Route::group(['prefix' => 'hy'], function () {
 });
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin'], function () { 
     Route::get('/','AdminController@getIndex');
     Route::get('user','AdminController@getUser');
     Route::get('meun','AdminController@getMeun');

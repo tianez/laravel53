@@ -14,7 +14,7 @@ class MainController extends Controller {
         $this->middleware('admin');
         $this->title = '标题名称';
         $this->thead = array('id'=>'ID'); //列表页显示项目
-        $this->pre_page = env('pre_page', 15); //分页每页数目
+        $this->pre_page = env('pre_page', 20); //分页每页数目
     }
     
     public function getIndex(Request $request) {

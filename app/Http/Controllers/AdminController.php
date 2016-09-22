@@ -8,6 +8,8 @@ use Auth;
 use DB;
 use Illuminate\Http\Request;
 
+// use App\Events\SomeEvent;
+
 class AdminController extends Controller {
     
     public function __construct() {
@@ -16,6 +18,7 @@ class AdminController extends Controller {
     
     public function getIndex(Request $request) {
         $user = Auth::user();
+        // event(new SomeEvent($user));
         if($user){
             $user_id = $user->id;
             $roles = $this->getRoles($user_id);
@@ -35,12 +38,16 @@ class AdminController extends Controller {
     public function getMeun(Request $request) {
         $meun = DB::table('meun')->get()->toArray();
         $roles = $this->getRoles(Auth::user()->id);
-        $mm = array();
-        foreach ($meun as $m) {
-            $r = json_decode($m->roles);
-            $in = array_intersect($roles,$r);
-            if(count($in)>0){
-                 $mm[] = $m;
+        if(in_array(1,$roles)){
+            $mm = $meun;
+        }else{
+            $mm = array();
+            foreach ($meun as $m) {
+                $r = json_decode($m->roles);
+                $in = array_intersect($roles,$r);
+                if(count($in)>0){
+                    $mm[] = $m;
+                }
             }
         }
         return response()->json($mm);
