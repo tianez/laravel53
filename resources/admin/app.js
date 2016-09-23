@@ -5,7 +5,6 @@
 // import './less/style.less' //webpack编译时导入
 
 import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import reducer from './redux/reducer';
@@ -25,15 +24,18 @@ let initialState = {
         title: 'My React'
     }
 }
+
+//应用中间件
 import log from './redux/middleware';
-//应用中间件log
-let createStoreWithLog = applyMiddleware(log,thunk)(createStore);
+import thunk from 'redux-thunk'
+let createStoreWithLog = applyMiddleware(thunk)(createStore);
 window.store = createStoreWithLog(reducer, initialState)
 const { Router, Route, IndexRoute, IndexRedirect, Redirect, hashHistory, browserHistory } = ReactRouter
 const history = syncHistoryWithStore(hashHistory, store)
 
 store.subscribe(() => {
     let state = store.getState()
+    console.log(state);
     window.document.title = state.config.title
 })
 

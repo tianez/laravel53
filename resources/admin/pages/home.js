@@ -12,7 +12,7 @@ var Home = React.createClass({
         };
     },
     componentDidMount: function() {
-        ConfigActions.update('title', '首页')
+        config('title', '首页')
         console.log('首页');
     },
     handleSelect: function(data) {
@@ -25,7 +25,6 @@ var Home = React.createClass({
         })
     },
     click: function() {
-        config('show', '1111')
         user()
     },
     render: function() {

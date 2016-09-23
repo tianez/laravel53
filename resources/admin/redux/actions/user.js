@@ -1,21 +1,26 @@
 'use strict'
 //获取当前用户信息
+function status(response) {
+    if (response.status >= 200 && response.status < 300) {
+        return Promise.resolve(response);
+    }
+    else {
+        return Promise.reject(new Error(response));
+    }
+}
+
+function json(response) {
+    return response.json();
+}
+
 export function user() {
-    return store.dispatch(function () {
-        fetch("admin/user", {
-            credentials: "include"
-        }).then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("存在一个问题，状态码为：" + response.status);
-                    return;
-                }
-                //检查响应文本
-                response.json().then(function (data) {
-                    console.log(data);
-                    config('user', data);
-                    comment(data)
-                });
+    store.dispatch(function () {
+        fetch("admin/user", { credentials: "include" })
+            .then(status)
+            .then(json)
+            .then(function (data) {
+                console.log(data);
+                config('user', data);
             })
             .catch(function (err) {
                 console.log("Fetch错误:" + err);
