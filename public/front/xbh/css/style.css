@@ -123,12 +123,12 @@ body {
   -moz-box-pack: center;
   -webkit-box-pack: center;
   box-pack: center;
+  padding: 0 2rem;
 }
 .list .weui_tab .weui_navbar::after {
   border: none;
 }
 .list .weui_tab .weui_navbar .weui_navbar_item {
-  max-width: 8rem;
   padding: .5rem 0;
   border: .1rem solid #fff;
   color: #fff;

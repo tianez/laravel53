@@ -4,50 +4,35 @@
 // const ReactRouter = require('react-router');
 // import './less/style.less' //webpack编译时导入
 
-import { createStore  } from 'redux';
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import reducer from './redux/reducer';
+import { config, comment, comments } from './redux/actions'
 
-import { addTodo, toggleTodo } from './redux/actions'
+window.config = config
+window.comment = comment
+window.comments = comments
 
-let store = createStore(reducer);
+let initialState = {
+    config: {
+        show: 0,
+        login: false,
+        islogin: false,
+        login_title: '登陆'
+    }
+}
+
+window.store = createStore(reducer, initialState);
+const { Router, Route, IndexRoute, IndexRedirect, Redirect, hashHistory, browserHistory } = ReactRouter
+const history = syncHistoryWithStore(hashHistory, store)
 
 store.subscribe(() =>
     console.log(store.getState())
 );
 
-store.dispatch(toggleTodo(89));
-store.dispatch(addTodo('haodesdsds'));
-
-const {
-    Router,
-    Route,
-    IndexRoute,
-    IndexRedirect,
-    Redirect,
-    hashHistory,
-    browserHistory
-} = ReactRouter
-
-// const {
-//     Layout
-// } = require('./layout')
-
 const Layout = require('./layout/layout')
-
-const {
-    Nomatch,
-    Home,
-    Drag,
-    ApiCloudsIndex,
-    ApiClouds,
-    ApiCloud,
-    Pages,
-    Page,
-    Login,
-    Logout,
-    Import
-} = require('./pages')
+const { Nomatch, Home, Drag, ApiCloudsIndex, ApiClouds, ApiCloud, Pages, Page, Login, Logout, Import } = require('./pages')
 
 require('./global')
 
@@ -68,93 +53,44 @@ require('./global')
 // }
 
 const routers = (
-    React.createElement(Router, {
-        history: hashHistory
-    },
-        React.createElement(Route, {
-            path: "/",
-            component: Layout
-        },
-            React.createElement(IndexRedirect, {
-                to: 'index'
-            }),
+    React.createElement(Router, { history: history },
+        React.createElement(Route, { path: "/", component: Layout },
+            React.createElement(IndexRedirect, { to: 'index' }),
             // React.createElement(IndexRoute, {
             //     component: Home,
             //     onEnter: onEnter
             // }),
-            React.createElement(Route, {
-                path: "index",
-                component: Home
-            }),
-            React.createElement(Route, {
-                path: "import",
-                component: Import
-            }),
-            React.createElement(Route, {
-                path: "drag",
-                component: Drag
-            }),
-            React.createElement(Route, {
-                path: "apicloud"
-            },
+            React.createElement(Route, { path: "index", component: Home }),
+            React.createElement(Route, { path: "import", component: Import }),
+            React.createElement(Route, { path: "drag", component: Drag }),
+            React.createElement(Route, { path: "apicloud" },
                 React.createElement(IndexRoute, {
                     component: ApiCloudsIndex,
                     // onEnter: onEnter
                 }),
-                React.createElement(Route, {
-                    path: ":clouds"
-                },
-                    React.createElement(IndexRoute, {
-                        component: ApiClouds,
-                        // onEnter: onEnter
-                    }),
-                    React.createElement(Route, {
-                        path: ":articleId",
-                        component: ApiCloud
-                    })
+                React.createElement(Route, { path: ":clouds" },
+                    React.createElement(IndexRoute, { component: ApiClouds }),
+                    React.createElement(Route, { path: ":articleId", component: ApiCloud })
                 )
             ),
-            React.createElement(Route, {
-                path: "api",
-            },
-                React.createElement(IndexRoute, {
-                    component: ApiCloudsIndex
-                }),
-                React.createElement(Redirect, {
-                    from: ':pages',
-                    to: ':pages/index'
-                }),
-                React.createElement(Route, {
-                    path: ":pages"
-                },
-                    React.createElement(Route, {
-                        path: "index",
-                        component: Pages
-                    }),
-                    React.createElement(Route, {
-                        path: ":page",
-                        component: Page
-                    })
+            React.createElement(Route, { path: "api", },
+                React.createElement(IndexRoute, { component: ApiCloudsIndex }),
+                React.createElement(Redirect, { from: ':pages', to: ':pages/index' }),
+                React.createElement(Route, { path: ":pages" },
+                    React.createElement(Route, { path: "index", component: Pages }),
+                    React.createElement(Route, { path: ":page", component: Page })
                 )
             )
         ),
-        React.createElement(Route, {
-            path: "login",
-            component: Login,
-            // onEnter: onEnter
-        }),
-        React.createElement(Route, {
-            path: "logout",
-            component: Logout
-        }),
-        React.createElement(Route, {
-            path: "*",
-            component: Nomatch
-        })
+        React.createElement(Route, { path: "login", component: Login }),
+        React.createElement(Route, { path: "logout", component: Logout }),
+        React.createElement(Route, { path: "*", component: Nomatch })
     )
 )
 
-ReactDOM.render( 
-    routers,
+ReactDOM.render(
+    React.createElement(Provider, {
+        store: store
+    }, routers),
     document.getElementById('app')
 )

@@ -20,7 +20,6 @@
           <a href="/show/{{$d['id']}}" class="weui_media_box weui_media_appmsg">
             <div class="weui_media_bd">
                 <h4 class="weui_media_title">{{$d['title']}}</h4>
-                <p class="weui_media_desc"><span>{{$d['created_at']}}</span></p>
             </div>
           </a>
         @endforeach

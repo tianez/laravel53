@@ -54,23 +54,30 @@
 
 	var _reactRedux = __webpack_require__(16);
 
-	var _reducer = __webpack_require__(57);
+	var _reactRouterRedux = __webpack_require__(57);
+
+	var _reducer = __webpack_require__(62);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
-	var _actions = __webpack_require__(58);
+	var _actions = __webpack_require__(63);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var store = (0, _redux.createStore)(_reducer2.default);
+	window.config = _actions.config;
+	window.comment = _actions.comment;
+	window.comments = _actions.comments;
 
-	store.subscribe(function () {
-	    return console.log(store.getState());
-	});
+	var initialState = {
+	    config: {
+	        show: 0,
+	        login: false,
+	        islogin: false,
+	        login_title: '登陆'
+	    }
+	};
 
-	store.dispatch((0, _actions.toggleTodo)(89));
-	store.dispatch((0, _actions.addTodo)('haodesdsds'));
-
+	window.store = (0, _redux.createStore)(_reducer2.default, initialState);
 	var _ReactRouter = ReactRouter;
 	var Router = _ReactRouter.Router;
 	var Route = _ReactRouter.Route;
@@ -80,13 +87,15 @@
 	var hashHistory = _ReactRouter.hashHistory;
 	var browserHistory = _ReactRouter.browserHistory;
 
-	// const {
-	//     Layout
-	// } = require('./layout')
+	var history = (0, _reactRouterRedux.syncHistoryWithStore)(hashHistory, store);
 
-	var Layout = __webpack_require__(59);
+	store.subscribe(function () {
+	    return console.log(store.getState());
+	});
 
-	var _require = __webpack_require__(72);
+	var Layout = __webpack_require__(64);
+
+	var _require = __webpack_require__(77);
 
 	var Nomatch = _require.Nomatch;
 	var Home = _require.Home;
@@ -101,7 +110,7 @@
 	var Import = _require.Import;
 
 
-	__webpack_require__(105);
+	__webpack_require__(110);
 
 	// function onEnter(nextState, replace) {
 	//     let pathname = nextState.location.pathname
@@ -119,65 +128,18 @@
 	//     }
 	// }
 
-	var routers = React.createElement(Router, {
-	    history: hashHistory
-	}, React.createElement(Route, {
-	    path: "/",
-	    component: Layout
-	}, React.createElement(IndexRedirect, {
-	    to: 'index'
-	}),
+	var routers = React.createElement(Router, { history: history }, React.createElement(Route, { path: "/", component: Layout }, React.createElement(IndexRedirect, { to: 'index' }),
 	// React.createElement(IndexRoute, {
 	//     component: Home,
 	//     onEnter: onEnter
 	// }),
-	React.createElement(Route, {
-	    path: "index",
-	    component: Home
-	}), React.createElement(Route, {
-	    path: "import",
-	    component: Import
-	}), React.createElement(Route, {
-	    path: "drag",
-	    component: Drag
-	}), React.createElement(Route, {
-	    path: "apicloud"
-	}, React.createElement(IndexRoute, {
+	React.createElement(Route, { path: "index", component: Home }), React.createElement(Route, { path: "import", component: Import }), React.createElement(Route, { path: "drag", component: Drag }), React.createElement(Route, { path: "apicloud" }, React.createElement(IndexRoute, {
 	    component: ApiCloudsIndex
-	}), React.createElement(Route, {
-	    path: ":clouds"
-	}, React.createElement(IndexRoute, {
-	    component: ApiClouds
-	}), React.createElement(Route, {
-	    path: ":articleId",
-	    component: ApiCloud
-	}))), React.createElement(Route, {
-	    path: "api"
-	}, React.createElement(IndexRoute, {
-	    component: ApiCloudsIndex
-	}), React.createElement(Redirect, {
-	    from: ':pages',
-	    to: ':pages/index'
-	}), React.createElement(Route, {
-	    path: ":pages"
-	}, React.createElement(Route, {
-	    path: "index",
-	    component: Pages
-	}), React.createElement(Route, {
-	    path: ":page",
-	    component: Page
-	})))), React.createElement(Route, {
-	    path: "login",
-	    component: Login
-	}), React.createElement(Route, {
-	    path: "logout",
-	    component: Logout
-	}), React.createElement(Route, {
-	    path: "*",
-	    component: Nomatch
-	}));
+	}), React.createElement(Route, { path: ":clouds" }, React.createElement(IndexRoute, { component: ApiClouds }), React.createElement(Route, { path: ":articleId", component: ApiCloud }))), React.createElement(Route, { path: "api" }, React.createElement(IndexRoute, { component: ApiCloudsIndex }), React.createElement(Redirect, { from: ':pages', to: ':pages/index' }), React.createElement(Route, { path: ":pages" }, React.createElement(Route, { path: "index", component: Pages }), React.createElement(Route, { path: ":page", component: Page })))), React.createElement(Route, { path: "login", component: Login }), React.createElement(Route, { path: "logout", component: Logout }), React.createElement(Route, { path: "*", component: Nomatch }));
 
-	ReactDOM.render(routers, document.getElementById('app'));
+	ReactDOM.render(React.createElement(_reactRedux.Provider, {
+	    store: store
+	}, routers), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -6016,48 +5978,84 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
+	});
+	exports.routerMiddleware = exports.routerActions = exports.goForward = exports.goBack = exports.go = exports.replace = exports.push = exports.CALL_HISTORY_METHOD = exports.routerReducer = exports.LOCATION_CHANGE = exports.syncHistoryWithStore = undefined;
+
+	var _reducer = __webpack_require__(58);
+
+	Object.defineProperty(exports, 'LOCATION_CHANGE', {
+	  enumerable: true,
+	  get: function get() {
+	    return _reducer.LOCATION_CHANGE;
+	  }
+	});
+	Object.defineProperty(exports, 'routerReducer', {
+	  enumerable: true,
+	  get: function get() {
+	    return _reducer.routerReducer;
+	  }
 	});
 
-	var _redux = __webpack_require__(1);
+	var _actions = __webpack_require__(59);
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	function counter() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case 'INCREMENT':
-	            return state + action.index;
-	        case 'DECREMENT':
-	            return state - 1;
-	        default:
-	            return state;
-	    }
-	}
-
-	function config() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case 'user':
-	            return [].concat(_toConsumableArray(state), [{
-	                text: action.text,
-	                completed: false
-	            }]);
-	        default:
-	            return state;
-	    }
-	}
-	var reducer = (0, _redux.combineReducers)({
-	    // visibilityFilter,
-	    counter: counter,
-	    config: config
+	Object.defineProperty(exports, 'CALL_HISTORY_METHOD', {
+	  enumerable: true,
+	  get: function get() {
+	    return _actions.CALL_HISTORY_METHOD;
+	  }
+	});
+	Object.defineProperty(exports, 'push', {
+	  enumerable: true,
+	  get: function get() {
+	    return _actions.push;
+	  }
+	});
+	Object.defineProperty(exports, 'replace', {
+	  enumerable: true,
+	  get: function get() {
+	    return _actions.replace;
+	  }
+	});
+	Object.defineProperty(exports, 'go', {
+	  enumerable: true,
+	  get: function get() {
+	    return _actions.go;
+	  }
+	});
+	Object.defineProperty(exports, 'goBack', {
+	  enumerable: true,
+	  get: function get() {
+	    return _actions.goBack;
+	  }
+	});
+	Object.defineProperty(exports, 'goForward', {
+	  enumerable: true,
+	  get: function get() {
+	    return _actions.goForward;
+	  }
+	});
+	Object.defineProperty(exports, 'routerActions', {
+	  enumerable: true,
+	  get: function get() {
+	    return _actions.routerActions;
+	  }
 	});
 
-	exports.default = reducer;
+	var _sync = __webpack_require__(60);
+
+	var _sync2 = _interopRequireDefault(_sync);
+
+	var _middleware = __webpack_require__(61);
+
+	var _middleware2 = _interopRequireDefault(_middleware);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	exports.syncHistoryWithStore = _sync2['default'];
+	exports.routerMiddleware = _middleware2['default'];
 
 /***/ },
 /* 58 */
@@ -6066,28 +6064,414 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-	exports.addTodo = addTodo;
-	exports.toggleTodo = toggleTodo;
-	function addTodo(text) {
-	    return { type: 'user', text: text };
-	}
 
-	function toggleTodo(index) {
-	    return { type: 'INCREMENT', index: index };
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }return target;
+	};
+
+	exports.routerReducer = routerReducer;
+	/**
+	 * This action type will be dispatched when your history
+	 * receives a location change.
+	 */
+	var LOCATION_CHANGE = exports.LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
+
+	var initialState = {
+	  locationBeforeTransitions: null
+	};
+
+	/**
+	 * This reducer will update the state with the most recent location history
+	 * has transitioned to. This may not be in sync with the router, particularly
+	 * if you have asynchronously-loaded routes, so reading from and relying on
+	 * this state is discouraged.
+	 */
+	function routerReducer() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+
+	  var _ref = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+	  var type = _ref.type;
+	  var payload = _ref.payload;
+
+	  if (type === LOCATION_CHANGE) {
+	    return _extends({}, state, { locationBeforeTransitions: payload });
+	  }
+
+	  return state;
 	}
 
 /***/ },
 /* 59 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/**
+	 * This action type will be dispatched by the history actions below.
+	 * If you're writing a middleware to watch for navigation events, be sure to
+	 * look for actions of this type.
+	 */
+	var CALL_HISTORY_METHOD = exports.CALL_HISTORY_METHOD = '@@router/CALL_HISTORY_METHOD';
+
+	function updateLocation(method) {
+	  return function () {
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return {
+	      type: CALL_HISTORY_METHOD,
+	      payload: { method: method, args: args }
+	    };
+	  };
+	}
+
+	/**
+	 * These actions correspond to the history API.
+	 * The associated routerMiddleware will capture these events before they get to
+	 * your reducer and reissue them as the matching function on your history.
+	 */
+	var push = exports.push = updateLocation('push');
+	var replace = exports.replace = updateLocation('replace');
+	var go = exports.go = updateLocation('go');
+	var goBack = exports.goBack = updateLocation('goBack');
+	var goForward = exports.goForward = updateLocation('goForward');
+
+	var routerActions = exports.routerActions = { push: push, replace: replace, go: go, goBack: goBack, goForward: goForward };
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }return target;
+	};
+
+	exports['default'] = syncHistoryWithStore;
+
+	var _reducer = __webpack_require__(58);
+
+	var defaultSelectLocationState = function defaultSelectLocationState(state) {
+	  return state.routing;
+	};
+
+	/**
+	 * This function synchronizes your history state with the Redux store.
+	 * Location changes flow from history to the store. An enhanced history is
+	 * returned with a listen method that responds to store updates for location.
+	 *
+	 * When this history is provided to the router, this means the location data
+	 * will flow like this:
+	 * history.push -> store.dispatch -> enhancedHistory.listen -> router
+	 * This ensures that when the store state changes due to a replay or other
+	 * event, the router will be updated appropriately and can transition to the
+	 * correct router state.
+	 */
+	function syncHistoryWithStore(history, store) {
+	  var _ref = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+	  var _ref$selectLocationSt = _ref.selectLocationState;
+	  var selectLocationState = _ref$selectLocationSt === undefined ? defaultSelectLocationState : _ref$selectLocationSt;
+	  var _ref$adjustUrlOnRepla = _ref.adjustUrlOnReplay;
+	  var adjustUrlOnReplay = _ref$adjustUrlOnRepla === undefined ? true : _ref$adjustUrlOnRepla;
+
+	  // Ensure that the reducer is mounted on the store and functioning properly.
+	  if (typeof selectLocationState(store.getState()) === 'undefined') {
+	    throw new Error('Expected the routing state to be available either as `state.routing` ' + 'or as the custom expression you can specify as `selectLocationState` ' + 'in the `syncHistoryWithStore()` options. ' + 'Ensure you have added the `routerReducer` to your store\'s ' + 'reducers via `combineReducers` or whatever method you use to isolate ' + 'your reducers.');
+	  }
+
+	  var initialLocation = void 0;
+	  var isTimeTraveling = void 0;
+	  var unsubscribeFromStore = void 0;
+	  var unsubscribeFromHistory = void 0;
+
+	  // What does the store say about current location?
+	  var getLocationInStore = function getLocationInStore(useInitialIfEmpty) {
+	    var locationState = selectLocationState(store.getState());
+	    return locationState.locationBeforeTransitions || (useInitialIfEmpty ? initialLocation : undefined);
+	  };
+
+	  // Init currentLocation with potential location in store
+	  var currentLocation = getLocationInStore();
+
+	  // If the store is replayed, update the URL in the browser to match.
+	  if (adjustUrlOnReplay) {
+	    var handleStoreChange = function handleStoreChange() {
+	      var locationInStore = getLocationInStore(true);
+	      if (currentLocation === locationInStore) {
+	        return;
+	      }
+
+	      // Update address bar to reflect store state
+	      isTimeTraveling = true;
+	      currentLocation = locationInStore;
+	      history.transitionTo(_extends({}, locationInStore, {
+	        action: 'PUSH'
+	      }));
+	      isTimeTraveling = false;
+	    };
+
+	    unsubscribeFromStore = store.subscribe(handleStoreChange);
+	    handleStoreChange();
+	  }
+
+	  // Whenever location changes, dispatch an action to get it in the store
+	  var handleLocationChange = function handleLocationChange(location) {
+	    // ... unless we just caused that location change
+	    if (isTimeTraveling) {
+	      return;
+	    }
+
+	    // Remember where we are
+	    currentLocation = location;
+
+	    // Are we being called for the first time?
+	    if (!initialLocation) {
+	      // Remember as a fallback in case state is reset
+	      initialLocation = location;
+
+	      // Respect persisted location, if any
+	      if (getLocationInStore()) {
+	        return;
+	      }
+	    }
+
+	    // Tell the store to update by dispatching an action
+	    store.dispatch({
+	      type: _reducer.LOCATION_CHANGE,
+	      payload: location
+	    });
+	  };
+	  unsubscribeFromHistory = history.listen(handleLocationChange);
+
+	  // The enhanced history uses store as source of truth
+	  return _extends({}, history, {
+	    // The listeners are subscribed to the store instead of history
+
+	    listen: function listen(listener) {
+	      // Copy of last location.
+	      var lastPublishedLocation = getLocationInStore(true);
+
+	      // Keep track of whether we unsubscribed, as Redux store
+	      // only applies changes in subscriptions on next dispatch
+	      var unsubscribed = false;
+	      var unsubscribeFromStore = store.subscribe(function () {
+	        var currentLocation = getLocationInStore(true);
+	        if (currentLocation === lastPublishedLocation) {
+	          return;
+	        }
+	        lastPublishedLocation = currentLocation;
+	        if (!unsubscribed) {
+	          listener(lastPublishedLocation);
+	        }
+	      });
+
+	      // History listeners expect a synchronous call. Make the first call to the
+	      // listener after subscribing to the store, in case the listener causes a
+	      // location change (e.g. when it redirects)
+	      listener(lastPublishedLocation);
+
+	      // Let user unsubscribe later
+	      return function () {
+	        unsubscribed = true;
+	        unsubscribeFromStore();
+	      };
+	    },
+
+	    // It also provides a way to destroy internal listeners
+	    unsubscribe: function unsubscribe() {
+	      if (adjustUrlOnReplay) {
+	        unsubscribeFromStore();
+	      }
+	      unsubscribeFromHistory();
+	    }
+	  });
+	}
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports['default'] = routerMiddleware;
+
+	var _actions = __webpack_require__(59);
+
+	function _toConsumableArray(arr) {
+	  if (Array.isArray(arr)) {
+	    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+	      arr2[i] = arr[i];
+	    }return arr2;
+	  } else {
+	    return Array.from(arr);
+	  }
+	}
+
+	/**
+	 * This middleware captures CALL_HISTORY_METHOD actions to redirect to the
+	 * provided history object. This will prevent these actions from reaching your
+	 * reducer or any middleware that comes after this one.
+	 */
+	function routerMiddleware(history) {
+	  return function () {
+	    return function (next) {
+	      return function (action) {
+	        if (action.type !== _actions.CALL_HISTORY_METHOD) {
+	          return next(action);
+	        }
+
+	        var _action$payload = action.payload;
+	        var method = _action$payload.method;
+	        var args = _action$payload.args;
+
+	        history[method].apply(history, _toConsumableArray(args));
+	      };
+	    };
+	  };
+	}
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _redux = __webpack_require__(1);
+
+	var _reactRouterRedux = __webpack_require__(57);
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function clone(myObj) {
+	    if ((typeof myObj === 'undefined' ? 'undefined' : _typeof(myObj)) != 'object') return myObj;
+	    if (myObj == null) return myObj;
+	    var myNewObj = new Object();
+	    for (var i in myObj) {
+	        myNewObj[i] = clone(myObj[i]);
+	    }return myNewObj;
+	}
+
+	function counter() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'INCREMENT':
+	            return state + 1;
+	        case 'DECREMENT':
+	            return state - 1;
+	        default:
+	            return state;
+	    }
+	}
+
+	function config() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'config':
+	            var _config = clone(state);
+	            _config[action.name] = action.value;
+	            return _config;
+	        // return Object.assign(config, action)
+	        default:
+	            return state;
+	    }
+	}
+
+	function comment() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'comment':
+	            return [action].concat(_toConsumableArray(state));
+	        case 'comments':
+	            return action.comments;
+	        default:
+	            return state;
+	    }
+	}
+
+	var reducer = (0, _redux.combineReducers)({
+	    counter: counter,
+	    config: config,
+	    comment: comment,
+	    routing: _reactRouterRedux.routerReducer
+	});
+
+	exports.default = reducer;
+
+/***/ },
+/* 63 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.config = config;
+	exports.comment = comment;
+	exports.comments = comments;
+	function config(name, value) {
+	    store.dispatch({ type: 'config', name: name, value: value });
+	}
+
+	function comment(comment) {
+	    comment.type = 'comment';
+	    store.dispatch(comment);
+	}
+
+	function comments(comments) {
+	    store.dispatch({ type: 'comments', comments: comments });
+	}
+
+/***/ },
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	// var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
 
-	var Apicloud = __webpack_require__(60);
+	var Apicloud = __webpack_require__(65);
 
-	var _require = __webpack_require__(66);
+	var _require = __webpack_require__(71);
 
 	var Header = _require.Header;
 	var Sidebar = _require.Sidebar;
@@ -6152,12 +6536,12 @@
 	module.exports = Layout;
 
 /***/ },
-/* 60 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var request = __webpack_require__(61);
+	var request = __webpack_require__(66);
 	var AppId = 'A6984077246442';
 	var AppKey = '7F7872C0-8EB2-D116-C9AF-AF02A4B65BA0';
 	var AppUrl = 'https://d.apicloud.com/mcm/api/';
@@ -6192,7 +6576,7 @@
 	module.exports = Apicloud;
 
 /***/ },
-/* 61 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6214,9 +6598,9 @@
 	  root = undefined;
 	}
 
-	var Emitter = __webpack_require__(62);
-	var requestBase = __webpack_require__(63);
-	var isObject = __webpack_require__(64);
+	var Emitter = __webpack_require__(67);
+	var requestBase = __webpack_require__(68);
+	var isObject = __webpack_require__(69);
 
 	/**
 	 * Noop.
@@ -6228,7 +6612,7 @@
 	 * Expose `request`.
 	 */
 
-	var request = module.exports = __webpack_require__(65).bind(null, Request);
+	var request = module.exports = __webpack_require__(70).bind(null, Request);
 
 	/**
 	 * Determine XHR.
@@ -7180,7 +7564,7 @@
 	};
 
 /***/ },
-/* 62 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7344,7 +7728,7 @@
 	};
 
 /***/ },
-/* 63 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7352,7 +7736,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(64);
+	var isObject = __webpack_require__(69);
 
 	/**
 	 * Clear previous timeout.
@@ -7695,7 +8079,7 @@
 	};
 
 /***/ },
-/* 64 */
+/* 69 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7717,7 +8101,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 65 */
+/* 70 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7756,16 +8140,16 @@
 	module.exports = request;
 
 /***/ },
-/* 66 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Layout = __webpack_require__(59);
-	var Header = __webpack_require__(67);
-	var Footer = __webpack_require__(68);
-	var Sidebar = __webpack_require__(70);
-	var Message = __webpack_require__(71);
+	var Layout = __webpack_require__(64);
+	var Header = __webpack_require__(72);
+	var Footer = __webpack_require__(73);
+	var Sidebar = __webpack_require__(75);
+	var Message = __webpack_require__(76);
 	var Temp = {
 	    // Layout: Layout,
 	    Header: Header,
@@ -7776,7 +8160,7 @@
 	module.exports = Temp;
 
 /***/ },
-/* 67 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7793,7 +8177,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var Apicloud = __webpack_require__(60);
+	var Apicloud = __webpack_require__(65);
 
 	var A = function (_React$Component) {
 	    _inherits(A, _React$Component);
@@ -7874,12 +8258,12 @@
 	module.exports = Header;
 
 /***/ },
-/* 68 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ApiStore = __webpack_require__(69);
+	var ApiStore = __webpack_require__(74);
 	// class Footer extends React.Component {
 	var Footer = React.createClass({
 	    displayName: 'Footer',
@@ -7918,12 +8302,12 @@
 	module.exports = Footer;
 
 /***/ },
-/* 69 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var request = __webpack_require__(61);
+	var request = __webpack_require__(66);
 	var AppUrl = 'http://apis.baidu.com/';
 	var apikey = 'c01ea8775f1c2620b7dd6f5b6bcec93b';
 	var get = function get(url, cb) {
@@ -7951,7 +8335,7 @@
 	module.exports = ApiStore;
 
 /***/ },
-/* 70 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7968,7 +8352,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var Apicloud = __webpack_require__(60);
+	var Apicloud = __webpack_require__(65);
 
 	var A = function (_React$Component) {
 	    _inherits(A, _React$Component);
@@ -8059,7 +8443,7 @@
 	module.exports = Sidebar;
 
 /***/ },
-/* 71 */
+/* 76 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8147,22 +8531,22 @@
 	module.exports = Message;
 
 /***/ },
-/* 72 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Nomatch = __webpack_require__(73);
-	var Home = __webpack_require__(74);
-	var Drag = __webpack_require__(75);
-	var ApiCloudsIndex = __webpack_require__(76);
-	var ApiClouds = __webpack_require__(77);
-	var ApiCloud = __webpack_require__(78);
-	var Pages = __webpack_require__(100);
-	var Page = __webpack_require__(101);
-	var Login = __webpack_require__(102);
-	var Logout = __webpack_require__(103);
-	var Import = __webpack_require__(104);
+	var Nomatch = __webpack_require__(78);
+	var Home = __webpack_require__(79);
+	var Drag = __webpack_require__(80);
+	var ApiCloudsIndex = __webpack_require__(81);
+	var ApiClouds = __webpack_require__(82);
+	var ApiCloud = __webpack_require__(83);
+	var Pages = __webpack_require__(105);
+	var Page = __webpack_require__(106);
+	var Login = __webpack_require__(107);
+	var Logout = __webpack_require__(108);
+	var Import = __webpack_require__(109);
 
 	var Temp = {
 	    Nomatch: Nomatch,
@@ -8180,7 +8564,7 @@
 	module.exports = Temp;
 
 /***/ },
-/* 73 */
+/* 78 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8215,14 +8599,19 @@
 	module.exports = Nomatch;
 
 /***/ },
-/* 74 */
-/***/ function(module, exports) {
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	var _reactRedux = __webpack_require__(16);
 
 	var Home = React.createClass({
 	    displayName: 'Home',
 
+	    // propTypes: {
+	    //     counter: React.PropTypes.object
+	    // },
 	    getInitialState: function getInitialState() {
 	        return {
 	            items: ['hello', 'world', 'click', 'me']
@@ -8241,12 +8630,17 @@
 	            html: html
 	        });
 	    },
+	    click: function click() {
+	        config('show', '1111');
+	    },
 	    render: function render() {
+	        console.log(this.props);
 	        return React.createElement('div', {
 	            className: 'container pure-g'
 	        }, React.createElement('div', {
-	            className: 'pure-u-1'
-	        }, '欢迎使用云上恩施cms 1.01版本！'
+	            className: 'pure-u-1',
+	            onClick: this.click
+	        }, '欢迎使用云上恩施cms 1.01版本！' + this.props.counter
 	        // React.createElement('div', {
 	        //     dangerouslySetInnerHTML: {
 	        //         __html: this.state.html
@@ -8255,10 +8649,15 @@
 	        ));
 	    }
 	});
-	module.exports = Home;
+
+	module.exports = (0, _reactRedux.connect)(function (state) {
+	    return {
+	        counter: state.config.show
+	    };
+	})(Home);
 
 /***/ },
-/* 75 */
+/* 80 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8360,7 +8759,7 @@
 	module.exports = Drag;
 
 /***/ },
-/* 76 */
+/* 81 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8378,13 +8777,13 @@
 	module.exports = ApiCloudsIndex;
 
 /***/ },
-/* 77 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var Link = ReactRouter.Link;
-	var Apicloud = __webpack_require__(60);
+	var Apicloud = __webpack_require__(65);
 	var ApiClouds = React.createClass({
 	    displayName: 'ApiClouds',
 
@@ -8531,14 +8930,14 @@
 	module.exports = ApiClouds;
 
 /***/ },
-/* 78 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Apicloud = __webpack_require__(60);
+	var Apicloud = __webpack_require__(65);
 
-	var _require = __webpack_require__(79);
+	var _require = __webpack_require__(84);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -8738,28 +9137,28 @@
 	module.exports = ApiCloud;
 
 /***/ },
-/* 79 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Form = __webpack_require__(80);
-	var FormGroup = __webpack_require__(83);
-	var Input = __webpack_require__(84);
-	var Textarea = __webpack_require__(85);
+	var Form = __webpack_require__(85);
+	var FormGroup = __webpack_require__(88);
+	var Input = __webpack_require__(89);
+	var Textarea = __webpack_require__(90);
 	// const Editer = require('../editer')
-	var Ueditor = __webpack_require__(86);
-	var Canvas = __webpack_require__(87);
-	var Upload = __webpack_require__(88);
-	var Radio = __webpack_require__(91);
-	var Checkbox = __webpack_require__(92);
-	var Range = __webpack_require__(93);
-	var Button = __webpack_require__(94);
-	var Hidden = __webpack_require__(95);
+	var Ueditor = __webpack_require__(91);
+	var Canvas = __webpack_require__(92);
+	var Upload = __webpack_require__(93);
+	var Radio = __webpack_require__(96);
+	var Checkbox = __webpack_require__(97);
+	var Range = __webpack_require__(98);
+	var Button = __webpack_require__(99);
+	var Hidden = __webpack_require__(100);
 	// const ColorPicker = require('./ColorPicker')
-	var Select = __webpack_require__(96);
-	var Tab = __webpack_require__(97);
-	var Audio = __webpack_require__(98);
+	var Select = __webpack_require__(101);
+	var Tab = __webpack_require__(102);
+	var Audio = __webpack_require__(103);
 	// const {
 	//     Calendar,
 	//     DateRange
@@ -8779,7 +9178,7 @@
 	    Range: Range,
 	    Button: Button,
 	    Hidden: Hidden,
-	    Category: __webpack_require__(99),
+	    Category: __webpack_require__(104),
 	    // Calendar: Calendar,
 	    // DateRange: DateRange,
 	    // ColorPicker: ColorPicker,
@@ -8790,13 +9189,13 @@
 	module.exports = Forms;
 
 /***/ },
-/* 80 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Apicloud = __webpack_require__(60);
-	var classNames = __webpack_require__(81);
+	var Apicloud = __webpack_require__(65);
+	var classNames = __webpack_require__(86);
 
 	var Form = React.createClass({
 	    displayName: 'Form',
@@ -8841,7 +9240,7 @@
 	module.exports = Form;
 
 /***/ },
-/* 81 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -8887,7 +9286,7 @@
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(82)) === 'object' && __webpack_require__(82)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(87)) === 'object' && __webpack_require__(87)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -8898,7 +9297,7 @@
 	})();
 
 /***/ },
-/* 82 */
+/* 87 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -8906,7 +9305,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 83 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8919,7 +9318,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var classNames = __webpack_require__(81);
+	var classNames = __webpack_require__(86);
 
 	var FormGroup = function (_React$Component) {
 	    _inherits(FormGroup, _React$Component);
@@ -8954,13 +9353,13 @@
 	module.exports = FormGroup;
 
 /***/ },
-/* 84 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Input = React.createClass({
 	    displayName: 'Input',
@@ -9062,13 +9461,13 @@
 	module.exports = Input;
 
 /***/ },
-/* 85 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Textarea = React.createClass({
 	    displayName: 'Textarea',
@@ -9184,13 +9583,13 @@
 	module.exports = Textarea;
 
 /***/ },
-/* 86 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Ueditor = React.createClass({
 	    displayName: 'Ueditor',
@@ -9241,7 +9640,7 @@
 	module.exports = Ueditor;
 
 /***/ },
-/* 87 */
+/* 92 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9279,17 +9678,17 @@
 	module.exports = Canvas;
 
 /***/ },
-/* 88 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var ajaxUpload = __webpack_require__(89);
-	var FormGroup = __webpack_require__(83);
-	var Canvas = __webpack_require__(87);
+	var classNames = __webpack_require__(86);
+	var ajaxUpload = __webpack_require__(94);
+	var FormGroup = __webpack_require__(88);
+	var Canvas = __webpack_require__(92);
 
-	var _require = __webpack_require__(90);
+	var _require = __webpack_require__(95);
 
 	var getUpToken = _require.getUpToken;
 	var getHash = _require.getHash;
@@ -9594,7 +9993,7 @@
 	module.exports = Upload;
 
 /***/ },
-/* 89 */
+/* 94 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9640,7 +10039,7 @@
 	};
 
 /***/ },
-/* 90 */
+/* 95 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9808,13 +10207,13 @@
 	};
 
 /***/ },
-/* 91 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Radio = React.createClass({
 	    displayName: 'Radio',
@@ -9906,13 +10305,13 @@
 	module.exports = Radio;
 
 /***/ },
-/* 92 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Checkbox = React.createClass({
 	    displayName: 'Checkbox',
@@ -10023,13 +10422,13 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 93 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Range = React.createClass({
 	    displayName: 'Range',
@@ -10090,7 +10489,7 @@
 	module.exports = Range;
 
 /***/ },
-/* 94 */
+/* 99 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10171,7 +10570,7 @@
 	module.exports = Botton;
 
 /***/ },
-/* 95 */
+/* 100 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10191,7 +10590,7 @@
 	module.exports = Hidden;
 
 /***/ },
-/* 96 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10204,8 +10603,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Options = function (_React$Component) {
 	    _inherits(Options, _React$Component);
@@ -10443,7 +10842,7 @@
 	module.exports = Select;
 
 /***/ },
-/* 97 */
+/* 102 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10531,7 +10930,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 98 */
+/* 103 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10595,13 +10994,13 @@
 	module.exports = Audio;
 
 /***/ },
-/* 99 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(81);
-	var FormGroup = __webpack_require__(83);
+	var classNames = __webpack_require__(86);
+	var FormGroup = __webpack_require__(88);
 
 	var Checkbox = React.createClass({
 	    displayName: 'Checkbox',
@@ -10713,7 +11112,7 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 100 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10730,7 +11129,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var request = __webpack_require__(61);
+	var request = __webpack_require__(66);
 
 	var L = function (_React$Component) {
 	    _inherits(L, _React$Component);
@@ -11116,7 +11515,7 @@
 	module.exports = Pages;
 
 /***/ },
-/* 101 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11129,7 +11528,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _require = __webpack_require__(79);
+	var _require = __webpack_require__(84);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -11333,7 +11732,7 @@
 	module.exports = Page;
 
 /***/ },
-/* 102 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11346,11 +11745,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var request = __webpack_require__(61);
+	var request = __webpack_require__(66);
 	var _ReactRouter = ReactRouter;
 	var Link = _ReactRouter.Link;
 
-	var _require = __webpack_require__(79);
+	var _require = __webpack_require__(84);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -11449,7 +11848,7 @@
 	module.exports = Login;
 
 /***/ },
-/* 103 */
+/* 108 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -11496,12 +11895,12 @@
 	module.exports = Logout;
 
 /***/ },
-/* 104 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _require = __webpack_require__(79);
+	var _require = __webpack_require__(84);
 
 	var Form = _require.Form;
 	var FormGroup = _require.FormGroup;
@@ -11510,7 +11909,7 @@
 	var Hidden = _require.Hidden;
 
 
-	var ajaxUpload = __webpack_require__(89);
+	var ajaxUpload = __webpack_require__(94);
 
 	var Import = React.createClass({
 	    displayName: 'Import',
@@ -11611,7 +12010,7 @@
 	module.exports = Import;
 
 /***/ },
-/* 105 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11619,17 +12018,17 @@
 	/**
 	 * action
 	 */
-	window.ConfigActions = __webpack_require__(106);
+	window.ConfigActions = __webpack_require__(111);
 
 	/**
 	 * store
 	 */
-	window.ConfigStore = __webpack_require__(111);
+	window.ConfigStore = __webpack_require__(116);
 
 	/** 
 	 * 请求数据
 	*/
-	window.request = __webpack_require__(61);
+	window.request = __webpack_require__(66);
 
 	//获取url参数数组
 	window.get = function (url) {
@@ -11671,12 +12070,12 @@
 	};
 
 /***/ },
-/* 106 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(107);
+	var AppDispatcher = __webpack_require__(112);
 
 	var ConfigActions = {
 
@@ -11716,7 +12115,7 @@
 	module.exports = ConfigActions;
 
 /***/ },
-/* 107 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11734,12 +12133,12 @@
 	 * A singleton that operates as the central hub for application updates.
 	 */
 
-	var Dispatcher = __webpack_require__(108).Dispatcher;
+	var Dispatcher = __webpack_require__(113).Dispatcher;
 
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 108 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11753,10 +12152,10 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
-	module.exports.Dispatcher = __webpack_require__(109);
+	module.exports.Dispatcher = __webpack_require__(114);
 
 /***/ },
-/* 109 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -11782,7 +12181,7 @@
 	  }
 	}
 
-	var invariant = __webpack_require__(110);
+	var invariant = __webpack_require__(115);
 
 	var _prefix = 'ID_';
 
@@ -11997,7 +12396,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 110 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12052,13 +12451,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 111 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(107);
-	var EventEmitter = __webpack_require__(112).EventEmitter;
+	var AppDispatcher = __webpack_require__(112);
+	var EventEmitter = __webpack_require__(117).EventEmitter;
 	var assign = __webpack_require__(20);
 
 	var CHANGE_EVENT = 'config';
@@ -12143,7 +12542,7 @@
 	}
 
 /***/ },
-/* 112 */
+/* 117 */
 /***/ function(module, exports) {
 
 	'use strict';

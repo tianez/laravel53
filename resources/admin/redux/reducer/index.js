@@ -1,10 +1,20 @@
 'use strict'
-import {combineReducers  } from 'redux';
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux'
+
+function clone(myObj) {
+    if (typeof(myObj) != 'object') return myObj;
+    if (myObj == null) return myObj;
+    var myNewObj = new Object();
+    for (var i in myObj)
+        myNewObj[i] = clone(myObj[i]);
+    return myNewObj;
+}
 
 function counter(state = 0, action) {
     switch (action.type) {
         case 'INCREMENT':
-            return state + action.index;
+            return state + 1;
         case 'DECREMENT':
             return state - 1;
         default:
@@ -12,24 +22,37 @@ function counter(state = 0, action) {
     }
 }
 
-function config(state = [], action) {
+function config(state = {}, action) {
     switch (action.type) {
-        case 'user':
-            return [
-                ...state,
-                {
-                    text: action.text,
-                    completed: false
-                }
-            ];
+        case 'config':
+            let config = clone(state)
+            config[action.name] = action.value
+            return config
+                // return Object.assign(config, action)
         default:
             return state;
     }
 }
+
+function comment(state = [], action) {
+    switch (action.type) {
+        case 'comment':
+            return [
+                action,
+                ...state
+            ];
+        case 'comments':
+            return action.comments;
+        default:
+            return state;
+    }
+}
+
 const reducer = combineReducers({
-    // visibilityFilter,
     counter,
-    config
+    config,
+    comment,
+    routing: routerReducer
 })
 
 export default reducer;

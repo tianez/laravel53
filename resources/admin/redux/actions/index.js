@@ -1,9 +1,14 @@
 'use strict'
 
-export function addTodo(text) {
-    return { type: 'user', text }
+export function config(name, value) {
+    store.dispatch({ type: 'config', name, value });
 }
 
-export function toggleTodo(index) {
-    return { type: 'INCREMENT', index }
+export function comment(comment) {
+    comment.type = 'comment'
+    store.dispatch(comment);
+}
+
+export function comments(comments) {
+    store.dispatch({ type: 'comments', comments });
 }
