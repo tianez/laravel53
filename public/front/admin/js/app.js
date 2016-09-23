@@ -60,22 +60,25 @@
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
-	var _actions = __webpack_require__(65);
+	var _actions = __webpack_require__(66);
 
-	var _middleware = __webpack_require__(69);
+	var _middleware = __webpack_require__(71);
 
 	var _middleware2 = _interopRequireDefault(_middleware);
 
-	var _reduxThunk = __webpack_require__(70);
+	var _reduxThunk = __webpack_require__(72);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	window.connect = _reactRedux.connect;
+
 	window.config = _actions.config;
 	window.comment = _actions.comment;
 	window.comments = _actions.comments;
 	window.user = _actions.user;
+	window.pagedata = _actions.pagedata;
 
 	var initialState = {
 	    config: {
@@ -108,9 +111,9 @@
 	    window.document.title = state.config.title;
 	});
 
-	var Layout = __webpack_require__(71);
+	var Layout = __webpack_require__(73);
 
-	var _require = __webpack_require__(84);
+	var _require = __webpack_require__(87);
 
 	var Nomatch = _require.Nomatch;
 	var Home = _require.Home;
@@ -125,7 +128,7 @@
 	var Import = _require.Import;
 
 
-	__webpack_require__(117);
+	__webpack_require__(120);
 
 	// function onEnter(nextState, replace) {
 	//     let pathname = nextState.location.pathname
@@ -6387,9 +6390,12 @@
 
 	var _comments = __webpack_require__(64);
 
+	var _pagedata = __webpack_require__(65);
+
 	var reducer = (0, _redux.combineReducers)({
 	    config: _config.config,
 	    comments: _comments.comments,
+	    pagedata: _pagedata.pagedata,
 	    routing: _reactRouterRedux.routerReducer
 	});
 
@@ -6463,25 +6469,58 @@
 
 /***/ },
 /* 65 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.pagedata = pagedata;
+	var init = {
+	    pages: {
+	        total: 0,
+	        last_page: 0,
+	        current_page: 1
+	    }
+	};
+
+	function pagedata() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? init : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'pagedata':
+	            return action.data;
+	        default:
+	            return state;
+	    }
+	}
+
+/***/ },
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _config = __webpack_require__(66);
+	var _config = __webpack_require__(67);
 
-	var _comments = __webpack_require__(67);
+	var _comments = __webpack_require__(68);
 
-	var _user = __webpack_require__(68);
+	var _user = __webpack_require__(69);
+
+	var _pagedata = __webpack_require__(70);
 
 	module.exports = {
 	    config: _config.config,
 	    comment: _comments.comment,
 	    comments: _comments.comments,
-	    user: _user.user
+	    user: _user.user,
+	    pagedata: _pagedata.pagedata
 	};
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6495,7 +6534,7 @@
 	}
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6517,7 +6556,7 @@
 	}
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6528,7 +6567,7 @@
 	});
 	exports.user = user;
 	function status(response) {
-	    if (response.status >= 200 && response.status < 300) {
+	    if (response.status !== 200) {
 	        return Promise.resolve(response);
 	    } else {
 	        return Promise.reject(new Error(response));
@@ -6551,7 +6590,23 @@
 	}
 
 /***/ },
-/* 69 */
+/* 70 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	//评论管理
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.pagedata = pagedata;
+	function pagedata(data) {
+	    store.dispatch({ type: 'pagedata', data: data });
+	}
+
+/***/ },
+/* 71 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6575,7 +6630,7 @@
 	};
 
 /***/ },
-/* 70 */
+/* 72 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6603,15 +6658,15 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 71 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	// var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
 
-	var Apicloud = __webpack_require__(72);
+	var Apicloud = __webpack_require__(74);
 
-	var _require = __webpack_require__(78);
+	var _require = __webpack_require__(80);
 
 	var Header = _require.Header;
 	var Sidebar = _require.Sidebar;
@@ -6676,12 +6731,12 @@
 	module.exports = Layout;
 
 /***/ },
-/* 72 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var request = __webpack_require__(73);
+	var request = __webpack_require__(75);
 	var AppId = 'A6984077246442';
 	var AppKey = '7F7872C0-8EB2-D116-C9AF-AF02A4B65BA0';
 	var AppUrl = 'https://d.apicloud.com/mcm/api/';
@@ -6716,7 +6771,7 @@
 	module.exports = Apicloud;
 
 /***/ },
-/* 73 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6738,9 +6793,9 @@
 	  root = undefined;
 	}
 
-	var Emitter = __webpack_require__(74);
-	var requestBase = __webpack_require__(75);
-	var isObject = __webpack_require__(76);
+	var Emitter = __webpack_require__(76);
+	var requestBase = __webpack_require__(77);
+	var isObject = __webpack_require__(78);
 
 	/**
 	 * Noop.
@@ -6752,7 +6807,7 @@
 	 * Expose `request`.
 	 */
 
-	var request = module.exports = __webpack_require__(77).bind(null, Request);
+	var request = module.exports = __webpack_require__(79).bind(null, Request);
 
 	/**
 	 * Determine XHR.
@@ -7704,7 +7759,7 @@
 	};
 
 /***/ },
-/* 74 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7868,7 +7923,7 @@
 	};
 
 /***/ },
-/* 75 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7876,7 +7931,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(76);
+	var isObject = __webpack_require__(78);
 
 	/**
 	 * Clear previous timeout.
@@ -8219,7 +8274,7 @@
 	};
 
 /***/ },
-/* 76 */
+/* 78 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8241,7 +8296,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 77 */
+/* 79 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8280,27 +8335,29 @@
 	module.exports = request;
 
 /***/ },
-/* 78 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Layout = __webpack_require__(71);
-	var Header = __webpack_require__(79);
-	var Footer = __webpack_require__(80);
-	var Sidebar = __webpack_require__(82);
-	var Message = __webpack_require__(83);
+	var Layout = __webpack_require__(73);
+	var Header = __webpack_require__(81);
+	var Footer = __webpack_require__(82);
+	var Sidebar = __webpack_require__(84);
+	var Message = __webpack_require__(85);
+	var Pagination = __webpack_require__(86);
 	var Temp = {
 	    // Layout: Layout,
 	    Header: Header,
 	    Footer: Footer,
 	    Sidebar: Sidebar,
-	    Message: Message
+	    Message: Message,
+	    Pagination: Pagination
 	};
 	module.exports = Temp;
 
 /***/ },
-/* 79 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8317,7 +8374,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var Apicloud = __webpack_require__(72);
+	var Apicloud = __webpack_require__(74);
 
 	var A = function (_React$Component) {
 	    _inherits(A, _React$Component);
@@ -8398,12 +8455,12 @@
 	module.exports = Header;
 
 /***/ },
-/* 80 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ApiStore = __webpack_require__(81);
+	var ApiStore = __webpack_require__(83);
 	// class Footer extends React.Component {
 	var Footer = React.createClass({
 	    displayName: 'Footer',
@@ -8442,12 +8499,12 @@
 	module.exports = Footer;
 
 /***/ },
-/* 81 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var request = __webpack_require__(73);
+	var request = __webpack_require__(75);
 	var AppUrl = 'http://apis.baidu.com/';
 	var apikey = 'c01ea8775f1c2620b7dd6f5b6bcec93b';
 	var get = function get(url, cb) {
@@ -8475,7 +8532,7 @@
 	module.exports = ApiStore;
 
 /***/ },
-/* 82 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8492,7 +8549,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var Apicloud = __webpack_require__(72);
+	var Apicloud = __webpack_require__(74);
 
 	var A = function (_React$Component) {
 	    _inherits(A, _React$Component);
@@ -8583,7 +8640,7 @@
 	module.exports = Sidebar;
 
 /***/ },
-/* 83 */
+/* 85 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8671,22 +8728,190 @@
 	module.exports = Message;
 
 /***/ },
-/* 84 */
+/* 86 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _ReactRouter = ReactRouter;
+	var Link = _ReactRouter.Link;
+
+	var L = function (_React$Component) {
+	    _inherits(L, _React$Component);
+
+	    function L() {
+	        _classCallCheck(this, L);
+
+	        return _possibleConstructorReturn(this, (L.__proto__ || Object.getPrototypeOf(L)).call(this));
+	    }
+
+	    _createClass(L, [{
+	        key: 'render',
+	        value: function render() {
+	            var p = void 0;
+	            var page = this.props.page;
+	            if (page == this.props.current_page) {
+	                p = React.createElement('span', {
+	                    className: 'pure-button active'
+	                }, page);
+	            } else {
+	                p = React.createElement(Link, {
+	                    className: 'pure-button',
+	                    to: this.props.url,
+	                    query: {
+	                        page: page,
+	                        state: this.props.query.state
+	                    }
+	                }, page);
+	            }
+	            return React.createElement("li", {
+	                key: page
+	            }, p);
+	        }
+	    }]);
+
+	    return L;
+	}(React.Component);
+
+	var Pagination = function (_React$Component2) {
+	    _inherits(Pagination, _React$Component2);
+
+	    function Pagination(props) {
+	        _classCallCheck(this, Pagination);
+
+	        var _this2 = _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
+
+	        console.log(props);
+
+	        return _this2;
+	    }
+
+	    _createClass(Pagination, [{
+	        key: 'render',
+	        value: function render() {
+	            console.log(this.props.query);
+
+	            var i = 1;
+	            var prev = 4;
+	            console.log(this.props);
+	            var total = this.props.page.total || 0;
+	            var last_page = this.props.page.last_page || 0;
+	            var current_page = this.props.page.current_page || '';
+	            var items = [];
+	            if (prev > last_page + 1) {
+	                prev = last_page + 1;
+	            }
+	            for (i; i < prev; i++) {
+	                var p = React.createElement(L, {
+	                    url: this.props.url,
+	                    page: i,
+	                    key: i,
+	                    query: this.props.query,
+	                    current_page: current_page
+	                });
+	                items.push(p);
+	            }
+	            var j = current_page - 1;
+	            var c = current_page + 2;
+	            if (c > last_page + 1) {
+	                c = last_page + 1;
+	            }
+	            if (j > i && j > prev - 1) {
+	                var _p = React.createElement("li", {}, React.createElement('span', {
+	                    className: 'pure-button'
+	                }, '...'));
+	                items.push(_p);
+	                for (j; j < c; j++) {
+	                    var _p2 = React.createElement(L, {
+	                        url: this.props.url,
+	                        page: j,
+	                        key: j,
+	                        query: this.props.query,
+	                        current_page: current_page
+	                    });
+	                    items.push(_p2);
+	                }
+	            } else {
+	                j = i;
+	                for (j; j < c; j++) {
+	                    var _p3 = React.createElement(L, {
+	                        url: this.props.url,
+	                        page: j,
+	                        key: j,
+	                        query: this.props.query,
+	                        current_page: current_page
+	                    });
+	                    items.push(_p3);
+	                }
+	            }
+	            var k = last_page - prev + 2;
+	            if (k > j) {
+	                var _p4 = React.createElement("li", {}, React.createElement('span', {
+	                    className: 'pure-button'
+	                }, '...'));
+	                items.push(_p4);
+	            } else {
+	                k = j;
+	            }
+	            for (k; k < last_page + 1; k++) {
+	                var _p5 = React.createElement(L, {
+	                    url: this.props.url,
+	                    page: k,
+	                    key: k,
+	                    query: this.props.query,
+	                    current_page: current_page
+	                });
+	                items.push(_p5);
+	            }
+	            return React.createElement("nav", {
+	                className: 'pure-menu pure-menu-open pure-menu-horizontal'
+	            }, React.createElement("ul", {
+	                className: "pure-paginator"
+	            }, React.createElement("li", {}, React.createElement("span", {
+	                className: 'pure-button',
+	                "aria-hidden": "true"
+	            }, '共查询到' + total + '条数据')), items, React.createElement("li", {}, React.createElement("span", {
+	                className: 'pure-button totle'
+	            }, '共' + last_page + '页'))));
+	        }
+	    }]);
+
+	    return Pagination;
+	}(React.Component);
+
+	module.exports = connect(function (state) {
+	    return {
+	        page: state.pagedata.pages,
+	        query: state.routing.locationBeforeTransitions.query,
+	        url: state.routing.locationBeforeTransitions.pathname
+	    };
+	})(Pagination);
+
+/***/ },
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Nomatch = __webpack_require__(85);
-	var Home = __webpack_require__(86);
-	var Drag = __webpack_require__(87);
-	var ApiCloudsIndex = __webpack_require__(88);
-	var ApiClouds = __webpack_require__(89);
-	var ApiCloud = __webpack_require__(90);
-	var Pages = __webpack_require__(112);
-	var Page = __webpack_require__(113);
-	var Login = __webpack_require__(114);
-	var Logout = __webpack_require__(115);
-	var Import = __webpack_require__(116);
+	var Nomatch = __webpack_require__(88);
+	var Home = __webpack_require__(89);
+	var Drag = __webpack_require__(90);
+	var ApiCloudsIndex = __webpack_require__(91);
+	var ApiClouds = __webpack_require__(92);
+	var ApiCloud = __webpack_require__(93);
+	var Pages = __webpack_require__(115);
+	var Page = __webpack_require__(116);
+	var Login = __webpack_require__(117);
+	var Logout = __webpack_require__(118);
+	var Import = __webpack_require__(119);
 
 	var Temp = {
 	    Nomatch: Nomatch,
@@ -8704,7 +8929,7 @@
 	module.exports = Temp;
 
 /***/ },
-/* 85 */
+/* 88 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8739,12 +8964,10 @@
 	module.exports = Nomatch;
 
 /***/ },
-/* 86 */
-/***/ function(module, exports, __webpack_require__) {
+/* 89 */
+/***/ function(module, exports) {
 
 	'use strict';
-
-	var _reactRedux = __webpack_require__(16);
 
 	var Home = React.createClass({
 	    displayName: 'Home',
@@ -8789,14 +9012,14 @@
 	    }
 	});
 
-	module.exports = (0, _reactRedux.connect)(function (state) {
+	module.exports = connect(function (state) {
 	    return {
 	        counter: state.config.show
 	    };
 	})(Home);
 
 /***/ },
-/* 87 */
+/* 90 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8898,7 +9121,7 @@
 	module.exports = Drag;
 
 /***/ },
-/* 88 */
+/* 91 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8916,13 +9139,13 @@
 	module.exports = ApiCloudsIndex;
 
 /***/ },
-/* 89 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var Link = ReactRouter.Link;
-	var Apicloud = __webpack_require__(72);
+	var Apicloud = __webpack_require__(74);
 	var ApiClouds = React.createClass({
 	    displayName: 'ApiClouds',
 
@@ -9069,14 +9292,14 @@
 	module.exports = ApiClouds;
 
 /***/ },
-/* 90 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Apicloud = __webpack_require__(72);
+	var Apicloud = __webpack_require__(74);
 
-	var _require = __webpack_require__(91);
+	var _require = __webpack_require__(94);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -9276,28 +9499,28 @@
 	module.exports = ApiCloud;
 
 /***/ },
-/* 91 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Form = __webpack_require__(92);
-	var FormGroup = __webpack_require__(95);
-	var Input = __webpack_require__(96);
-	var Textarea = __webpack_require__(97);
+	var Form = __webpack_require__(95);
+	var FormGroup = __webpack_require__(98);
+	var Input = __webpack_require__(99);
+	var Textarea = __webpack_require__(100);
 	// const Editer = require('../editer')
-	var Ueditor = __webpack_require__(98);
-	var Canvas = __webpack_require__(99);
-	var Upload = __webpack_require__(100);
-	var Radio = __webpack_require__(103);
-	var Checkbox = __webpack_require__(104);
-	var Range = __webpack_require__(105);
-	var Button = __webpack_require__(106);
-	var Hidden = __webpack_require__(107);
+	var Ueditor = __webpack_require__(101);
+	var Canvas = __webpack_require__(102);
+	var Upload = __webpack_require__(103);
+	var Radio = __webpack_require__(106);
+	var Checkbox = __webpack_require__(107);
+	var Range = __webpack_require__(108);
+	var Button = __webpack_require__(109);
+	var Hidden = __webpack_require__(110);
 	// const ColorPicker = require('./ColorPicker')
-	var Select = __webpack_require__(108);
-	var Tab = __webpack_require__(109);
-	var Audio = __webpack_require__(110);
+	var Select = __webpack_require__(111);
+	var Tab = __webpack_require__(112);
+	var Audio = __webpack_require__(113);
 	// const {
 	//     Calendar,
 	//     DateRange
@@ -9317,7 +9540,7 @@
 	    Range: Range,
 	    Button: Button,
 	    Hidden: Hidden,
-	    Category: __webpack_require__(111),
+	    Category: __webpack_require__(114),
 	    // Calendar: Calendar,
 	    // DateRange: DateRange,
 	    // ColorPicker: ColorPicker,
@@ -9328,13 +9551,13 @@
 	module.exports = Forms;
 
 /***/ },
-/* 92 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Apicloud = __webpack_require__(72);
-	var classNames = __webpack_require__(93);
+	var Apicloud = __webpack_require__(74);
+	var classNames = __webpack_require__(96);
 
 	var Form = React.createClass({
 	    displayName: 'Form',
@@ -9379,7 +9602,7 @@
 	module.exports = Form;
 
 /***/ },
-/* 93 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -9425,7 +9648,7 @@
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(94)) === 'object' && __webpack_require__(94)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(97)) === 'object' && __webpack_require__(97)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -9436,7 +9659,7 @@
 	})();
 
 /***/ },
-/* 94 */
+/* 97 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -9444,7 +9667,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 95 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9457,7 +9680,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var classNames = __webpack_require__(93);
+	var classNames = __webpack_require__(96);
 
 	var FormGroup = function (_React$Component) {
 	    _inherits(FormGroup, _React$Component);
@@ -9492,13 +9715,13 @@
 	module.exports = FormGroup;
 
 /***/ },
-/* 96 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Input = React.createClass({
 	    displayName: 'Input',
@@ -9600,13 +9823,13 @@
 	module.exports = Input;
 
 /***/ },
-/* 97 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Textarea = React.createClass({
 	    displayName: 'Textarea',
@@ -9722,13 +9945,13 @@
 	module.exports = Textarea;
 
 /***/ },
-/* 98 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Ueditor = React.createClass({
 	    displayName: 'Ueditor',
@@ -9779,7 +10002,7 @@
 	module.exports = Ueditor;
 
 /***/ },
-/* 99 */
+/* 102 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9817,17 +10040,17 @@
 	module.exports = Canvas;
 
 /***/ },
-/* 100 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var ajaxUpload = __webpack_require__(101);
-	var FormGroup = __webpack_require__(95);
-	var Canvas = __webpack_require__(99);
+	var classNames = __webpack_require__(96);
+	var ajaxUpload = __webpack_require__(104);
+	var FormGroup = __webpack_require__(98);
+	var Canvas = __webpack_require__(102);
 
-	var _require = __webpack_require__(102);
+	var _require = __webpack_require__(105);
 
 	var getUpToken = _require.getUpToken;
 	var getHash = _require.getHash;
@@ -10132,7 +10355,7 @@
 	module.exports = Upload;
 
 /***/ },
-/* 101 */
+/* 104 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10178,7 +10401,7 @@
 	};
 
 /***/ },
-/* 102 */
+/* 105 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10346,13 +10569,13 @@
 	};
 
 /***/ },
-/* 103 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Radio = React.createClass({
 	    displayName: 'Radio',
@@ -10444,13 +10667,13 @@
 	module.exports = Radio;
 
 /***/ },
-/* 104 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Checkbox = React.createClass({
 	    displayName: 'Checkbox',
@@ -10561,13 +10784,13 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 105 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Range = React.createClass({
 	    displayName: 'Range',
@@ -10628,7 +10851,7 @@
 	module.exports = Range;
 
 /***/ },
-/* 106 */
+/* 109 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10709,7 +10932,7 @@
 	module.exports = Botton;
 
 /***/ },
-/* 107 */
+/* 110 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10729,7 +10952,7 @@
 	module.exports = Hidden;
 
 /***/ },
-/* 108 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10742,8 +10965,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Options = function (_React$Component) {
 	    _inherits(Options, _React$Component);
@@ -10981,7 +11204,7 @@
 	module.exports = Select;
 
 /***/ },
-/* 109 */
+/* 112 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -11069,7 +11292,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 110 */
+/* 113 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -11133,13 +11356,13 @@
 	module.exports = Audio;
 
 /***/ },
-/* 111 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var classNames = __webpack_require__(93);
-	var FormGroup = __webpack_require__(95);
+	var classNames = __webpack_require__(96);
+	var FormGroup = __webpack_require__(98);
 
 	var Checkbox = React.createClass({
 	    displayName: 'Checkbox',
@@ -11251,164 +11474,17 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 112 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var _ReactRouter = ReactRouter;
 	var Link = _ReactRouter.Link;
 
 
-	var request = __webpack_require__(73);
-
-	var L = function (_React$Component) {
-	    _inherits(L, _React$Component);
-
-	    function L() {
-	        _classCallCheck(this, L);
-
-	        return _possibleConstructorReturn(this, (L.__proto__ || Object.getPrototypeOf(L)).call(this));
-	    }
-
-	    _createClass(L, [{
-	        key: 'render',
-	        value: function render() {
-	            var p = void 0;
-	            var page = this.props.page;
-	            if (page == this.props.current_page) {
-	                p = React.createElement('span', {
-	                    className: 'pure-button active'
-	                }, page);
-	            } else {
-	                p = React.createElement(Link, {
-	                    className: 'pure-button',
-	                    to: '/api/' + this.props.url,
-	                    query: {
-	                        page: page,
-	                        state: this.props.query.state
-	                    }
-	                }, page);
-	            }
-	            return React.createElement("li", {
-	                key: page
-	            }, p);
-	        }
-	    }]);
-
-	    return L;
-	}(React.Component);
-
-	var Page = function (_React$Component2) {
-	    _inherits(Page, _React$Component2);
-
-	    function Page(props) {
-	        _classCallCheck(this, Page);
-
-	        var _this2 = _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
-
-	        console.log(props);
-
-	        return _this2;
-	    }
-
-	    _createClass(Page, [{
-	        key: 'render',
-	        value: function render() {
-	            var i = 1;
-	            var prev = 4;
-	            var total = this.props.page.total || 0;
-	            var last_page = this.props.page.last_page || 0;
-	            var current_page = this.props.page.current_page || '';
-	            var items = [];
-	            if (prev > last_page + 1) {
-	                prev = last_page + 1;
-	            }
-	            for (i; i < prev; i++) {
-	                var p = React.createElement(L, {
-	                    url: this.props.url,
-	                    page: i,
-	                    key: i,
-	                    query: this.props.query,
-	                    current_page: current_page
-	                });
-	                items.push(p);
-	            }
-	            var j = current_page - 1;
-	            var c = current_page + 2;
-	            if (c > last_page + 1) {
-	                c = last_page + 1;
-	            }
-	            if (j > i && j > prev - 1) {
-	                var _p = React.createElement("li", {}, React.createElement('span', {
-	                    className: 'pure-button'
-	                }, '...'));
-	                items.push(_p);
-	                for (j; j < c; j++) {
-	                    var _p2 = React.createElement(L, {
-	                        url: this.props.url,
-	                        page: j,
-	                        key: j,
-	                        query: this.props.query,
-	                        current_page: current_page
-	                    });
-	                    items.push(_p2);
-	                }
-	            } else {
-	                j = i;
-	                for (j; j < c; j++) {
-	                    var _p3 = React.createElement(L, {
-	                        url: this.props.url,
-	                        page: j,
-	                        key: j,
-	                        query: this.props.query,
-	                        current_page: current_page
-	                    });
-	                    items.push(_p3);
-	                }
-	            }
-	            var k = last_page - prev + 2;
-	            if (k > j) {
-	                var _p4 = React.createElement("li", {}, React.createElement('span', {
-	                    className: 'pure-button'
-	                }, '...'));
-	                items.push(_p4);
-	            } else {
-	                k = j;
-	            }
-	            for (k; k < last_page + 1; k++) {
-	                var _p5 = React.createElement(L, {
-	                    url: this.props.url,
-	                    page: k,
-	                    key: k,
-	                    query: this.props.query,
-	                    current_page: current_page
-	                });
-	                items.push(_p5);
-	            }
-	            return React.createElement("nav", {
-	                className: 'pure-menu pure-menu-open pure-menu-horizontal'
-	            }, React.createElement("ul", {
-	                className: "pure-paginator"
-	            }, React.createElement("li", {}, React.createElement("span", {
-	                className: 'pure-button',
-	                "aria-hidden": "true"
-	            }, '共查询到' + total + '条数据')), items, React.createElement("li", {}, React.createElement("span", {
-	                className: 'pure-button totle'
-	            }, '共' + last_page + '页'))));
-	        }
-	    }]);
-
-	    return Page;
-	}(React.Component);
+	var request = __webpack_require__(75);
+	var Pagination = __webpack_require__(86);
 
 	var Pages = React.createClass({
 	    displayName: 'Pages',
@@ -11450,6 +11526,7 @@
 	                msg = data.msg;
 	                ConfigActions.update('title', data.title);
 	                var items = [];
+	                pagedata(data);
 	                this.setState({
 	                    pages: data.pages,
 	                    items: items.concat(data.pages.data),
@@ -11643,18 +11720,18 @@
 	            style: {
 	                width: '100%'
 	            }
-	        }, this._thead(), React.createElement("tbody", null, list)), React.createElement(Page, {
-	            page: this.state.pages,
-	            url: this.props.params.pages,
-	            query: this.props.location.query
-	        }));
+	        }, this._thead(), React.createElement("tbody", null, list)), React.createElement(Pagination));
 	    }
 	});
 
-	module.exports = Pages;
+	module.exports = connect(function (state) {
+	    return {
+	        counter: state.config.show
+	    };
+	})(Pages);
 
 /***/ },
-/* 113 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11667,7 +11744,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _require = __webpack_require__(91);
+	var _require = __webpack_require__(94);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -11871,7 +11948,7 @@
 	module.exports = Page;
 
 /***/ },
-/* 114 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11884,11 +11961,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var request = __webpack_require__(73);
+	var request = __webpack_require__(75);
 	var _ReactRouter = ReactRouter;
 	var Link = _ReactRouter.Link;
 
-	var _require = __webpack_require__(91);
+	var _require = __webpack_require__(94);
 
 	var Form = _require.Form;
 	var Input = _require.Input;
@@ -11987,7 +12064,7 @@
 	module.exports = Login;
 
 /***/ },
-/* 115 */
+/* 118 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -12034,12 +12111,12 @@
 	module.exports = Logout;
 
 /***/ },
-/* 116 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _require = __webpack_require__(91);
+	var _require = __webpack_require__(94);
 
 	var Form = _require.Form;
 	var FormGroup = _require.FormGroup;
@@ -12048,7 +12125,7 @@
 	var Hidden = _require.Hidden;
 
 
-	var ajaxUpload = __webpack_require__(101);
+	var ajaxUpload = __webpack_require__(104);
 
 	var Import = React.createClass({
 	    displayName: 'Import',
@@ -12149,7 +12226,7 @@
 	module.exports = Import;
 
 /***/ },
-/* 117 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12157,17 +12234,17 @@
 	/**
 	 * action
 	 */
-	window.ConfigActions = __webpack_require__(118);
+	window.ConfigActions = __webpack_require__(121);
 
 	/**
 	 * store
 	 */
-	window.ConfigStore = __webpack_require__(123);
+	window.ConfigStore = __webpack_require__(126);
 
 	/** 
 	 * 请求数据
 	*/
-	window.request = __webpack_require__(73);
+	window.request = __webpack_require__(75);
 
 	//获取url参数数组
 	window.get = function (url) {
@@ -12209,12 +12286,12 @@
 	};
 
 /***/ },
-/* 118 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(119);
+	var AppDispatcher = __webpack_require__(122);
 
 	var ConfigActions = {
 
@@ -12254,7 +12331,7 @@
 	module.exports = ConfigActions;
 
 /***/ },
-/* 119 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12272,12 +12349,12 @@
 	 * A singleton that operates as the central hub for application updates.
 	 */
 
-	var Dispatcher = __webpack_require__(120).Dispatcher;
+	var Dispatcher = __webpack_require__(123).Dispatcher;
 
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 120 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12291,10 +12368,10 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
-	module.exports.Dispatcher = __webpack_require__(121);
+	module.exports.Dispatcher = __webpack_require__(124);
 
 /***/ },
-/* 121 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12320,7 +12397,7 @@
 	  }
 	}
 
-	var invariant = __webpack_require__(122);
+	var invariant = __webpack_require__(125);
 
 	var _prefix = 'ID_';
 
@@ -12535,7 +12612,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 122 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12590,13 +12667,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 123 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(119);
-	var EventEmitter = __webpack_require__(124).EventEmitter;
+	var AppDispatcher = __webpack_require__(122);
+	var EventEmitter = __webpack_require__(127).EventEmitter;
 	var assign = __webpack_require__(20);
 
 	var CHANGE_EVENT = 'config';
@@ -12681,7 +12758,7 @@
 	}
 
 /***/ },
-/* 124 */
+/* 127 */
 /***/ function(module, exports) {
 
 	'use strict';

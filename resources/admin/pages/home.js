@@ -1,7 +1,5 @@
 'use strict'
 
-import { connect } from 'react-redux'
-
 var Home = React.createClass({
     // propTypes: {
     //     counter: React.PropTypes.object

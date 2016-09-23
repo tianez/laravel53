@@ -3,17 +3,20 @@
 // const ReactDOM = require('react-dom');
 // const ReactRouter = require('react-router');
 // import './less/style.less' //webpack编译时导入
-
+  
 import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import reducer from './redux/reducer';
-import { config, comment, comments, user } from './redux/actions'
+import { config, comment, comments, user, pagedata} from './redux/actions'
+
+window.connect = connect
 
 window.config = config
 window.comment = comment
 window.comments = comments
 window.user = user
+window.pagedata = pagedata
 
 let initialState = {
     config: {
@@ -72,7 +75,7 @@ const routers = (
             React.createElement(Route, { path: "import", component: Import }),
             React.createElement(Route, { path: "drag", component: Drag }),
             React.createElement(Route, { path: "apicloud" },
-                React.createElement(IndexRoute, {component: ApiCloudsIndex }),
+                React.createElement(IndexRoute, { component: ApiCloudsIndex }),
                 React.createElement(Route, { path: ":clouds" },
                     React.createElement(IndexRoute, { component: ApiClouds }),
                     React.createElement(Route, { path: ":articleId", component: ApiCloud })

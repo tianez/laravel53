@@ -3,10 +3,12 @@
 import { config } from './config'
 import { comments, comment } from './comments'
 import { user } from './user'
+import { pagedata } from './pagedata'
 
 module.exports = {
     config,
     comment,
     comments,
-    user 
+    user,
+    pagedata
 }

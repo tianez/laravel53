@@ -1,7 +1,7 @@
 'use strict'
 //获取当前用户信息
 function status(response) {
-    if (response.status >= 200 && response.status < 300) {
+    if (response.status !== 200) {
         return Promise.resolve(response);
     }
     else {
