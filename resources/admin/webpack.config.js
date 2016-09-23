@@ -18,7 +18,8 @@ module.exports = {
             loader: 'babel', // 加载模块 "babel" 是 "babel-loader" 的缩写
             query: {
                 //添加两个presents 使用这两种presets处理js或者jsx文件
-                presets: ['es2015', 'react']
+                presets: ['es2015', 'react'],
+                plugins: ["transform-object-rest-spread"]
             }
         }, { //css
                 test: /\.css$/, // Only .css files

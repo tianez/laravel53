@@ -6426,7 +6426,9 @@
 	            var _config = clone(state);
 	            _config[action.name] = action.value;
 	            return _config;
-	        // return Object.assign(config, action)
+	        // return Object.assign({}, state, {
+	        //     visibilityFilter: action.filter
+	        // })
 	        default:
 	            return state;
 	    }

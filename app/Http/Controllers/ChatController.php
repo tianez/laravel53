@@ -12,7 +12,7 @@ use App\Http\Model\Chat;
 class ChatController extends Controller {
     
     public function __construct() {
-        $this->middleware('auth',['except' => ['getList','postLogin']]);
+        // $this->middleware('auth',['except' => ['getIndex','getList','postLogin']]);
         $this->model = new Chat();
     }
     
