@@ -1,14 +1,12 @@
 'use strict'
 
-export function config(name, value) {
-    store.dispatch({ type: 'config', name, value });
-}
+import { config } from './config'
+import { comments, comment } from './comments'
+import { user } from './user'
 
-export function comment(comment) {
-    comment.type = 'comment'
-    store.dispatch(comment);
-}
-
-export function comments(comments) {
-    store.dispatch({ type: 'comments', comments });
+module.exports = {
+    config,
+    comment,
+    comments,
+    user 
 }

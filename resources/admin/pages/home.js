@@ -26,9 +26,9 @@ var Home = React.createClass({
     },
     click: function() {
         config('show', '1111')
+        user()
     },
     render: function() {
-        console.log(this.props);
         return (
             React.createElement('div', {
                     className: 'container pure-g'

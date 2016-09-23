@@ -4,32 +4,38 @@
 // const ReactRouter = require('react-router');
 // import './less/style.less' //webpack编译时导入
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import reducer from './redux/reducer';
-import { config, comment, comments } from './redux/actions'
+import { config, comment, comments, user } from './redux/actions'
 
 window.config = config
 window.comment = comment
 window.comments = comments
+window.user = user
 
 let initialState = {
     config: {
         show: 0,
         login: false,
         islogin: false,
-        login_title: '登陆'
+        login_title: '登陆',
+        title: 'My React'
     }
 }
-
-window.store = createStore(reducer, initialState);
+import log from './redux/middleware';
+//应用中间件log
+let createStoreWithLog = applyMiddleware(log,thunk)(createStore);
+window.store = createStoreWithLog(reducer, initialState)
 const { Router, Route, IndexRoute, IndexRedirect, Redirect, hashHistory, browserHistory } = ReactRouter
 const history = syncHistoryWithStore(hashHistory, store)
 
-store.subscribe(() =>
-    console.log(store.getState())
-);
+store.subscribe(() => {
+    let state = store.getState()
+    window.document.title = state.config.title
+})
 
 const Layout = require('./layout/layout')
 const { Nomatch, Home, Drag, ApiCloudsIndex, ApiClouds, ApiCloud, Pages, Page, Login, Logout, Import } = require('./pages')
@@ -64,10 +70,7 @@ const routers = (
             React.createElement(Route, { path: "import", component: Import }),
             React.createElement(Route, { path: "drag", component: Drag }),
             React.createElement(Route, { path: "apicloud" },
-                React.createElement(IndexRoute, {
-                    component: ApiCloudsIndex,
-                    // onEnter: onEnter
-                }),
+                React.createElement(IndexRoute, {component: ApiCloudsIndex }),
                 React.createElement(Route, { path: ":clouds" },
                     React.createElement(IndexRoute, { component: ApiClouds }),
                     React.createElement(Route, { path: ":articleId", component: ApiCloud })
@@ -89,8 +92,7 @@ const routers = (
 )
 
 ReactDOM.render(
-    React.createElement(Provider, {
-        store: store
-    }, routers),
+    React.createElement(Provider, { store: store },
+        routers),
     document.getElementById('app')
 )

@@ -12,7 +12,7 @@ var Layout = React.createClass({
     _onChange: function () {
         let config = ConfigStore.getAll()
         console.log(config)
-        window.document.title = config.title
+        // window.document.title = config.title
         this.setState(config)
     },
     componentDidMount: function () {
