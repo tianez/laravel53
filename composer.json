@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -9,7 +12,8 @@
         "laravel/framework": "5.3.*",
         "intervention/image": "^2.3",
         "workerman/phpsocket.io": "^1.0",
-        "orangehill/iseed": "dev-master"
+        "orangehill/iseed": "dev-master",
+        "nwidart/db-exporter": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -18,8 +22,9 @@
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
         "ignasbernotas/laravel-model-generator": "^1.1",
-        "way/generators": "^3.0",
-        "xethron/migrations-generator": "dev-l5"
+        "josh-taylor/migrations-generator": "^0.1.0",
+        "xethron/migrations-generator": "dev-l5",
+        "way/generators": "dev-feature/laravel-five-stable"
     },
     "autoload": {
         "classmap": [
@@ -55,6 +60,10 @@
         "preferred-install": "dist"
     },
     "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        },
         "repo-name": {
             "type": "git",
             "url": "git@github.com:jamisonvalenta/Laravel-4-Generators.git"
