@@ -19,7 +19,6 @@ class ChatController extends Controller {
     
     public function getIndex(Request $request) {
         $topic = Topic::first();
-        dump($topic);
         return view('chat.index');
     }
     

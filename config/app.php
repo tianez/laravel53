@@ -180,7 +180,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
-
+        Orangehill\Iseed\IseedServiceProvider::class,//导出数据
+        // Way\Generators\GeneratorsServiceProvider::class,
     ],
 
     /*

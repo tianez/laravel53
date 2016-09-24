@@ -13,15 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         date_default_timezone_set("Asia/Shanghai");
-        $this->call(meunTableSeeder::class);
-        $this->call(UserTableSeeder::class);
-        $this->call(RoleTableSeeder::class);
-        $this->call(FieldsTableSeeder::class);
-        $this->call(Role_permissions::class);
-        $this->call(article::class);
-        $this->call(article_category::class);
-        $this->call(Chat::class);
-        $this->call(Topic::class);
-        
+        $this->call('FieldsTableSeeder');
+        $this->call('MeunTableSeeder');
+        $this->call('UsersTableSeeder');
+        $this->call('RolesTableSeeder');
+        $this->call('PermissionsTableSeeder');
+        $this->call('RoleUserTableSeeder');
+        $this->call('RolePermissionTableSeeder');
+        $this->call('ArticleCategoryTableSeeder');
     }
 }
