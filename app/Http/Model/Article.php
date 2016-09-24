@@ -4,17 +4,18 @@ namespace App\Http\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Validator;
+use App\Models\DBArticle;
 
-class Article extends Model {
+class Article extends DBArticle {
     use SoftDeletes;
     /**
     * The database table used by the model.
     *
     * @var string
     */
-    protected $table = 'article';
+    // protected $table = 'article';
     
-    protected $fillable = array('title','keyword','excerpt','thumb','content','link','type','temp','uid','view','bookmark','comment','comment_status','status','order');
+    // protected $fillable = array('title','keyword','excerpt','thumb','content','link','type','temp','uid','view','bookmark','comment','comment_status','status','order');
     
     public function Validator($date, $v = true) {
         $rules = array();
