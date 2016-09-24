@@ -29,7 +29,7 @@ class Role_permissions extends Seeder
         'key' => 'display_name',
         'title' => '权限名称',
         'type' => 'text',
-        'f_module' => 'role_permissions',
+        'f_module' => 'permissions',
         'f_groups' => '字段分组',
         'f_description' => '权限名称',
         'f_ext' => null,
@@ -39,7 +39,7 @@ class Role_permissions extends Seeder
         'key' => 'group',
         'title' => '权限分组',
         'type' => 'text',
-        'f_module' => 'role_permissions',
+        'f_module' => 'permissions',
         'f_groups' => '字段分组',
         'f_description' => '权限分组',
         'f_ext' => null,
@@ -49,7 +49,7 @@ class Role_permissions extends Seeder
         'key' => 'roles',
         'title' => '用户组',
         'type' => 'checkbox',
-        'f_module' => 'role_permissions',
+        'f_module' => 'permissions',
         'f_groups' => '字段分组',
         'f_description' => '用户组',
         'f_ext' => 'roles',
@@ -59,14 +59,14 @@ class Role_permissions extends Seeder
         'key' => 'description',
         'title' => '权限描述',
         'type' => 'text',
-        'f_module' => 'role_permissions',
+        'f_module' => 'permissions',
         'f_groups' => '字段分组',
         'f_description' => '权限描述',
         'f_ext' => null,
         'created_at'=> date("Y-m-d H:i:s")
         ),
         ]);
-        DB::table('role_permissions')->insert([
+        DB::table('permissions')->insert([
         array(
         'name' => 'App\Http\Controllers\AdminController@getIndex',
         'display_name' => '后台首页',

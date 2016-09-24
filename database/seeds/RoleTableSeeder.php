@@ -81,10 +81,17 @@ class RoleTableSeeder extends Seeder
         'created_at'=> date("Y-m-d H:i:s")
         ),
         array(
+        'name' => 'editor',
+        'display_name' => '编辑',
+        'thumb' => '',
+        'description' => '编辑',
+        'created_at'=> date("Y-m-d H:i:s")
+        ),
+        array(
         'name' => 'reader',
         'display_name' => '读者',
         'thumb' => '',
-        'description' => '普通读者用户',
+        'description' => '普通用户',
         'created_at'=> date("Y-m-d H:i:s")
         )
         ]);

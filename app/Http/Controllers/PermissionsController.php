@@ -14,8 +14,8 @@ class PermissionsController extends MainController {
     public function __construct() {
         parent::__construct();
         $this->model = new Permissions();
-        $this->files = 'role_permissions';
-        $this->title = '菜单';
+        $this->files = 'permissions';
+        $this->title = '权限';
         $this->thead = array('id'=>'ID','name'=>'权限key', 'display_name'=>'权限名称', 'description'=>'描述');
     }
     
@@ -39,16 +39,16 @@ class PermissionsController extends MainController {
     }
     
     public function getDetail($id) {
-        $fields = Fields::file('role_permissions')->get();
+        $fields = Fields::file('permissions')->get();
         $info = Permissions::where('id',$id)->first();
-        $roles = DB::table('role_user')->where('user_id',$id)->get();
-        $role = array();
+        $roles = DB::table('role_permission')->where('permission_id',$id)->get();
+        $role = array(); 
         foreach ($roles as $r) {
             $role[] = $r->role_id;
         }
         $role = json_encode($role);
         $info['roles'] = $role;
-        $out = array('title' => '字段', 'fields' => $fields,'info' => $info);
+        $out = array('title' => '权限', 'fields' => $fields,'info' => $info);
         return response()->json($out);
     }
     

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(article::class);
         $this->call(article_category::class);
         $this->call(Chat::class);
+        $this->call(Topic::class);
         
     }
 }

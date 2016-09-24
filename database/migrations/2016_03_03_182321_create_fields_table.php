@@ -6,9 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 class CreateFieldsTable extends Migration
 {
     /**
-    * Run the migrations.
-    *
-    * @return void
+    * 模型字段管理
+    * fields:字段表
     */
     public function up()
     {

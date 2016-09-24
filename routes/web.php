@@ -19,6 +19,15 @@ Route::get('show/{id}', 'XbhController@getShow');
 
 Route::get('tk', 'CjyunController@getIndex');
 
+Route::group(['prefix' => 'topic'], function () {
+    Route::get('/','TopicController@getIndex');
+    Route::get('add','TopicController@getAdd');
+    Route::post('add','TopicController@postAdd');
+    Route::get('detail/{id}','TopicController@getDetail');
+    Route::post('detail', 'TopicController@postDetail');
+    Route::get('delete/{id}', 'TopicController@getDelete');
+});
+
 Route::group(['prefix' => 'chat'], function () {
     Route::get('/', 'ChatController@getIndex');
     Route::post('/', 'ChatController@postIndex');
@@ -96,7 +105,7 @@ Route::group(['prefix' => 'roles'], function () {
     Route::post('detail', 'RolesController@postDetail');
 });
 
-Route::group(['prefix' => 'role_permissions'], function () {
+Route::group(['prefix' => 'permissions'], function () {
     Route::get('/','PermissionsController@getIndex');
     Route::get('add','PermissionsController@getAdd');
     Route::post('add','PermissionsController@postAdd');

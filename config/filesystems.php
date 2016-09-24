@@ -52,7 +52,13 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'visibility' => 'public',
+            // 'visibility' => 'public',
+        ],
+
+        'lang' => [
+            'driver' => 'local',
+            'root' => resource_path('lang'),
+            // 'visibility' => 'public',
         ],
 
         's3' => [
