@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateDbPermissionsTable extends Migration {
+class CreateDbTjResultTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,12 @@ class CreateDbPermissionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('db_permissions', function(Blueprint $table)
+		Schema::create('db_tj_result', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name')->unique('permissions_name_unique');
-			$table->string('display_name');
-			$table->string('group')->nullable();
-			$table->string('description')->nullable();
+			$table->bigInteger('tj_id')->comment("体检单号");
+			$table->string('item')->comment("体检项目");
+			$table->string('result')->comment("项目结果");
 			$table->timestamps();
 		});
 	}
@@ -31,7 +30,7 @@ class CreateDbPermissionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('db_permissions');
+		Schema::drop('db_tj_result');
 	}
 
 }

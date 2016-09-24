@@ -14,10 +14,10 @@ class CreateDbArticleMetaTable extends Migration {
 	{
 		Schema::create('db_article_meta', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->integer('article_id');
-			$table->string('meta_key');
-			$table->text('meta_value');
+			$table->increments('id')->comment("主键ID");
+			$table->integer('article_id')->comment("文章id");
+			$table->string('meta_key')->comment("字段名");
+			$table->text('meta_value')->comment("字段值");
 		});
 	}
 

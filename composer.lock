@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ab8a6b64424c6e8cceefc96540073d90",
-    "content-hash": "92147f29f784026ba78b1ae542133f6e",
+    "hash": "7b0cdfcf63c73cd36cece20227a372c7",
+    "content-hash": "e2ea50ac54a5f3d98b3a359d5f0e8f05",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -856,53 +856,6 @@
                 "php"
             ],
             "time": "2016-09-16 12:04:44"
-        },
-        {
-            "name": "nwidart/db-exporter",
-            "version": "1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nWidart/DbExporter.git",
-                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/nWidart/DbExporter/ce8da8782ed1e478a761ec51cd4dedeff44ac654.zip",
-                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.*|5.*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Nwidart\\DbExporter": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Widart",
-                    "email": "n.widart@gmail.com"
-                }
-            ],
-            "description": "Export your database quickly and easily as a Laravel Migration and all the data as a Seeder class.",
-            "keywords": [
-                "artisan",
-                "command",
-                "database",
-                "export",
-                "laravel",
-                "migrations",
-                "php",
-                "seed"
-            ],
-            "time": "2015-04-24 05:56:41"
         },
         {
             "name": "orangehill/iseed",

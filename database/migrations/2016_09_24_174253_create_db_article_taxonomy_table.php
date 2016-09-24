@@ -14,8 +14,8 @@ class CreateDbArticleTaxonomyTable extends Migration {
 	{
 		Schema::create('db_article_taxonomy', function(Blueprint $table)
 		{
-			$table->integer('article_id');
-			$table->integer('cat_id');
+			$table->integer('article_id')->comment("文章id");
+			$table->integer('cat_id')->comment("分类id");
 		});
 	}
 

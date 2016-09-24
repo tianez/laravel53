@@ -182,8 +182,6 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,//导出数据
 
-        // Nwidart\DbExporter\DbExportHandlerServiceProvider::class
-
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
     ],
