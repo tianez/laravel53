@@ -19,7 +19,7 @@ class CreateDbArticleTable extends Migration {
 			$table->string('keyword')->nullable()->comment("关键词");
 			$table->string('excerpt')->nullable()->comment("简介");
 			$table->string('thumb')->nullable()->comment("缩略图");
-			$table->text('content')->comment("内容");
+			$table->text('content', 65535)->comment("内容");
 			$table->string('link')->nullable()->comment("外链");
 			$table->integer('cat_id')->default(0)->comment("所属分类");
 			$table->boolean('type')->nullable()->comment("类型");

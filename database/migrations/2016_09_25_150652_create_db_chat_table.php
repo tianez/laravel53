@@ -19,7 +19,7 @@ class CreateDbChatTable extends Migration {
 			$table->string('user_id')->nullable();
 			$table->string('head_img')->nullable();
 			$table->string('time')->nullable();
-			$table->text('content')->nullable();
+			$table->text('content', 65535)->nullable();
 			$table->timestamps();
 		});
 	}

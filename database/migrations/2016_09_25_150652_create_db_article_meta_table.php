@@ -17,7 +17,7 @@ class CreateDbArticleMetaTable extends Migration {
 			$table->increments('id')->comment("主键ID");
 			$table->integer('article_id')->comment("文章id");
 			$table->string('meta_key')->comment("字段名");
-			$table->text('meta_value')->comment("字段值");
+			$table->text('meta_value', 65535)->comment("字段值");
 		});
 	}
 

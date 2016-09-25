@@ -16,7 +16,7 @@ class CreateDbTopicTable extends Migration {
 		{
 			$table->bigInteger('id', true)->unsigned();
 			$table->string('title')->nullable();
-			$table->text('content')->nullable();
+			$table->text('content', 65535)->nullable();
 			$table->boolean('status')->default(0)->comment("状态，0：正常，1：锁定");
 			$table->timestamps();
 		});

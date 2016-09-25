@@ -30,3 +30,8 @@ php artisan make:model User -m
  * https://github.com/orangehill/iseed
  * php artisan iseed my_table
 **/
+
+/**
+ * 从数据库导出数据库结构
+ * php artisan migrate:generate 
+**/
