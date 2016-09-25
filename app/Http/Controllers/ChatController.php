@@ -57,15 +57,36 @@ class ChatController extends Controller {
         $data = array('user_name' => $req['username'], 'password' => $req['password']);
         $auth = Auth::attempt($data, true);
         $res = array();
-        if ($auth) {
-            $res['state'] = 'ok';
-            $res['data'] =  Auth::user();
-        } else {
+        if (!$auth) {
             return response('用户名或密码错误！', 401);
         }
         // die('用户名或密码错误！');
         // exit('用户名或密码错误！');
-        return response()->json($res);
+        return response()->json(Auth::user());
     }
-    
+    public function postRegister(request $request) {
+        $req = $request->all();
+        $data = array('user_name' => $req['username'], 'password' => $req['password']);
+        $user = new User;
+        $validator = $user->Validator($data);
+        if($validator->fails()){
+            $messages = $validator->errors()->messages();
+            foreach ($messages as $key => $message) {
+                return response($message[0], 401);
+            }
+        }
+        $info = User::create($data);
+        DB::table('role_user')->insert(array('user_id'=>$info->id,'role_id'=>3));
+        return response()->json($info);
+    }
+
+    public function postAvatar(Request $request) {
+        $data = $request->all();
+        $res = array();
+        $filename = $_FILES["file"]['name'];
+        $file = Storage::put('avatar/'.$filename,file_get_contents($_FILES['file']['tmp_name']));
+        if($file){
+            return response()->json($_FILES["file"]);
+        }
+    }
 }

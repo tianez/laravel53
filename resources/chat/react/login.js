@@ -6,7 +6,7 @@ class Login extends React.Component {
         this.state = {
             username: '',
             password: '',
-            file: '../images/1.jpg'
+            file: 'images/avatar/00.jpg'
         }
     } 
     _onChangeUsername(e) {
@@ -36,7 +36,7 @@ class Login extends React.Component {
             file: file.thumb
         })
         return ajaxUpload({
-            url: 'uploads',
+            url: 'chat/avatar',
             name: 'file',
             key: file.name,
             file: files[0],
@@ -45,21 +45,19 @@ class Login extends React.Component {
             },
             onLoad: (e) => {
                 let res = JSON.parse(e.currentTarget.responseText)
+                console.log(res);
+                
                 file.state = 1
                 this.setState({
-                    file: file
+                    file: 'upload/avatar/'+res.name
                 })
             },
             onError: () => {
                 file.state = 2
-                this.setState({
-                    file: file
-                })
             }
         })
     }
     _login(e) {
-        
         let url = this.props.title == '登陆' ? 'chat/login' : 'chat/register'
         request
             .post(url)
@@ -67,8 +65,7 @@ class Login extends React.Component {
             .set('Accept', 'application/json')
             .end(function(err, res) {
                 if (res.ok) {
-                    let data = JSON.parse(res.text)
-                    let user = data.data
+                    let user = JSON.parse(res.text)
                     localStorage.username = user.user_name
                     localStorage.userid = user.id
                     localStorage.head_img = user.head_img ? user.head_img : './images/avatar/' + Math.floor(Math.random() * 6) + '.jpg'

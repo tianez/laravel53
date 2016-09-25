@@ -17,7 +17,7 @@ class CreateDbUsersTable extends Migration {
 			$table->increments('id');
 			$table->boolean('role')->default(0)->comment("用户角色，0：普通用户，1：超级管理员，2：普通管理员");
 			$table->string('user_name')->unique('users_user_name_unique')->comment("用户名");
-			$table->string('email')->unique('users_email_unique')->comment("邮箱");
+			$table->string('email')->unique('users_email_unique')->nullable()->comment("邮箱");
 			$table->string('password', 60)->comment("用户密码");
 			$table->string('real_name')->nullable()->comment("真实姓名");
 			$table->string('china_id')->nullable()->comment("身份证号码");

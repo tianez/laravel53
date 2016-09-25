@@ -33,6 +33,7 @@ Route::group(['prefix' => 'chat'], function () {
     Route::post('/', 'ChatController@postIndex');
     Route::get('list', 'ChatController@getList');
     Route::post('login', 'ChatController@postLogin');
+    Route::post('avatar', 'TestController@postAvatar');
 });
 
 Route::group(['prefix' => 'chats'], function () {
@@ -141,5 +142,4 @@ Route::group(['prefix' => 'users'], function () {
 
 
 Route::get('test', 'TestController@getIndex');
-Route::post('uploads', 'TestController@upload');
 // Route::controller('test', 'TestController/getIndex');

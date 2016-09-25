@@ -6339,7 +6339,7 @@
 	        _this.state = {
 	            username: '',
 	            password: '',
-	            file: '../images/1.jpg'
+	            file: 'images/avatar/00.jpg'
 	        };
 	        return _this;
 	    }
@@ -6380,7 +6380,7 @@
 	                file: file.thumb
 	            });
 	            return ajaxUpload({
-	                url: 'uploads',
+	                url: 'chat/avatar',
 	                name: 'file',
 	                key: file.name,
 	                file: files[0],
@@ -6391,26 +6391,21 @@
 	                    var res = JSON.parse(e.currentTarget.responseText);
 	                    file.state = 1;
 	                    _this2.setState({
-	                        file: file
+	                        file: 'upload/avatar/' + res.name
 	                    });
 	                },
 	                onError: function onError() {
 	                    file.state = 2;
-	                    _this2.setState({
-	                        file: file
-	                    });
 	                }
 	            });
 	        }
 	    }, {
 	        key: '_login',
 	        value: function _login(e) {
-
 	            var url = this.props.title == '登陆' ? 'chat/login' : 'chat/register';
 	            request.post(url).send(this.state).set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
-	                    var data = JSON.parse(res.text);
-	                    var user = data.data;
+	                    var user = JSON.parse(res.text);
 	                    localStorage.username = user.user_name;
 	                    localStorage.userid = user.id;
 	                    localStorage.head_img = user.head_img ? user.head_img : './images/avatar/' + Math.floor(Math.random() * 6) + '.jpg';
