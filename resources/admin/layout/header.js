@@ -28,19 +28,6 @@ class Header extends React.Component {
             menu: null
         }
     }
-    componentDidMount() {
-        request
-            .get('admin/user')
-            .set('Accept', 'application/json')
-            .end(function (err, res) {
-                if (err) {
-                    this.props.history.pushState(null, '/login')
-                } else {
-                    let data = JSON.parse(res.text)
-                    ConfigActions.update('user', data)
-                }
-            }.bind(this))
-    }
     render() {
         let msg = ConfigStore.get('msg')
         return (

@@ -47,32 +47,33 @@ const { Nomatch, Home, Drag, ApiCloudsIndex, ApiClouds, ApiCloud, Pages, Page, L
 
 require('./global')
 
-// function onEnter(nextState, replace) {
-//     let pathname = nextState.location.pathname
-//     let user = storedb('user').find() ? true : false
-//     console.log('当前用户:' + storedb('user').find());
-//     if (!user && pathname !== 'login' && pathname !== '/login') {
-//         ConfigActions.update('msg', '你还没有登录，请先登录！')
-//         replace({
-//             pathname: '/login'
-//         })
-//     } else if (user && (pathname == 'login' || pathname == '/login')) {
-//         replace({
-//             pathname: '/'
-//         })
-//     }
-// }
+function onEnter(nextState, replace) {
+    let pathname = nextState.location.pathname
+    let state = store.getState()    
+    let user = state.config.user.user_name
+    console.log('当前用户:' + user);
+    if (!user && pathname !== 'login' && pathname !== '/login') {
+        ConfigActions.update('msg', '你还没有登录，请先登录！')
+        replace({
+            pathname: '/login' 
+        })
+    } else if (user && (pathname == 'login' || pathname == '/login')) {
+        replace({
+            pathname: '/'
+        })
+    }
+}
 
 const routers = (
     React.createElement(Router, { history: history },
-        React.createElement(Route, { path: "/", component: Layout },
+        React.createElement(Route, { path: "/", component: Layout, onEnter: onEnter},
             React.createElement(IndexRedirect, { to: 'index' }),
             // React.createElement(IndexRoute, {
             //     component: Home,
             //     onEnter: onEnter
             // }),
             React.createElement(Route, { path: "index", component: Home }),
-            React.createElement(Route, { path: "import", component: Import }),
+            React.createElement(Route, { path: "import", component: Import}),
             React.createElement(Route, { path: "drag", component: Drag }),
             React.createElement(Route, { path: "apicloud" },
                 React.createElement(IndexRoute, { component: ApiCloudsIndex }),
@@ -96,8 +97,36 @@ const routers = (
     )
 )
 
-ReactDOM.render(
+function status(response) {
+    if (response.status == 200) {
+        return Promise.resolve(response);
+    }
+    else {
+        return Promise.reject(new Error(response));
+    }
+}
+
+function json(response) {
+    return response.json();
+}
+
+function Init() {
+    fetch("admin/user", { credentials: "include" })
+            .then(status)
+            .then(json)
+            .then(function (data) {
+                console.log(data);
+                config('user', data);
+                ReactDOM.render(
     React.createElement(Provider, { store: store },
         routers),
     document.getElementById('app')
 )
+            })
+            .catch(function (err) {
+                console.log("Fetch错误:" + err);
+            });
+}
+
+Init()
+

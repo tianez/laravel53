@@ -130,30 +130,53 @@
 
 	__webpack_require__(120);
 
-	// function onEnter(nextState, replace) {
-	//     let pathname = nextState.location.pathname
-	//     let user = storedb('user').find() ? true : false
-	//     console.log('当前用户:' + storedb('user').find());
-	//     if (!user && pathname !== 'login' && pathname !== '/login') {
-	//         ConfigActions.update('msg', '你还没有登录，请先登录！')
-	//         replace({
-	//             pathname: '/login'
-	//         })
-	//     } else if (user && (pathname == 'login' || pathname == '/login')) {
-	//         replace({
-	//             pathname: '/'
-	//         })
-	//     }
-	// }
+	function onEnter(nextState, replace) {
+	    var pathname = nextState.location.pathname;
+	    var state = store.getState();
+	    var user = state.config.user.user_name;
+	    console.log('当前用户:' + user);
+	    if (!user && pathname !== 'login' && pathname !== '/login') {
+	        ConfigActions.update('msg', '你还没有登录，请先登录！');
+	        replace({
+	            pathname: '/login'
+	        });
+	    } else if (user && (pathname == 'login' || pathname == '/login')) {
+	        replace({
+	            pathname: '/'
+	        });
+	    }
+	}
 
-	var routers = React.createElement(Router, { history: history }, React.createElement(Route, { path: "/", component: Layout }, React.createElement(IndexRedirect, { to: 'index' }),
+	var routers = React.createElement(Router, { history: history }, React.createElement(Route, { path: "/", component: Layout, onEnter: onEnter }, React.createElement(IndexRedirect, { to: 'index' }),
 	// React.createElement(IndexRoute, {
 	//     component: Home,
 	//     onEnter: onEnter
 	// }),
 	React.createElement(Route, { path: "index", component: Home }), React.createElement(Route, { path: "import", component: Import }), React.createElement(Route, { path: "drag", component: Drag }), React.createElement(Route, { path: "apicloud" }, React.createElement(IndexRoute, { component: ApiCloudsIndex }), React.createElement(Route, { path: ":clouds" }, React.createElement(IndexRoute, { component: ApiClouds }), React.createElement(Route, { path: ":articleId", component: ApiCloud }))), React.createElement(Route, { path: "api" }, React.createElement(IndexRoute, { component: ApiCloudsIndex }), React.createElement(Redirect, { from: ':pages', to: ':pages/index' }), React.createElement(Route, { path: ":pages" }, React.createElement(Route, { path: "index", component: Pages }), React.createElement(Route, { path: ":page", component: Page })))), React.createElement(Route, { path: "login", component: Login }), React.createElement(Route, { path: "logout", component: Logout }), React.createElement(Route, { path: "*", component: Nomatch }));
 
-	ReactDOM.render(React.createElement(_reactRedux.Provider, { store: store }, routers), document.getElementById('app'));
+	function status(response) {
+	    if (response.status == 200) {
+	        return Promise.resolve(response);
+	    } else {
+	        return Promise.reject(new Error(response));
+	    }
+	}
+
+	function json(response) {
+	    return response.json();
+	}
+
+	function Init() {
+	    fetch("admin/user", { credentials: "include" }).then(status).then(json).then(function (data) {
+	        console.log(data);
+	        (0, _actions.config)('user', data);
+	        ReactDOM.render(React.createElement(_reactRedux.Provider, { store: store }, routers), document.getElementById('app'));
+	    }).catch(function (err) {
+	        console.log("Fetch错误:" + err);
+	    });
+	}
+
+	Init();
 
 /***/ },
 /* 1 */
@@ -8416,18 +8439,6 @@
 	    }
 
 	    _createClass(Header, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            request.get('admin/user').set('Accept', 'application/json').end(function (err, res) {
-	                if (err) {
-	                    this.props.history.pushState(null, '/login');
-	                } else {
-	                    var data = JSON.parse(res.text);
-	                    ConfigActions.update('user', data);
-	                }
-	            }.bind(this));
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var msg = ConfigStore.get('msg');
@@ -12005,7 +12016,7 @@
 	                if (err) throw err;
 	                var data = JSON.parse(res.text);
 	                if (data.state == 'ok') {
-	                    ConfigActions.update('user', data.data);
+	                    config('user', data.data);
 	                    this.props.history.pushState(null, '/');
 	                    // this.context.router.push('/')
 	                    // this.context.history.replace('/')
