@@ -78,7 +78,7 @@ class Page extends React.Component {
                         this.props.history.pushState(null, 'api/' + pages + '/' + data.info.id)
                     }
                 }
-                ConfigActions.message(msg)
+                Rd.message(msg) 
             }.bind(this))
     }
     _onChange(name, value) {
@@ -89,11 +89,6 @@ class Page extends React.Component {
         })
     }
     render() {
-        console.log('2');
-        
-        console.log(this.props);
-        console.log('1');
-        
         let render
         let forms
         let info = this.state.info

@@ -9,7 +9,7 @@ class Message extends React.Component {
         this.autoplayTimer = null
     }
     componentWillReceiveProps(nextProps) {
-        if (nextProps.message !== '') {
+        if (nextProps.message !== '') { 
             let message = this.state.message
             message.push(nextProps.message)
             this.setState({ message: message })
@@ -24,7 +24,6 @@ class Message extends React.Component {
             let message = this.state.message
             message.shift()
             this.setState({ message: message })
-            console.log(message.length);
             if (message.length == 0) {
                 clearInterval(this.autoplayTimer);
                 this.autoplayTimer = null
@@ -49,4 +48,9 @@ class Message extends React.Component {
         )
     }
 }
-module.exports = Message
+
+module.exports = connect(
+    state => ({
+        message: state.message 
+    })
+)(Message)

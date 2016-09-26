@@ -35,7 +35,7 @@ class Login extends React.Component {
                 if (err) throw err
                 let data = JSON.parse(res.text)
                 if (data.state == 'ok') {
-                    config('user', data.data);
+                    Rd.config('user', data.data);
                     this.props.history.pushState(null, '/')
                         // this.context.router.push('/')
                     // this.context.history.replace('/')

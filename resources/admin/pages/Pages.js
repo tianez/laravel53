@@ -7,7 +7,7 @@ const request = require('superagent')
 const Pagination = require('../layout/Pagination')
 
 const Pages = React.createClass({
-    getInitialState: function() {
+    getInitialState: function () {
         return {
             items: [],
             del_id: [],
@@ -19,34 +19,31 @@ const Pages = React.createClass({
         }
     },
 
-    getDefaultProps: function() {},
+    getDefaultProps: function () {},
 
-    componentDidMount: function() {
+    componentDidMount: function () {
         this._reQuest(this.props)
     },
-    componentWillReceiveProps: function(nextProps) {
+    componentWillReceiveProps: function (nextProps) {
         let page = nextProps.location.query.page || 1
         let page2 = this.props.location.query.page || 1
         if (this.props.params.pages != nextProps.params.pages || page != page2 || nextProps.location.search !== this.state.search) {
             this._reQuest(nextProps)
         }
     },
-    _reQuest: function(props) {
+    _reQuest: function (props) {
         console.log(props.location);
-
         request.get(props.params.pages)
             .query(props.location.query)
-            .end(function(err, res) {
-                let msg 
+            .end(function (err, res) {
                 if (err) {
                     this.props.history.pushState(null, '/')
-                    msg = err.response.text
+                    Rd.message(err.response.text)
                 } else {
                     let data = JSON.parse(res.text);
-                    msg = data.msg
-                    ConfigActions.update('title', data.title)
+                    Rd.config('title',data.title)
                     let items = []
-                    pagedata(data)
+                    Rd.pagedata(data)
                     this.setState({
                         pages: data.pages,
                         items: items.concat(data.pages.data),
@@ -55,10 +52,10 @@ const Pages = React.createClass({
                         title: data.title,
                     });
                 }
-                ConfigActions.message(msg)
+
             }.bind(this))
     },
-    _set_del_all: function(items) {
+    _set_del_all: function (items) {
         let del_all = []
         let x
         for (x in items) {
@@ -66,11 +63,11 @@ const Pages = React.createClass({
         }
         return del_all
     },
-    _del: function(e) {
+    _del: function (e) {
         console.log(e.target)
         console.log(e.target.value)
     },
-    _thead: function() {
+    _thead: function () {
         let isdel_all = this.state.isdel_all
         let checked
         if (isdel_all) {
@@ -113,7 +110,7 @@ const Pages = React.createClass({
             )
         )
     },
-    _list: function(data) {
+    _list: function (data) {
         let list = []
         let p
         let thead = this.state.thead
@@ -125,7 +122,7 @@ const Pages = React.createClass({
         }
         return list
     },
-    _isdel_all: function() {
+    _isdel_all: function () {
         let isdel_all = this.state.isdel_all
         let del_all = this.state.del_all
         let del_id = []
@@ -140,7 +137,7 @@ const Pages = React.createClass({
             del_id: del_id
         });
     },
-    _click: function(e) {
+    _click: function (e) {
         let del_id = this.state.del_id
         let k = parseInt(e.target.value)
         let index = del_id.indexOf(k)
@@ -153,16 +150,16 @@ const Pages = React.createClass({
             del_id: del_id
         })
     },
-    _onDel: function(e) {
+    _onDel: function (e) {
         e.preventDefault()
         let id = e.target.id
         id = id.split("_")
         id = id[1]
         let url = this.props.params.pages + '/delete/' + id
         request.get(url)
-            .end(function(err, res) {
+            .end(function (err, res) {
                 if (err) {
-                    ConfigActions.msg(res.status + 'error')
+                    Rd.message(res.status + 'error')
                 } else {
                     var data = JSON.parse(res.text)
                     if (data.res == 404) {
@@ -174,18 +171,18 @@ const Pages = React.createClass({
                         return
                     }
                     this.componentDidMount()
-                    ConfigActions.message(data.msg)
+                    Rd.message(data.msg)
                 }
             }.bind(this))
     },
-    qq: function() {
+    qq: function () {
         let query = this.props.location.query
         console.log(query);
         return query
     },
-    render: function() {
+    render: function () {
         let url = this.props.params.pages
-        let list = this.state.items.map(function(data) {
+        let list = this.state.items.map(function (data) {
             let curl = '/api/' + url + '/' + data.id
             let arr = this.state.del_id
             let k = data.id
@@ -267,15 +264,19 @@ const Pages = React.createClass({
                             to: '/api/' + this.props.params.pages,
                             className: 'pure-menu-link',
                             activeClassName: 'active',
-                            query: { state: 0 }
+                            query: {
+                                state: 0
+                            }
                         },
                         '正常'
-                    ), 
+                    ),
                     React.createElement(Link, {
                             to: '/api/' + this.props.params.pages,
                             className: 'pure-menu-link',
                             activeClassName: 'active',
-                            query: { state: 1 }
+                            query: {
+                                state: 1
+                            }
                         },
                         '已删除'
                     ),
@@ -306,6 +307,6 @@ const Pages = React.createClass({
 
 module.exports = connect(
     state => ({
-        counter: state.config.show 
+        counter: state.config.show
     })
 )(Pages)

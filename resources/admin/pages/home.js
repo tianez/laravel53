@@ -23,7 +23,7 @@ var Home = React.createClass({
         })
     },
     click: function() {
-        user()
+        Rd.user()
     },
     render: function() {
         return (

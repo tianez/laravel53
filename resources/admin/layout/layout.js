@@ -11,8 +11,6 @@ const {
 var Layout = React.createClass({
     _onChange: function () {
         let config = ConfigStore.getAll()
-        console.log(config)
-        // window.document.title = config.title
         this.setState(config)
     },
     componentDidMount: function () {
@@ -50,7 +48,7 @@ var Layout = React.createClass({
                 //         className: 'switch',
                 //         key: this.props.location.pathname
                 //     },
-                React.createElement(Header, this.props),
+                React.createElement(Header),
                 React.createElement('section', {
                     id: 'main'
                 },

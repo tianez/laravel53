@@ -34,17 +34,12 @@ class L extends React.Component {
 }
 
 class Pagination extends React.Component {
-    constructor(props) {
-        super(props)
-        console.log(props);
-
+    constructor() {
+        super()
     }
     render() {
-        console.log(this.props.query);
-
         let i = 1
         let prev = 4
-        console.log(this.props);
         let total = this.props.page.total || 0
         let last_page = this.props.page.last_page || 0
         let current_page = this.props.page.current_page || ''

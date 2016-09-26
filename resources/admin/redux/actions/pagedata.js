@@ -1,7 +1,6 @@
 'use strict'
 
-//评论管理
+//列表分页数据
 export function pagedata(data) {
     store.dispatch({ type: 'pagedata', data });
 }
-
