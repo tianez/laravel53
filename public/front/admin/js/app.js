@@ -9863,17 +9863,16 @@
 	var Home = React.createClass({
 	    displayName: 'Home',
 
-	    // propTypes: {
-	    //     counter: React.PropTypes.object
-	    // },
+	    propTypes: {
+	        counter: React.PropTypes.number
+	    },
 	    getInitialState: function getInitialState() {
 	        return {
 	            items: ['hello', 'world', 'click', 'me']
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
-	        config('title', '首页');
-	        console.log('首页');
+	        Rd.config('title', '首页');
 	    },
 	    handleSelect: function handleSelect(data) {
 	        console.log(data); // Momentjs object

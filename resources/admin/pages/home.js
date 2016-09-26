@@ -1,17 +1,16 @@
 'use strict'
 
 var Home = React.createClass({
-    // propTypes: {
-    //     counter: React.PropTypes.object
-    // },
+    propTypes: {
+        counter: React.PropTypes.number
+    },
     getInitialState: function() {
         return {
             items: ['hello', 'world', 'click', 'me']
         };
     },
     componentDidMount: function() {
-        config('title', '首页')
-        console.log('首页');
+        Rd.config('title', '首页')
     },
     handleSelect: function(data) {
         console.log(data); // Momentjs object
@@ -39,7 +38,7 @@ var Home = React.createClass({
                     //         __html: this.state.html
                     //     }
                     // })
-                )
+                ) 
             )
         )
     }
