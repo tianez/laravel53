@@ -8951,12 +8951,12 @@
 	}
 
 	function getfetch2(url) {
+	    var filter = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
 	    return new Promise(function (resolve, reject) {
-	        request.get(url)
-	        // .query({
-	        //     filter: JSON.stringify(filter)
-	        // })
-	        .end(function (err, res) {
+	        request.get(url).query({
+	            filter: JSON.stringify(filter)
+	        }).end(function (err, res) {
 	            if (res.status == 200) {
 	                resolve(JSON.parse(res.text));
 	            } else {

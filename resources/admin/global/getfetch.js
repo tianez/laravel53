@@ -14,13 +14,13 @@ function json(response) {
     return response.json();
 }
 
-function getfetch2(url) {
+function getfetch2(url, filter = {}) {
     return new Promise(function (resolve, reject) {
         request
             .get(url)
-            // .query({
-            //     filter: JSON.stringify(filter)
-            // })
+            .query({
+                filter: JSON.stringify(filter)
+            })
             .end(function (err, res) {
                 if (res.status == 200) {
                     resolve(JSON.parse(res.text))
