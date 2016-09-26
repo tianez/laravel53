@@ -64,7 +64,6 @@ class Page extends React.Component {
             page
         } = this.props.params
         let requrl = page == 'add' ? pages + '/add' : pages + '/detail'
-        console.log(requrl);
         request.post(requrl)
             .send(this.state.info)
             .end(function(err, res) {

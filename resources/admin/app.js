@@ -30,6 +30,7 @@ window.connect = connect
 window.Rd = require('./redux/actions')
 
 const routers = require('./config/router')
+
 function render() {
     ReactDOM.render(
         React.createElement(Provider, {
@@ -40,31 +41,11 @@ function render() {
     )
 }
 
-function status(response) {
-    if (response.status == 200) {
-        return Promise.resolve(response);
-    } else {
-        return Promise.reject(new Error(response));
-    }
-}
-
-function json(response) {
-    return response.json();
-}
-
 function Init() {
-    fetch("admin/user", {
-            credentials: "include"
-        })
-        .then(status)
-        .then(json)
-        .then(function (data) {
-            Rd.user(data)
-            render()
-        })
-        .catch(function (err) {
-            console.log("Fetch错误:" + err);
-        });
+    getfetch("admin/user", function (response) {
+        Rd.user(response)
+        render()
+    })
 }
 
 Init()

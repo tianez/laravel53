@@ -6,7 +6,7 @@ const {
 const Apicloud = require('../components/utils/Apicloud')
 class A extends React.Component {
     render() {
-        return (
+        return ( 
             React.createElement('li', {
                     className: 'pure-menu-item'
                 },
@@ -39,23 +39,16 @@ class Sidebar extends React.Component {
             order: ['order DESC', 'createdAt DESC'],
             limit: 20
         }
-        request
-            .get('admin/meun')
-            .end(function(err, res) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    let data = JSON.parse(res.text)
-                    this.setState({
-                        menu: data
-                    })
-                }
-            }.bind(this))
+        getfetch('admin/meun', function (res) {
+            this.setState({
+                menu: res
+            })
+        }.bind(this))
     }
     render() {
         let menus
         if (this.state.menu) {
-            menus = this.state.menu.map(function(d, index) {
+            menus = this.state.menu.map(function (d, index) {
                 return React.createElement(A, {
                     key: index,
                     to: d.link,

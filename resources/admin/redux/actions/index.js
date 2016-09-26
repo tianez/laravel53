@@ -2,7 +2,7 @@
 
 import { config } from './config'
 import { comments, comment } from './comments'
-import { user } from './user'
+import { user, getuser } from './user'
 import { pagedata } from './pagedata'
 import { message } from './message'
 
@@ -11,6 +11,7 @@ module.exports = {
     comment,
     comments,
     user,
+    getuser,
     pagedata,
     message
 }
