@@ -76,7 +76,6 @@
 	window.store = createStoreWithLog(_reducer2.default);
 	store.subscribe(function () {
 	    var state = store.getState();
-	    console.log(state);
 	    window.document.title = state.config.title;
 	});
 
