@@ -9,12 +9,7 @@ const {
     Message
 } = require('./index')
 var Layout = React.createClass({
-    _onChange: function () {
-        let config = ConfigStore.getAll()
-        this.setState(config)
-    },
     componentDidMount: function () {
-        ConfigStore.addChangeListener(this._onChange);
         let filter = {
             where: {
                 state: 1
@@ -23,12 +18,9 @@ var Layout = React.createClass({
             limit: 100
         }
         Apicloud.get('role', filter, function (err, res) {
-            let roles = JSON.parse(res.text)
-            ConfigActions.update('roles', roles)
+            let roles = JSON.parse(res.text)     
+            Rd.config('roles', roles)
         })
-    },
-    componentWillUnmount: function () {
-        ConfigStore.removeChangeListener(this._onChange);
     },
     render: function () {
         return (
@@ -59,8 +51,7 @@ var Layout = React.createClass({
                     }, this.props.children)
                 ),
                 React.createElement(Footer),
-                React.createElement(Message, { message: ConfigStore.message() })
-                // )
+                React.createElement(Message)
             )
         )
     }

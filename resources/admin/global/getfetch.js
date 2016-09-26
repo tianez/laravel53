@@ -14,6 +14,25 @@ function json(response) {
     return response.json();
 }
 
+function getfetch2(url) {
+    return new Promise(function (resolve, reject) {
+        request
+            .get(url)
+            // .query({
+            //     filter: JSON.stringify(filter)
+            // })
+            .end(function (err, res) {
+                if (res.status == 200) {
+                    resolve(JSON.parse(res.text))
+                } else {
+                    reject(new Error(res.text));
+                }
+            })
+    }).catch(function (err) {
+        console.log("Fetch错误:" + err);
+    });
+}
+
 function getfetch(url, cb) {
     fetch(url, {
             credentials: "include"
@@ -26,4 +45,4 @@ function getfetch(url, cb) {
         });
 }
 
-module.exports = getfetch
+module.exports = getfetch2

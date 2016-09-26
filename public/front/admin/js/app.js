@@ -92,9 +92,11 @@
 	}
 
 	function Init() {
-	    getfetch("admin/user", function (response) {
+	    getfetch("admin/user").then(function (response) {
 	        Rd.user(response);
 	        render();
+	    }).catch(function (err) {
+	        console.log("Fetch错误:" + err);
 	    });
 	}
 
@@ -8948,6 +8950,24 @@
 	    return response.json();
 	}
 
+	function getfetch2(url) {
+	    return new Promise(function (resolve, reject) {
+	        request.get(url)
+	        // .query({
+	        //     filter: JSON.stringify(filter)
+	        // })
+	        .end(function (err, res) {
+	            if (res.status == 200) {
+	                resolve(JSON.parse(res.text));
+	            } else {
+	                reject(new Error(res.text));
+	            }
+	        });
+	    }).catch(function (err) {
+	        console.log("Fetch错误:" + err);
+	    });
+	}
+
 	function getfetch(url, cb) {
 	    fetch(url, {
 	        credentials: "include"
@@ -8956,7 +8976,7 @@
 	    });
 	}
 
-	module.exports = getfetch;
+	module.exports = getfetch2;
 
 /***/ },
 /* 84 */
@@ -9151,12 +9171,7 @@
 	var Layout = React.createClass({
 	    displayName: 'Layout',
 
-	    _onChange: function _onChange() {
-	        var config = ConfigStore.getAll();
-	        this.setState(config);
-	    },
 	    componentDidMount: function componentDidMount() {
-	        ConfigStore.addChangeListener(this._onChange);
 	        var filter = {
 	            where: {
 	                state: 1
@@ -9166,11 +9181,8 @@
 	        };
 	        Apicloud.get('role', filter, function (err, res) {
 	            var roles = JSON.parse(res.text);
-	            ConfigActions.update('roles', roles);
+	            Rd.config('roles', roles);
 	        });
-	    },
-	    componentWillUnmount: function componentWillUnmount() {
-	        ConfigStore.removeChangeListener(this._onChange);
 	    },
 	    render: function render() {
 	        return (
@@ -9195,9 +9207,7 @@
 	            }, React.createElement(Sidebar), React.createElement('section', {
 	                id: 'content',
 	                className: 'pure-u-1'
-	            }, this.props.children)), React.createElement(Footer), React.createElement(Message, { message: ConfigStore.message() })
-	            // )
-	            )
+	            }, this.props.children)), React.createElement(Footer), React.createElement(Message))
 	        );
 	    }
 	});
@@ -9214,17 +9224,13 @@
 	var AppKey = '7F7872C0-8EB2-D116-C9AF-AF02A4B65BA0';
 	var AppUrl = 'https://d.apicloud.com/mcm/api/';
 	var get = function get(url, filter, cb) {
-	    if (window.navigator.onLine == true) {
-	        var now = Date.now();
-	        var key = SHA1(AppId + 'UZ' + AppKey + 'UZ' + now) + "." + now;
-	        var token = storedb('user').find() ? storedb('user').find()[0].id : '';
-	        token = '';
-	        request.get(AppUrl + url).set('X-APICloud-AppId', AppId).set('X-APICloud-AppKey', key).set('authorization', token).query({
-	            filter: JSON.stringify(filter)
-	        }).end(cb);
-	    } else {
-	        console.log('网络出现故障！');
-	    }
+	    var now = Date.now();
+	    var key = SHA1(AppId + 'UZ' + AppKey + 'UZ' + now) + "." + now;
+	    var token = storedb('user').find() ? storedb('user').find()[0].id : '';
+	    token = '';
+	    request.get(AppUrl + url).set('X-APICloud-AppId', AppId).set('X-APICloud-AppKey', key).set('authorization', token).query({
+	        filter: JSON.stringify(filter)
+	    }).end(cb);
 	};
 
 	var post = function post(url, info, cb) {
@@ -9497,7 +9503,7 @@
 	                order: ['order DESC', 'createdAt DESC'],
 	                limit: 20
 	            };
-	            getfetch('admin/meun', function (res) {
+	            getfetch('admin/meun').then(function (res) {
 	                this.setState({
 	                    menu: res
 	                });

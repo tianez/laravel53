@@ -42,10 +42,13 @@ function render() {
 }
 
 function Init() {
-    getfetch("admin/user", function (response) {
-        Rd.user(response)
-        render()
-    })
+    getfetch("admin/user")
+        .then(function (response) {
+            Rd.user(response)
+            render()
+        }).catch(function (err) {
+            console.log("Fetch错误:" + err);
+        });
 }
 
 Init()
