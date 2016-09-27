@@ -10,8 +10,7 @@ const { Nomatch, Home, Drag, ApiCloudsIndex, ApiClouds, ApiCloud, Pages, Page, L
 function onEnter(nextState, replace) {
     let pathname = nextState.location.pathname
     let state = store.getState()    
-    let user = state.user.user_name 
-    console.log('当前用户:' + user);
+    let user = state.user.user_name
     if (!user && pathname !== 'login' && pathname !== '/login') {
         ConfigActions.update('msg', '你还没有登录，请先登录！')
         replace({
@@ -47,7 +46,7 @@ const routers = (
                 )
             )
         ),
-        React.createElement(Route, { path: "login", component: Login }),
+        React.createElement(Route, { path: "login", component: Login, onEnter: onEnter }),
         React.createElement(Route, { path: "logout", component: Logout }),
         React.createElement(Route, { path: "*", component: Nomatch })
     )

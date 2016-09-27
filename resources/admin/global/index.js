@@ -50,6 +50,6 @@ window.GetRequest = function GetRequest() {
     }
     return theRequest;
 }
-
-
-window.getfetch = require('./getfetch')
+import { getfetch2, postfetch } from './getfetch'
+window.getfetch = getfetch2
+window.postfetch = postfetch

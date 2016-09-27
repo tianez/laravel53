@@ -14,8 +14,7 @@ const Pages = React.createClass({
             del_all: [],
             isdel_all: false,
             thead: [],
-            title: '',
-            pages: {},
+            title: ''
         }
     },
 
@@ -33,26 +32,17 @@ const Pages = React.createClass({
     },
     _reQuest: function (props) {
         console.log(props.location);
-        request.get(props.params.pages)
-            .query(props.location.query)
-            .end(function (err, res) {
-                if (err) {
-                    this.props.history.pushState(null, '/')
-                    Rd.message(err.response.text)
-                } else {
-                    let data = JSON.parse(res.text);
-                    Rd.config('title',data.title)
-                    let items = []
-                    Rd.pagedata(data)
-                    this.setState({
-                        pages: data.pages,
-                        items: items.concat(data.pages.data),
-                        del_all: this._set_del_all(data.info),
-                        thead: data.thead,
-                        title: data.title,
-                    });
-                }
-
+        getfetch(props.params.pages, props.location.query)
+            .then(function (res) {
+                Rd.config('title', res.title)
+                Rd.pagedata(res)
+                let items = []
+                this.setState({
+                    items: items.concat(res.pages.data),
+                    del_all: this._set_del_all(res.info),
+                    thead: res.thead,
+                    title: res.title,
+                });
             }.bind(this))
     },
     _set_del_all: function (items) {
@@ -156,24 +146,10 @@ const Pages = React.createClass({
         id = id.split("_")
         id = id[1]
         let url = this.props.params.pages + '/delete/' + id
-        request.get(url)
-            .end(function (err, res) {
-                if (err) {
-                    Rd.message(res.status + 'error')
-                } else {
-                    var data = JSON.parse(res.text)
-                    if (data.res == 404) {
-                        this.setState({
-                            mods: [],
-                            info: data.info,
-                            title: data.msg,
-                        });
-                        return
-                    }
-                    this.componentDidMount()
-                    Rd.message(data.msg)
-                }
-            }.bind(this))
+        getfetch(url).then(function (res) {
+            this.componentDidMount()
+            Rd.message(res.msg)
+        }.bind(this))
     },
     qq: function () {
         let query = this.props.location.query

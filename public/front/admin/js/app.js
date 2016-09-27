@@ -6559,20 +6559,22 @@
 
 	'use strict';
 
+	var _getfetch = __webpack_require__(71);
+
 	/**
 	 * action
 	 */
-	window.ConfigActions = __webpack_require__(71);
+	window.ConfigActions = __webpack_require__(72);
 
 	/**
 	 * store
 	 */
-	window.ConfigStore = __webpack_require__(76);
+	window.ConfigStore = __webpack_require__(77);
 
 	/** 
 	 * 请求数据
 	 */
-	window.request = __webpack_require__(78);
+	window.request = __webpack_require__(79);
 
 	//获取url参数数组
 	window.get = function (url) {
@@ -6613,15 +6615,82 @@
 	    return theRequest;
 	};
 
-	window.getfetch = __webpack_require__(83);
+	window.getfetch = _getfetch.getfetch2;
+	window.postfetch = _getfetch.postfetch;
 
 /***/ },
 /* 71 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.getfetch2 = getfetch2;
+	exports.postfetch = postfetch;
+	exports.getfetch = getfetch;
+	function catchs(err) {
+	    console.log(err);
+	    Rd.message(err.status + '错误！' + err.text);
+	}
+
+	function getfetch2(url) {
+	    var query = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+	    return new Promise(function (resolve, reject) {
+	        request.get(url).query(query).end(function (err, res) {
+	            if (res.status == 200) {
+	                resolve(JSON.parse(res.text));
+	            } else {
+	                reject(err.response);
+	            }
+	        });
+	    }).catch(catchs);
+	}
+
+	function postfetch(url) {
+	    var query = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+	    var data = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+	    return new Promise(function (resolve, reject) {
+	        request.post(url).query(query).send(data).end(function (err, res) {
+	            if (res.status == 200) {
+	                resolve(JSON.parse(res.text));
+	            } else {
+	                reject(err.response);
+	            }
+	        });
+	    }).catch(catchs);
+	}
+
+	function status(response) {
+	    if (response.status == 200) {
+	        return Promise.resolve(response);
+	    } else {
+	        return Promise.reject(new Error(response));
+	    }
+	}
+
+	function json(response) {
+	    return response.json();
+	}
+
+	function getfetch(url, cb) {
+	    fetch(url, {
+	        credentials: "include"
+	    }).then(status).then(json).then(cb).catch(function (err) {
+	        console.log("Fetch错误:" + err);
+	    });
+	}
+
+/***/ },
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(72);
+	var AppDispatcher = __webpack_require__(73);
 
 	var ConfigActions = {
 
@@ -6661,7 +6730,7 @@
 	module.exports = ConfigActions;
 
 /***/ },
-/* 72 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6679,12 +6748,12 @@
 	 * A singleton that operates as the central hub for application updates.
 	 */
 
-	var Dispatcher = __webpack_require__(73).Dispatcher;
+	var Dispatcher = __webpack_require__(74).Dispatcher;
 
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 73 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6698,10 +6767,10 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
-	module.exports.Dispatcher = __webpack_require__(74);
+	module.exports.Dispatcher = __webpack_require__(75);
 
 /***/ },
-/* 74 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6727,7 +6796,7 @@
 	  }
 	}
 
-	var invariant = __webpack_require__(75);
+	var invariant = __webpack_require__(76);
 
 	var _prefix = 'ID_';
 
@@ -6942,7 +7011,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 75 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6997,13 +7066,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 76 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AppDispatcher = __webpack_require__(72);
-	var EventEmitter = __webpack_require__(77).EventEmitter;
+	var AppDispatcher = __webpack_require__(73);
+	var EventEmitter = __webpack_require__(78).EventEmitter;
 	var assign = __webpack_require__(33);
 
 	var CHANGE_EVENT = 'config';
@@ -7088,7 +7157,7 @@
 	}
 
 /***/ },
-/* 77 */
+/* 78 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7366,7 +7435,7 @@
 	}
 
 /***/ },
-/* 78 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7388,9 +7457,9 @@
 	  root = undefined;
 	}
 
-	var Emitter = __webpack_require__(79);
-	var requestBase = __webpack_require__(80);
-	var isObject = __webpack_require__(81);
+	var Emitter = __webpack_require__(80);
+	var requestBase = __webpack_require__(81);
+	var isObject = __webpack_require__(82);
 
 	/**
 	 * Noop.
@@ -7402,7 +7471,7 @@
 	 * Expose `request`.
 	 */
 
-	var request = module.exports = __webpack_require__(82).bind(null, Request);
+	var request = module.exports = __webpack_require__(83).bind(null, Request);
 
 	/**
 	 * Determine XHR.
@@ -8354,7 +8423,7 @@
 	};
 
 /***/ },
-/* 79 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8518,7 +8587,7 @@
 	};
 
 /***/ },
-/* 80 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8526,7 +8595,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(81);
+	var isObject = __webpack_require__(82);
 
 	/**
 	 * Clear previous timeout.
@@ -8869,7 +8938,7 @@
 	};
 
 /***/ },
-/* 81 */
+/* 82 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8891,7 +8960,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 82 */
+/* 83 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8928,54 +8997,6 @@
 	}
 
 	module.exports = request;
-
-/***/ },
-/* 83 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	//获取当前用户信息
-
-	function status(response) {
-	    if (response.status == 200) {
-	        return Promise.resolve(response);
-	    } else {
-	        return Promise.reject(new Error(response));
-	    }
-	}
-
-	function json(response) {
-	    return response.json();
-	}
-
-	function getfetch2(url) {
-	    var filter = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-	    return new Promise(function (resolve, reject) {
-	        request.get(url).query({
-	            filter: JSON.stringify(filter)
-	        }).end(function (err, res) {
-	            if (res.status == 200) {
-	                resolve(JSON.parse(res.text));
-	            } else {
-	                reject(new Error(res.text));
-	            }
-	        });
-	    }).catch(function (err) {
-	        console.log("Fetch错误:" + err);
-	    });
-	}
-
-	function getfetch(url, cb) {
-	    fetch(url, {
-	        credentials: "include"
-	    }).then(status).then(json).then(cb).catch(function (err) {
-	        console.log("Fetch错误:" + err);
-	    });
-	}
-
-	module.exports = getfetch2;
 
 /***/ },
 /* 84 */
@@ -9134,7 +9155,6 @@
 	    var pathname = nextState.location.pathname;
 	    var state = store.getState();
 	    var user = state.user.user_name;
-	    console.log('当前用户:' + user);
 	    if (!user && pathname !== 'login' && pathname !== '/login') {
 	        ConfigActions.update('msg', '你还没有登录，请先登录！');
 	        replace({
@@ -9147,7 +9167,7 @@
 	    }
 	}
 
-	var routers = React.createElement(Router, { history: history }, React.createElement(Route, { path: "/", component: Layout, onEnter: onEnter }, React.createElement(IndexRedirect, { to: 'index' }), React.createElement(Route, { path: "index", component: Home }), React.createElement(Route, { path: "import", component: Import }), React.createElement(Route, { path: "drag", component: Drag }), React.createElement(Route, { path: "apicloud" }, React.createElement(IndexRoute, { component: ApiCloudsIndex }), React.createElement(Route, { path: ":clouds" }, React.createElement(IndexRoute, { component: ApiClouds }), React.createElement(Route, { path: ":articleId", component: ApiCloud }))), React.createElement(Route, { path: "api" }, React.createElement(IndexRoute, { component: ApiCloudsIndex }), React.createElement(Redirect, { from: ':pages', to: ':pages/index' }), React.createElement(Route, { path: ":pages" }, React.createElement(Route, { path: "index", component: Pages }), React.createElement(Route, { path: ":page", component: Page })))), React.createElement(Route, { path: "login", component: Login }), React.createElement(Route, { path: "logout", component: Logout }), React.createElement(Route, { path: "*", component: Nomatch }));
+	var routers = React.createElement(Router, { history: history }, React.createElement(Route, { path: "/", component: Layout, onEnter: onEnter }, React.createElement(IndexRedirect, { to: 'index' }), React.createElement(Route, { path: "index", component: Home }), React.createElement(Route, { path: "import", component: Import }), React.createElement(Route, { path: "drag", component: Drag }), React.createElement(Route, { path: "apicloud" }, React.createElement(IndexRoute, { component: ApiCloudsIndex }), React.createElement(Route, { path: ":clouds" }, React.createElement(IndexRoute, { component: ApiClouds }), React.createElement(Route, { path: ":articleId", component: ApiCloud }))), React.createElement(Route, { path: "api" }, React.createElement(IndexRoute, { component: ApiCloudsIndex }), React.createElement(Redirect, { from: ':pages', to: ':pages/index' }), React.createElement(Route, { path: ":pages" }, React.createElement(Route, { path: "index", component: Pages }), React.createElement(Route, { path: ":page", component: Page })))), React.createElement(Route, { path: "login", component: Login, onEnter: onEnter }), React.createElement(Route, { path: "logout", component: Logout }), React.createElement(Route, { path: "*", component: Nomatch }));
 
 	module.exports = routers;
 
@@ -9218,7 +9238,7 @@
 
 	'use strict';
 
-	var request = __webpack_require__(78);
+	var request = __webpack_require__(79);
 	var AppId = 'A6984077246442';
 	var AppKey = '7F7872C0-8EB2-D116-C9AF-AF02A4B65BA0';
 	var AppUrl = 'https://d.apicloud.com/mcm/api/';
@@ -9406,7 +9426,7 @@
 
 	'use strict';
 
-	var request = __webpack_require__(78);
+	var request = __webpack_require__(79);
 	var AppUrl = 'http://apis.baidu.com/';
 	var apikey = 'c01ea8775f1c2620b7dd6f5b6bcec93b';
 	var get = function get(url, cb) {
@@ -12375,7 +12395,7 @@
 	var Link = _ReactRouter.Link;
 
 
-	var request = __webpack_require__(78);
+	var request = __webpack_require__(79);
 	var Pagination = __webpack_require__(99);
 
 	var Pages = React.createClass({
@@ -12388,8 +12408,7 @@
 	            del_all: [],
 	            isdel_all: false,
 	            thead: [],
-	            title: '',
-	            pages: {}
+	            title: ''
 	        };
 	    },
 
@@ -12407,23 +12426,16 @@
 	    },
 	    _reQuest: function _reQuest(props) {
 	        console.log(props.location);
-	        request.get(props.params.pages).query(props.location.query).end(function (err, res) {
-	            if (err) {
-	                this.props.history.pushState(null, '/');
-	                Rd.message(err.response.text);
-	            } else {
-	                var data = JSON.parse(res.text);
-	                Rd.config('title', data.title);
-	                var items = [];
-	                Rd.pagedata(data);
-	                this.setState({
-	                    pages: data.pages,
-	                    items: items.concat(data.pages.data),
-	                    del_all: this._set_del_all(data.info),
-	                    thead: data.thead,
-	                    title: data.title
-	                });
-	            }
+	        getfetch(props.params.pages, props.location.query).then(function (res) {
+	            Rd.config('title', res.title);
+	            Rd.pagedata(res);
+	            var items = [];
+	            this.setState({
+	                items: items.concat(res.pages.data),
+	                del_all: this._set_del_all(res.info),
+	                thead: res.thead,
+	                title: res.title
+	            });
 	        }.bind(this));
 	    },
 	    _set_del_all: function _set_del_all(items) {
@@ -12513,22 +12525,9 @@
 	        id = id.split("_");
 	        id = id[1];
 	        var url = this.props.params.pages + '/delete/' + id;
-	        request.get(url).end(function (err, res) {
-	            if (err) {
-	                Rd.message(res.status + 'error');
-	            } else {
-	                var data = JSON.parse(res.text);
-	                if (data.res == 404) {
-	                    this.setState({
-	                        mods: [],
-	                        info: data.info,
-	                        title: data.msg
-	                    });
-	                    return;
-	                }
-	                this.componentDidMount();
-	                Rd.message(data.msg);
-	            }
+	        getfetch(url).then(function (res) {
+	            this.componentDidMount();
+	            Rd.message(res.msg);
 	        }.bind(this));
 	    },
 	    qq: function qq() {
@@ -12847,7 +12846,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var request = __webpack_require__(78);
+	var request = __webpack_require__(79);
 	var _ReactRouter = ReactRouter;
 	var Link = _ReactRouter.Link;
 
@@ -12891,7 +12890,7 @@
 	                if (err) throw err;
 	                var data = JSON.parse(res.text);
 	                if (data.state == 'ok') {
-	                    Rd.config('user', data.data);
+	                    Rd.user(data.data);
 	                    this.props.history.pushState(null, '/');
 	                    // this.context.router.push('/')
 	                    // this.context.history.replace('/')
@@ -12977,20 +12976,8 @@
 	        value: function componentDidMount() {
 	            getfetch('admin/logout').then(function (res) {
 	                Rd.user('');
-	                this.setState({
-	                    menu: res
-	                });
-	            });
-	            // request
-	            //     .get('admin/logout')
-	            //     .end(function (err, res) {
-	            //         if (err) {
-	            //             reject('error');
-	            //         } else {
-	            //             storedb('user').remove()
-	            //             this.props.history.pushState(null, 'login')
-	            //         }
-	            //     }.bind(this))
+	                this.props.history.pushState(null, 'login');
+	            }.bind(this));
 	        }
 	    }, {
 	        key: 'render',

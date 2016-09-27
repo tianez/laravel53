@@ -1,7 +1,42 @@
 'use strict'
 
+function catchs(err) {
+    console.log(err);
+    Rd.message(err.status + '错误！' + err.text)
+}
 
-//获取当前用户信息
+export function getfetch2(url, query = {}) {
+    return new Promise(function (resolve, reject) {
+        request
+            .get(url)
+            .query(query)
+            .end(function (err, res) {
+                if (res.status == 200) {
+                    resolve(JSON.parse(res.text))
+                } else {
+                    reject(err.response);
+                }
+            })
+    }).catch(catchs);
+}
+
+export function postfetch(url, query = {}, data = {}) {
+    return new Promise(function (resolve, reject) {
+        request
+            .post(url)
+            .query(query)
+            .send(data)
+            .end(function (err, res) {
+                if (res.status == 200) {
+                    resolve(JSON.parse(res.text))
+                } else {
+                    reject(err.response);
+                }
+            })
+    }).catch(catchs);
+}
+
+
 function status(response) {
     if (response.status == 200) {
         return Promise.resolve(response);
@@ -14,26 +49,7 @@ function json(response) {
     return response.json();
 }
 
-function getfetch2(url, filter = {}) {
-    return new Promise(function (resolve, reject) {
-        request
-            .get(url)
-            .query({
-                filter: JSON.stringify(filter)
-            })
-            .end(function (err, res) {
-                if (res.status == 200) {
-                    resolve(JSON.parse(res.text))
-                } else {
-                    reject(new Error(res.text));
-                }
-            })
-    }).catch(function (err) {
-        console.log("Fetch错误:" + err);
-    });
-}
-
-function getfetch(url, cb) {
+export function getfetch(url, cb) {
     fetch(url, {
             credentials: "include"
         })
@@ -44,5 +60,3 @@ function getfetch(url, cb) {
             console.log("Fetch错误:" + err);
         });
 }
-
-module.exports = getfetch2
