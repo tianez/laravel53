@@ -9,12 +9,12 @@ const {
     Radio,
     Checkbox,
     Upload,
-    Range, 
+    Range,
     Button,
     Select,
     Hidden,
     Category
-} = require('../components/forms') 
+} = require('../components/forms')
 const {
     Link
 } = ReactRouter;
@@ -40,22 +40,20 @@ class Page extends React.Component {
         } = props.params
         let requrl = page == 'add' ? pages + '/add' : pages + '/detail/' + page
         request.get(requrl)
-            .end(function(err, res) {
+            .end(function (err, res) {
                 let msg
-                if (err) {              
+                if (err) {
                     this.props.history.pushState(null, '/')
                     msg = err.response.text
                 } else {
                     let data = JSON.parse(res.text);
                     msg = data.msg
-                    ConfigActions.update('title', data.title)
                     this.setState({
                         title: data.title,
                         fields: data.fields,
                         info: data.info || {}
                     })
                 }
-                ConfigActions.message(msg)
             }.bind(this))
     }
     _onSubmit(e) {
@@ -64,20 +62,12 @@ class Page extends React.Component {
             page
         } = this.props.params
         let requrl = page == 'add' ? pages + '/add' : pages + '/detail'
-        request.post(requrl)
-            .send(this.state.info)
-            .end(function(err, res) {
-                let msg
-                if (err) {
-                    msg = err.response.text
-                } else {
-                    let data = JSON.parse(res.text);
-                    msg = data.msg
-                    if (page == 'add') {
-                        this.props.history.pushState(null, 'api/' + pages + '/' + data.info.id)
-                    }
+        postfetch(requrl, this.state.info)
+            .then(function (res) {
+                if (page == 'add') {
+                    this.props.history.pushState(null, 'api/' + pages + '/' + res.info.id)
                 }
-                Rd.message(msg) 
+                Rd.message(res.msg)
             }.bind(this))
     }
     _onChange(name, value) {
@@ -94,7 +84,7 @@ class Page extends React.Component {
         let model = this.state.fields
         if (model) {
             let onChange = this._onChange.bind(this)
-            forms = model.map(function(ds, index) {
+            forms = model.map(function (ds, index) {
                 let d = {}
                 if (info[ds.key] || info[ds.key] == 0) {
                     d.value = info[ds.key]
@@ -161,10 +151,10 @@ class Page extends React.Component {
                         className: "page-title"
                     },
                     this.state.title,
-                    this.props.params.page!=='add'?
-                    React.createElement(Link,{
+                    this.props.params.page !== 'add' ?
+                    React.createElement(Link, {
                         to: '/api/' + this.props.params.pages + '/add',
-                    },'（新增）'):null
+                    }, '（新增）') : null
                 ),
                 React.createElement(Form, {
                         action: this.state.action,

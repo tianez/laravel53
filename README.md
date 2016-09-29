@@ -24,7 +24,7 @@ php artisan make:model User -m
  * https://github.com/ignasbernotas/laravel-model-generator
  * php artisan make:models
 **/
-
+ 
 /**
  * 从数据库导出数据
  * https://github.com/orangehill/iseed

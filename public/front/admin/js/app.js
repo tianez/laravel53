@@ -6622,6 +6622,7 @@
 	exports.getfetch = getfetch;
 	function catchs(err) {
 	    console.log(err);
+	    window.history.back();
 	    Rd.message(err.status + '错误！' + err.text);
 	}
 
@@ -8592,7 +8593,6 @@
 	    _createClass(Header, [{
 	        key: 'render',
 	        value: function render() {
-	            var msg = ConfigStore.get('msg');
 	            return React.createElement('header', {
 	                id: 'header',
 	                className: 'pure-u-1 pure-menu pure-menu-horizontal pure-menu-fixed'
@@ -8601,10 +8601,7 @@
 	                to: '/'
 	            }, '我的理想乡'), React.createElement('ul', {
 	                className: 'pure-menu-list right'
-	            }, React.createElement(A, {
-	                to: 'login',
-	                title: '登陆'
-	            }), React.createElement(A, {
+	            }, React.createElement('div', {}, this.props.user.user_name), React.createElement(A, {
 	                to: 'logout',
 	                title: '登出'
 	            })));
@@ -8614,7 +8611,11 @@
 	    return Header;
 	}(React.Component);
 
-	module.exports = Header;
+	module.exports = connect(function (state) {
+	    return {
+	        user: state.user
+	    };
+	})(Header);
 
 /***/ },
 /* 88 */
@@ -11934,14 +11935,12 @@
 	                } else {
 	                    var data = JSON.parse(res.text);
 	                    msg = data.msg;
-	                    ConfigActions.update('title', data.title);
 	                    this.setState({
 	                        title: data.title,
 	                        fields: data.fields,
 	                        info: data.info || {}
 	                    });
 	                }
-	                ConfigActions.message(msg);
 	            }.bind(this));
 	        }
 	    }, {
@@ -11952,18 +11951,11 @@
 	            var page = _props$params2.page;
 
 	            var requrl = page == 'add' ? pages + '/add' : pages + '/detail';
-	            request.post(requrl).send(this.state.info).end(function (err, res) {
-	                var msg = void 0;
-	                if (err) {
-	                    msg = err.response.text;
-	                } else {
-	                    var data = JSON.parse(res.text);
-	                    msg = data.msg;
-	                    if (page == 'add') {
-	                        this.props.history.pushState(null, 'api/' + pages + '/' + data.info.id);
-	                    }
+	            postfetch(requrl, this.state.info).then(function (res) {
+	                if (page == 'add') {
+	                    this.props.history.pushState(null, 'api/' + pages + '/' + res.info.id);
 	                }
-	                Rd.message(msg);
+	                Rd.message(res.msg);
 	            }.bind(this));
 	        }
 	    }, {

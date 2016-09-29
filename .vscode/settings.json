@@ -18,7 +18,6 @@
         "tests": true,
         ".htaccess": true,
         "composer.phar": true,
-        "vendor": true,
         "vendor.zip": true,
         "app/Exceptions":true,
         "app/Policies":true,

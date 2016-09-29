@@ -2,8 +2,9 @@
 
 function catchs(err) {
     console.log(err);
+    window.history.back()
     Rd.message(err.status + '错误！' + err.text)
-}
+} 
 
 export function getfetch2(url, query = {}) {
     return new Promise(function (resolve, reject) {
