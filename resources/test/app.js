@@ -1,7 +1,7 @@
  var Upload = React.createClass({
      getInitialState: function() {
          return {
-             file: './images/4.jpg',
+             file: './images/avatar/4.jpg',
              res: 'sdsd'
          }
      },
@@ -24,7 +24,7 @@
      uploadFile: function(file) {
          var data = new FormData();
          data.append('file', file)
-         fetch('./upload.php', {
+         fetch('chat/avatar', {
                  method: 'post',
                  body: data
              }).then(function(res) {

@@ -17,6 +17,10 @@ Route::get('list/{id}', 'XbhController@getList');
 Route::get('show', 'XbhController@getIndex');
 Route::get('show/{id}', 'XbhController@getShow');
 
+Route::get('test', 'TestController@getIndex');
+// Route::controller('test', 'TestController/getIndex');
+
+
 Route::get('tk', 'CjyunController@getIndex');
 
 Route::group(['prefix' => 'topic'], function () {
@@ -33,7 +37,7 @@ Route::group(['prefix' => 'chat'], function () {
     Route::post('/', 'ChatController@postIndex');
     Route::get('list', 'ChatController@getList');
     Route::post('login', 'ChatController@postLogin');
-    Route::post('avatar', 'TestController@postAvatar');
+    Route::post('avatar', 'ChatController@postAvatar');
 });
 
 Route::group(['prefix' => 'chats'], function () {
@@ -139,7 +143,3 @@ Route::group(['prefix' => 'users'], function () {
     Route::get('detail/{id}','UsersController@getDetail');
     Route::post('detail', 'UsersController@postDetail');
 });
-
-
-Route::get('test', 'TestController@getIndex');
-// Route::controller('test', 'TestController/getIndex');

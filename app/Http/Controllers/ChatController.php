@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use DB;
+use Storage;
 use Illuminate\Http\Request;
 
 use App\Http\Model\Chat;
