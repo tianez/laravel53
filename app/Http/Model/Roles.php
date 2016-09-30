@@ -8,13 +8,13 @@ class Roles extends Model {
     *
     * @var string
     */
-    protected $table = 'roles';
+    protected $table = 'db_roles';
     
     protected $fillable = array('name', 'display_name', 'thumb', 'description', 'status');
     
     //获取用户组的权限
     public function Permissions() {
-        $results = $this->belongsToMany('App\Http\Model\Permissions', 'role_permission', 'role_id', 'permission_id');
+        $results = $this->belongsToMany('App\Http\Model\Permissions', 'db_role_permission', 'role_id', 'permission_id');
         return $results;
     }
     

@@ -8,7 +8,7 @@ class Meun extends Model {
     *
     * @var string
     */
-    protected $table = 'meun';
+    protected $table = 'db_meun';
     
     protected $fillable = array('link', 'title', 'icon', 'description','roles','order', 'status');
     

@@ -51,7 +51,7 @@ class CategoryController extends MainController {
     }
     public function getDelete($id) {
         $info = $this->model->destroy($id);
-        $roles = DB::table('article_taxonomy')->where('cat_id',$id)->delete();
+        $roles = DB::table('db_article_taxonomy')->where('cat_id',$id)->delete();
         $out = array('title' => '删除分类','msg'=>'分类删除成功！');
         return response()->json($out);
     }

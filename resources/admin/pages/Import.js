@@ -12,7 +12,7 @@ const ajaxUpload = require('../components/utils/AjaxUpload')
 
 var Import = React.createClass({
     componentDidMount: function() {
-        ConfigActions.update('title', '数据导入')
+        Rd.config('title', '数据导入')
     },
     _onSubmit: function() {
         let files = this.refs.file2.files
@@ -32,7 +32,7 @@ var Import = React.createClass({
             onLoad: (e) => {
                 let res = JSON.parse(e.currentTarget.responseText)
                 console.log(res);
-                ConfigActions.message(res.msg)
+                Rd.message(res.msg)
             },
             onError: () => {}
         })
@@ -54,7 +54,7 @@ var Import = React.createClass({
             onLoad: (e) => {
                 let res = JSON.parse(e.currentTarget.responseText)
                 console.log(res);
-                ConfigActions.message(res.msg)
+                Rd.message(res.msg)
             },
             onError: () => {}
         })

@@ -18,24 +18,6 @@ class Layout extends React.Component {
     constructor() {
         super()
     }
-    _onChange() {
-        let config = ConfigStore.getAll()
-        console.log(config)
-        window.document.title = config.title
-        this.setState(config)
-    }
-    componentDidMount() {
-        ConfigStore.addChangeListener(this._onChange.bind(this))
-        // setTimeout(function() {
-        //     Tip({ title: '23232', content: 'haode aadsa!' })
-        // }, 3000);
-    }
-    componentWillUpdate(nextProps, nextState) {
-
-    }
-    componentWillUnmount() {
-        ConfigStore.removeChangeListener(this._onChange.bind(this))
-    }
     render() {
         return (
             React.createElement('div', {

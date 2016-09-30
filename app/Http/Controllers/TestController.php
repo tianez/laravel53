@@ -20,8 +20,10 @@ class TestController extends Controller {
     public function __construct() {
         // $this->middleware('auth',['except' => 'login']);
     }
-    
     public function getIndex(Request $request) {
+        return view('test');
+    }
+    public function getIndex2(Request $request) {
         $actions = $request->route();
         dump($actions);
         $actions = $request->route()->getAction();

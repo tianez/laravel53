@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use DB;
+use Storage;
 use Illuminate\Http\Request;
 
 use App\Http\Model\Chat;
@@ -79,14 +80,20 @@ class ChatController extends Controller {
         DB::table('role_user')->insert(array('user_id'=>$info->id,'role_id'=>3));
         return response()->json($info);
     }
-
+    
     public function postAvatar(Request $request) {
         $data = $request->all();
-        $res = array();
-        $filename = $_FILES["file"]['name'];
-        $file = Storage::put('avatar/'.$filename,file_get_contents($_FILES['file']['tmp_name']));
-        if($file){
-            return response()->json($_FILES["file"]);
+        
+        $file = $_FILES["file"];
+        $filename = $file['name'];
+        $extname = strtolower(strrchr($filename,"."));
+        $randNum = rand(9999, 100000);
+        $filepath = './avatar/'.date('Ymd').'/'.time().'-'.$randNum.$extname;
+        $res = Storage::put($filepath,file_get_contents($_FILES['file']['tmp_name']));
+        if($res){
+            $file = array_except($file,['tmp_name']);
+            $file['filepath'] = $filepath;
+            return response()->json($file);
         }
     }
 }

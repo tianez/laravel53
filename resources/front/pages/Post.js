@@ -26,7 +26,7 @@ class Post extends React.Component {
         // console.log('0');
     }
     componentDidMount() {
-        ConfigActions.update('title', 'post')
+        Rd.config('title','post')
             // storedb('article').insert({ 'id': 1, 'value': '23232323' })
             // let res = storedb('article').find({ 'id': 1 })
             // console.log(res)

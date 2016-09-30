@@ -32,13 +32,15 @@ class Weui extends React.Component {
         super()
     }
     componentDidMount() {
-        ConfigActions.update('title', 'Weui')
-    }
+        Rd.config('title', 'Weui')
+    } 
     toast() {
         toast()
+        Rd.toast('haodesdsds')
     }
     alert() {
         alert()
+        Rd.alert('haodesd')
     }
     reLoad() {
         setTimeout(function() {

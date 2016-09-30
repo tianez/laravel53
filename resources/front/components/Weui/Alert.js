@@ -23,11 +23,7 @@ class Alert extends React.Component {
         return true
     }
     _onClick() {
-        if (this.props.g) {
-            ConfigActions.update('alert', { show: false })
-        } else {
-            this.setState({ show: false })
-        }
+        Rd.alert()
     }
     render() {
         const cls = classNames({
@@ -36,45 +32,44 @@ class Alert extends React.Component {
         })
         return (
             React.createElement('div', {
-                className: cls,
-                style: {
-                    display: this.state.show ? 'block' : 'none'
-                }
-            },
+                    className: cls,
+                    style: {
+                        display: this.props.message ? 'block' : 'none'
+                    }
+                },
                 React.createElement('div', {
                     className: 'weui_mask'
                 }),
                 React.createElement('div', {
-                    className: 'weui_dialog'
-                },
-                    React.createElement('div', {
-                        className: 'weui_dialog_hd'
+                        className: 'weui_dialog'
                     },
-                        React.createElement('strong', {
-                            className: 'weui_dialog_title'
+                    React.createElement('div', {
+                            className: 'weui_dialog_hd'
                         },
-                            this.state.title ? this.state.title : this.props.title
+                        React.createElement('strong', {
+                                className: 'weui_dialog_title'
+                            },
+                            this.props.title
                         )
                     ),
                     React.createElement('div', {
-                        className: 'weui_dialog_bd'
-                    },
-                        this.state.content ? this.state.content : this.props.content
+                            className: 'weui_dialog_bd'
+                        },
+                        this.props.message
                     ),
                     React.createElement('div', {
-                        className: 'weui_dialog_ft'
-                    },
-                        !this.props.alert ? React.createElement('a', {
-                            className: 'weui_btn_dialog default',
-                            onClick: this._onClick.bind(this)
-                        },
+                            className: 'weui_dialog_ft'
+                        }, !this.props.alert ? React.createElement('a', {
+                                className: 'weui_btn_dialog default',
+                                onClick: this._onClick.bind(this)
+                            },
                             '取消'
                         ) : null,
                         React.createElement('a', {
-                            className: 'weui_btn_dialog primary',
-                            onClick: this._onClick.bind(this)
-                        },
-                            this.state.action ? this.state.action : this.props.action
+                                className: 'weui_btn_dialog primary',
+                                onClick: this._onClick.bind(this)
+                            },
+                            this.props.action
                         )
                     )
                 )
@@ -85,9 +80,12 @@ class Alert extends React.Component {
 Alert.defaultProps = {
     show: false,
     title: '弹窗标题',
-    content: '弹窗内容，告知当前页面信息等',
     action: '确定',
-    alert:true,
+    alert: true,
 }
 
-module.exports = Alert
+module.exports = connect(
+    state => ({
+        message: state.alert.message
+    })
+)(Alert)

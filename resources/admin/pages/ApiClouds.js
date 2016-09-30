@@ -39,7 +39,7 @@ var ApiClouds = React.createClass({
     _req: function (props) {
         let action = props.params.clouds
         let title = this.props[action] ? this.props[action].title : '田恩仲开发设计'
-        ConfigActions.update('title', title)
+        Rd.config('title', title)
         let where = {}
         let $_GET = get(props.location.search)
         extend(where, $_GET)
@@ -54,11 +54,11 @@ var ApiClouds = React.createClass({
         }
         Apicloud.get(props.params.clouds, filter, function (err, res) {
             if (err) {
-                ConfigActions.msg(res.status + 'error');
+                Rd.message(res.status + 'error');
             } else {
                 let data = JSON.parse(res.text)
                 if (data.res == 404) {
-                    ConfigActions.update('title', data.msg)
+                    Rd.config('title', data.msg)
                     this.setState({
                         hash: props.location.pathname,
                         search: props.location.search,
@@ -91,9 +91,9 @@ var ApiClouds = React.createClass({
                 let curl = '/apicloud/' + this.props.params.clouds + '/' + d.id
                 return (
                     React.createElement('tr', {
-                        className: (index % 2 == 0) ? 'pure-table-odd' : '',
-                        key: index
-                    },
+                            className: (index % 2 == 0) ? 'pure-table-odd' : '',
+                            key: index
+                        },
                         React.createElement('td', {}, '#'),
                         this.state.table.tbody.map(function (t, i) {
                             return React.createElement('td', {
@@ -102,8 +102,8 @@ var ApiClouds = React.createClass({
                         }),
                         React.createElement('td', {},
                             React.createElement(Link, {
-                                to: curl
-                            },
+                                    to: curl
+                                },
                                 '编辑'
                             )
                         )
@@ -113,69 +113,69 @@ var ApiClouds = React.createClass({
         }
         return (
             React.createElement('section', {
-                className: 'warp'
-            },
-                React.createElement('section', {
-                    className: 'pure-g'
+                    className: 'warp'
                 },
-                    React.createElement('h3', {
-                        className: 'pure-u-1'
+                React.createElement('section', {
+                        className: 'pure-g'
                     },
+                    React.createElement('h3', {
+                            className: 'pure-u-1'
+                        },
                         this.state.table.title
                     ),
                     React.createElement('div', {
-                        className: 'pure-u-1 filter'
-                    },
-                        React.createElement('a', {
-                            className: 'pure-menu-link'
+                            className: 'pure-u-1 filter'
                         },
+                        React.createElement('a', {
+                                className: 'pure-menu-link'
+                            },
                             '筛选'
                         ),
                         React.createElement(Link, {
-                            to: '/apicloud/' + this.props.params.clouds,
-                            className: 'pure-menu-link',
-                            activeClassName: 'active'
-                        },
+                                to: '/apicloud/' + this.props.params.clouds,
+                                className: 'pure-menu-link',
+                                activeClassName: 'active'
+                            },
                             '全部'
                         ),
                         React.createElement(Link, {
-                            to: '/apicloud/' + this.props.params.clouds,
-                            className: 'pure-menu-link',
-                            activeClassName: 'active',
-                            query: {
-                                state: 1
-                            }
-                        },
+                                to: '/apicloud/' + this.props.params.clouds,
+                                className: 'pure-menu-link',
+                                activeClassName: 'active',
+                                query: {
+                                    state: 1
+                                }
+                            },
                             '正常'
                         ),
                         React.createElement(Link, {
-                            to: '/apicloud/' + this.props.params.clouds,
-                            className: 'pure-menu-link',
-                            activeClassName: 'active',
-                            query: {
-                                state: 0
-                            }
-                        },
+                                to: '/apicloud/' + this.props.params.clouds,
+                                className: 'pure-menu-link',
+                                activeClassName: 'active',
+                                query: {
+                                    state: 0
+                                }
+                            },
                             '删除'
                         )
                     ),
                     React.createElement('div', {
-                        className: 'pure-u-1'
-                    },
-                        React.createElement('table', {
-                            className: 'pure-table',
-                            style: {
-                                width: "100%"
-                            }
+                            className: 'pure-u-1'
                         },
+                        React.createElement('table', {
+                                className: 'pure-table',
+                                style: {
+                                    width: "100%"
+                                }
+                            },
                             React.createElement('thead', {},
                                 React.createElement('tr', {},
                                     thead
                                 )
                             ),
                             React.createElement('tbody', {
-                                id: 'uid'
-                            },
+                                    id: 'uid'
+                                },
                                 lists
                             )
                         )

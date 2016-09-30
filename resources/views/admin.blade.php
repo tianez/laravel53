@@ -9,7 +9,7 @@
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/pure/pure.css" />
     <link href="http://cdn.bootcss.com/draft-js/0.7.0/Draft.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/adminc/css/style.css" />
+    <link href="./front/admin/css/style.css" rel="stylesheet">
 </head>
 
 <body>

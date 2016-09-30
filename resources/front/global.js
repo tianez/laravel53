@@ -40,6 +40,16 @@ window.extend = function (o, n, override) {
         if (n.hasOwnProperty(p) && (!o.hasOwnProperty(p) || override)) o[p] = n[p];
 }
 
+//克隆对象
+window.clone = function(myObj) {
+    if (typeof (myObj) != 'object') return myObj;
+    if (myObj == null) return myObj;
+    var myNewObj = new Object();
+    for (var i in myObj)
+        myNewObj[i] = clone(myObj[i]);
+    return myNewObj;
+}
+
 window.GetRequest = function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest = new Object();

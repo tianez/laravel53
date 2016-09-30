@@ -13,7 +13,7 @@ class Fields extends Model
     *
     * @var string
     */
-    protected $table = 'fields';
+    protected $table = 'db_fields';
     
     /**
     * 表明模型是否应该被打上时间戳

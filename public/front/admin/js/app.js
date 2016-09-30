@@ -6622,7 +6622,7 @@
 	exports.getfetch = getfetch;
 	function catchs(err) {
 	    console.log(err);
-	    window.history.back();
+	    // window.history.back()
 	    Rd.message(err.status + '错误！' + err.text);
 	}
 
@@ -8397,7 +8397,7 @@
 	    var state = store.getState();
 	    var user = state.user.user_name;
 	    if (!user && pathname !== 'login' && pathname !== '/login') {
-	        ConfigActions.update('msg', '你还没有登录，请先登录！');
+	        Rd.message('你还没有登录，请先登录！');
 	        replace({
 	            pathname: '/login'
 	        });
@@ -9339,7 +9339,7 @@
 	    _req: function _req(props) {
 	        var action = props.params.clouds;
 	        var title = this.props[action] ? this.props[action].title : '田恩仲开发设计';
-	        ConfigActions.update('title', title);
+	        Rd.config('title', title);
 	        var where = {};
 	        var $_GET = get(props.location.search);
 	        extend(where, $_GET);
@@ -9354,11 +9354,11 @@
 	        };
 	        Apicloud.get(props.params.clouds, filter, function (err, res) {
 	            if (err) {
-	                ConfigActions.msg(res.status + 'error');
+	                Rd.message(res.status + 'error');
 	            } else {
 	                var data = JSON.parse(res.text);
 	                if (data.res == 404) {
-	                    ConfigActions.update('title', data.msg);
+	                    Rd.config('title', data.msg);
 	                    this.setState({
 	                        hash: props.location.pathname,
 	                        search: props.location.search,
@@ -9515,11 +9515,13 @@
 	            if (articleId !== 'add') {
 	                (function () {
 	                    action = action + '/' + articleId;
-	                    var article = storedb('article').find({ 'id': articleId });
+	                    var article = storedb('article').find({
+	                        'id': articleId
+	                    });
 	                    if (article && article.length !== 0) {
 	                        article = article[0]['value'];
 	                        article._method = 'PUT';
-	                        ConfigActions.update('title', article.title + '-编辑' + title);
+	                        Rd.config('title', article.title + '-编辑' + title);
 	                        _this.setState({
 	                            hash: props.location.pathname,
 	                            model: model,
@@ -9531,9 +9533,12 @@
 	                    } else {
 	                        Apicloud.get(props.params.clouds + '/' + articleId, '', function (err, res) {
 	                            article = JSON.parse(res.text);
-	                            storedb('article').insert({ 'id': articleId, 'value': article });
+	                            storedb('article').insert({
+	                                'id': articleId,
+	                                'value': article
+	                            });
 	                            article._method = 'PUT';
-	                            ConfigActions.update('title', article.title + '-编辑' + title);
+	                            Rd.config('title', article.title + '-编辑' + title);
 	                            this.setState({
 	                                hash: props.location.pathname,
 	                                model: model,
@@ -9550,7 +9555,7 @@
 	                var info = {
 	                    userId: userId
 	                };
-	                ConfigActions.update('title', '新增' + title);
+	                Rd.config('title', '新增' + title);
 	                this.setState({
 	                    hash: props.location.pathname,
 	                    model: model,
@@ -9569,13 +9574,13 @@
 	        });
 	    },
 	    _onSubmit: function _onSubmit(data) {
-	        ConfigActions.update('title', data.title);
-	        ConfigActions.update(data.id, data);
+	        Rd.config('title', data.title);
+	        Rd.config(data.id, data);
 	        if (!this.state.id) {
-	            ConfigActions.update('msg', '发布成功！');
+	            Rd.message('发布成功！');
 	            window.location.href = '/#/apicloud/' + this.props.params.clouds + '/' + data.id;
 	        } else {
-	            ConfigActions.update('msg', '保存成功！');
+	            Rd.message('保存成功！');
 	        }
 	    },
 	    render: function render() {
@@ -9730,7 +9735,7 @@
 	                var data = JSON.parse(res.text);
 	                console.log(res);
 	                if (data.error) {
-	                    ConfigActions.update('msg', data.error.message);
+	                    Rd.message(data.error.message);
 	                } else {
 	                    this.props.onSubmit(data);
 	                }
@@ -12244,7 +12249,7 @@
 	    displayName: 'Import',
 
 	    componentDidMount: function componentDidMount() {
-	        ConfigActions.update('title', '数据导入');
+	        Rd.config('title', '数据导入');
 	    },
 	    _onSubmit: function _onSubmit() {
 	        var files = this.refs.file2.files;
@@ -12264,7 +12269,7 @@
 	            onLoad: function onLoad(e) {
 	                var res = JSON.parse(e.currentTarget.responseText);
 	                console.log(res);
-	                ConfigActions.message(res.msg);
+	                Rd.message(res.msg);
 	            },
 	            onError: function onError() {}
 	        });
@@ -12286,7 +12291,7 @@
 	            onLoad: function onLoad(e) {
 	                var res = JSON.parse(e.currentTarget.responseText);
 	                console.log(res);
-	                ConfigActions.message(res.msg);
+	                Rd.message(res.msg);
 	            },
 	            onError: function onError() {}
 	        });
