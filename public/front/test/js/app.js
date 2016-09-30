@@ -46,6 +46,57 @@
 
 	'use strict';
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/**
+	 * param 将要转为URL参数字符串的对象
+	 * key URL参数字符串的前缀
+	 * encode true/false 是否进行URL编码,默认为true
+	 * 
+	 * return URL参数字符串
+	 */
+	var urlEncode = function urlEncode(param, key, encode) {
+	    if (param == null) return '';
+	    var paramStr = '';
+	    var t = typeof param === 'undefined' ? 'undefined' : _typeof(param);
+	    if (t == 'string' || t == 'number' || t == 'boolean') {
+	        paramStr += '&' + key + '=' + (encode == null || encode ? encodeURIComponent(param) : param);
+	    } else {
+	        for (var i in param) {
+	            console.log(i);
+
+	            var k = key == null ? i : key + (param instanceof Array ? '[' + i + ']' : '.' + i);
+	            paramStr += urlEncode(param[i], k, encode);
+	        }
+	    }
+	    return paramStr;
+	};
+
+	function status(response) {
+	    if (response.status == 200) {
+	        return Promise.resolve(response);
+	    } else {
+	        return Promise.reject(new Error(response));
+	    }
+	}
+
+	function json(response) {
+	    return response.json();
+	}
+
+	function getfetch(url, param) {
+	    var params = urlEncode(param);
+	    return fetch(url + '?' + params, {
+	        credentials: "include"
+	    }).then(status).then(json).catch(function (err) {
+	        console.log("Fetch错误:" + err);
+	    });
+	}
+	getfetch('admin/meun', {
+	    'hk': 'sdsds'
+	}).then(function (res) {
+	    console.log(res);
+	});
 	var Upload = React.createClass({
 	    displayName: 'Upload',
 
@@ -69,19 +120,23 @@
 	        this.setState({
 	            file: thumb
 	        });
-	        this.uploadFile(files[0]);
+	        var param = {
+	            'file': files[0],
+	            'dir': 'hsdsds'
+	        };
+	        this.uploadFile(param);
 	    },
-	    uploadFile: function uploadFile(file) {
+	    uploadFile: function uploadFile(param) {
 	        var data = new FormData();
-	        data.append('file', file);
-	        data.append('dir', 'avatar');
+	        for (var i in param) {
+	            data.append(i, param[i]);
+	        }
 	        fetch('chat/avatar', {
 	            method: 'post',
 	            body: data
 	        }).then(function (response) {
 	            return response.json();
 	        }).then(function (res) {
-	            console.log(res);
 	            this.setState({
 	                res: res.filepath
 	            });
