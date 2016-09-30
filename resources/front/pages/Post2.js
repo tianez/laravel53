@@ -8,7 +8,7 @@ class Post extends React.Component {
         super()
     }
     componentDidMount() {
-        ConfigActions.update('title', 'post2')
+        Rd.config('title', 'post2')
     }
     componentWillReceiveProps() {
         console.log(ConfigStore.get('refresh'))

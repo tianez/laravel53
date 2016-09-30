@@ -1,55 +1,41 @@
 'use strict'
 import './less/style.less'
 require('./global')
-/**
- * 路由
- */
- 
-const {
-    Router,
-    Route,
-    IndexRoute,
-    IndexRedirect,
-    Redirect,
-    hashHistory,
-    browserHistory
-} = ReactRouter
- 
-const {
-    Layout,
-    Nomatch,
-    Home,
-    Post,
-    Post2,
-    Weui
-} = require('./pages')
+    /**
+     * 路由
+     */
 
-function onEnter(nextState, replace) {
-    let pathname = nextState.location.pathname
-    let user = storedb('user').find() ? true : false
-    // console.log(storedb('user').find());
-    if (!user && pathname !== 'login' && pathname !== '/login') {
-        ConfigActions.update('msg', '你还没有登录，请先登录！')
-        replace({
-            pathname: '/login'
-        })
-    } else if (user && (pathname == 'login' || pathname == '/login')) {
-        replace({
-            pathname: '/'
-        })
-    }
-}
- 
-const routers = (
-    React.createElement(Router, { history: hashHistory },
-        React.createElement(Route, { path: "/", component: Layout },
-            React.createElement(IndexRoute, { component: Home }),
-            React.createElement(Route, { path: "post", component: Post }),
-            React.createElement(Route, { path: "post2", component: Post2 }),
-            React.createElement(Route, { path: "weui", component: Weui }),
-            React.createElement(Route, { path: "*", component: Nomatch })
-        )
-    )
-) 
+//应用中间件
+import {
+    createStore,
+    applyMiddleware
+} from 'redux'
+import reducer from './redux/reducer';
+import thunk from 'redux-thunk'
+import log from './redux/middleware';
+let createStoreWithLog = applyMiddleware(thunk)(createStore);
+window.store = createStoreWithLog(reducer)
+store.subscribe(() => {
+    let state = store.getState()
+    console.log(state);
+    
+    window.document.title = state.config.title
+})
 
-ReactDOM.render(routers, document.getElementById('app'))
+import {
+    Provider,
+    connect
+} from 'react-redux'
+
+window.connect = connect
+window.Rd = require('./redux/actions')
+
+const routers = require('./router')
+
+ReactDOM.render(
+    React.createElement(Provider, {
+            store: store
+        },
+        routers),
+    document.getElementById('app')
+)

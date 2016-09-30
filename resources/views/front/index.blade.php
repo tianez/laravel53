@@ -26,8 +26,6 @@
     <script src="js/react.js"></script>
     <script src="js/react-dom.js"></script>
     <script src="js/ReactRouter.js"></script>
-    <script src="js/es6-sham.min.js"></script>
-    <script src="js/browser.min.js"></script>
     <script>
         if (typeof module === 'object') {
             window.module = module;

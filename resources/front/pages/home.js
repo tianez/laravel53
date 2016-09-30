@@ -28,7 +28,7 @@ class Home extends React.Component {
         }
     }
     componentDidMount() {
-        ConfigActions.update('title', '首页')
+        Rd.config('title', '首页')
         let audio = this.refs.audio;
         // audio.play()
         audio.addEventListener('timeupdate', function () { //剩余时间
@@ -40,10 +40,6 @@ class Home extends React.Component {
     }
     componentWillReceiveProps() {
         console.log(ConfigStore.get('refresh'))
-    }
-    click() {
-        console.log('3');
-        toast()
     }
     reLoad() {
         setTimeout(function () {
@@ -67,10 +63,6 @@ class Home extends React.Component {
                     type:'tel' 
                 }),
                 React.createElement(Panel),
-                React.createElement(Button, {
-                    className: 'weui_btn_primary',
-                    onClick: this.click.bind(this)
-                }),
                 React.createElement('div', {
                     className: 'form-group animated bounceInRight'
                 },
