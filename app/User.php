@@ -8,7 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-    
+    protected $table = 'db_users';
+
     /**
     * The attributes that are mass assignable.
     *
@@ -31,7 +32,7 @@ class User extends Authenticatable
     }
     
     public function Roles() {
-        $results = $this->belongsToMany('App\Http\Model\Roles', 'role_user', 'user_id', 'role_id');
+        $results = $this->belongsToMany('App\Http\Model\Roles', 'db_role_user', 'user_id', 'role_id');
         return $results;
     }
 }

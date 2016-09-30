@@ -8,7 +8,7 @@ class Permissions extends Model {
     *
     * @var string
     */
-    protected $table = 'permissions';
+    protected $table = 'db_permissions';
     
     protected $fillable = array('name', 'display_name', 'group', 'description');
     

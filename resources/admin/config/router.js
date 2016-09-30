@@ -12,7 +12,7 @@ function onEnter(nextState, replace) {
     let state = store.getState()    
     let user = state.user.user_name
     if (!user && pathname !== 'login' && pathname !== '/login') {
-        ConfigActions.update('msg', '你还没有登录，请先登录！')
+        Rd.message('你还没有登录，请先登录！')
         replace({
             pathname: '/login' 
         })

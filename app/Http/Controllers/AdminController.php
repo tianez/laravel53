@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Model\User;
+use App\Http\Model\Meun;
 use App\Http\Model\Fields;
 use Auth;
 use DB;
@@ -36,7 +37,7 @@ class AdminController extends Controller {
     }
     
     public function getMeun(Request $request) {
-        $meun = DB::table('meun')->get()->toArray();
+        $meun = Meun::get()->toArray();
         $roles = $this->getRoles(Auth::user()->id);
         if(in_array(1,$roles)){
             $mm = $meun;

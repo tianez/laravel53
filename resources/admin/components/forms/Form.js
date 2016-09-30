@@ -19,7 +19,7 @@ var Form = React.createClass({
                 let data = JSON.parse(res.text)
                 console.log(res);
                 if (data.error) {
-                    ConfigActions.update('msg', data.error.message)
+                    Rd.message(data.error.message)
                 } else {
                     this.props.onSubmit(data)
                 }

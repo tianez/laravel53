@@ -2,7 +2,7 @@
 
 function catchs(err) {
     console.log(err);
-    window.history.back()
+    // window.history.back()
     Rd.message(err.status + '错误！' + err.text)
 } 
 

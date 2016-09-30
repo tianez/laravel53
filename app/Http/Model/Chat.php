@@ -11,7 +11,7 @@ class Chat extends Model {
     *
     * @var string
     */
-    protected $table = 'chat';
+    protected $table = 'db_chat';
     
     // public $timestamps = false;
     

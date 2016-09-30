@@ -4,7 +4,7 @@
 // const ReactRouter = require('react-router');
 // import './less/style.less' //webpack编译时导入
 require('./global')
-
+ 
 //应用中间件
 import {
     createStore,

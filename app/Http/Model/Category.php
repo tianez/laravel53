@@ -8,7 +8,7 @@ class Category extends Model {
     *
     * @var string
     */
-    protected $table = 'article_category';
+    protected $table = 'db_article_category';
     
     protected $fillable = array('category_name','category_ico','category_des','pid','taxonomy','status');
     

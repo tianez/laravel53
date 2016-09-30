@@ -8,7 +8,7 @@ class Roles extends Model {
     *
     * @var string
     */
-    protected $table = 'roles';
+    protected $table = 'db_roles';
     
     protected $fillable = array('name', 'display_name', 'thumb', 'description', 'status');
     

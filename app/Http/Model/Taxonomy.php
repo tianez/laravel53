@@ -8,7 +8,7 @@ class Taxonomy extends Model {
     *
     * @var string
     */
-    protected $table = 'article_taxonomy';
+    protected $table = 'db_article_taxonomy';
     
     protected $fillable = array('article_id','cat_id');
 

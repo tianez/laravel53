@@ -8,7 +8,7 @@ class Topic extends Model {
     *
     * @var string
     */
-    protected $table = 'topic';
+    protected $table = 'db_topic';
     
     protected $fillable = array('title', 'content', 'status');
     

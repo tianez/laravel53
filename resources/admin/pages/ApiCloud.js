@@ -59,11 +59,13 @@ var ApiCloud = React.createClass({
             console.log(model);
             if (articleId !== 'add') {
                 action = action + '/' + articleId
-                let article = storedb('article').find({ 'id': articleId })
+                let article = storedb('article').find({
+                    'id': articleId
+                })
                 if (article && article.length !== 0) {
                     article = article[0]['value']
                     article._method = 'PUT'
-                    ConfigActions.update('title', article.title + '-编辑' + title)
+                    Rd.config('title', article.title + '-编辑' + title)
                     this.setState({
                         hash: props.location.pathname,
                         model: model,
@@ -75,9 +77,12 @@ var ApiCloud = React.createClass({
                 } else {
                     Apicloud.get(props.params.clouds + '/' + articleId, '', function (err, res) {
                         article = JSON.parse(res.text)
-                        storedb('article').insert({ 'id': articleId, 'value': article })
+                        storedb('article').insert({
+                            'id': articleId,
+                            'value': article
+                        })
                         article._method = 'PUT'
-                        ConfigActions.update('title', article.title + '-编辑' + title)
+                        Rd.config('title', article.title + '-编辑' + title)
                         this.setState({
                             hash: props.location.pathname,
                             model: model,
@@ -93,7 +98,7 @@ var ApiCloud = React.createClass({
                 let info = {
                     userId: userId
                 }
-                ConfigActions.update('title', '新增' + title)
+                Rd.config('title', '新增' + title)
                 this.setState({
                     hash: props.location.pathname,
                     model: model,
@@ -112,13 +117,13 @@ var ApiCloud = React.createClass({
         })
     },
     _onSubmit: function (data) {
-        ConfigActions.update('title', data.title)
-        ConfigActions.update(data.id, data)
+        Rd.config('title', data.title)
+        Rd.config(data.id, data)
         if (!this.state.id) {
-            ConfigActions.update('msg', '发布成功！')
+            Rd.message('发布成功！')
             window.location.href = '/#/apicloud/' + this.props.params.clouds + '/' + data.id
         } else {
-            ConfigActions.update('msg', '保存成功！')
+            Rd.message('保存成功！')
         }
     },
     render: function () {
@@ -155,9 +160,9 @@ var ApiCloud = React.createClass({
                     case "image":
                         return (React.createElement(Upload, d))
                         break;
-                    // case "editer":
-                    //     return (React.createElement(Editer, d))
-                    //     break;
+                        // case "editer":
+                        //     return (React.createElement(Editer, d))
+                        //     break;
                     case "radio":
                         return (React.createElement(Radio, d))
                         break;
@@ -175,15 +180,15 @@ var ApiCloud = React.createClass({
         if (info) {
             render =
                 React.createElement('section', {
-                    className: 'container'
-                },
+                        className: 'container'
+                    },
                     React.createElement('h3', null, this.state.title),
                     React.createElement(Form, {
-                        action: this.state.action,
-                        info: info,
-                        legend: this.state.title,
-                        onSubmit: this._onSubmit
-                    },
+                            action: this.state.action,
+                            info: info,
+                            legend: this.state.title,
+                            onSubmit: this._onSubmit
+                        },
                         forms,
                         React.createElement(Button)
                     )

@@ -32,7 +32,7 @@ class Article extends DBArticle {
     }
     
     public function Tags() {
-        $results = $this->belongsToMany('App\Http\Model\Category', 'article_taxonomy', 'article_id', 'cat_id');
+        $results = $this->belongsToMany('App\Http\Model\Category', 'db_article_taxonomy', 'article_id', 'cat_id');
         return $results;
     }
 }
