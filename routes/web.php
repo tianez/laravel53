@@ -21,7 +21,7 @@ Route::get('test', 'TestController@getIndex');
 // Route::controller('test', 'TestController/getIndex');
 
 
-Route::get('tk', 'CjyunController@getIndex');
+
 
 require_once base_path('routes/admin.php');
 require_once base_path('routes/permissions.php');
@@ -29,6 +29,9 @@ require_once base_path('routes/topic.php');
 require_once base_path('routes/article.php');
 require_once base_path('routes/category.php');
 require_once base_path('routes/fields.php');
+
+Route::get('fronts', 'Front\FrontController@getIndex');
+Route::get('tk', 'CjyunController@getIndex');
 
 Route::group(['prefix' => 'tyg'], function () {
     Route::get('/', 'ReportController@getIndex');
