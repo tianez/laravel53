@@ -6,7 +6,8 @@ import { user, getuser } from './user'
 import { pagedata } from './pagedata'
 import { message } from './message'
 import { alert } from './alert'
- 
+import { toast } from './toast'
+
 module.exports = {  
     config,
     comment,
@@ -15,5 +16,6 @@ module.exports = {
     getuser,
     pagedata,
     message,
-    alert
+    alert,
+    toast
 }

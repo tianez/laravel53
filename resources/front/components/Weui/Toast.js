@@ -50,4 +50,9 @@ Toast.defaultProps = {
     show: false,
     msg: 'OK！',
 }
-module.exports = Toast
+
+module.exports = connect(
+    state => ({
+        message: state.toast.message
+    })
+)(Toast)

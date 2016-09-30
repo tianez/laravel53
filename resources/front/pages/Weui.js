@@ -36,6 +36,7 @@ class Weui extends React.Component {
     } 
     toast() {
         toast()
+        Rd.toast('haodesdsds')
     }
     alert() {
         alert()
