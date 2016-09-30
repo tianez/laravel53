@@ -13,7 +13,7 @@ class Category extends Model {
     protected $fillable = array('category_name','category_ico','category_des','pid','taxonomy','status');
     
     public function Article(){
-        $results = $this->belongsToMany('App\Http\Model\Article', 'article_taxonomy', 'cat_id','article_id');
+        $results = $this->belongsToMany('App\Http\Model\Article', 'db_article_taxonomy', 'cat_id','article_id');
         return $results;
     }
     

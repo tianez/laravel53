@@ -14,7 +14,7 @@ class Roles extends Model {
     
     //获取用户组的权限
     public function Permissions() {
-        $results = $this->belongsToMany('App\Http\Model\Permissions', 'role_permission', 'role_id', 'permission_id');
+        $results = $this->belongsToMany('App\Http\Model\Permissions', 'db_role_permission', 'role_id', 'permission_id');
         return $results;
     }
     

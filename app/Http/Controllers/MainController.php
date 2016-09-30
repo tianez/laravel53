@@ -50,7 +50,7 @@ class MainController extends Controller {
             return response('没有发现相关数据！', 404);
         }
         $fields = Fields::file($this->files)->get();
-        $roles = DB::table('role_user')->where('user_id',$id)->get();
+        $roles = DB::table('db_role_user')->where('user_id',$id)->get();
         $role = array();
         foreach ($roles as $r) {
             $role[] = $r->role_id;

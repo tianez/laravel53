@@ -52,7 +52,7 @@
 	    getInitialState: function getInitialState() {
 	        return {
 	            file: './images/avatar/4.jpg',
-	            res: 'sdsd'
+	            res: ''
 	        };
 	    },
 	    _onChange: function _onChange(e) {
@@ -65,7 +65,6 @@
 	            return (/image/i.test(file.type)
 	            );
 	        });
-	        var value;
 	        var thumb = URL.createObjectURL(files[0]);
 	        this.setState({
 	            file: thumb
@@ -75,46 +74,25 @@
 	    uploadFile: function uploadFile(file) {
 	        var data = new FormData();
 	        data.append('file', file);
+	        data.append('dir', 'avatar');
 	        fetch('chat/avatar', {
 	            method: 'post',
 	            body: data
+	        }).then(function (response) {
+	            return response.json();
 	        }).then(function (res) {
-	            //  var res = JSON.parse(response)
 	            console.log(res);
-	            //  console.log(res);
 	            this.setState({
-	                res: res.status
+	                res: res.filepath
 	            });
 	        }.bind(this));
-	        //  return ajaxUpload({
-	        //      url: 'uploads',
-	        //      name: 'file',
-	        //      key: file.name,
-	        //      file: file,
-	        //      onProgress: (e) => {
-	        //          console.log((e.loaded / e.total) * 100 + '%')
-	        //      },
-	        //      onLoad: (e) => {
-	        //          var thumbs
-	        //          var res = JSON.parse(e.currentTarget.responseText)
-	        //          console.log(res);
-	        //          this.setState({
-	        //              res: res
-	        //          })
-	        //      },
-	        //      onError: () => {
-	        //          console.log('err');
-	        //      }
-	        //  }.bind(this))
 	    },
 	    render: function render() {
-	        console.log(this.state);
 	        return React.createElement('div', {}, React.createElement('input', {
 	            id: 'file',
-	            name: 'file',
-	            className: 'ipt',
 	            type: 'file',
 	            multiple: 'multiple',
+	            accept: 'image/*',
 	            onChange: this._onChange
 	        }), this.state.res, React.createElement('img', {
 	            src: this.state.file,

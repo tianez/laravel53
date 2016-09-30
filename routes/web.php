@@ -65,15 +65,6 @@ Route::group(['prefix' => 'healthy'], function () {
     Route::post('/', 'HealthyController@postIndex');
 });
 
-Route::group(['prefix' => 'hy'], function () {
-    Route::get('/','ArticleController@getIndex');
-    Route::get('add','ArticleController@getAdd');
-    Route::post('add','ArticleController@postAdd');
-    Route::get('detail/{id}','ArticleController@getDetail');
-    Route::post('detail', 'ArticleController@postDetail');
-});
-
-
 Route::group(['prefix' => 'admin'], function () { 
     Route::get('/','AdminController@getIndex');
     Route::get('user','AdminController@getUser');
