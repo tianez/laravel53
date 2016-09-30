@@ -83,12 +83,12 @@ class ChatController extends Controller {
     
     public function postAvatar(Request $request) {
         $data = $request->all();
-        $res = array();
+        
         $file = $_FILES["file"];
         $filename = $file['name'];
         $extname = strtolower(strrchr($filename,"."));
         $randNum = rand(9999, 100000);
-        $filepath = 'avatar/'.date('Ymd').'/'.time().'-'.$randNum.$extname;
+        $filepath = './avatar/'.date('Ymd').'/'.time().'-'.$randNum.$extname;
         $res = Storage::put($filepath,file_get_contents($_FILES['file']['tmp_name']));
         if($res){
             $file = array_except($file,['tmp_name']);

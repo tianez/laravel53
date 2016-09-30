@@ -78,7 +78,6 @@
 	store.subscribe(function () {
 	    var state = store.getState();
 	    console.log(state);
-
 	    window.document.title = state.config.title;
 	});
 
@@ -7606,10 +7605,17 @@
 	});
 	exports.toast = toast;
 	function toast(message, time) {
+	    time = time ? time : 3000;
 	    store.dispatch({
 	        type: 'toast',
 	        message: message
 	    });
+	    setTimeout(function () {
+	        store.dispatch({
+	            type: 'toast',
+	            message: ''
+	        });
+	    }, time);
 	}
 
 /***/ },
@@ -7709,30 +7715,6 @@
 	    }
 
 	    _createClass(Layout, [{
-	        key: '_onChange',
-	        value: function _onChange() {
-	            var config = ConfigStore.getAll();
-	            console.log(config);
-	            window.document.title = config.title;
-	            this.setState(config);
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            ConfigStore.addChangeListener(this._onChange.bind(this));
-	            // setTimeout(function() {
-	            //     Tip({ title: '23232', content: 'haode aadsa!' })
-	            // }, 3000);
-	        }
-	    }, {
-	        key: 'componentWillUpdate',
-	        value: function componentWillUpdate(nextProps, nextState) {}
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            ConfigStore.removeChangeListener(this._onChange.bind(this));
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return React.createElement('div', {
@@ -9302,35 +9284,15 @@
 	    function Toast() {
 	        _classCallCheck(this, Toast);
 
-	        var _this = _possibleConstructorReturn(this, (Toast.__proto__ || Object.getPrototypeOf(Toast)).call(this));
-
-	        _this.state = ConfigStore.get('toast');
-	        return _this;
+	        return _possibleConstructorReturn(this, (Toast.__proto__ || Object.getPrototypeOf(Toast)).call(this));
 	    }
 
 	    _createClass(Toast, [{
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps, nextState) {
-	            var toast = ConfigStore.get('toast');
-	            if (toast.show == this.state.show) {
-	                return;
-	            }
-	            this.setState(toast);
-	            if (toast.show) {
-	                setTimeout(function () {
-	                    ConfigActions.update('toast', { show: false });
-	                }, 3000);
-	            }
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var icon = this.props.icon;
-
 	            return React.createElement('div', {
-	                className: icon === 'loading' ? 'weui_loading_toast' : '',
 	                style: {
-	                    display: this.state.show ? 'block' : 'none'
+	                    display: this.props.message ? 'block' : 'none'
 	                }
 	            }, React.createElement('div', {
 	                className: 'weui_mask_transparent'
@@ -9340,7 +9302,7 @@
 	                className: 'weui_icon_toast'
 	            }), React.createElement('p', {
 	                className: 'weui_toast_content'
-	            }, this.state.msg ? this.state.msg : this.props.msg)));
+	            }, this.props.msg)));
 	        }
 	    }]);
 
@@ -9348,8 +9310,6 @@
 	}(React.Component);
 
 	Toast.defaultProps = {
-	    icon: 'toast',
-	    show: false,
 	    msg: 'OK！'
 	};
 

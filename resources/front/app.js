@@ -18,7 +18,6 @@ window.store = createStoreWithLog(reducer)
 store.subscribe(() => {
     let state = store.getState()
     console.log(state);
-    
     window.document.title = state.config.title
 })
 

@@ -46,17 +46,12 @@ function getfetch(url, param) {
             console.log("Fetch错误:" + err);
         });
 }
-getfetch('admin/meun', {
-    'hk': 'sdsds'
-}).then(function (res) {
-    console.log(res);
 
-})
 var Upload = React.createClass({
     getInitialState: function () {
         return {
             file: './images/avatar/4.jpg',
-            res: ''
+            res: 'oooooo'
         }
     },
     _onChange: function (e) {
@@ -76,13 +71,14 @@ var Upload = React.createClass({
             'file': files[0],
             'dir': 'hsdsds'
         }
-        this.uploadFile(param)
+        this.uploadFile(files[0])
     },
     uploadFile: function (param) {
         var data = new FormData();
-        for (var i in param) {
-            data.append(i, param[i])
-        }
+        // for (var i in param) {
+        //     data.append(i, param[i])
+        // }
+        data.append('file', param)
         fetch('chat/avatar', {
                 method: 'post',
                 body: data
@@ -92,7 +88,7 @@ var Upload = React.createClass({
             })
             .then(function (res) {
                 this.setState({
-                    res: res.filepath
+                    res: JSON.stringify(res)
                 })
             }.bind(this))
     },
