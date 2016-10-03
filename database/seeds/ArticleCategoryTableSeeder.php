@@ -14,9 +14,9 @@ class ArticleCategoryTableSeeder extends Seeder
     {
         
 
-        \DB::table('article_category')->delete();
+        \DB::table('db_article_category')->delete();
         
-        \DB::table('article_category')->insert(array (
+        \DB::table('db_article_category')->insert(array (
             0 => 
             array (
                 'id' => 1,

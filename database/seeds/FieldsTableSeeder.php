@@ -14,9 +14,9 @@ class FieldsTableSeeder extends Seeder
     {
         
 
-        \DB::table('fields')->delete();
+        \DB::table('db_fields')->delete();
         
-        \DB::table('fields')->insert(array (
+        \DB::table('db_fields')->insert(array (
             0 => 
             array (
                 'id' => 1,

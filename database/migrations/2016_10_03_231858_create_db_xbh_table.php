@@ -14,7 +14,7 @@ class CreateDbXbhTable extends Migration {
 	{
 		Schema::create('db_xbh', function(Blueprint $table)
 		{
-			$table->integer('id')->nullable();
+			$table->integer('id', true);
 			$table->string('username')->nullable();
 			$table->string('sex')->nullable();
 			$table->string('danwei')->nullable();

@@ -112,3 +112,1498 @@ Stack trace:
 2016-09-17 21:54:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
 2016-09-17 21:58:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
 2016-09-20 09:19:45 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:45 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:47 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:49 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:49 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:49 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:50 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:50 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:50 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:55 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:56 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:27:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:00 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:03 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:03 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:06 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:09 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:13 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:14 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:28:14 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:14 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:14 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:14 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:14 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:28:14 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:26 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:29:31 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:29:32 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:29:32 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:37
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(355): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 17:29:34 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 18:55:33 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:36:40 Error: Call to a member function query() on unknown in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:155
+Stack trace:
+#0 [internal function]: Events::onClose('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 23:39:02 Error: Call to a member function query() on unknown in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:155
+Stack trace:
+#0 [internal function]: Events::onClose('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-03 23:39:22 Error: Call to a member function query() on unknown in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:155
+Stack trace:
+#0 [internal function]: Events::onClose('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 23:45:15 Error: Call to a member function query() on unknown in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:156
+Stack trace:
+#0 [internal function]: Events::onClose('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 23:45:55 Error: Call to a member function query() on unknown in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:156
+Stack trace:
+#0 [internal function]: Events::onClose('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 23:48:11 PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '23:48:11 WHERE 'created_at'=2016-10-03 23:47:55 and 'client_id'=7f0000010b540000' at line 1 in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('UPDATE `db_chat...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('UPDATE `db_chat...', NULL)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(157): GatewayWorker\Lib\DbConnection->query('UPDATE `db_chat...')
+#3 [internal function]: Events::onClose('7f0000010b54000...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-03 23:49:24 PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '23:49:24 WHERE 'created_at'=2016-10-03 23:49:11 and 'client_id'=7f0000010b540000' at line 1 in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('update `db_chat...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('update `db_chat...', NULL)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(157): GatewayWorker\Lib\DbConnection->query('update `db_chat...')
+#3 [internal function]: Events::onClose('7f0000010b54000...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-03 23:50:32 Error: Call to undefined function dump() in D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php:157
+Stack trace:
+#0 [internal function]: Events::onClose('7f0000010b54000...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#5 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#7 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#8 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#10 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#11 {main}
+2016-10-03 23:51:44 PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '23:51:44 WHERE 'created_at'=2016-10-03 23:51:41 and 'client_id'=7f0000010b540000' at line 1 in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('update `db_chat...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('update `db_chat...', NULL)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(158): GatewayWorker\Lib\DbConnection->query('update `db_chat...')
+#3 [internal function]: Events::onClose('7f0000010b54000...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-03 23:52:09 PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '23:52:09 WHERE 'created_at'=2016-10-03 23:51:54 and 'client_id'=7f0000010b540000' at line 1 in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('update `db_chat...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('update `db_chat...', NULL)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(158): GatewayWorker\Lib\DbConnection->query('update `db_chat...')
+#3 [internal function]: Events::onClose('7f0000010b54000...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-03 23:58:56 PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''7f0000010b5400000001.' at line 1 in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('UPDATE db_chat_...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('UPDATE db_chat_...', NULL)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(157): GatewayWorker\Lib\DbConnection->query('UPDATE db_chat_...')
+#3 [internal function]: Events::onClose('7f0000010b54000...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(365): call_user_func('Events::onClose', '7f0000010b54000...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}

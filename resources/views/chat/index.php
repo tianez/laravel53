@@ -38,7 +38,9 @@
     socket();
     // 连接建立时发送登录信息
     function onopen() {
-       var login_data = '{"type":"login","client_name":"' + name.replace(/"/g, '\\"') + '","room_id":"1"}';
+      var username = localStorage.username || ''
+      var userid = localStorage.userid || 0
+      var login_data = '{"type":"login","client_name":"' + username + '","client_userid":"' + userid + '","room_id":"1"}';
       console.log("websocket握手成功，发送登录数据:" + login_data);
       ws.send(login_data);
     }
@@ -52,8 +54,14 @@
         case 'ping':
           ws.send('{"type":"pong"}');
           break;;
+        case 'login':
+          console.log(JSON.parse(e.data));
+          break;;
         case 'system':
           comment(JSON.parse(e.data));
+          break;
+        case 'number':
+          console.log(JSON.parse(e.data));
           break;
       }
     }

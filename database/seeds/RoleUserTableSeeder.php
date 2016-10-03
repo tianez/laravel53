@@ -14,9 +14,9 @@ class RoleUserTableSeeder extends Seeder
     {
         
 
-        \DB::table('role_user')->delete();
+        \DB::table('db_role_user')->delete();
         
-        \DB::table('role_user')->insert(array (
+        \DB::table('db_role_user')->insert(array (
             0 => 
             array (
                 'user_id' => 1,

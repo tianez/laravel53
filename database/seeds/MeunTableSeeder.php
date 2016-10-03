@@ -14,9 +14,9 @@ class MeunTableSeeder extends Seeder
     {
         
 
-        \DB::table('meun')->delete();
+        \DB::table('db_meun')->delete();
         
-        \DB::table('meun')->insert(array (
+        \DB::table('db_meun')->insert(array (
             0 => 
             array (
                 'id' => 1,

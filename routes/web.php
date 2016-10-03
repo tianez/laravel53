@@ -18,6 +18,7 @@ Route::get('show', 'XbhController@getIndex');
 Route::get('show/{id}', 'XbhController@getShow');
 
 Route::get('test', 'TestController@getIndex');
+Route::post('test', 'TestController@postIndex');
 // Route::controller('test', 'TestController/getIndex');
 
 

@@ -23,6 +23,11 @@ class TestController extends Controller {
     public function getIndex(Request $request) {
         return view('test');
     }
+    public function postIndex(Request $request) {
+        $arr = array();
+        $arr['msg'] = 'ok';
+        return response()->json($arr);
+    }
     public function getIndex2(Request $request) {
         $actions = $request->route();
         dump($actions);
