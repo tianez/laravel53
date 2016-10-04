@@ -64,6 +64,7 @@ class ChatController extends Controller {
         }
         // die('用户名或密码错误！');
         // exit('用户名或密码错误！');
+        User::where('id',Auth::user()->id)->increment('login_totals');
         return response()->json(Auth::user());
     }
     public function postRegister(request $request) {

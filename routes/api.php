@@ -13,15 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function (Request $request) {
-    echo 'sdsdsds';
-    return;
-    // return $request->user();
-});
+Route::get('/', 'Api\ApiController@authenticate');
+Route::get('/token', 'Api\ApiController@getToken');
 
 Route::get('/user', function (Request $request) {
     echo 'sdsdsds';
     return;
     // return $request->user();
 })->middleware('auth:api');
-
