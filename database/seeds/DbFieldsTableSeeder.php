@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class FieldsTableSeeder extends Seeder
+class DbFieldsTableSeeder extends Seeder
 {
 
     /**
@@ -1212,6 +1212,69 @@ class FieldsTableSeeder extends Seeder
                 'status' => 0,
                 'created_at' => '2016-09-24 12:20:53',
                 'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            57 => 
+            array (
+                'id' => 58,
+                'key' => 'name',
+                'title' => '设置名称',
+                'type' => 'text',
+                'f_module' => 'config',
+                'f_groups' => NULL,
+                'f_description' => NULL,
+                'f_options' => NULL,
+                'f_ext' => NULL,
+                'f_default' => NULL,
+                'f_add' => '[1]',
+                'f_edit' => '[1]',
+                'f_visible' => '[1]',
+                'order' => 0,
+                'status' => 0,
+                'created_at' => '2016-10-04 18:46:01',
+                'updated_at' => '2016-10-04 18:46:01',
+                'deleted_at' => NULL,
+            ),
+            58 => 
+            array (
+                'id' => 59,
+                'key' => 'value',
+                'title' => '设置值',
+                'type' => 'text',
+                'f_module' => 'config',
+                'f_groups' => NULL,
+                'f_description' => NULL,
+                'f_options' => NULL,
+                'f_ext' => NULL,
+                'f_default' => NULL,
+                'f_add' => '[1]',
+                'f_edit' => '[1]',
+                'f_visible' => '[1]',
+                'order' => 0,
+                'status' => 0,
+                'created_at' => '2016-10-04 18:46:21',
+                'updated_at' => '2016-10-04 18:46:21',
+                'deleted_at' => NULL,
+            ),
+            59 => 
+            array (
+                'id' => 60,
+                'key' => 'description',
+                'title' => '设置说明',
+                'type' => 'textarea',
+                'f_module' => 'config',
+                'f_groups' => NULL,
+                'f_description' => NULL,
+                'f_options' => NULL,
+                'f_ext' => NULL,
+                'f_default' => NULL,
+                'f_add' => '[1]',
+                'f_edit' => '[1]',
+                'f_visible' => '[1]',
+                'order' => 0,
+                'status' => 0,
+                'created_at' => '2016-10-04 18:47:38',
+                'updated_at' => '2016-10-04 18:47:38',
                 'deleted_at' => NULL,
             ),
         ));

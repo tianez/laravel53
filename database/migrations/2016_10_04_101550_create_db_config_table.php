@@ -14,8 +14,11 @@ class CreateDbConfigTable extends Migration {
 	{
 		Schema::create('db_config', function(Blueprint $table)
 		{
+			$table->increments('id')->comment("主键ID");
 			$table->string('name')->unique()->nullable();
 			$table->string('value')->nullable();
+			$table->text('description')->nullable()->comment("说明");
+			$table->timestamps();
 		});
 	}
 

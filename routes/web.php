@@ -30,6 +30,7 @@ require_once base_path('routes/topic.php');
 require_once base_path('routes/article.php');
 require_once base_path('routes/category.php');
 require_once base_path('routes/fields.php');
+require_once base_path('routes/config.php');
 
 Route::get('fronts', 'Front\FrontController@getIndex');
 Route::get('tk', 'CjyunController@getIndex');

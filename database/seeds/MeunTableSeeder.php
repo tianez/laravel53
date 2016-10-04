@@ -160,6 +160,19 @@ class MeunTableSeeder extends Seeder
                 'created_at' => '2016-09-24 12:20:52',
                 'updated_at' => NULL,
             ),
+            11 => 
+            array (
+                'id' => 12,
+                'link' => 'api/config',
+                'title' => '系统设置',
+                'icon' => 'fa fa-user',
+                'description' => '系统设置',
+                'roles' => '[1]',
+                'order' => 0,
+                'status' => 0,
+                'created_at' => '2016-09-24 12:20:52',
+                'updated_at' => NULL,
+            ),
         ));
         
         
