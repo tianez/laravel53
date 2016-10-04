@@ -20,7 +20,9 @@ class ChatController extends Controller {
     
     public function getIndex(Request $request) {
         $topic = Topic::first();
-        return view('chat.index');
+        $res = DB::table('db_config')->where('name','chat_view')->increment('value');
+        $chat_view = DB::table('db_config')->where('name','chat_view')->first();
+        return view('chat.index', ['chat_view' => $chat_view->value]);
     }
     
     public function postIndex(Request $request) {
@@ -30,7 +32,6 @@ class ChatController extends Controller {
         $msg['type'] = 'system';
         $msg['to_client_id'] = 'all';
         $msg['time'] = time();
-        
         $validator = $this->model->Validator($msg);
         if($validator->fails()){
             $messages = $validator->errors()->messages();

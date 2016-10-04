@@ -12,7 +12,8 @@
         "laravel/framework": "5.3.*",
         "intervention/image": "^2.3",
         "workerman/phpsocket.io": "^1.0",
-        "orangehill/iseed": "dev-master"
+        "orangehill/iseed": "dev-master",
+        "laravel/passport": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

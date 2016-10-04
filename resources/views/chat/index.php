@@ -9,6 +9,9 @@
 </head>
 
 <body>
+<passport-clients></passport-clients>
+<passport-authorized-clients></passport-authorized-clients>
+<passport-personal-access-tokens></passport-personal-access-tokens>
   <div id="app"></div>
   <script src="./js/web_socket.js"></script>
   <script src="./js/superagent.js"></script>
