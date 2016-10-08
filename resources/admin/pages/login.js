@@ -34,6 +34,8 @@ class Login extends React.Component {
             .end(function(err, res) {
                 if (err) throw err
                 let data = JSON.parse(res.text)
+                console.log(data);
+                
                 if (data.state == 'ok') {
                     Rd.user(data.data);
                     this.props.history.pushState(null, '/')

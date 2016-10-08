@@ -85,7 +85,6 @@ class ChatController extends Controller {
     
     public function postAvatar(Request $request) {
         $data = $request->all();
-        
         $file = $_FILES["file"];
         $filename = $file['name'];
         $extname = strtolower(strrchr($filename,"."));
