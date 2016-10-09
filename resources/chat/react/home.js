@@ -45,7 +45,7 @@ class Home extends React.Component {
                         React.createElement('div', {
                             className: show == 1 ? 'nav1 active' : 'nav1',
                             onClick: this._onClick.bind(this, 1)
-                        }, '评论' + this.props.config.number)
+                        }, '评论（当前在线' + this.props.config.number + '）')
                     ),
                     React.createElement('div', {
                             id: 'content',
