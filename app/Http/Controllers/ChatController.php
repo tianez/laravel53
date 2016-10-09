@@ -17,12 +17,12 @@ class ChatController extends Controller {
         // $this->middleware('auth',['except' => ['getIndex','getList','postLogin']]);
         $this->model = new Chat();
     }
-    
-    public function getIndex(Request $request) {
+
+     public function getIndex(Request $request) {
         $topic = Topic::first();
         $res = DB::table('db_config')->where('name','chat_view')->increment('value');
         $chat_view = DB::table('db_config')->where('name','chat_view')->first();
-        return view('chat.index', ['chat_view' => $chat_view->value]);
+        return view('chat.index', ["ht"=>$topic->content,'chat_view' => $chat_view->value]);
     }
     
     public function postIndex(Request $request) {
@@ -50,7 +50,7 @@ class ChatController extends Controller {
     }
     
     public function getList(Request $request) {
-        $res = Chat::orderBy('id', 'desc')->get();
+        $res = Chat::orderBy('id', 'desc')->limit(3)->get();
         return response()->json($res);
     }
     

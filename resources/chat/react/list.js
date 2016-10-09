@@ -53,14 +53,6 @@ class List extends React.Component {
                 }
             })
     }
-    // componentDidUpdate(prevProps, prevState) {
-    //     // console.log(this.refs.list.getClientRects());
-    //     // console.log(this.refs.list.getBoundingClientRect());
-    //     // // console.log( this.refs.list.offsetTop);
-    //     // let offsetTop = this.refs.list.offsetTop
-    //     // // this.refs.list.getBoundingClientRect().y = offsetTop;
-    //     // this.refs.list.scrollTop = 0
-    // }
     render() {
         let ul = this.props.data.map(function (d, index) {
             return React.createElement('div', {

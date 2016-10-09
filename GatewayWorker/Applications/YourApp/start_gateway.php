@@ -22,7 +22,7 @@ require_once __DIR__ . '/../../Workerman/Autoloader.php';
 Autoloader::setRootPath(__DIR__);
 
 // gateway 进程，这里使用Text协议，可以用telnet测试
-$gateway = new Gateway("Websocket://0.0.0.0:8282");
+$gateway = new Gateway("Websocket://0.0.0.0:7272");
 // gateway名称，status方便查看
 $gateway->name = 'YourAppGateway';
 // gateway进程数

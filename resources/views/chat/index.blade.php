@@ -9,9 +9,6 @@
 </head>
 
 <body>
-<passport-clients></passport-clients>
-<passport-authorized-clients></passport-authorized-clients>
-<passport-personal-access-tokens></passport-personal-access-tokens>
   <div id="app"></div>
   <script src="./js/web_socket.js"></script>
   <script src="./js/superagent.js"></script>
@@ -19,13 +16,13 @@
   <script src="./js/react-dom.js"></script>
   <script>
     var vurl = 'http://app.cjyun.org/video/player/index?vid=12&thumb=&sid=10076&next=&autoStart=0&type=stream'
-    var ht = 'SWFObject 2提供两种优化flash播放器的嵌入方法：基于标记的方法和依赖于js的方法。'
+    var ht = '{{$ht}}'
   </script>
   <script src="./front/chat/js/app.js"></script>
   <script>
     function socket() {
       // 创建websocket
-      ws = new WebSocket("ws://" + document.domain + ":8282");
+      ws = new WebSocket("ws://" + document.domain + ":7272");
       // 当socket连接打开时，输入用户名
       ws.onopen = onopen;
       // 当有消息时根据消息类型显示不同信息
@@ -44,7 +41,7 @@
       var username = localStorage.username || ''
       var userid = localStorage.userid || 0
       var login_data = '{"type":"login","client_name":"' + username + '","client_userid":"' + userid + '","room_id":"1"}';
-      console.log("websocket握手成功，发送登录数据:" + login_data);
+      // console.log("websocket握手成功，发送登录数据:" + login_data);
       ws.send(login_data);
     }
 
@@ -56,7 +53,7 @@
         // 服务端ping客户端
         case 'ping':
           ws.send('{"type":"pong"}');
-          break;;
+          break;
         case 'login':
           console.log(JSON.parse(e.data));
           break;;
@@ -64,7 +61,8 @@
           comment(JSON.parse(e.data));
           break;
         case 'number':
-          console.log(JSON.parse(e.data));
+          let data = JSON.parse(e.data)
+          config('number', data.number)
           break;
       }
     }

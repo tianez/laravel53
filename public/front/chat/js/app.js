@@ -79,7 +79,8 @@
 	        show: 0,
 	        login: false,
 	        islogin: false,
-	        login_title: '登陆'
+	        login_title: '登陆',
+	        number: 0
 	    }
 	};
 
@@ -94,7 +95,9 @@
 
 	var App = (0, _reactRedux.connect)(mapStateToProps)(_home2.default);
 
-	ReactDOM.render(React.createElement(_reactRedux.Provider, { store: store }, React.createElement(App)), document.getElementById('app'));
+	ReactDOM.render(React.createElement(_reactRedux.Provider, {
+	    store: store
+	}, React.createElement(App)), document.getElementById('app'));
 
 /***/ },
 /* 2 */
@@ -6068,10 +6071,6 @@
 	        value: function _onScroll(e) {
 	            console.log(e);
 	        }
-	        // componentDidUpdate(prevProps, prevState) {
-	        //     this.refs.content.scrollTop = 0
-	        // }
-
 	    }, {
 	        key: '_scrollTop',
 	        value: function _scrollTop() {
@@ -6097,7 +6096,7 @@
 	            }, '今日话题'), React.createElement('div', {
 	                className: show == 1 ? 'nav1 active' : 'nav1',
 	                onClick: this._onClick.bind(this, 1)
-	            }, '评论')), React.createElement('div', {
+	            }, '评论' + this.props.config.number)), React.createElement('div', {
 	                id: 'content',
 	                ref: 'content'
 	            }, React.createElement('div', {
@@ -6625,15 +6624,6 @@
 	                }
 	            });
 	        }
-	        // componentDidUpdate(prevProps, prevState) {
-	        //     // console.log(this.refs.list.getClientRects());
-	        //     // console.log(this.refs.list.getBoundingClientRect());
-	        //     // // console.log( this.refs.list.offsetTop);
-	        //     // let offsetTop = this.refs.list.offsetTop
-	        //     // // this.refs.list.getBoundingClientRect().y = offsetTop;
-	        //     // this.refs.list.scrollTop = 0
-	        // }
-
 	    }, {
 	        key: 'render',
 	        value: function render() {
