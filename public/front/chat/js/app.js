@@ -6389,6 +6389,8 @@
 	                },
 	                onLoad: function onLoad(e) {
 	                    var res = JSON.parse(e.currentTarget.responseText);
+	                    console.log(res);
+
 	                    file.state = 1;
 	                    _this2.setState({
 	                        file: 'upload/avatar/' + res.name
@@ -6403,6 +6405,10 @@
 	        key: '_login',
 	        value: function _login(e) {
 	            var url = this.props.title == '登陆' ? 'chat/login' : 'chat/register';
+	            if (this.state.username.length != 11) {
+	                alert('请输入正确的手机号码！');
+	                return;
+	            }
 	            request.post(url).send(this.state).set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
 	                    var user = JSON.parse(res.text);
@@ -6447,9 +6453,10 @@
 	            }, React.createElement('div', {
 	                className: 'form'
 	            }, React.createElement('input', {
-	                type: 'text',
+	                type: 'tel',
 	                className: 'input',
-	                placeholder: '请输入用户名',
+	                placeholder: '请输入您的手机号码',
+	                maxLength: 11,
 	                onChange: this._onChangeUsername.bind(this)
 	            }), React.createElement('input', {
 	                type: 'password',

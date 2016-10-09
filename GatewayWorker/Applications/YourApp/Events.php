@@ -100,7 +100,7 @@ class Events
                 return;
                 
                 case 'system':
-                    Gateway::sendToGroup(1 ,json_encode($message_data));
+                    Gateway::sendToAll(json_encode($message_data));
                     return;
                     // 客户端登录 message格式: {type:login, name:xx, room_id:1} ，添加到客户端，广播给所有客户端xx进入聊天室
                     case 'say':

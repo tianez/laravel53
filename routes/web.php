@@ -21,9 +21,6 @@ Route::get('test', 'TestController@getIndex');
 Route::post('test', 'TestController@postIndex');
 // Route::controller('test', 'TestController/getIndex');
 
-
-
-
 require_once base_path('routes/admin.php');
 require_once base_path('routes/permissions.php');
 require_once base_path('routes/topic.php');

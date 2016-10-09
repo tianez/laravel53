@@ -8,7 +8,7 @@ class Login extends React.Component {
             password: '',
             file: 'images/avatar/00.jpg'
         }
-    } 
+    }
     _onChangeUsername(e) {
         this.setState({
             'username': e.target.value
@@ -26,7 +26,7 @@ class Login extends React.Component {
             // 文件过滤
             // 只允许上传图片
         files = Array.prototype.slice.call(files, 0)
-        files = files.filter(function(file) {
+        files = files.filter(function (file) {
             return /image/i.test(file.type)
         })
         let file = files[0]
@@ -46,10 +46,10 @@ class Login extends React.Component {
             onLoad: (e) => {
                 let res = JSON.parse(e.currentTarget.responseText)
                 console.log(res);
-                
+
                 file.state = 1
                 this.setState({
-                    file: 'upload/avatar/'+res.name
+                    file: 'upload/avatar/' + res.name
                 })
             },
             onError: () => {
@@ -59,11 +59,15 @@ class Login extends React.Component {
     }
     _login(e) {
         let url = this.props.title == '登陆' ? 'chat/login' : 'chat/register'
+        if(this.state.username.length!=11){
+            alert('请输入正确的手机号码！')
+            return
+        }
         request
             .post(url)
             .send(this.state)
             .set('Accept', 'application/json')
-            .end(function(err, res) {
+            .end(function (err, res) {
                 if (res.ok) {
                     let user = JSON.parse(res.text)
                     localStorage.username = user.user_name
@@ -109,9 +113,10 @@ class Login extends React.Component {
                             className: 'form'
                         },
                         React.createElement('input', {
-                            type: 'text',
+                            type: 'tel',
                             className: 'input',
-                            placeholder: '请输入用户名',
+                            placeholder: '请输入您的手机号码',
+                            maxLength: 11, 
                             onChange: this._onChangeUsername.bind(this)
                         }),
                         React.createElement('input', {
