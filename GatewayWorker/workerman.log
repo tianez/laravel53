@@ -1607,3 +1607,5 @@ Stack trace:
 #12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
 #13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
 #14 {main}
+2016-10-11 19:03:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 19:03:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready

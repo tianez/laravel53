@@ -5,7 +5,7 @@
   <title>播放器</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="./front/chat/style.css" rel="stylesheet">
+  <link href="./front/chat/css/style.css" rel="stylesheet">
 </head>
 
 <body>
