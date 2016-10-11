@@ -84,6 +84,9 @@ class Events
                 case 'system':
                     Gateway::sendToAll(json_encode($message_data));
                     return;
+                case 'win':
+                    Gateway::sendToAll(json_encode($message_data));
+                    return;
             }
         }
         

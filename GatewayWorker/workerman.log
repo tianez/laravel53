@@ -1609,3 +1609,1573 @@ Stack trace:
 #14 {main}
 2016-10-11 19:03:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
 2016-10-11 19:03:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 19:49:54 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:11:41 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:14:14 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:14:14 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:14:16 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:18:25 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:18:50 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:18:59 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:05 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:25:06 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:16 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:16 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:25:18 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:29 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:30 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:25:32 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:44 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:25:44 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:25:45 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:30:28 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:30:28 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:30:29 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:32:02 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:32:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:32:03 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:33:08 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:33:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:33:09 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:42:30 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:42:30 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:42:31 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:46:53 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:46:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:46:54 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:47:15 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:47:16 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:47:17 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:47:39 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:49:01 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:49:01 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:49:02 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:50:11 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:50:11 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:55:32 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:57:46 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:57:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 20:57:48 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 20:58:55 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:06:29 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:06:29 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:06:30 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:13:24 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:13:24 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:13:25 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:13:25 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:13:25 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:13:26 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:14:02 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:14:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:14:03 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:27:03 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:27:03 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:27:04 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:51:08 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:51:53 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:51:53 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:51:55 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:56:29 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:56:29 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:56:31 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:56:54 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:57:25 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:58:21 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 21:58:21 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 21:58:23 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:03:02 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:03:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:03:03 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:03:32 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:03:32 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:03:33 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:04:42 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:04:42 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:04:44 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:05:04 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:05:58 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:05:58 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:06:00 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:06:05 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:06:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:06:08 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:07:08 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:07:08 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:07:09 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:07:15 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:07:16 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:07:17 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:07:49 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:07:49 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:07:51 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:09:30 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:09:30 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:09:32 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:10:21 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:10:21 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:10:23 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:14:06 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:14:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:14:08 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:14:24 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:14:25 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:14:27 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:14:53 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:15:29 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:15:29 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:15:31 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:17:11 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:17:12 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:17:15 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:21:25 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:21:26 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:21:28 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:37:13 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:37:45 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 22:37:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:37:46 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
+2016-10-11 22:37:46 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-11 23:29:09 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}
+2016-10-12 00:01:56 PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip' in 'field list' in D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php:1720
+Stack trace:
+#0 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1720): PDO->prepare('INSERT INTO `db...')
+#1 D:\www\laravel53\GatewayWorker\GatewayWorker\Lib\DbConnection.php(1808): GatewayWorker\Lib\DbConnection->execute('INSERT INTO `db...', Array)
+#2 D:\www\laravel53\GatewayWorker\Applications\YourApp\Events.php(82): GatewayWorker\Lib\DbConnection->query()
+#3 [internal function]: Events::onMessage('7f0000010b54000...', '{"type":"login"...')
+#4 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(360): call_user_func('Events::onMessa...', '7f0000010b54000...', '{"type":"login"...')
+#5 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#6 D:\www\laravel53\GatewayWorker\Workerman\Connection\TcpConnection.php(430): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24)
+#8 D:\www\laravel53\GatewayWorker\Workerman\Events\Select.php(257): call_user_func_array(Array, Array)
+#9 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(745): Workerman\Events\Select->loop()
+#10 D:\www\laravel53\GatewayWorker\GatewayWorker\BusinessWorker.php(174): Workerman\Worker->run()
+#11 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(433): GatewayWorker\BusinessWorker->run()
+#12 D:\www\laravel53\GatewayWorker\Workerman\Worker.php(346): Workerman\Worker::runAllWorkers()
+#13 D:\www\laravel53\GatewayWorker\Applications\YourApp\start_businessworker.php(37): Workerman\Worker::runAll()
+#14 {main}

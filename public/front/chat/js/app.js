@@ -72,6 +72,9 @@
 	window.config = _actions.config;
 	window.comment = _actions.comment;
 	window.comments = _actions.comments;
+	window.today = _actions.today;
+	window.todays = _actions.todays;
+	window.yesterday = _actions.yesterday;
 	window.request = superagent;
 
 	var initialState = {
@@ -5997,10 +6000,38 @@
 	    }
 	}
 
+	function today() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'today':
+	            return [action].concat(_toConsumableArray(state));
+	        case 'todays':
+	            return action.comments;
+	        default:
+	            return state;
+	    }
+	}
+
+	function yesterday() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'yesterday':
+	            return action.comments;
+	        default:
+	            return state;
+	    }
+	}
+
 	var reducer = (0, _redux.combineReducers)({
 	    counter: counter,
 	    config: config,
-	    comment: comment
+	    comment: comment,
+	    today: today,
+	    yesterday: yesterday
 	});
 
 	exports.default = reducer;
@@ -6017,6 +6048,9 @@
 	exports.config = config;
 	exports.comment = comment;
 	exports.comments = comments;
+	exports.today = today;
+	exports.todays = todays;
+	exports.yesterday = yesterday;
 	function config(name, value) {
 	    store.dispatch({ type: 'config', name: name, value: value });
 	}
@@ -6028,6 +6062,19 @@
 
 	function comments(comments) {
 	    store.dispatch({ type: 'comments', comments: comments });
+	}
+
+	function today(comment) {
+	    comment.type = 'today';
+	    store.dispatch(comment);
+	}
+
+	function todays(comments) {
+	    store.dispatch({ type: 'todays', comments: comments });
+	}
+
+	function yesterday(comments) {
+	    store.dispatch({ type: 'yesterday', comments: comments });
 	}
 
 /***/ },
@@ -6093,7 +6140,7 @@
 	            }, React.createElement('div', {
 	                className: show == 0 ? 'nav1 active' : 'nav1',
 	                onClick: this._onClick.bind(this, 0)
-	            }, '今日话题'), React.createElement('div', {
+	            }, '节目详情'), React.createElement('div', {
 	                className: show == 1 ? 'nav1 active' : 'nav1',
 	                onClick: this._onClick.bind(this, 1)
 	            }, '评论（当前在线' + this.props.config.number + '）')), React.createElement('div', {
@@ -6101,7 +6148,15 @@
 	                ref: 'content'
 	            }, React.createElement('div', {
 	                className: show == 0 ? 'content1 active' : 'content1'
-	            }, ht), React.createElement(_index.List, {
+	            }, React.createElement('div', {}, React.createElement('div', {}, '今日话题'), React.createElement('div', {}, ht)), React.createElement('div', {}, React.createElement('div', {}, '今日中奖名单'), this.props.today.length > 0 ? this.props.today.map(function (d, index) {
+	                return React.createElement('div', {
+	                    key: index
+	                }, d.phone);
+	            }) : '暂无数据'), React.createElement('div', {}, React.createElement('div', {}, '昨日中奖名单'), this.props.yesterday.length > 0 ? this.props.yesterday.map(function (d, index) {
+	                return React.createElement('div', {
+	                    key: index
+	                }, d.phone);
+	            }) : '暂无数据')), React.createElement(_index.List, {
 	                show: show,
 	                data: this.props.comment
 	            }))), React.createElement(_index.Footer, {
@@ -6192,15 +6247,16 @@
 	            if (this.props.login && !this.props.islogin) {
 	                left = '-100%';
 	            }
-	            return React.createElement('iframe', {
+	            return React.createElement('video', {
 	                id: 'frame',
+	                controls: 'controls',
+	                preload: 'none',
 	                src: vurl,
+	                poster: 'images/1.jpg',
 	                frameBorder: 0,
-	                allowFullScreen: true,
 	                style: {
 	                    width: '100%',
-	                    height: this.state.height,
-	                    left: left
+	                    height: this.state.height
 	                }
 	            });
 	        }
@@ -6617,7 +6673,10 @@
 	        value: function componentDidMount() {
 	            request.get('chat/list').set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
-	                    comments(JSON.parse(res.text));
+	                    var d = JSON.parse(res.text);
+	                    comments(d.chat);
+	                    todays(d.today);
+	                    yesterday(d.yesterday);
 	                    console.log(JSON.parse(res.text));
 	                } else {
 	                    alert(res.text);

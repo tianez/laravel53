@@ -18,7 +18,7 @@
     var vurl = 'http://app.cjyun.org/video/player/index?vid=12&thumb=&sid=10076&next=&autoStart=0&type=stream'
     var ht = '{{$ht}}'
   </script>
-  <script src="./front/chat/js/app.js"></script>
+
   <script>
     function socket() {
       // 创建websocket
@@ -67,6 +67,7 @@
       }
     }
   </script>
+  <script src="./front/chat/js/app.js"></script>
 </body>
 
 </html>

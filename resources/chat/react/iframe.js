@@ -15,15 +15,17 @@ class Iframe extends React.Component {
             left = '-100%'
         }
         return (
-            React.createElement('iframe', {
+            React.createElement('video', {
                 id: 'frame',
+                controls:'controls',
+                preload:'none',
                 src: vurl,
+                poster:'images/1.jpg',
                 frameBorder: 0,
-                allowFullScreen: true,
                 style: {
                     width: '100%',
                     height: this.state.height,
-                    left: left
+                    // left: left
                 }
             })
         )

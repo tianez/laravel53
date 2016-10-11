@@ -11,12 +11,18 @@ import reducer from './redux/reducer';
 import {
     config,
     comment,
-    comments
+    comments,
+    today,
+    todays,
+    yesterday
 } from './redux/actions'
 
 window.config = config
 window.comment = comment
 window.comments = comments
+window.today = today
+window.todays = todays
+window.yesterday = yesterday
 window.request = superagent
 
 import Home from './react/home';
