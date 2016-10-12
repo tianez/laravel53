@@ -56,7 +56,7 @@ gulp.task('web', function(cb) {
 
 gulp.task('connect', function() {
     connect.server({
-        port: 3000,
+        port: 3003,
         livereload: true
     })
 })
