@@ -17,10 +17,10 @@ class Iframe extends React.Component {
         return (
             React.createElement('video', {
                 id: 'frame',
-                controls:'controls',
-                preload:'none',
+                controls: 'controls',
+                preload: 'none',
                 src: vurl,
-                poster:'images/1.jpg',
+                poster: 'images/1.jpg',
                 frameBorder: 0,
                 style: {
                     width: '100%',

@@ -182,8 +182,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,//导出数据
 
-        Way\Generators\GeneratorsServiceProvider::class,
-        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        // Way\Generators\GeneratorsServiceProvider::class,
+        // Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
 
         Laravel\Passport\PassportServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,

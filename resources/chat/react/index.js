@@ -5,10 +5,10 @@ import Login from './Login'
 import List from './List'
 
 const React = {
-    Iframe:Iframe,
-    Footer:Footer,
-    Login:Login,
-    List:List
+    Iframe: Iframe,
+    Footer: Footer,
+    Login: Login,
+    List: List
 }
 
 module.exports = React

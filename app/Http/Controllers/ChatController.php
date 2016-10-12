@@ -25,7 +25,7 @@ class ChatController extends Controller {
         $chats = json_encode($chats);
         $res = DB::table('db_config')->where('name','chat_view')->increment('value');
         $chat_view = DB::table('db_config')->where('name','chat_view')->first();
-        return view('chat.index', ["ht"=>$topic->content,'chat_view' => $chat_view->value,'chats'=>$chats]);
+        return view('chat.index', ["ht"=>'$topic->content','chat_view' => $chat_view->value,'chats'=>$chats]);
     }
     
     public function postIndex(Request $request) {

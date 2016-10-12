@@ -1,5 +1,9 @@
 'use strict'
 const ajaxUpload = require('../utils/AjaxUpload')
+
+import {
+    connect
+} from 'react-redux'
 class Login extends React.Component {
     constructor() {
         super();
@@ -23,8 +27,8 @@ class Login extends React.Component {
         console.log(e);
         e.preventDefault()
         let files = e.target.files
-            // 文件过滤
-            // 只允许上传图片
+        // 文件过滤
+        // 只允许上传图片
         files = Array.prototype.slice.call(files, 0)
         files = files.filter(function (file) {
             return /image/i.test(file.type)
@@ -59,7 +63,7 @@ class Login extends React.Component {
     }
     _login(e) {
         let url = this.props.title == '登陆' ? 'chat/login' : 'chat/register'
-        if(this.state.username.length!=11){
+        if (this.state.username.length != 11) {
             alert('请输入正确的手机号码！')
             return
         }
@@ -81,7 +85,7 @@ class Login extends React.Component {
             }.bind(this))
     }
     _onBack() {
-        config('login', false)
+        Rd.config('login', false)
     }
     _toggle() {
         console.log(this.props.title);
@@ -89,17 +93,17 @@ class Login extends React.Component {
         if (this.props.title == '登陆') {
             title = '注册'
         }
-        config('login_title', title)
+        Rd.config('login_title', title)
     }
     render() {
         let title = this.props.title
         return (
             React.createElement('div', {
-                    id: 'login'
-                },
+                id: 'login'
+            },
                 React.createElement('div', {
-                        className: 'header'
-                    },
+                    className: 'header'
+                },
                     React.createElement('a', {
                         className: 'icon icon-left',
                         onClick: this._onBack.bind(this)
@@ -107,16 +111,16 @@ class Login extends React.Component {
                     React.createElement('h1', {}, title)
                 ),
                 React.createElement('div', {
-                        className: 'content'
-                    },
+                    className: 'content'
+                },
                     React.createElement('div', {
-                            className: 'form'
-                        },
+                        className: 'form'
+                    },
                         React.createElement('input', {
                             type: 'tel',
                             className: 'input',
                             placeholder: '请输入您的手机号码',
-                            maxLength: 11, 
+                            maxLength: 11,
                             onChange: this._onChangeUsername.bind(this)
                         }),
                         React.createElement('input', {
@@ -126,11 +130,11 @@ class Login extends React.Component {
                             onChange: this._onChangePassword.bind(this)
                         }),
                         title == '注册' ? React.createElement('div', {
-                                className: 'uploader_div',
-                                style: {
-                                    backgroundImage: 'url(' + this.state.file + ')',
-                                }
-                            },
+                            className: 'uploader_div',
+                            style: {
+                                backgroundImage: 'url(' + this.state.file + ')',
+                            }
+                        },
                             React.createElement('input', {
                                 className: 'uploader_input',
                                 type: 'file',
@@ -158,4 +162,8 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default connect(
+    state => ({
+        title: state.config.login_title
+    })
+)(Login)

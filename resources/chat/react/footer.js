@@ -6,42 +6,28 @@ class Footer extends React.Component {
     }
     _onClick(e) {
         e.preventDefault()
-        if (localStorage.username) {
-            this.refs.input.focus()
-            config('islogin', true)
-            return
-        } 
-        config('login', true)
+        Rd.config('login', true)
     }
     _onSubmit() {
-        if(this.refs.input.value.trim()==''){
+        if (this.refs.input.value.trim() == '') {
             alert('请输入内容')
             return
         }
-        config('show', 1)
-        request
-            .post('chat')
-            .send({
-                content: this.refs.input.value,
-                username: localStorage.username,
-                user_id: localStorage.userid,
-                head_img: localStorage.head_img
-            })
-            .set('Accept', 'application/json')
-            .end(function(err, res) {
-                if (res.ok) {
-                    this.refs.input.value = ''
-                    this.props.scrollTop()
-                } else {
-                    alert(res.text)
-                }
-            }.bind(this))
+        Rd.config('show', 1)
+        socket.emit('chat', {
+            content: this.refs.input.value,
+            username: localStorage.username,
+            user_id: localStorage.userid,
+            head_img: localStorage.head_img
+        });
+        this.refs.input.value = ''
+        this.props.scrollTop()
     }
     render() {
         return (
             React.createElement('div', {
-                    id: 'footer'
-                },
+                id: 'footer'
+            },
                 React.createElement('div', {
                     id: 'formd',
                     style: {
@@ -50,11 +36,11 @@ class Footer extends React.Component {
                     onClick: this._onClick.bind(this)
                 }),
                 React.createElement('div', {
-                        id: 'form'
-                    },
+                    id: 'form'
+                },
                     React.createElement('div', {
-                            className: 'f1'
-                        },
+                        className: 'f1'
+                    },
                         React.createElement('input', {
                             ref: 'input',
                             type: 'text',
@@ -63,8 +49,8 @@ class Footer extends React.Component {
                         })
                     ),
                     React.createElement('div', {
-                            className: 'f2'
-                        },
+                        className: 'f2'
+                    },
                         React.createElement('input', {
                             type: 'button',
                             className: 'submit',

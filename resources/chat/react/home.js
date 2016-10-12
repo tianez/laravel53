@@ -77,7 +77,6 @@ class Home extends React.Component {
                         ),
                         React.createElement(List, {
                             show: show,
-                            data: this.props.comment,
                         })
                     )
                 ),
@@ -85,9 +84,7 @@ class Home extends React.Component {
                     islogin: this.props.config.islogin,
                     scrollTop: this._scrollTop.bind(this)
                 }),
-                React.createElement(Login, {
-                    title: this.props.config.login_title
-                })
+                React.createElement(Login)
             )
         )
     }

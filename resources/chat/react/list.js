@@ -1,5 +1,9 @@
 'use strict'
 
+import {
+    connect
+} from 'react-redux'
+
 class Time extends React.Component {
     render() {
         let out
@@ -47,9 +51,9 @@ class List extends React.Component {
             .end(function (err, res) {
                 if (res.ok) {
                     let d = JSON.parse(res.text)
-                    comments(d.chat)
-                    todays(d.today)
-                    yesterday(d.yesterday)
+                    Rd.comments(d.chat)
+                    Rd.todays(d.today)
+                    Rd.yesterday(d.yesterday)
                     console.log(JSON.parse(res.text))
                 } else {
                     alert(res.text)
@@ -59,19 +63,19 @@ class List extends React.Component {
     render() {
         let ul = this.props.data.map(function (d, index) {
             return React.createElement('div', {
-                    className: 'li',
-                    key: index
-                },
+                className: 'li',
+                key: index
+            },
                 React.createElement('div', {
-                        className: 'thumb'
-                    },
+                    className: 'thumb'
+                },
                     React.createElement('img', {
                         src: d.head_img
                     })
                 ),
                 React.createElement('div', {
-                        className: 'c'
-                    },
+                    className: 'c'
+                },
                     React.createElement('div', {
                         className: 'c1'
                     }, d.username),
@@ -93,4 +97,8 @@ class List extends React.Component {
     }
 }
 
-export default List;
+export default connect(
+    state => ({
+        data: state.comment
+    })
+)(List)

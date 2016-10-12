@@ -1,19 +1,19 @@
 'use strict'
 
-export function config(name, value) {
+function config(name, value) {
     store.dispatch({ type: 'config', name, value });
 }
 
-export function comment(comment) {
+function comment(comment) {
     comment.type = 'comment'
     store.dispatch(comment);
 }
 
-export function comments(comments) {
+function comments(comments) {
     store.dispatch({ type: 'comments', comments });
 }
 
-export function today(comment) {
+function today(comment) {
     comment.type = 'today'
     store.dispatch(comment);
 }
@@ -24,4 +24,12 @@ export function todays(comments) {
 
 export function yesterday(comments) {
     store.dispatch({ type: 'yesterday', comments });
+}
+module.exports = {
+    config: config,
+    comment: comment,
+    comments: comments,
+    today: today,
+    todays: todays,
+    yesterday: yesterday
 }
