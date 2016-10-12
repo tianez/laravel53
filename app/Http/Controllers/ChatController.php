@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Model\Chat;
 use App\Http\Model\Topic;
+use App\Http\Model\Win;
 
 class ChatController extends Controller {
     
@@ -20,7 +21,11 @@ class ChatController extends Controller {
     
     public function getIndex(Request $request) {
         $topic = Topic::first();
-        return view('chat.index');
+        $chats = Chat::orderBy('id', 'desc')->limit(3)->get();
+        $chats = json_encode($chats);
+        $res = DB::table('db_config')->where('name','chat_view')->increment('value');
+        $chat_view = DB::table('db_config')->where('name','chat_view')->first();
+        return view('chat.index', ["ht"=>$topic->content,'chat_view' => $chat_view->value,'chats'=>$chats]);
     }
     
     public function postIndex(Request $request) {
@@ -30,7 +35,6 @@ class ChatController extends Controller {
         $msg['type'] = 'system';
         $msg['to_client_id'] = 'all';
         $msg['time'] = time();
-        
         $validator = $this->model->Validator($msg);
         if($validator->fails()){
             $messages = $validator->errors()->messages();
@@ -49,7 +53,14 @@ class ChatController extends Controller {
     }
     
     public function getList(Request $request) {
-        $res = Chat::orderBy('id', 'desc')->get();
+        $chat = Chat::orderBy('id', 'desc')->limit(20)->get();
+        $today = Win::orderBy('id', 'desc')->where('created_at','>',date("Y-m-d"))->get();
+        $yesterday = Win::orderBy('id', 'desc')->whereBetween('created_at',[date("Y-m-d",strtotime("-1 day")),date("Y-m-d")])->get();
+        $res = array(
+        'chat'=>$chat,
+        'today'=>$today,
+        'yesterday'=>$yesterday
+        );
         return response()->json($res);
     }
     
@@ -63,6 +74,7 @@ class ChatController extends Controller {
         }
         // die('用户名或密码错误！');
         // exit('用户名或密码错误！');
+        User::where('id',Auth::user()->id)->increment('login_totals');
         return response()->json(Auth::user());
     }
     public function postRegister(request $request) {
@@ -83,7 +95,6 @@ class ChatController extends Controller {
     
     public function postAvatar(Request $request) {
         $data = $request->all();
-        
         $file = $_FILES["file"];
         $filename = $file['name'];
         $extname = strtolower(strrchr($filename,"."));
@@ -95,5 +106,23 @@ class ChatController extends Controller {
             $file['filepath'] = $filepath;
             return response()->json($file);
         }
+    }
+    
+    public function getWin(Request $request) {
+        $msg = array();
+        $msg['phone'] = $request->phone;
+        $info = Win::create($msg);
+        if (empty($info)) {
+            return response('出错了！', 503);
+        }
+        $msg['time'] = time();
+        $msg['type'] = 'win';
+        $msg['to_client_id'] = 'all';
+        if($info){
+            $client = stream_socket_client('tcp://127.0.0.1:7273');
+            if(!$client)exit("can not connect");
+            fwrite($client, json_encode($msg)."\n");
+        }
+        return response()->json($msg);
     }
 }

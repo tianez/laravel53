@@ -107,9 +107,9 @@ html,
 body {
   position: relative;
   height: 100%;
+  background: #000;
 }
-#app,
-#body {
+#app {
   height: 100%;
 }
 #bodyd {

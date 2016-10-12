@@ -47,10 +47,36 @@ function comment(state = [], action) {
     }
 }
 
+function today(state = [], action) {
+    switch (action.type) {
+        case 'today':
+            return [
+                action,
+                ...state
+            ];
+        case 'todays':
+            return action.comments;
+        default:
+            return state;
+    }
+}
+
+function yesterday(state = [], action) {
+    switch (action.type) {
+        case 'yesterday':
+            return action.comments;
+        default:
+            return state;
+    }
+}
+
+
 const reducer = combineReducers({
     counter,
     config,
-    comment
+    comment,
+    today,
+    yesterday
 })
 
 export default reducer;

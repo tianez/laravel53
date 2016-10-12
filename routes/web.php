@@ -18,10 +18,8 @@ Route::get('show', 'XbhController@getIndex');
 Route::get('show/{id}', 'XbhController@getShow');
 
 Route::get('test', 'TestController@getIndex');
+Route::post('test', 'TestController@postIndex');
 // Route::controller('test', 'TestController/getIndex');
-
-
-
 
 require_once base_path('routes/admin.php');
 require_once base_path('routes/permissions.php');
@@ -29,6 +27,7 @@ require_once base_path('routes/topic.php');
 require_once base_path('routes/article.php');
 require_once base_path('routes/category.php');
 require_once base_path('routes/fields.php');
+require_once base_path('routes/config.php');
 
 Route::get('fronts', 'Front\FrontController@getIndex');
 Route::get('tk', 'CjyunController@getIndex');

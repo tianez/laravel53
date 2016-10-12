@@ -72,6 +72,9 @@
 	window.config = _actions.config;
 	window.comment = _actions.comment;
 	window.comments = _actions.comments;
+	window.today = _actions.today;
+	window.todays = _actions.todays;
+	window.yesterday = _actions.yesterday;
 	window.request = superagent;
 
 	var initialState = {
@@ -79,7 +82,8 @@
 	        show: 0,
 	        login: false,
 	        islogin: false,
-	        login_title: '登陆'
+	        login_title: '登陆',
+	        number: 0
 	    }
 	};
 
@@ -94,7 +98,9 @@
 
 	var App = (0, _reactRedux.connect)(mapStateToProps)(_home2.default);
 
-	ReactDOM.render(React.createElement(_reactRedux.Provider, { store: store }, React.createElement(App)), document.getElementById('app'));
+	ReactDOM.render(React.createElement(_reactRedux.Provider, {
+	    store: store
+	}, React.createElement(App)), document.getElementById('app'));
 
 /***/ },
 /* 2 */
@@ -5994,10 +6000,38 @@
 	    }
 	}
 
+	function today() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'today':
+	            return [action].concat(_toConsumableArray(state));
+	        case 'todays':
+	            return action.comments;
+	        default:
+	            return state;
+	    }
+	}
+
+	function yesterday() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'yesterday':
+	            return action.comments;
+	        default:
+	            return state;
+	    }
+	}
+
 	var reducer = (0, _redux.combineReducers)({
 	    counter: counter,
 	    config: config,
-	    comment: comment
+	    comment: comment,
+	    today: today,
+	    yesterday: yesterday
 	});
 
 	exports.default = reducer;
@@ -6014,6 +6048,9 @@
 	exports.config = config;
 	exports.comment = comment;
 	exports.comments = comments;
+	exports.today = today;
+	exports.todays = todays;
+	exports.yesterday = yesterday;
 	function config(name, value) {
 	    store.dispatch({ type: 'config', name: name, value: value });
 	}
@@ -6025,6 +6062,19 @@
 
 	function comments(comments) {
 	    store.dispatch({ type: 'comments', comments: comments });
+	}
+
+	function today(comment) {
+	    comment.type = 'today';
+	    store.dispatch(comment);
+	}
+
+	function todays(comments) {
+	    store.dispatch({ type: 'todays', comments: comments });
+	}
+
+	function yesterday(comments) {
+	    store.dispatch({ type: 'yesterday', comments: comments });
 	}
 
 /***/ },
@@ -6068,10 +6118,6 @@
 	        value: function _onScroll(e) {
 	            console.log(e);
 	        }
-	        // componentDidUpdate(prevProps, prevState) {
-	        //     this.refs.content.scrollTop = 0
-	        // }
-
 	    }, {
 	        key: '_scrollTop',
 	        value: function _scrollTop() {
@@ -6094,15 +6140,23 @@
 	            }, React.createElement('div', {
 	                className: show == 0 ? 'nav1 active' : 'nav1',
 	                onClick: this._onClick.bind(this, 0)
-	            }, '今日话题'), React.createElement('div', {
+	            }, '节目详情'), React.createElement('div', {
 	                className: show == 1 ? 'nav1 active' : 'nav1',
 	                onClick: this._onClick.bind(this, 1)
-	            }, '评论')), React.createElement('div', {
+	            }, '评论（当前在线' + this.props.config.number + '）')), React.createElement('div', {
 	                id: 'content',
 	                ref: 'content'
 	            }, React.createElement('div', {
 	                className: show == 0 ? 'content1 active' : 'content1'
-	            }, ht), React.createElement(_index.List, {
+	            }, React.createElement('div', {}, React.createElement('div', {}, '今日话题'), React.createElement('div', {}, ht)), React.createElement('div', {}, React.createElement('div', {}, '今日中奖名单'), this.props.today.length > 0 ? this.props.today.map(function (d, index) {
+	                return React.createElement('div', {
+	                    key: index
+	                }, d.phone);
+	            }) : '暂无数据'), React.createElement('div', {}, React.createElement('div', {}, '昨日中奖名单'), this.props.yesterday.length > 0 ? this.props.yesterday.map(function (d, index) {
+	                return React.createElement('div', {
+	                    key: index
+	                }, d.phone);
+	            }) : '暂无数据')), React.createElement(_index.List, {
 	                show: show,
 	                data: this.props.comment
 	            }))), React.createElement(_index.Footer, {
@@ -6193,15 +6247,16 @@
 	            if (this.props.login && !this.props.islogin) {
 	                left = '-100%';
 	            }
-	            return React.createElement('iframe', {
+	            return React.createElement('video', {
 	                id: 'frame',
+	                controls: 'controls',
+	                preload: 'none',
 	                src: vurl,
+	                poster: 'images/1.jpg',
 	                frameBorder: 0,
-	                allowFullScreen: true,
 	                style: {
 	                    width: '100%',
-	                    height: this.state.height,
-	                    left: left
+	                    height: this.state.height
 	                }
 	            });
 	        }
@@ -6389,6 +6444,8 @@
 	                },
 	                onLoad: function onLoad(e) {
 	                    var res = JSON.parse(e.currentTarget.responseText);
+	                    console.log(res);
+
 	                    file.state = 1;
 	                    _this2.setState({
 	                        file: 'upload/avatar/' + res.name
@@ -6403,6 +6460,10 @@
 	        key: '_login',
 	        value: function _login(e) {
 	            var url = this.props.title == '登陆' ? 'chat/login' : 'chat/register';
+	            if (this.state.username.length != 11) {
+	                alert('请输入正确的手机号码！');
+	                return;
+	            }
 	            request.post(url).send(this.state).set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
 	                    var user = JSON.parse(res.text);
@@ -6447,9 +6508,10 @@
 	            }, React.createElement('div', {
 	                className: 'form'
 	            }, React.createElement('input', {
-	                type: 'text',
+	                type: 'tel',
 	                className: 'input',
-	                placeholder: '请输入用户名',
+	                placeholder: '请输入您的手机号码',
+	                maxLength: 11,
 	                onChange: this._onChangeUsername.bind(this)
 	            }), React.createElement('input', {
 	                type: 'password',
@@ -6611,22 +6673,16 @@
 	        value: function componentDidMount() {
 	            request.get('chat/list').set('Accept', 'application/json').end(function (err, res) {
 	                if (res.ok) {
-	                    comments(JSON.parse(res.text));
+	                    var d = JSON.parse(res.text);
+	                    comments(d.chat);
+	                    todays(d.today);
+	                    yesterday(d.yesterday);
 	                    console.log(JSON.parse(res.text));
 	                } else {
 	                    alert(res.text);
 	                }
 	            });
 	        }
-	        // componentDidUpdate(prevProps, prevState) {
-	        //     // console.log(this.refs.list.getClientRects());
-	        //     // console.log(this.refs.list.getBoundingClientRect());
-	        //     // // console.log( this.refs.list.offsetTop);
-	        //     // let offsetTop = this.refs.list.offsetTop
-	        //     // // this.refs.list.getBoundingClientRect().y = offsetTop;
-	        //     // this.refs.list.scrollTop = 0
-	        // }
-
 	    }, {
 	        key: 'render',
 	        value: function render() {

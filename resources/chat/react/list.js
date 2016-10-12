@@ -46,37 +46,32 @@ class List extends React.Component {
             .set('Accept', 'application/json')
             .end(function (err, res) {
                 if (res.ok) {
-                    comments(JSON.parse(res.text))
+                    let d = JSON.parse(res.text)
+                    comments(d.chat)
+                    todays(d.today)
+                    yesterday(d.yesterday)
                     console.log(JSON.parse(res.text))
                 } else {
                     alert(res.text)
                 }
             })
     }
-    // componentDidUpdate(prevProps, prevState) {
-    //     // console.log(this.refs.list.getClientRects());
-    //     // console.log(this.refs.list.getBoundingClientRect());
-    //     // // console.log( this.refs.list.offsetTop);
-    //     // let offsetTop = this.refs.list.offsetTop
-    //     // // this.refs.list.getBoundingClientRect().y = offsetTop;
-    //     // this.refs.list.scrollTop = 0
-    // }
     render() {
         let ul = this.props.data.map(function (d, index) {
             return React.createElement('div', {
-                className: 'li',
-                key: index
-            },
-                React.createElement('div', {
-                    className: 'thumb'
+                    className: 'li',
+                    key: index
                 },
+                React.createElement('div', {
+                        className: 'thumb'
+                    },
                     React.createElement('img', {
                         src: d.head_img
                     })
                 ),
                 React.createElement('div', {
-                    className: 'c'
-                },
+                        className: 'c'
+                    },
                     React.createElement('div', {
                         className: 'c1'
                     }, d.username),

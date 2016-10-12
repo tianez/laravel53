@@ -14,9 +14,9 @@ class MeunTableSeeder extends Seeder
     {
         
 
-        \DB::table('meun')->delete();
+        \DB::table('db_meun')->delete();
         
-        \DB::table('meun')->insert(array (
+        \DB::table('db_meun')->insert(array (
             0 => 
             array (
                 'id' => 1,
@@ -154,6 +154,19 @@ class MeunTableSeeder extends Seeder
                 'title' => '用户管理',
                 'icon' => 'fa fa-user',
                 'description' => '用户管理',
+                'roles' => '[1]',
+                'order' => 0,
+                'status' => 0,
+                'created_at' => '2016-09-24 12:20:52',
+                'updated_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'link' => 'api/config',
+                'title' => '系统设置',
+                'icon' => 'fa fa-user',
+                'description' => '系统设置',
                 'roles' => '[1]',
                 'order' => 0,
                 'status' => 0,

@@ -23,4 +23,5 @@ Route::group(['prefix' => 'chat'], function () {
     Route::get('list', 'ChatController@getList');
     Route::post('login', 'ChatController@postLogin');
     Route::post('avatar', 'ChatController@postAvatar');
+    Route::get('win', 'ChatController@getWin');
 });

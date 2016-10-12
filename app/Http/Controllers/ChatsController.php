@@ -20,9 +20,9 @@ class ChatsController extends MainController {
         $msg = $request->all();
         $msg['head_img'] = './images/avatar/'.rand(0,6).'.jpg';
         $msg['time'] = time();
-        if(!isset($msg['user_id'])){
-            $msg['user_id'] = 1;
-        }
+        // if(!isset($msg['user_id'])){
+            $msg['user_id'] = 0;
+        // }
         $info = $this->model->create($msg);
         if (empty($info)) {
             return response('出错了！', 503);
